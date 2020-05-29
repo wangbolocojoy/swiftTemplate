@@ -1,0 +1,65 @@
+PODS:
+  - Alamofire (4.9.1)
+  - AlamofireImage (3.5.2):
+    - Alamofire (~> 4.8)
+  - Bugly (2.5.4)
+  - CryptoSwift (1.0.0)
+  - Gifu (3.2.0)
+  - IQKeyboardManagerSwift (6.4.2)
+  - MJRefresh (3.2.3)
+  - Moya (13.0.1):
+    - Moya/Core (= 13.0.1)
+  - Moya/Core (13.0.1):
+    - Alamofire (~> 4.1)
+    - Result (~> 4.1)
+  - ObjectMapper (3.5.3)
+  - Result (4.1.0)
+  - SwiftyBeaver (1.7.1)
+  - SwiftyRSA (1.5.0):
+    - SwiftyRSA/ObjC (= 1.5.0)
+  - SwiftyRSA/ObjC (1.5.0)
+
+DEPENDENCIES:
+  - AlamofireImage (~> 3.5.2)
+  - Bugly (~> 2.5.0)
+  - CryptoSwift (~> 1.0.0)
+  - Gifu (~> 3.2.0)
+  - IQKeyboardManagerSwift (~> 6.4.0)
+  - MJRefresh (~> 3.2.0)
+  - Moya (~> 13.0.1)
+  - ObjectMapper (~> 3.5.2)
+  - SwiftyBeaver (~> 1.7.0)
+  - SwiftyRSA (~> 1.5.0)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - AlamofireImage
+    - Bugly
+    - CryptoSwift
+    - Gifu
+    - IQKeyboardManagerSwift
+    - MJRefresh
+    - Moya
+    - ObjectMapper
+    - Result
+    - SwiftyBeaver
+    - SwiftyRSA
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  AlamofireImage: 63cfe3baf1370be6c498149687cf6db3e3b00999
+  Bugly: 4edda9bb0e3017fd453612189069757195fa23ca
+  CryptoSwift: d81eeaa59dc5a8d03720fe919a6fd07b51f7439f
+  Gifu: 7bcb6427457d85e0b4dff5a84ec5947ac19a93ea
+  IQKeyboardManagerSwift: 79a3ec200dfb41cb66a89b8575417b5378107c5d
+  MJRefresh: 2b1214a2dc8f4df4c5dcb028ea2ad4e245425fb7
+  Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
+  ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  SwiftyBeaver: da5e573ad583586c18236324c36900990afe1733
+  SwiftyRSA: 6e528fb1b1a87d5111c48081083b141d6d65f1cf
+
+PODFILE CHECKSUM: 07f377d19c83c8f19894b52a373eb751df20494f
+
+COCOAPODS: 1.9.1

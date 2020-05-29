@@ -11,5 +11,8 @@ pod 'AlamofireImage', '~> 3.5.2'
 pod 'SwiftyBeaver', '~> 1.7.0'
 pod 'IQKeyboardManagerSwift', '~> 6.4.0'
 pod 'MJRefresh', '~> 3.2.0'
-
+pod 'Gifu', '~> 3.2.0'
+pod 'SwiftyRSA','~>1.5.0'
+pod 'CryptoSwift' , '~> 1.0.0'
+pod 'Bugly','~> 2.5.0'
 end
