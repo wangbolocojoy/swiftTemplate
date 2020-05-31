@@ -19,7 +19,7 @@ class RegisterViewController: BaseViewController {
     typealias swiftblockResult = (_ phone : String ,_ passwd:String) -> Void
     var callBack :swiftblockResult?
     func callBackBlock(block : @escaping swiftblockResult)  {
-             callBack = block
+        callBack = block
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,43 +82,39 @@ class RegisterViewController: BaseViewController {
     }
     func registerUser(body:RequestBody){
         if body.msg == "666666" {
-           let list = CoreDataManager.shared.getUserbyphone(phone: body.phone ?? "")
-            if list.count == 0 {
-                let user = User()
-                user.phone = body.phone
-                user.password = body.password
-                CoreDataManager.shared.registerUser(body: user)
+            let phone = UserDefaults.User.getvalue(forKey: .手机号) as? String
+            if phone == body.phone {
+                ShowTip(Title: "该号码已经注册请直接登录")
+            }else{
                 UserDefaults.User.set(value: body.phone ?? "", forKey: .手机号)
                 UserDefaults.User.set(value: body.password ?? "", forKey: .密码)
                 if callBack != nil{
                     callBack!(body.phone ?? "" , body.password ?? "")
                     self.ShowTipsClose(tite: "注册成功")
                 }
-            }else{
-                ShowTip(Title: "此号码已被注册，请直接登录")
             }
         }else{
             ShowTip(Title: "验证码错误")
         }
-//            let savephone = UserDefaults.User.getvalue(forKey: .手机号) as? String
-//            if savephone != nil {
-//
-//            }
-//
-//            if KeychainManager.User.SaveByIdentifier(data: body.phone, forKey: .手机号) && KeychainManager.User.SaveByIdentifier(data: body.password , forKey: .密码){
-//                log.info("keychain保存用户信息成功")
-//            }else{
-//                log.error("keychain保存用户信息失败")
-//            }
-//
-//        }else{
-//            ShowTip(Title: "验证码错误")
-//        }
-//
-//
-//        MyMoyaManager.AllRequest(controller: self, NetworkService.register(k: body.toJSONString()!)) { (data) in
-//            self.ShowTip(Title: "注册成功")
-//        }
+        //            let savephone = UserDefaults.User.getvalue(forKey: .手机号) as? String
+        //            if savephone != nil {
+        //
+        //            }
+        //
+        //            if KeychainManager.User.SaveByIdentifier(data: body.phone, forKey: .手机号) && KeychainManager.User.SaveByIdentifier(data: body.password , forKey: .密码){
+        //                log.info("keychain保存用户信息成功")
+        //            }else{
+        //                log.error("keychain保存用户信息失败")
+        //            }
+        //
+        //        }else{
+        //            ShowTip(Title: "验证码错误")
+        //        }
+        //
+        //
+        //        MyMoyaManager.AllRequest(controller: self, NetworkService.register(k: body.toJSONString()!)) { (data) in
+        //            self.ShowTip(Title: "注册成功")
+        //        }
         
     }
     func changePassword(body:RequestBody){

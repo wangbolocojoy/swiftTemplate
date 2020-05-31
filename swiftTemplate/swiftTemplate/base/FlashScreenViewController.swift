@@ -13,9 +13,7 @@ class FlashScreenViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         checkRootVc()
-        
     }
-    
     func checkRootVc(){
         let phone = UserDefaults.User.getvalue(forKey: .手机号) as? String
         let pass = UserDefaults.User.getvalue(forKey: .密码) as? String
@@ -32,8 +30,6 @@ class FlashScreenViewController: BaseViewController {
                 }
                
             })
-       
-        
     }
 
 }
