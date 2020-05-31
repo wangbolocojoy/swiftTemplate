@@ -18,6 +18,8 @@
 		C402404124838BC300F715DC /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402404024838BC300F715DC /* NetworkService.swift */; };
 		C4024044248390C800F715DC /* RequestAlertPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4024043248390C800F715DC /* RequestAlertPlugin.swift */; };
 		C4024046248392A300F715DC /* MyMoyaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4024045248392A300F715DC /* MyMoyaManager.swift */; };
+		C4024049248393BC00F715DC /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4024048248393BC00F715DC /* BaseResponse.swift */; };
+		C402404E248394E200F715DC /* ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402404D248394E200F715DC /* ext.swift */; };
 		C9AF910697E673BF178A1F0E /* Pods_swiftTemplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96C494185AD3E08D4C8C3503 /* Pods_swiftTemplate.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,8 @@
 		C402404024838BC300F715DC /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		C4024043248390C800F715DC /* RequestAlertPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAlertPlugin.swift; sourceTree = "<group>"; };
 		C4024045248392A300F715DC /* MyMoyaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMoyaManager.swift; sourceTree = "<group>"; };
+		C4024048248393BC00F715DC /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
+		C402404D248394E200F715DC /* ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ext.swift; sourceTree = "<group>"; };
 		DCA72CBB041D702BBAC53701 /* Pods-swiftTemplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftTemplate.release.xcconfig"; path = "Target Support Files/Pods-swiftTemplate/Pods-swiftTemplate.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,6 +94,8 @@
 		C40240222480193B00F715DC /* swiftTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				C402404C248394BF00F715DC /* extension */,
+				C402404A248394B100F715DC /* vc */,
 				C4024047248392E000F715DC /* bean */,
 				C402404224838BCB00F715DC /* http */,
 				C402403D248381A900F715DC /* help */,
@@ -134,8 +140,32 @@
 		C4024047248392E000F715DC /* bean */ = {
 			isa = PBXGroup;
 			children = (
+				C4024048248393BC00F715DC /* BaseResponse.swift */,
 			);
 			path = bean;
+			sourceTree = "<group>";
+		};
+		C402404A248394B100F715DC /* vc */ = {
+			isa = PBXGroup;
+			children = (
+				C402404B248394B800F715DC /* tab */,
+			);
+			path = vc;
+			sourceTree = "<group>";
+		};
+		C402404B248394B800F715DC /* tab */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = tab;
+			sourceTree = "<group>";
+		};
+		C402404C248394BF00F715DC /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				C402404D248394E200F715DC /* ext.swift */,
+			);
+			path = extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,7 +283,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4024049248393BC00F715DC /* BaseResponse.swift in Sources */,
 				C40240282480193B00F715DC /* ViewController.swift in Sources */,
+				C402404E248394E200F715DC /* ext.swift in Sources */,
 				C40240242480193B00F715DC /* AppDelegate.swift in Sources */,
 				C402403F248381BE00F715DC /* Constant.swift in Sources */,
 				C402403C248164E300F715DC /* CoreDataManager.swift in Sources */,
