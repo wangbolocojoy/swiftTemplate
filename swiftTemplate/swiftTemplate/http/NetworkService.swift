@@ -33,13 +33,13 @@ extension NetworkService:Moya.TargetType{
     public var path: String {
         switch self {
         case .login:
-            return "customer/app/merchant/login"
+            return "login"
         case .register:
-            return "customer/app/agent/retrievePassword"
+            return "register"
         case .getmsg:
-            return "mutual/app/order/getEventOrderList"
+            return "getmsg"
         case .tabhome:
-            return "customer/app/agent/listAgentInfo"
+            return "tabhome"
         }
     }
     //MARK: - 请求方式
