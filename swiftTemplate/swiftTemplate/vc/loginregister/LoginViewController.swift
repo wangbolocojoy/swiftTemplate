@@ -44,12 +44,15 @@ class LoginViewController: BaseTabViewController {
             ShowTip(Title: "请输入大于6位字母和数字组合的密码")
             return
         }
-        let savephone = UserDefaults.User.getvalue(forKey: .手机号) as? String
-        let savepwd = UserDefaults.User.getvalue(forKey: .密码) as? String
-        if phone == savephone && password == savepwd {
-            gotoMainVC()
-        }else{
-            ShowTip(Title: "账号或密码不正确")
+        let body = RequestBody()
+        body.phone = phone
+        body.password = password
+        MyMoyaManager.AllRequest(controller: self, NetworkService.login(k: body.toJSONString()!)) { (data) in
+            if KeychainManager.User.SaveByIdentifier(data: data.userinfo?.toJSONString() ?? "", forKey: .UserInfo) {
+                self.gotoMainVC()
+            }else{
+                
+            }
         }
         
     }

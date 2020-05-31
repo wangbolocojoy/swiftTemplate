@@ -13,6 +13,9 @@ class RequestBody: Mappable {
     var password:String?
     var phone:String?
     var msg:String?
+    var page:Int?
+    var pagesize:Int?
+    var type:Int?
     init() {
         
     }
@@ -24,6 +27,9 @@ class RequestBody: Mappable {
         phone <- map["phone"]
         password <- map["password"]
         msg <- map["msg"]
+        page <- map["page"]
+        pagesize <- map["pagesize"]
+        type <- map["type"]
         
     }
     

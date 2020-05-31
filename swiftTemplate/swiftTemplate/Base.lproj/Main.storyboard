@@ -45,10 +45,25 @@
                     <view key="view" contentMode="scaleToFill" id="T8H-Nv-c2s">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ews-R8-dVu">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="fWs-78-Wqt" firstAttribute="bottom" secondItem="ews-R8-dVu" secondAttribute="bottom" id="UmM-76-8qf"/>
+                            <constraint firstItem="fWs-78-Wqt" firstAttribute="trailing" secondItem="ews-R8-dVu" secondAttribute="trailing" id="jKy-ee-RUY"/>
+                            <constraint firstItem="ews-R8-dVu" firstAttribute="top" secondItem="fWs-78-Wqt" secondAttribute="top" id="xvF-tt-sbK"/>
+                            <constraint firstItem="ews-R8-dVu" firstAttribute="leading" secondItem="fWs-78-Wqt" secondAttribute="leading" id="ziv-kX-QIR"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="fWs-78-Wqt"/>
                     </view>
                     <navigationItem key="navigationItem" title="首页" id="zJU-6Q-zHt"/>
+                    <connections>
+                        <outlet property="tableview" destination="ews-R8-dVu" id="16m-PX-JuR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dSB-uD-KyB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -270,6 +285,12 @@
                                 <state key="normal" title="验证码">
                                     <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="sendMsg:" destination="Njx-xA-8S6" eventType="touchUpInside" id="5vk-Mm-7AR"/>
                                 </connections>

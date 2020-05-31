@@ -34,6 +34,9 @@
 		C43157E82483A47D0034A74E /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43157E72483A47D0034A74E /* KeychainManager.swift */; };
 		C43157EA2483AF570034A74E /* TextUntils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43157E92483AF570034A74E /* TextUntils.swift */; };
 		C43157EC2483B16B0034A74E /* RequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43157EB2483B16B0034A74E /* RequestBody.swift */; };
+		C43157EE2483DA810034A74E /* UserInfoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43157ED2483DA810034A74E /* UserInfoHelper.swift */; };
+		C43157F32483DF5B0034A74E /* TabHomeNovelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43157F12483DF5B0034A74E /* TabHomeNovelCell.swift */; };
+		C43157F42483DF5B0034A74E /* TabHomeNovelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C43157F22483DF5B0034A74E /* TabHomeNovelCell.xib */; };
 		C9AF910697E673BF178A1F0E /* Pods_swiftTemplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96C494185AD3E08D4C8C3503 /* Pods_swiftTemplate.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +74,9 @@
 		C43157E72483A47D0034A74E /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		C43157E92483AF570034A74E /* TextUntils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextUntils.swift; sourceTree = "<group>"; };
 		C43157EB2483B16B0034A74E /* RequestBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBody.swift; sourceTree = "<group>"; };
+		C43157ED2483DA810034A74E /* UserInfoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoHelper.swift; sourceTree = "<group>"; };
+		C43157F12483DF5B0034A74E /* TabHomeNovelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabHomeNovelCell.swift; sourceTree = "<group>"; };
+		C43157F22483DF5B0034A74E /* TabHomeNovelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabHomeNovelCell.xib; sourceTree = "<group>"; };
 		DCA72CBB041D702BBAC53701 /* Pods-swiftTemplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftTemplate.release.xcconfig"; path = "Target Support Files/Pods-swiftTemplate/Pods-swiftTemplate.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,6 +130,7 @@
 		C40240222480193B00F715DC /* swiftTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				C43157EF2483DF200034A74E /* cell */,
 				C43157D1248399BB0034A74E /* base */,
 				C402404C248394BF00F715DC /* extension */,
 				C402404A248394B100F715DC /* vc */,
@@ -156,6 +163,7 @@
 				C402403E248381BE00F715DC /* Constant.swift */,
 				C43157E72483A47D0034A74E /* KeychainManager.swift */,
 				C43157E92483AF570034A74E /* TextUntils.swift */,
+				C43157ED2483DA810034A74E /* UserInfoHelper.swift */,
 			);
 			path = help;
 			sourceTree = "<group>";
@@ -230,6 +238,23 @@
 			path = loginregister;
 			sourceTree = "<group>";
 		};
+		C43157EF2483DF200034A74E /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				C43157F02483DF270034A74E /* home */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		C43157F02483DF270034A74E /* home */ = {
+			isa = PBXGroup;
+			children = (
+				C43157F12483DF5B0034A74E /* TabHomeNovelCell.swift */,
+				C43157F22483DF5B0034A74E /* TabHomeNovelCell.xib */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -292,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C40240332480193E00F715DC /* LaunchScreen.storyboard in Resources */,
+				C43157F42483DF5B0034A74E /* TabHomeNovelCell.xib in Resources */,
 				C40240302480193E00F715DC /* Assets.xcassets in Resources */,
 				C402402B2480193B00F715DC /* Main.storyboard in Resources */,
 			);
@@ -356,6 +382,7 @@
 				C40240282480193B00F715DC /* ViewController.swift in Sources */,
 				C43157DB24839C580034A74E /* TabHomeViewController.swift in Sources */,
 				C402404E248394E200F715DC /* ext.swift in Sources */,
+				C43157EE2483DA810034A74E /* UserInfoHelper.swift in Sources */,
 				C43157D524839AC30034A74E /* BaseTabViewController.swift in Sources */,
 				C43157EC2483B16B0034A74E /* RequestBody.swift in Sources */,
 				C40240242480193B00F715DC /* AppDelegate.swift in Sources */,
@@ -366,6 +393,7 @@
 				C43157EA2483AF570034A74E /* TextUntils.swift in Sources */,
 				C402404124838BC300F715DC /* NetworkService.swift in Sources */,
 				C43157E82483A47D0034A74E /* KeychainManager.swift in Sources */,
+				C43157F32483DF5B0034A74E /* TabHomeNovelCell.swift in Sources */,
 				C4024046248392A300F715DC /* MyMoyaManager.swift in Sources */,
 				C43157E62483A1F60034A74E /* LoginNavViewController.swift in Sources */,
 				C402402E2480193B00F715DC /* swiftTemplate.xcdatamodeld in Sources */,

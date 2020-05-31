@@ -15,13 +15,12 @@ class FlashScreenViewController: BaseViewController {
         checkRootVc()
     }
     func checkRootVc(){
-        let phone = UserDefaults.User.getvalue(forKey: .手机号) as? String
-        let pass = UserDefaults.User.getvalue(forKey: .密码) as? String
+        let user = UserInfoHelper.instance.getUser()
             UIView.animate(withDuration: time, animations:{ }, completion: { (true) in
                 let tranststion =  CATransition()
                 tranststion.duration = self.time
                 tranststion.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
-                if pass != nil && phone != nil {
+                if user?.phone != nil && user?.password != nil {
                     UIApplication.shared.keyWindow?.layer.add(tranststion, forKey: "animation")
                                    UIApplication.shared.keyWindow?.rootViewController = self.getMainVc()
                 }else{

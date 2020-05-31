@@ -91,6 +91,7 @@ class KeychainManager: NSObject {
 extension UserDefaults{
     struct User: UserDefaultsSettable {
         enum defaultKeys:String,CaseIterable{
+            case UserInfo
             case 手机号
             case 密码
             case 公钥
@@ -103,6 +104,7 @@ extension UserDefaults{
 extension KeychainManager{
     struct User: KeychainManagerSettable {
            enum defaultKeys:String,CaseIterable{
+               case UserInfo
                case 手机号
                case 密码
                case 公钥

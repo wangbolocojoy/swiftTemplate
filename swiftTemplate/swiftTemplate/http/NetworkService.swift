@@ -18,7 +18,8 @@ public enum NetworkService{
     case getmsg(k:String)
     //我的首页
     case tabhome(K:String)
-   
+    //搜索小说
+    case searchnovel(k:String)
     
    
     
@@ -33,13 +34,16 @@ extension NetworkService:Moya.TargetType{
     public var path: String {
         switch self {
         case .login:
-            return "login"
+            return "back-1/myApplication/cas/login"
         case .register:
-            return "register"
+            return "back-1/myApplication/cas/register"
         case .getmsg:
             return "getmsg"
         case .tabhome:
-            return "tabhome"
+            return "back-1/myApplication/cas/getPageNovelList"
+            //novelName
+        case .searchnovel:
+            return "back-1/myApplication/cas/searchNovel"
         }
     }
     //MARK: - 请求方式
@@ -53,7 +57,7 @@ extension NetworkService:Moya.TargetType{
     //MARK: - 请求参数
     public var task: Moya.Task {
         switch self {
-        case .login(let data),.register(let data),.getmsg(let data),.tabhome(let data):
+        case .login(let data),.register(let data),.getmsg(let data),.tabhome(let data),.searchnovel(let data):
             return  .requestData(data.utf8Encoded)
 //        case .GetToken:
 //            return  .requestPlain

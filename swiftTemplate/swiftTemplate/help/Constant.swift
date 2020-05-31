@@ -47,9 +47,9 @@ struct Constant {
     var BaseApi :String{
         #if DEBUG
 
-        return "https://90btm.com/"
+        return "https://90btm.com"
         #else
-        return "https://90btm.com/"
+        return "https://90btm.com"
         #endif
     }
     var 版本环境:String{

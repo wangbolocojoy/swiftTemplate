@@ -52,7 +52,12 @@ struct MyMoyaManager{
                 do {
                     let data = try response.mapJSON() as! [String:Any]
                         if let u = BaseResponse(JSON: data){
-                                successCallback(u)
+                            if u.status ?? 0 == 200{
+                                 successCallback(u)
+                            }else{
+                                controller.ShowTip(Title: u.msg ?? "请求失败")
+                            }
+                               
                                 log.info(u)
                         }else{
                             controller.ShowTip(Title: "解析失败")

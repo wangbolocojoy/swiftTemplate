@@ -95,11 +95,12 @@ extension BaseViewController{
 extension UIImageView{
     func setImageUrl(_ string : String?,proimage:UIImage?) {
         if(string != nil){
-            let url = URL(string: string!)!
-            
-            self.af_setImage(withURL: url, placeholderImage: proimage)
-            
-            
+            do {
+                guard let url = try URL(string: string ?? "") ?? nil else { return   self.image = proimage }
+                  self.af_setImage(withURL: url, placeholderImage: proimage)
+            } catch  {
+               
+            }
         }
     }
     
