@@ -14,6 +14,10 @@
 		C40240302480193E00F715DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C402402F2480193E00F715DC /* Assets.xcassets */; };
 		C40240332480193E00F715DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C40240312480193E00F715DC /* LaunchScreen.storyboard */; };
 		C402403C248164E300F715DC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402403B248164E300F715DC /* CoreDataManager.swift */; };
+		C402403F248381BE00F715DC /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402403E248381BE00F715DC /* Constant.swift */; };
+		C402404124838BC300F715DC /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402404024838BC300F715DC /* NetworkService.swift */; };
+		C4024044248390C800F715DC /* RequestAlertPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4024043248390C800F715DC /* RequestAlertPlugin.swift */; };
+		C4024046248392A300F715DC /* MyMoyaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4024045248392A300F715DC /* MyMoyaManager.swift */; };
 		C9AF910697E673BF178A1F0E /* Pods_swiftTemplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96C494185AD3E08D4C8C3503 /* Pods_swiftTemplate.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +33,10 @@
 		C40240322480193E00F715DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C40240342480193E00F715DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C402403B248164E300F715DC /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		C402403E248381BE00F715DC /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		C402404024838BC300F715DC /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		C4024043248390C800F715DC /* RequestAlertPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAlertPlugin.swift; sourceTree = "<group>"; };
+		C4024045248392A300F715DC /* MyMoyaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMoyaManager.swift; sourceTree = "<group>"; };
 		DCA72CBB041D702BBAC53701 /* Pods-swiftTemplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftTemplate.release.xcconfig"; path = "Target Support Files/Pods-swiftTemplate/Pods-swiftTemplate.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,6 +90,9 @@
 		C40240222480193B00F715DC /* swiftTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				C4024047248392E000F715DC /* bean */,
+				C402404224838BCB00F715DC /* http */,
+				C402403D248381A900F715DC /* help */,
 				C402403A248164C500F715DC /* coredata */,
 				C40240232480193B00F715DC /* AppDelegate.swift */,
 				C40240272480193B00F715DC /* ViewController.swift */,
@@ -100,6 +111,31 @@
 				C402403B248164E300F715DC /* CoreDataManager.swift */,
 			);
 			path = coredata;
+			sourceTree = "<group>";
+		};
+		C402403D248381A900F715DC /* help */ = {
+			isa = PBXGroup;
+			children = (
+				C402403E248381BE00F715DC /* Constant.swift */,
+			);
+			path = help;
+			sourceTree = "<group>";
+		};
+		C402404224838BCB00F715DC /* http */ = {
+			isa = PBXGroup;
+			children = (
+				C402404024838BC300F715DC /* NetworkService.swift */,
+				C4024043248390C800F715DC /* RequestAlertPlugin.swift */,
+				C4024045248392A300F715DC /* MyMoyaManager.swift */,
+			);
+			path = http;
+			sourceTree = "<group>";
+		};
+		C4024047248392E000F715DC /* bean */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = bean;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,8 +255,12 @@
 			files = (
 				C40240282480193B00F715DC /* ViewController.swift in Sources */,
 				C40240242480193B00F715DC /* AppDelegate.swift in Sources */,
+				C402403F248381BE00F715DC /* Constant.swift in Sources */,
 				C402403C248164E300F715DC /* CoreDataManager.swift in Sources */,
+				C402404124838BC300F715DC /* NetworkService.swift in Sources */,
+				C4024046248392A300F715DC /* MyMoyaManager.swift in Sources */,
 				C402402E2480193B00F715DC /* swiftTemplate.xcdatamodeld in Sources */,
+				C4024044248390C800F715DC /* RequestAlertPlugin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,7 +406,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9N6AR9BNW6;
+				DEVELOPMENT_TEAM = W7BB6FVMMB;
 				INFOPLIST_FILE = swiftTemplate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -375,7 +415,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.90btm.myapplication.swiftTemplate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -385,7 +425,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9N6AR9BNW6;
+				DEVELOPMENT_TEAM = W7BB6FVMMB;
 				INFOPLIST_FILE = swiftTemplate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -394,7 +434,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.90btm.myapplication.swiftTemplate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

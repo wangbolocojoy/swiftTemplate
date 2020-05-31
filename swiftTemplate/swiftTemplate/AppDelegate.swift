@@ -8,17 +8,77 @@
 
 import UIKit
 import CoreData
-
+import SwiftyBeaver
+var log = SwiftyBeaver.self
+import IQKeyboardManagerSwift
+import AVKit
+import Photos
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+         IQKeyboardManager.shared.enable = true
+               choosePermiss()
+                if #available(iOS 13.0, *) {
+                                let backgroundColor = UIColor { (traitCollection) -> UIColor in
+                                    switch traitCollection.userInterfaceStyle {
+                                    case .light:
+                                        return Constant.BackGround
+                                    case .dark:
+                                        return Constant.DarkBackGround
+                                    default:
+                                        fatalError()
+                                    }
+                                }
+                                window?.backgroundColor = backgroundColor
+                            } else {
+                                window?.backgroundColor = Constant.BackGround
+                            }
+               let console = ConsoleDestination()
+                     console.format = "$DHH:mm:ss.SSS$d $C$L$c $N.$F:$l - $M"
+                     console.levelString.debug   = "DEBUG "
+                     console.levelString.error   = "ERROR "
+                     console.levelString.info    = "INFO  "
+                     console.levelString.warning = "WARING"
+                     console.levelColor.debug    = "😬  "
+                     console.levelColor.error    = "😰  "
+                     console.levelColor.info     = "♻️  "
+                     console.levelColor.warning  = "⚠️  "
+                     log.addDestination(console)
+               log.info(Constant.instance.版本环境)
         return true
     }
   
+     func choosePermiss(){
+
+            if (AVCaptureDevice.authorizationStatus(for: AVMediaType.video) == .notDetermined) {
+                AVCaptureDevice.requestAccess(for: .video, completionHandler: { (statusFirst) in
+                    if statusFirst {
+                        //用户首次允许
+                        print("允许APP访问相机")
+                    } else {
+                        //用户首次拒接
+                        print("拒绝APP访问相机")
+                    }
+                })
+            }
+            
+      
+            //MARK: APP启动时候，判断用户是否授权使用相册
+            if (PHPhotoLibrary.authorizationStatus() == .notDetermined) {
+                PHPhotoLibrary.requestAuthorization({ (firstStatus) in
+                    let result = (firstStatus == .authorized)
+                    if result {
+                        print("允许APP访问相册")
+                    } else {
+                        print("拒绝APP访问相册")
+                    }
+                })
+            }
+         
+     }
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentCloudKitContainer = {
