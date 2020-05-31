@@ -17,12 +17,10 @@ struct Constant {
     static let 账号:String = "PHONE"
     var BaseApi :String{
         #if DEBUG
-//        return "http://192.168.0.46:8072"
-        //return "http://192.168.0.51:8072"
-//        return "http://192.168.0.46:8072"
-        return "http://192.168.0.4:8071"
+
+        return "https://90btm.com/"
         #else
-        return "http://192.168.31.179:8071"
+        return "https://90btm.com/"
         #endif
     }
     var 版本环境:String{
