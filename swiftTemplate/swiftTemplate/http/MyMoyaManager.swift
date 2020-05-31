@@ -44,7 +44,7 @@ private func moyaManager ()-> Manager{
 // MARK: - 请求管理
 struct MyMoyaManager{
     //MARK: - 通用请求
-    static func AllRequest<T:TargetType>(controller:UIViewController,_ target:T,success successCallback: @escaping (BaseResponse) -> Void,failed failedCallback: @escaping (BaseResponse?) -> Void ) {
+    static func AllRequest<T:TargetType>(controller:UIViewController,_ target:T,success successCallback: @escaping (BaseResponse) -> Void) {
         let provider = MoyaProvider<T>(endpointClosure: endpointMapping ,requestClosure: requestClosure, manager:moyaManager(), plugins:[RequestAlertPlugin(viewController: controller)])
         provider.request(target) { (event) in
             switch event {
@@ -60,12 +60,11 @@ struct MyMoyaManager{
                       log.error(data)
                 } catch {
                     //可不做处理
-                    failedCallback(nil)
+                    
                     controller.ShowTip(Title: "请求失败，解析异常")
                 }
                 break
             case let .failure(error):
-                 failedCallback(nil)
                 log.error(error)
                 break
             }

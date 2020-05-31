@@ -12,12 +12,13 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="nation" optional="YES" attributeType="String"/>
         <attribute name="openid" optional="YES" attributeType="String"/>
+        <attribute name="password" optional="YES" attributeType="String"/>
         <attribute name="phone" optional="YES" attributeType="String"/>
         <attribute name="qq" optional="YES" attributeType="String"/>
         <attribute name="token" optional="YES" attributeType="String"/>
         <attribute name="usericon" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="User" positionX="-63" positionY="-18" width="128" height="268"/>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="283"/>
     </elements>
 </model>

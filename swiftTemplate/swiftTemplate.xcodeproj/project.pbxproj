@@ -20,6 +20,20 @@
 		C4024046248392A300F715DC /* MyMoyaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4024045248392A300F715DC /* MyMoyaManager.swift */; };
 		C4024049248393BC00F715DC /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4024048248393BC00F715DC /* BaseResponse.swift */; };
 		C402404E248394E200F715DC /* ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402404D248394E200F715DC /* ext.swift */; };
+		C43157CF2483994F0034A74E /* CALayer+MyColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C43157CE2483994F0034A74E /* CALayer+MyColor.m */; };
+		C43157D3248399FE0034A74E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43157D2248399FE0034A74E /* BaseViewController.swift */; };
+		C43157D524839AC30034A74E /* BaseTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43157D424839AC30034A74E /* BaseTabViewController.swift */; };
+		C43157D724839BDB0034A74E /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43157D624839BDB0034A74E /* MainTabController.swift */; };
+		C43157D924839C290034A74E /* FlashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43157D824839C290034A74E /* FlashScreenViewController.swift */; };
+		C43157DB24839C580034A74E /* TabHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43157DA24839C580034A74E /* TabHomeViewController.swift */; };
+		C43157DD24839C670034A74E /* TabMineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43157DC24839C670034A74E /* TabMineViewController.swift */; };
+		C43157E024839C880034A74E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43157DF24839C880034A74E /* LoginViewController.swift */; };
+		C43157E224839C960034A74E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43157E124839C960034A74E /* RegisterViewController.swift */; };
+		C43157E424839CAB0034A74E /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43157E324839CAB0034A74E /* AboutUsViewController.swift */; };
+		C43157E62483A1F60034A74E /* LoginNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43157E52483A1F60034A74E /* LoginNavViewController.swift */; };
+		C43157E82483A47D0034A74E /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43157E72483A47D0034A74E /* KeychainManager.swift */; };
+		C43157EA2483AF570034A74E /* TextUntils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43157E92483AF570034A74E /* TextUntils.swift */; };
+		C43157EC2483B16B0034A74E /* RequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43157EB2483B16B0034A74E /* RequestBody.swift */; };
 		C9AF910697E673BF178A1F0E /* Pods_swiftTemplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96C494185AD3E08D4C8C3503 /* Pods_swiftTemplate.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +55,22 @@
 		C4024045248392A300F715DC /* MyMoyaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMoyaManager.swift; sourceTree = "<group>"; };
 		C4024048248393BC00F715DC /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
 		C402404D248394E200F715DC /* ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ext.swift; sourceTree = "<group>"; };
+		C43157CC2483991E0034A74E /* swiftTemplate-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "swiftTemplate-Bridging-Header.h"; sourceTree = "<group>"; };
+		C43157CE2483994F0034A74E /* CALayer+MyColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CALayer+MyColor.m"; sourceTree = "<group>"; };
+		C43157D0248399690034A74E /* CALayer+MyColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CALayer+MyColor.h"; sourceTree = "<group>"; };
+		C43157D2248399FE0034A74E /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		C43157D424839AC30034A74E /* BaseTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabViewController.swift; sourceTree = "<group>"; };
+		C43157D624839BDB0034A74E /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
+		C43157D824839C290034A74E /* FlashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashScreenViewController.swift; sourceTree = "<group>"; };
+		C43157DA24839C580034A74E /* TabHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabHomeViewController.swift; sourceTree = "<group>"; };
+		C43157DC24839C670034A74E /* TabMineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabMineViewController.swift; sourceTree = "<group>"; };
+		C43157DF24839C880034A74E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C43157E124839C960034A74E /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		C43157E324839CAB0034A74E /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
+		C43157E52483A1F60034A74E /* LoginNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNavViewController.swift; sourceTree = "<group>"; };
+		C43157E72483A47D0034A74E /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		C43157E92483AF570034A74E /* TextUntils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextUntils.swift; sourceTree = "<group>"; };
+		C43157EB2483B16B0034A74E /* RequestBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBody.swift; sourceTree = "<group>"; };
 		DCA72CBB041D702BBAC53701 /* Pods-swiftTemplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftTemplate.release.xcconfig"; path = "Target Support Files/Pods-swiftTemplate/Pods-swiftTemplate.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +124,7 @@
 		C40240222480193B00F715DC /* swiftTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				C43157D1248399BB0034A74E /* base */,
 				C402404C248394BF00F715DC /* extension */,
 				C402404A248394B100F715DC /* vc */,
 				C4024047248392E000F715DC /* bean */,
@@ -123,6 +154,8 @@
 			isa = PBXGroup;
 			children = (
 				C402403E248381BE00F715DC /* Constant.swift */,
+				C43157E72483A47D0034A74E /* KeychainManager.swift */,
+				C43157E92483AF570034A74E /* TextUntils.swift */,
 			);
 			path = help;
 			sourceTree = "<group>";
@@ -133,6 +166,7 @@
 				C402404024838BC300F715DC /* NetworkService.swift */,
 				C4024043248390C800F715DC /* RequestAlertPlugin.swift */,
 				C4024045248392A300F715DC /* MyMoyaManager.swift */,
+				C43157EB2483B16B0034A74E /* RequestBody.swift */,
 			);
 			path = http;
 			sourceTree = "<group>";
@@ -148,6 +182,7 @@
 		C402404A248394B100F715DC /* vc */ = {
 			isa = PBXGroup;
 			children = (
+				C43157DE24839C720034A74E /* loginregister */,
 				C402404B248394B800F715DC /* tab */,
 			);
 			path = vc;
@@ -156,6 +191,8 @@
 		C402404B248394B800F715DC /* tab */ = {
 			isa = PBXGroup;
 			children = (
+				C43157DA24839C580034A74E /* TabHomeViewController.swift */,
+				C43157DC24839C670034A74E /* TabMineViewController.swift */,
 			);
 			path = tab;
 			sourceTree = "<group>";
@@ -164,8 +201,33 @@
 			isa = PBXGroup;
 			children = (
 				C402404D248394E200F715DC /* ext.swift */,
+				C43157CC2483991E0034A74E /* swiftTemplate-Bridging-Header.h */,
+				C43157CE2483994F0034A74E /* CALayer+MyColor.m */,
+				C43157D0248399690034A74E /* CALayer+MyColor.h */,
 			);
 			path = extension;
+			sourceTree = "<group>";
+		};
+		C43157D1248399BB0034A74E /* base */ = {
+			isa = PBXGroup;
+			children = (
+				C43157D2248399FE0034A74E /* BaseViewController.swift */,
+				C43157D424839AC30034A74E /* BaseTabViewController.swift */,
+				C43157D624839BDB0034A74E /* MainTabController.swift */,
+				C43157D824839C290034A74E /* FlashScreenViewController.swift */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
+		C43157DE24839C720034A74E /* loginregister */ = {
+			isa = PBXGroup;
+			children = (
+				C43157DF24839C880034A74E /* LoginViewController.swift */,
+				C43157E124839C960034A74E /* RegisterViewController.swift */,
+				C43157E324839CAB0034A74E /* AboutUsViewController.swift */,
+				C43157E52483A1F60034A74E /* LoginNavViewController.swift */,
+			);
+			path = loginregister;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,6 +264,7 @@
 				TargetAttributes = {
 					C402401F2480193B00F715DC = {
 						CreatedOnToolsVersion = 11.5;
+						LastSwiftMigration = 1150;
 					};
 				};
 			};
@@ -283,14 +346,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C43157E424839CAB0034A74E /* AboutUsViewController.swift in Sources */,
+				C43157E024839C880034A74E /* LoginViewController.swift in Sources */,
+				C43157CF2483994F0034A74E /* CALayer+MyColor.m in Sources */,
+				C43157D924839C290034A74E /* FlashScreenViewController.swift in Sources */,
 				C4024049248393BC00F715DC /* BaseResponse.swift in Sources */,
+				C43157E224839C960034A74E /* RegisterViewController.swift in Sources */,
+				C43157D724839BDB0034A74E /* MainTabController.swift in Sources */,
 				C40240282480193B00F715DC /* ViewController.swift in Sources */,
+				C43157DB24839C580034A74E /* TabHomeViewController.swift in Sources */,
 				C402404E248394E200F715DC /* ext.swift in Sources */,
+				C43157D524839AC30034A74E /* BaseTabViewController.swift in Sources */,
+				C43157EC2483B16B0034A74E /* RequestBody.swift in Sources */,
 				C40240242480193B00F715DC /* AppDelegate.swift in Sources */,
+				C43157D3248399FE0034A74E /* BaseViewController.swift in Sources */,
 				C402403F248381BE00F715DC /* Constant.swift in Sources */,
 				C402403C248164E300F715DC /* CoreDataManager.swift in Sources */,
+				C43157DD24839C670034A74E /* TabMineViewController.swift in Sources */,
+				C43157EA2483AF570034A74E /* TextUntils.swift in Sources */,
 				C402404124838BC300F715DC /* NetworkService.swift in Sources */,
+				C43157E82483A47D0034A74E /* KeychainManager.swift in Sources */,
 				C4024046248392A300F715DC /* MyMoyaManager.swift in Sources */,
+				C43157E62483A1F60034A74E /* LoginNavViewController.swift in Sources */,
 				C402402E2480193B00F715DC /* swiftTemplate.xcdatamodeld in Sources */,
 				C4024044248390C800F715DC /* RequestAlertPlugin.swift in Sources */,
 			);
@@ -437,6 +514,7 @@
 			baseConfigurationReference = 1E5E45611692D9DB9FE0A5CE /* Pods-swiftTemplate.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W7BB6FVMMB;
 				INFOPLIST_FILE = swiftTemplate/Info.plist;
@@ -446,6 +524,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.90btm.myapplication.swiftTemplate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "swiftTemplate/extension/swiftTemplate-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -456,6 +536,7 @@
 			baseConfigurationReference = DCA72CBB041D702BBAC53701 /* Pods-swiftTemplate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W7BB6FVMMB;
 				INFOPLIST_FILE = swiftTemplate/Info.plist;
@@ -465,6 +546,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.90btm.myapplication.swiftTemplate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "swiftTemplate/extension/swiftTemplate-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

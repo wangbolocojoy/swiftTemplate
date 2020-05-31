@@ -1,0 +1,103 @@
+//
+//  LoginViewController.swift
+//  swiftTemplate
+//
+//  Created by tomcat on 2020/5/31.
+//  Copyright © 2020 波王. All rights reserved.
+//
+ // MARK: - 登录
+import UIKit
+
+class LoginViewController: BaseTabViewController {
+
+    @IBOutlet weak var ev_password: UITextField!
+    @IBOutlet weak var ev_phone: UITextField!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        initView()
+        
+    }
+    func initView(){
+        title = "登录"
+        ev_phone.delegate = self
+        ev_password.delegate = self
+        ev_password.isSecureTextEntry = true
+    }
+    
+    @IBAction func login(_ sender: Any) {
+        let phone = ev_phone.text
+        let password = ev_password.text
+        if phone == nil || phone == "" || phone?.count ?? 0 != 11 {
+                ShowTip(Title: "手机号码位数不对请重新输入")
+                return
+            }
+            if !TextUntils.instance.isPhoneNumber(phoneNumber: phone ?? "") {
+                ShowTip(Title: "手机号验证不通过")
+                return
+            }
+          
+            
+            if password == nil || password == "" || password?.count ?? 0 < 6{
+                ShowTip(Title: "密码位数能小于6位")
+                return
+            }
+            if !TextUntils.instance.isPasswordRuler(password: password ?? "") {
+                ShowTip(Title: "请输入大于6位字母和数字组合的密码")
+                return
+            }
+        let list = CoreDataManager.shared.getUserbyphone(phone: phone ?? "")
+        if list.count == 0 {
+            ShowTip(Title: "账号为注册请先注册")
+            return
+        }else{
+            if phone == list[0].phone && password == list[0].password{
+                
+            }else{
+                ShowTip(Title: "账号或密码错误")
+            }
+        }
+        
+       
+    }
+    
+    
+    @IBAction func frogetpass(_ sender: Any) {
+       let vc =  getVcByName(vc: .注册) as! RegisterViewController
+        vc.type = 1
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    @IBAction func gotoRegister(_ sender: Any) {
+        let vc =  getVcByName(vc: .注册) as! RegisterViewController
+        vc.type = 0
+        vc.callBackBlock { (phone, passwd) in
+            self.ev_phone.text = phone
+            self.ev_password.text = passwd
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+extension LoginViewController:UITextFieldDelegate{
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+           switch textField {
+           case ev_phone:
+               let maxLength = 11
+               let currentString: NSString = textField.text as? NSString ?? ""
+               let newString: NSString =
+                   currentString.replacingCharacters(in: range, with: string) as NSString
+               return newString.length <= maxLength
+           case ev_password:
+               let maxLength = 25
+               let currentString: NSString = textField.text as? NSString ?? ""
+               let newString: NSString =
+                   currentString.replacingCharacters(in: range, with: string) as NSString
+               return newString.length <= maxLength
+           default:
+               let maxLength = 1
+               let currentString: NSString = textField.text as! NSString
+               let newString: NSString =
+                   currentString.replacingCharacters(in: range, with: string) as NSString
+               return newString.length <= maxLength
+           }
+           
+       }
+}

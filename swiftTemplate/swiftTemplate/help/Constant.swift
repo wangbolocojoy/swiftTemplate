@@ -8,6 +8,35 @@
 
 import Foundation
 import UIKit
+
+enum MyController{
+    case 注册
+    
+}
+
+extension UIViewController{
+   
+    func getMainVc () -> UITabBarController{
+         let sb = UIStoryboard.init(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "MAINTABVC") as! MainTabController
+        return vc
+    }
+    func getloginVc() -> UINavigationController{
+        let sb = UIStoryboard.init(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "LOGINNAVVC") as! LoginNavViewController
+        return vc
+    }
+    
+    func getVcByName(vc:MyController) -> UIViewController{
+         let sb = UIStoryboard.init(name: "Main", bundle: nil)
+        switch vc {
+        case .注册:
+            let vc = sb.instantiateViewController(withIdentifier: "REGISTERVC") as! RegisterViewController
+            return vc
+        }
+    }
+}
+
 struct Constant {
     
     static let instance = Constant()
@@ -30,6 +59,7 @@ struct Constant {
         return "正式版本"
         #endif
     }
+    
     
     
 }
