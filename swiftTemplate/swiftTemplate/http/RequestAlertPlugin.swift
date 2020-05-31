@@ -25,13 +25,14 @@ final class RequestAlertPlugin: PluginType {
         self.viewController = viewController
         //初始化活动状态指示器
         self.spinner = UIActivityIndicatorView(style:  .white)
-        self.spinner.color = .white
-        self.spinner.center = CGPoint(x: viewController.view.bounds.width/2, y: viewController.view.bounds.height/2)
+        self.spinner.color = #colorLiteral(red: 1, green: 0, blue: 0.3940616846, alpha: 1)
+        
         self.vcBank = UIView(frame: CGRect(x: 0, y: 0, width: viewController.view.bounds.width, height: viewController.view.bounds.height))
         self.vcBank.backgroundColor = .clear
-        self.spbank = UIView(frame: CGRect(x: viewController.view.bounds.maxX/2-40, y: viewController.view.bounds.maxY/2-40, width: 80, height: 80))
-        self.spbank.backgroundColor = #colorLiteral(red: 0.3135129511, green: 0.3116548359, blue: 0.3149448037, alpha: 0.3621842894)
+        self.spbank = UIView(frame: CGRect(x: viewController.view.bounds.maxX/2-20, y: viewController.view.bounds.maxY/2-20, width: 40, height: 40))
+        self.spbank.backgroundColor = #colorLiteral(red: 0.3135129511, green: 0.3116548359, blue: 0.3149448037, alpha: 0.4210455908)
         self.spbank.layer.cornerRadius = 8
+        self.spinner.center = CGPoint(x: self.spbank.bounds.width/2, y: self.spbank.bounds.height/2)
         self.spbank.addSubview(self.spinner)
         self.vcBank.addSubview(self.spbank)
         
