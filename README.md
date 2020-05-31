@@ -36,4 +36,71 @@ struct MyMoyaManager{
   
     
 }
+```
+### KeychainManager 封装
 
+```swift
+extension KeychainManager{
+    struct User: KeychainManagerSettable {
+           enum defaultKeys:String,CaseIterable{
+               case 手机号
+               case 密码
+               case 公钥
+               case 私钥
+               case token
+               case userid
+           }
+       }
+}
+
+protocol KeychainManagerSettable {
+    associatedtype defaultKeys:RawRepresentable
+}
+
+extension KeychainManagerSettable where defaultKeys.RawValue == String{
+    // TODO: 存储数据
+    static func SaveByIdentifier(data:Any ,forKey key :defaultKeys)->Bool {
+           let akey = key.rawValue
+        // 获取存储数据的条件
+        return KeychainManager.keyChainSaveData(data: data, withIdentifier: akey)
+    }
+    // TODO: 更新数据
+    static func UpdataByIdentifier(data:Any ,forKey key :defaultKeys)->Bool {
+           let akey = key.rawValue
+        return KeychainManager.keyChainUpdata(data: data, withIdentifier: akey)
+    }
+    
+    // TODO: 获取数据
+    static func ReadDataByIdentifier(forKey key :defaultKeys)-> Any {
+      let akey = key.rawValue
+      return KeychainManager.keyChainReadData(identifier: akey)
+    }
+    // TODO: 删除数据
+    static func DeleteByIdentifier(forKey key :defaultKeys)->Void{
+         let akey = key.rawValue
+        KeychainManager.keyChianDelete(identifier: akey)
+    }
+    
+}
+
+```
+#### KeychainManager 使用
+```swift
+        //保存数据 Any
+       if KeychainManager.User.SaveByIdentifier(data: "1398784645", forKey: .手机号) {
+           //保存成功
+       }else{
+           //保存失败
+       }
+       //获取数据
+       let phone = KeychainManager.User.ReadDataByIdentifier(forKey: .手机号) as? String
+       //删除数据
+       KeychainManager.User.DeleteByIdentifier(forKey: .手机号)
+```
+#### UserDefaults 扩展使用
+```swift
+       //保存数据
+       UserDefaults.User.set(value: "1355024547", forKey: .手机号)
+       //获取数据
+       let phone = UserDefaults.User.getvalue(forKey: .手机号) as? String
+```

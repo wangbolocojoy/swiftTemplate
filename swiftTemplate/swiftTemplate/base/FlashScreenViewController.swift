@@ -17,8 +17,8 @@ class FlashScreenViewController: BaseViewController {
     }
     
     func checkRootVc(){
-        let phone = KeychainManager.keyChainReadData(identifier: Constant.账号) as? String
-        let pass = KeychainManager.keyChainReadData(identifier: Constant.密码) as? String
+        let phone = UserDefaults.User.getvalue(forKey: .手机号) as? String
+        let pass = UserDefaults.User.getvalue(forKey: .密码) as? String
             UIView.animate(withDuration: time, animations:{ }, completion: { (true) in
                 let tranststion =  CATransition()
                 tranststion.duration = self.time
