@@ -34,9 +34,9 @@ extension NetworkService:Moya.TargetType{
     public var path: String {
         switch self {
         case .login:
-            return "back-1/myApplication/cas/login"
+            return "back-1/swiftTemplate/User/login"
         case .register:
-            return "back-1/myApplication/cas/register"
+            return "back-1/swiftTemplate/User/register"
         case .getmsg:
             return "getmsg"
         case .tabhome:
@@ -71,7 +71,7 @@ extension NetworkService:Moya.TargetType{
     }
     // MARK: - 请求HEADER
     public var headers: [String : String]? {
-      return ["Content-type":"application/json"]
+        return ["Content-type":"application/json","token":UserDefaults.User.getvalue(forKey: .token) as? String ?? ""]
     }
     
 }

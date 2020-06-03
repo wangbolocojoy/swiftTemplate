@@ -20,7 +20,7 @@ class FlashScreenViewController: BaseViewController {
                 let tranststion =  CATransition()
                 tranststion.duration = self.time
                 tranststion.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
-                if user?.phone != nil && user?.password != nil {
+                if user?.phone != nil && user?.token != nil {
                     UIApplication.shared.keyWindow?.layer.add(tranststion, forKey: "animation")
                                    UIApplication.shared.keyWindow?.rootViewController = self.getMainVc()
                 }else{

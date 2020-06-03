@@ -49,6 +49,7 @@ class LoginViewController: BaseTabViewController {
         body.password = password
         MyMoyaManager.AllRequest(controller: self, NetworkService.login(k: body.toJSONString()!)) { (data) in
             if KeychainManager.User.SaveByIdentifier(data: data.userinfo?.toJSONString() ?? "", forKey: .UserInfo) {
+                UserDefaults.User.set(value: data.userinfo?.token ?? "", forKey: .token)
                 self.gotoMainVC()
             }else{
                 

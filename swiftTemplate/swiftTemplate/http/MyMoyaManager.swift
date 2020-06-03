@@ -20,7 +20,7 @@ private let requestClosure = { (endpoint: Endpoint, done: MoyaProvider.RequestRe
     do {
         var request = try endpoint.urlRequest()
         //设置请求时长
-        request.timeoutInterval = 30
+        request.timeoutInterval = 600
         // 打印请求参数
         if let requestData = request.httpBody {
             log.info("\(request.url!)"+"\n"+"\(request.httpMethod ?? "")"+"发送参数"+"\(String(data: request.httpBody!, encoding: String.Encoding.utf8) ?? "")")
