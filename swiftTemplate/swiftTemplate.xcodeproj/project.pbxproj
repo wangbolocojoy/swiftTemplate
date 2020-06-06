@@ -37,6 +37,10 @@
 		C43157EE2483DA810034A74E /* UserInfoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43157ED2483DA810034A74E /* UserInfoHelper.swift */; };
 		C43157F32483DF5B0034A74E /* TabHomeNovelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43157F12483DF5B0034A74E /* TabHomeNovelCell.swift */; };
 		C43157F42483DF5B0034A74E /* TabHomeNovelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C43157F22483DF5B0034A74E /* TabHomeNovelCell.xib */; };
+		C4AEFCD9248BF09E0080904E /* MineItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEFCD7248BF09E0080904E /* MineItemViewCell.swift */; };
+		C4AEFCDA248BF09E0080904E /* MineItemViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4AEFCD8248BF09E0080904E /* MineItemViewCell.xib */; };
+		C4AEFCDD248BF0BD0080904E /* MineUserInfoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEFCDB248BF0BD0080904E /* MineUserInfoViewCell.swift */; };
+		C4AEFCDE248BF0BD0080904E /* MineUserInfoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4AEFCDC248BF0BD0080904E /* MineUserInfoViewCell.xib */; };
 		C9AF910697E673BF178A1F0E /* Pods_swiftTemplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96C494185AD3E08D4C8C3503 /* Pods_swiftTemplate.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +81,10 @@
 		C43157ED2483DA810034A74E /* UserInfoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoHelper.swift; sourceTree = "<group>"; };
 		C43157F12483DF5B0034A74E /* TabHomeNovelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabHomeNovelCell.swift; sourceTree = "<group>"; };
 		C43157F22483DF5B0034A74E /* TabHomeNovelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabHomeNovelCell.xib; sourceTree = "<group>"; };
+		C4AEFCD7248BF09E0080904E /* MineItemViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineItemViewCell.swift; sourceTree = "<group>"; };
+		C4AEFCD8248BF09E0080904E /* MineItemViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineItemViewCell.xib; sourceTree = "<group>"; };
+		C4AEFCDB248BF0BD0080904E /* MineUserInfoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineUserInfoViewCell.swift; sourceTree = "<group>"; };
+		C4AEFCDC248BF0BD0080904E /* MineUserInfoViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineUserInfoViewCell.xib; sourceTree = "<group>"; };
 		DCA72CBB041D702BBAC53701 /* Pods-swiftTemplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftTemplate.release.xcconfig"; path = "Target Support Files/Pods-swiftTemplate/Pods-swiftTemplate.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -241,6 +249,7 @@
 		C43157EF2483DF200034A74E /* cell */ = {
 			isa = PBXGroup;
 			children = (
+				C4AEFCD6248BF07C0080904E /* mine */,
 				C43157F02483DF270034A74E /* home */,
 			);
 			path = cell;
@@ -253,6 +262,17 @@
 				C43157F22483DF5B0034A74E /* TabHomeNovelCell.xib */,
 			);
 			path = home;
+			sourceTree = "<group>";
+		};
+		C4AEFCD6248BF07C0080904E /* mine */ = {
+			isa = PBXGroup;
+			children = (
+				C4AEFCD7248BF09E0080904E /* MineItemViewCell.swift */,
+				C4AEFCD8248BF09E0080904E /* MineItemViewCell.xib */,
+				C4AEFCDB248BF0BD0080904E /* MineUserInfoViewCell.swift */,
+				C4AEFCDC248BF0BD0080904E /* MineUserInfoViewCell.xib */,
+			);
+			path = mine;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,6 +340,8 @@
 				C43157F42483DF5B0034A74E /* TabHomeNovelCell.xib in Resources */,
 				C40240302480193E00F715DC /* Assets.xcassets in Resources */,
 				C402402B2480193B00F715DC /* Main.storyboard in Resources */,
+				C4AEFCDE248BF0BD0080904E /* MineUserInfoViewCell.xib in Resources */,
+				C4AEFCDA248BF09E0080904E /* MineItemViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,6 +394,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4AEFCDD248BF0BD0080904E /* MineUserInfoViewCell.swift in Sources */,
 				C43157E424839CAB0034A74E /* AboutUsViewController.swift in Sources */,
 				C43157E024839C880034A74E /* LoginViewController.swift in Sources */,
 				C43157CF2483994F0034A74E /* CALayer+MyColor.m in Sources */,
@@ -390,6 +413,7 @@
 				C402403F248381BE00F715DC /* Constant.swift in Sources */,
 				C402403C248164E300F715DC /* CoreDataManager.swift in Sources */,
 				C43157DD24839C670034A74E /* TabMineViewController.swift in Sources */,
+				C4AEFCD9248BF09E0080904E /* MineItemViewCell.swift in Sources */,
 				C43157EA2483AF570034A74E /* TextUntils.swift in Sources */,
 				C402404124838BC300F715DC /* NetworkService.swift in Sources */,
 				C43157E82483A47D0034A74E /* KeychainManager.swift in Sources */,

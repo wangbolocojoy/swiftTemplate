@@ -9,6 +9,7 @@
 import Foundation
 import ObjectMapper
 class BaseResponse: Mappable {
+    var message:String?
     var status:Int?
     var msg:String?
     var userinfo:UserInfo?
@@ -20,6 +21,7 @@ class BaseResponse: Mappable {
         status <- map["status"]
         userinfo <- map["data"]
         novellist <- map["data"]
+        message <- map["message"]
     }
     
 }

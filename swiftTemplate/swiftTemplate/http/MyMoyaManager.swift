@@ -20,7 +20,7 @@ private let requestClosure = { (endpoint: Endpoint, done: MoyaProvider.RequestRe
     do {
         var request = try endpoint.urlRequest()
         //设置请求时长
-        request.timeoutInterval = 600
+        request.timeoutInterval = 30
         // 打印请求参数
         if let requestData = request.httpBody {
             log.info("\(request.url!)"+"\n"+"\(request.httpMethod ?? "")"+"发送参数"+"\(String(data: request.httpBody!, encoding: String.Encoding.utf8) ?? "")")
@@ -52,17 +52,31 @@ struct MyMoyaManager{
                 do {
                     let data = try response.mapJSON() as! [String:Any]
                         if let u = BaseResponse(JSON: data){
+                              log.info(u)
                             if u.status ?? 0 == 200{
                                  successCallback(u)
+                               
+                            }else if u.status ?? 0 == 500{
+                                controller.ShowTip(Title: u.message ?? u.msg ?? "请求失败")
+                                KeychainManager.User.DeleteByIdentifier(forKey: .UserInfo)
+                                UIView.animate(withDuration: 0.9, animations:{ }, completion: { (true) in
+                                               let tranststion =  CATransition()
+                                    tranststion.duration = 0.9
+                                               tranststion.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
+                                                   UIApplication.shared.keyWindow?.layer.add(tranststion, forKey: "animation")
+                                                                  UIApplication.shared.keyWindow?.rootViewController = controller.getloginVc()
+                                               
+                                              
+                                           })
                             }else{
                                 controller.ShowTip(Title: u.msg ?? "请求失败")
                             }
                                
-                                log.info(u)
+                              
                         }else{
                             controller.ShowTip(Title: "解析失败")
                         }
-                      log.error(data)
+                      
                 } catch {
                     //可不做处理
                     

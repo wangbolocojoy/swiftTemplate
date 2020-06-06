@@ -29,15 +29,17 @@ class TabHomeViewController: BaseTabViewController {
     func getNovel(body:RequestBody){
         MyMoyaManager.AllRequest(controller: self, NetworkService.tabhome(K: body.toJSONString()!)) { (data) in
             if self.type == 1 {
-                self.header.endRefreshing()
+               
                 self.list = data.novellist
             
             }else{
                 self.list?.append(contentsOf: data.novellist ?? [])
-                 self.footer.endRefreshing()
+                
             }
             self.tableview.reloadData()
         }
+         self.header.endRefreshing()
+         self.footer.endRefreshing()
     }
     @objc func refresh(){
         type = 1
