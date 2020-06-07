@@ -54,6 +54,84 @@
             </objects>
             <point key="canvasLocation" x="2734.7826086956525" y="332.8125"/>
         </scene>
+        <!--个人信息-->
+        <scene sceneID="iFR-lz-2ir">
+            <objects>
+                <viewController storyboardIdentifier="BTMUSERINFOVC" title="个人信息" hidesBottomBarWhenPushed="YES" id="dGQ-R5-mpq" customClass="BTMUserInfoController" customModule="swiftTemplate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tmS-tt-sN0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JOJ-Yi-SyP">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="w12-wS-HSq" firstAttribute="bottom" secondItem="JOJ-Yi-SyP" secondAttribute="bottom" id="XQw-oV-mvY"/>
+                            <constraint firstItem="w12-wS-HSq" firstAttribute="trailing" secondItem="JOJ-Yi-SyP" secondAttribute="trailing" id="agG-2R-mbO"/>
+                            <constraint firstItem="JOJ-Yi-SyP" firstAttribute="top" secondItem="w12-wS-HSq" secondAttribute="top" id="iox-MV-oeW"/>
+                            <constraint firstItem="JOJ-Yi-SyP" firstAttribute="leading" secondItem="w12-wS-HSq" secondAttribute="leading" id="omQ-cG-aAM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="w12-wS-HSq"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableview" destination="JOJ-Yi-SyP" id="jlv-If-vO2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fEt-Yx-1Bd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3658" y="315"/>
+        </scene>
+        <!--用户信息-->
+        <scene sceneID="xFB-Oj-Vnd">
+            <objects>
+                <viewController storyboardIdentifier="BTMMINEEDUSERVC" title="用户信息" id="fH3-yQ-m4F" customClass="BTMMineEdUserController" customModule="swiftTemplate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YUP-xg-CUx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VYv-FA-D3b">
+                                <rect key="frame" x="8" y="59" width="398" height="50"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZEF-Ua-m6L">
+                                        <rect key="frame" x="5" y="5" width="388" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="ZEF-Ua-m6L" secondAttribute="trailing" constant="5" id="Ihx-6c-2dl"/>
+                                    <constraint firstItem="ZEF-Ua-m6L" firstAttribute="top" secondItem="VYv-FA-D3b" secondAttribute="top" constant="5" id="LvS-57-AgV"/>
+                                    <constraint firstItem="ZEF-Ua-m6L" firstAttribute="leading" secondItem="VYv-FA-D3b" secondAttribute="leading" constant="5" id="NfO-pO-kN7"/>
+                                    <constraint firstAttribute="height" constant="50" id="VWG-j8-Jxf"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="VYv-FA-D3b" firstAttribute="top" secondItem="vO6-di-GRl" secondAttribute="top" constant="15" id="eBy-Xg-aEJ"/>
+                            <constraint firstItem="vO6-di-GRl" firstAttribute="trailing" secondItem="VYv-FA-D3b" secondAttribute="trailing" constant="8" id="hsb-al-jy4"/>
+                            <constraint firstItem="VYv-FA-D3b" firstAttribute="leading" secondItem="vO6-di-GRl" secondAttribute="leading" constant="8" id="jDn-fW-uYT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vO6-di-GRl"/>
+                    </view>
+                    <connections>
+                        <outlet property="lab_test" destination="ZEF-Ua-m6L" id="Uo9-eK-uRn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m47-oB-mY7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4686" y="350"/>
+        </scene>
         <!--首页-->
         <scene sceneID="qCK-DL-nxF">
             <objects>

@@ -23,10 +23,10 @@ class RegisterViewController: BaseViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        initView()
+        
         
     }
-    func initView(){
+    override func initView(){
         ev_password.delegate = self
         ev_msg.delegate = self
         ev_phone.delegate = self

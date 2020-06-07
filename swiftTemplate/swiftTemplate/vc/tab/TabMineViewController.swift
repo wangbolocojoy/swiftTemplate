@@ -12,6 +12,7 @@ class TabMineViewController: BaseTabViewController {
     let time = 0.2
     var list = ["我的图片","我的地址","我的朋友","我的消息","我到家啊"]
     var imagelist = [#imageLiteral(resourceName: "IMG_2488-1"),#imageLiteral(resourceName: "IMG_2488-1"),#imageLiteral(resourceName: "IMG_2488-1"),#imageLiteral(resourceName: "IMG_2488-1"),#imageLiteral(resourceName: "IMG_2488-1")]
+    var user : UserInfo? = nil
     @IBOutlet weak var tableview: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,10 +27,12 @@ class TabMineViewController: BaseTabViewController {
     override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
            self.navigationController?.setNavigationBarHidden(true, animated: false)
+         user = UserInfoHelper.instance.getUser()
+        tableview.reloadData()
        }
        override func viewWillDisappear(_ animated: Bool) {
            super.viewWillDisappear(animated)
-           self.navigationController?.setNavigationBarHidden(true, animated: false)
+           self.navigationController?.setNavigationBarHidden(false, animated: false)
        }
 
     
@@ -86,7 +89,7 @@ extension TabMineViewController:UITableViewDelegate,UITableViewDataSource{
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: MineUserInfoViewCell.reuseID, for: indexPath) as! MineUserInfoViewCell
-            cell.updateCell(user: UserInfoHelper.instance.getUser())
+            cell.updateCell(user: user )
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: MineItemViewCell.reuseID, for: indexPath) as! MineItemViewCell

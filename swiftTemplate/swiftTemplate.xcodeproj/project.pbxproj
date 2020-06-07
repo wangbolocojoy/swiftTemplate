@@ -41,6 +41,16 @@
 		C4AEFCDA248BF09E0080904E /* MineItemViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4AEFCD8248BF09E0080904E /* MineItemViewCell.xib */; };
 		C4AEFCDD248BF0BD0080904E /* MineUserInfoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEFCDB248BF0BD0080904E /* MineUserInfoViewCell.swift */; };
 		C4AEFCDE248BF0BD0080904E /* MineUserInfoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4AEFCDC248BF0BD0080904E /* MineUserInfoViewCell.xib */; };
+		C4AEFCE1248C92D40080904E /* BTMMineEdUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEFCE0248C92D40080904E /* BTMMineEdUserController.swift */; };
+		C4AEFCE3248C92F50080904E /* BTMMinePostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEFCE2248C92F50080904E /* BTMMinePostController.swift */; };
+		C4AEFCE5248CA8160080904E /* BTMUserInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEFCE4248CA8160080904E /* BTMUserInfoController.swift */; };
+		C4AEFCE9248CAA310080904E /* BTMUserIconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEFCE7248CAA310080904E /* BTMUserIconCell.swift */; };
+		C4AEFCEA248CAA310080904E /* BTMUserIconCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4AEFCE8248CAA310080904E /* BTMUserIconCell.xib */; };
+		C4AEFCED248CAB620080904E /* BTMUserItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEFCEB248CAB620080904E /* BTMUserItemCell.swift */; };
+		C4AEFCEE248CAB620080904E /* BTMUserItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4AEFCEC248CAB620080904E /* BTMUserItemCell.xib */; };
+		C4AEFCF0248CACE30080904E /* BTMCleanHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEFCEF248CACE30080904E /* BTMCleanHeader.swift */; };
+		C4AEFCF2248CAD070080904E /* BTMCleanHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4AEFCF1248CAD070080904E /* BTMCleanHeader.xib */; };
+		C4AEFCF4248CBAC60080904E /* PermissionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEFCF3248CBAC60080904E /* PermissionHelper.swift */; };
 		C9AF910697E673BF178A1F0E /* Pods_swiftTemplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96C494185AD3E08D4C8C3503 /* Pods_swiftTemplate.framework */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +95,16 @@
 		C4AEFCD8248BF09E0080904E /* MineItemViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineItemViewCell.xib; sourceTree = "<group>"; };
 		C4AEFCDB248BF0BD0080904E /* MineUserInfoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineUserInfoViewCell.swift; sourceTree = "<group>"; };
 		C4AEFCDC248BF0BD0080904E /* MineUserInfoViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineUserInfoViewCell.xib; sourceTree = "<group>"; };
+		C4AEFCE0248C92D40080904E /* BTMMineEdUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTMMineEdUserController.swift; sourceTree = "<group>"; };
+		C4AEFCE2248C92F50080904E /* BTMMinePostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTMMinePostController.swift; sourceTree = "<group>"; };
+		C4AEFCE4248CA8160080904E /* BTMUserInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTMUserInfoController.swift; sourceTree = "<group>"; };
+		C4AEFCE7248CAA310080904E /* BTMUserIconCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTMUserIconCell.swift; sourceTree = "<group>"; };
+		C4AEFCE8248CAA310080904E /* BTMUserIconCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BTMUserIconCell.xib; sourceTree = "<group>"; };
+		C4AEFCEB248CAB620080904E /* BTMUserItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTMUserItemCell.swift; sourceTree = "<group>"; };
+		C4AEFCEC248CAB620080904E /* BTMUserItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BTMUserItemCell.xib; sourceTree = "<group>"; };
+		C4AEFCEF248CACE30080904E /* BTMCleanHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTMCleanHeader.swift; sourceTree = "<group>"; };
+		C4AEFCF1248CAD070080904E /* BTMCleanHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BTMCleanHeader.xib; sourceTree = "<group>"; };
+		C4AEFCF3248CBAC60080904E /* PermissionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionHelper.swift; sourceTree = "<group>"; };
 		DCA72CBB041D702BBAC53701 /* Pods-swiftTemplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftTemplate.release.xcconfig"; path = "Target Support Files/Pods-swiftTemplate/Pods-swiftTemplate.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -172,6 +192,7 @@
 				C43157E72483A47D0034A74E /* KeychainManager.swift */,
 				C43157E92483AF570034A74E /* TextUntils.swift */,
 				C43157ED2483DA810034A74E /* UserInfoHelper.swift */,
+				C4AEFCF3248CBAC60080904E /* PermissionHelper.swift */,
 			);
 			path = help;
 			sourceTree = "<group>";
@@ -207,6 +228,7 @@
 		C402404B248394B800F715DC /* tab */ = {
 			isa = PBXGroup;
 			children = (
+				C4AEFCDF248C925A0080904E /* mine */,
 				C43157DA24839C580034A74E /* TabHomeViewController.swift */,
 				C43157DC24839C670034A74E /* TabMineViewController.swift */,
 			);
@@ -267,12 +289,36 @@
 		C4AEFCD6248BF07C0080904E /* mine */ = {
 			isa = PBXGroup;
 			children = (
+				C4AEFCE6248CA97F0080904E /* userinfo */,
 				C4AEFCD7248BF09E0080904E /* MineItemViewCell.swift */,
 				C4AEFCD8248BF09E0080904E /* MineItemViewCell.xib */,
 				C4AEFCDB248BF0BD0080904E /* MineUserInfoViewCell.swift */,
 				C4AEFCDC248BF0BD0080904E /* MineUserInfoViewCell.xib */,
+				C4AEFCEF248CACE30080904E /* BTMCleanHeader.swift */,
+				C4AEFCF1248CAD070080904E /* BTMCleanHeader.xib */,
 			);
 			path = mine;
+			sourceTree = "<group>";
+		};
+		C4AEFCDF248C925A0080904E /* mine */ = {
+			isa = PBXGroup;
+			children = (
+				C4AEFCE0248C92D40080904E /* BTMMineEdUserController.swift */,
+				C4AEFCE2248C92F50080904E /* BTMMinePostController.swift */,
+				C4AEFCE4248CA8160080904E /* BTMUserInfoController.swift */,
+			);
+			path = mine;
+			sourceTree = "<group>";
+		};
+		C4AEFCE6248CA97F0080904E /* userinfo */ = {
+			isa = PBXGroup;
+			children = (
+				C4AEFCE7248CAA310080904E /* BTMUserIconCell.swift */,
+				C4AEFCE8248CAA310080904E /* BTMUserIconCell.xib */,
+				C4AEFCEB248CAB620080904E /* BTMUserItemCell.swift */,
+				C4AEFCEC248CAB620080904E /* BTMUserItemCell.xib */,
+			);
+			path = userinfo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,6 +349,7 @@
 		C40240182480193B00F715DC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = BTM;
 				LastSwiftUpdateCheck = 1150;
 				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = "波王";
@@ -336,10 +383,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4AEFCEA248CAA310080904E /* BTMUserIconCell.xib in Resources */,
 				C40240332480193E00F715DC /* LaunchScreen.storyboard in Resources */,
 				C43157F42483DF5B0034A74E /* TabHomeNovelCell.xib in Resources */,
 				C40240302480193E00F715DC /* Assets.xcassets in Resources */,
 				C402402B2480193B00F715DC /* Main.storyboard in Resources */,
+				C4AEFCEE248CAB620080904E /* BTMUserItemCell.xib in Resources */,
+				C4AEFCF2248CAD070080904E /* BTMCleanHeader.xib in Resources */,
 				C4AEFCDE248BF0BD0080904E /* MineUserInfoViewCell.xib in Resources */,
 				C4AEFCDA248BF09E0080904E /* MineItemViewCell.xib in Resources */,
 			);
@@ -398,14 +448,17 @@
 				C43157E424839CAB0034A74E /* AboutUsViewController.swift in Sources */,
 				C43157E024839C880034A74E /* LoginViewController.swift in Sources */,
 				C43157CF2483994F0034A74E /* CALayer+MyColor.m in Sources */,
+				C4AEFCED248CAB620080904E /* BTMUserItemCell.swift in Sources */,
 				C43157D924839C290034A74E /* FlashScreenViewController.swift in Sources */,
 				C4024049248393BC00F715DC /* BaseResponse.swift in Sources */,
 				C43157E224839C960034A74E /* RegisterViewController.swift in Sources */,
+				C4AEFCE5248CA8160080904E /* BTMUserInfoController.swift in Sources */,
 				C43157D724839BDB0034A74E /* MainTabController.swift in Sources */,
 				C40240282480193B00F715DC /* ViewController.swift in Sources */,
 				C43157DB24839C580034A74E /* TabHomeViewController.swift in Sources */,
 				C402404E248394E200F715DC /* ext.swift in Sources */,
 				C43157EE2483DA810034A74E /* UserInfoHelper.swift in Sources */,
+				C4AEFCE1248C92D40080904E /* BTMMineEdUserController.swift in Sources */,
 				C43157D524839AC30034A74E /* BaseTabViewController.swift in Sources */,
 				C43157EC2483B16B0034A74E /* RequestBody.swift in Sources */,
 				C40240242480193B00F715DC /* AppDelegate.swift in Sources */,
@@ -415,12 +468,16 @@
 				C43157DD24839C670034A74E /* TabMineViewController.swift in Sources */,
 				C4AEFCD9248BF09E0080904E /* MineItemViewCell.swift in Sources */,
 				C43157EA2483AF570034A74E /* TextUntils.swift in Sources */,
+				C4AEFCE3248C92F50080904E /* BTMMinePostController.swift in Sources */,
 				C402404124838BC300F715DC /* NetworkService.swift in Sources */,
 				C43157E82483A47D0034A74E /* KeychainManager.swift in Sources */,
 				C43157F32483DF5B0034A74E /* TabHomeNovelCell.swift in Sources */,
+				C4AEFCE9248CAA310080904E /* BTMUserIconCell.swift in Sources */,
 				C4024046248392A300F715DC /* MyMoyaManager.swift in Sources */,
 				C43157E62483A1F60034A74E /* LoginNavViewController.swift in Sources */,
 				C402402E2480193B00F715DC /* swiftTemplate.xcdatamodeld in Sources */,
+				C4AEFCF4248CBAC60080904E /* PermissionHelper.swift in Sources */,
+				C4AEFCF0248CACE30080904E /* BTMCleanHeader.swift in Sources */,
 				C4024044248390C800F715DC /* RequestAlertPlugin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

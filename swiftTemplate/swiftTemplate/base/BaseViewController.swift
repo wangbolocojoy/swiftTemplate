@@ -13,12 +13,17 @@ class BaseViewController: UIViewController ,UIGestureRecognizerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         BaseinitView()
+        
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
              self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(image:#imageLiteral(resourceName: "back"), style: .plain, target:self, action: #selector(back))
+        initView()
     }
     @objc func back(){
           self.navigationController?.popViewController(animated: true)
       }
+    func initView(){
+        
+    }
     func BaseinitView(){
           if #available(iOS 13.0, *) {
                     log.debug("13.0")

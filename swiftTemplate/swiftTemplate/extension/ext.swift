@@ -179,3 +179,24 @@ extension UIImage{
            return resultImage!
        }
 }
+extension UITableViewCell {
+    
+    open override func awakeFromNib() {
+        super.awakeFromNib()
+        selectionStyle = .none
+    }
+    func parentViewController() -> UIViewController? {
+              var n = self.next
+              while n != nil {
+                  if (n is UIViewController) {
+                      return n as? UIViewController
+                  }
+                  n = n?.next
+              }
+              return nil
+          }
+    func pushVC(vc:UIViewController){
+        
+        parentViewController()?.navigationController?.pushViewController(vc, animated: true)
+    }
+}

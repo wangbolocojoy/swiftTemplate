@@ -20,17 +20,17 @@ public enum NetworkService{
     case tabhome(K:String)
     //搜索小说
     case searchnovel(k:String)
-    
-   
-    
+
+    case uodateusericon(k:Any,dataAry:NSArray)
+    case updateuserinfo(k:String)
 }
 extension NetworkService:Moya.TargetType{
-     //MARK: - APISERVICE
+    //MARK: - APISERVICE
     public var baseURL: URL {
         let api = Constant.instance.BaseApi
         return URL(string: api )!
     }
-     //MARK: - 请求地址
+    //MARK: - 请求地址
     public var path: String {
         switch self {
         case .login:
@@ -41,32 +41,46 @@ extension NetworkService:Moya.TargetType{
             return "getmsg"
         case .tabhome:
             return "back-1/myApplication/cas/getPageNovelList"
-            //novelName
+        //novelName
         case .searchnovel:
             return "back-1/myApplication/cas/searchNovel"
+ 
+        case .uodateusericon:
+            return "back-1/swiftTemplate/User/uploadusericon"
+        case .updateuserinfo:
+            return "back-1/swiftTemplate/User/updateUser"
         }
     }
     //MARK: - 请求方式
     public var method: Moya.Method {
-            return .post
+        return .post
     }
     //MARK: - 测试数据
     public var sampleData: Data {
-         return "{}".data(using: String.Encoding.utf8)!
+        return "{}".data(using: String.Encoding.utf8)!
     }
     //MARK: - 请求参数
     public var task: Moya.Task {
         switch self {
-        case .login(let data),.register(let data),.getmsg(let data),.tabhome(let data),.searchnovel(let data):
+        case .login(let data),.register(let data),.getmsg(let data),.tabhome(let data),.searchnovel(let data),.updateuserinfo(let data):
             return  .requestData(data.utf8Encoded)
-//        case .GetToken:
-//            return  .requestPlain
-//        case .login(let data)):
-//             guard let p1 = data as? [String:String] else { return .requestPlain}
-//                      return .requestParameters(parameters: p1, encoding: URLEncoding.default)
-            break
+         
+        case .uodateusericon(let param, let uploadImages):
+             let formDataAry:NSMutableArray = NSMutableArray()
+                            for (index,image) in uploadImages.enumerated() {
+                                let data:Data = (image as! UIImage).jpegData(compressionQuality: 0.8)!
+                                let date:Date = Date()
+                                let formatter = DateFormatter()
+                                formatter.dateFormat = "yyyy-MM-dd-HH:mm:ss"
+                                var dateStr:String = formatter.string(from: date as Date)
+                                dateStr = dateStr.appendingFormat("-%i.png", index)
+                                let formData = MultipartFormData(provider: .data(data), name: "uploadFile", fileName: dateStr, mimeType: "image/jpeg")
+                                formDataAry.add(formData)
+                            }
+                       guard let p1 = param as? [String:String] else { return .requestPlain}
+             return .uploadCompositeMultipart(formDataAry as! [MultipartFormData], urlParameters: p1)
         }
-            
+        
         
     }
     // MARK: - 请求HEADER

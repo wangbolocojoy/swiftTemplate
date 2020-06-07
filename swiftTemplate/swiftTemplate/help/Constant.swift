@@ -11,7 +11,8 @@ import UIKit
 
 enum MyController{
     case 注册
-    
+    case 个人中心
+    case 修改信息
 }
 
 extension UIViewController{
@@ -32,6 +33,12 @@ extension UIViewController{
         switch vc {
         case .注册:
             let vc = sb.instantiateViewController(withIdentifier: "REGISTERVC") as! RegisterViewController
+            return vc
+        case .个人中心:
+            let vc = sb.instantiateViewController(withIdentifier: "BTMUSERINFOVC") as! BTMUserInfoController
+            return vc
+        case .修改信息:
+              let vc = sb.instantiateViewController(withIdentifier: "BTMMINEEDUSERVC") as! BTMMineEdUserController
             return vc
         }
     }
