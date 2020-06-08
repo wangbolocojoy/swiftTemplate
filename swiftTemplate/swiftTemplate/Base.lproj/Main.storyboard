@@ -84,6 +84,66 @@
             </objects>
             <point key="canvasLocation" x="3658" y="315"/>
         </scene>
+        <!--我的日记-->
+        <scene sceneID="UiK-7Q-g2M">
+            <objects>
+                <viewController storyboardIdentifier="BTMMYPOSTVC" title="我的日记" hidesBottomBarWhenPushed="YES" id="mLY-Vm-Vhe" customClass="BTMMyPostViewController" customModule="swiftTemplate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HQC-7c-cDs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PIH-BP-Dpd">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="JW9-iB-ss1" firstAttribute="trailing" secondItem="PIH-BP-Dpd" secondAttribute="trailing" id="YS5-SX-cG0"/>
+                            <constraint firstItem="PIH-BP-Dpd" firstAttribute="top" secondItem="JW9-iB-ss1" secondAttribute="top" id="d4u-ae-saG"/>
+                            <constraint firstItem="JW9-iB-ss1" firstAttribute="bottom" secondItem="PIH-BP-Dpd" secondAttribute="bottom" id="lvb-Oz-jz4"/>
+                            <constraint firstItem="PIH-BP-Dpd" firstAttribute="leading" secondItem="JW9-iB-ss1" secondAttribute="leading" id="yRm-1u-rQu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="JW9-iB-ss1"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableview" destination="PIH-BP-Dpd" id="DCa-bP-1hh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZPM-FW-Cg5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4887" y="-406"/>
+        </scene>
+        <!--我的粉丝关注-->
+        <scene sceneID="9Da-Sb-sDH">
+            <objects>
+                <viewController storyboardIdentifier="BTMMYFANCEFOLLOWVC" title="我的粉丝关注" hidesBottomBarWhenPushed="YES" id="L2G-QB-4yY" customClass="BTMMyFanceFollowViewController" customModule="swiftTemplate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ylJ-16-hGD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WVv-gC-xk7">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="8YM-Sf-fKg" firstAttribute="bottom" secondItem="WVv-gC-xk7" secondAttribute="bottom" id="8ii-eN-psI"/>
+                            <constraint firstItem="WVv-gC-xk7" firstAttribute="leading" secondItem="8YM-Sf-fKg" secondAttribute="leading" id="K86-Yb-YDT"/>
+                            <constraint firstItem="8YM-Sf-fKg" firstAttribute="trailing" secondItem="WVv-gC-xk7" secondAttribute="trailing" id="MWb-x3-zdz"/>
+                            <constraint firstItem="WVv-gC-xk7" firstAttribute="top" secondItem="8YM-Sf-fKg" secondAttribute="top" id="fvY-Pr-kzd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8YM-Sf-fKg"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableview" destination="WVv-gC-xk7" id="Riw-z9-xcr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yeb-Ya-pqp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5570" y="-480"/>
+        </scene>
         <!--用户信息-->
         <scene sceneID="xFB-Oj-Vnd">
             <objects>
@@ -95,8 +155,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VYv-FA-D3b">
                                 <rect key="frame" x="8" y="59" width="398" height="50"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZEF-Ua-m6L">
-                                        <rect key="frame" x="5" y="5" width="388" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZEF-Ua-m6L">
+                                        <rect key="frame" x="5" y="5" width="388" height="19"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -227,7 +287,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入账号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l4w-PM-M4t">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入账号" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="l4w-PM-M4t">
                                 <rect key="frame" x="25" y="312" width="364" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Q2l-Nl-HvL"/>
@@ -254,7 +314,7 @@
                                     <action selector="login:" destination="rG4-zD-Oqe" eventType="touchUpInside" id="kgD-C1-IMa"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wZX-5T-1cP">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="wZX-5T-1cP">
                                 <rect key="frame" x="25" y="367.5" width="364" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="UTB-EC-ptg"/>
@@ -335,7 +395,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iSs-XT-IJe">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="iSs-XT-IJe">
                                 <rect key="frame" x="25" y="367.5" width="364" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="q2h-Eg-I67"/>
@@ -343,7 +403,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="password"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入验证码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XRI-3b-osI">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入验证码" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XRI-3b-osI">
                                 <rect key="frame" x="25" y="312" width="244" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="D2g-0a-Fj2"/>
@@ -410,7 +470,7 @@
                                     <constraint firstAttribute="height" constant="0.5" id="mtw-od-eSI"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DMP-CJ-Cc9">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="DMP-CJ-Cc9">
                                 <rect key="frame" x="25" y="256.5" width="364" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="kPW-xA-dL0"/>

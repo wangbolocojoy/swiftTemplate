@@ -27,8 +27,8 @@ static let reuseID =  "BTMUserItemCell"
     func updateCell(name:String?,user:UserInfo?){
         item_name.text = name ?? ""
         switch name ?? "" {
-        case "账号id":
-            item_value.text = "\(user?.id ?? 0)"
+        case "账号":
+            item_value.text = user?.account ?? ""
         case "昵称":
             item_value.text = user?.nickname ?? ""
         case "真实姓名":

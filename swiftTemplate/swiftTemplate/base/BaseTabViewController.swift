@@ -13,6 +13,9 @@ class BaseTabViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         BaseinitView()
+        initView()
+    }
+    func  initView(){
         
     }
     func BaseinitView(){

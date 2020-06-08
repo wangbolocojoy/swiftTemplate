@@ -9,7 +9,7 @@
 import UIKit
 
 class BTMUserInfoController: BaseViewController{
-    let list = ["账号id","昵称","真实姓名","个人简介","地区"]
+    let list = ["账号","昵称","真实姓名","个人简介","地区"]
     @IBOutlet weak var tableview: UITableView!
     var user :UserInfo? = nil
     private lazy var pickVC: UIImagePickerController = {
@@ -59,6 +59,10 @@ class BTMUserInfoController: BaseViewController{
         user = UserInfoHelper.instance.getUser()
         tableview.reloadData()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        refresh()
+    }
 }
 extension BTMUserInfoController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -97,9 +101,9 @@ extension BTMUserInfoController:UITableViewDelegate,UITableViewDataSource{
         case 0:
             return 0
         case 1:
-            return 3
+            return 5
         case 2:
-            return 15
+            return 20
         default:
             return 0
         }

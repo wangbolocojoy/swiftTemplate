@@ -34,7 +34,78 @@ class CoreDataManager {
         user.password = body.password
         saveContext()
     }
-    
+    func saveandupdateNovel(item:NovelInfo?){
+        
+        let fetchRequest: NSFetchRequest = NovelModel.fetchRequest()
+                    //String 才用%@
+                    //int类型用 %d
+        fetchRequest.predicate = NSPredicate(format: "novel_id ==  %d", item?.novel_id ?? 0)
+        //数据库没有这条数据。新增
+        if fetchRequest.fetchLimit == nil || fetchRequest.fetchBatchSize == 0 {
+            let novel = NSEntityDescription.insertNewObject(forEntityName: "NovelModel", into: context) as! NovelModel
+            novel.id = Int16(item?.id ?? 0)
+            novel.novel_id = Int64(item?.novel_id ?? 0)
+            novel.novel_name = item?.novel_name ?? ""
+            novel.novel_easyinfo = item?.novel_easyinfo ?? ""
+            novel.novel_author = item?.novel_author ?? ""
+            novel.novel_img = item?.novel_img ?? ""
+            novel.novel_type = Int16(item?.novel_type ?? 0)
+            novel.novel_typename = item?.novel_typename
+            novel.novel_uptime = item?.novel_uptime ?? ""
+            novel.novel_state = item?.novel_state ?? ""
+            saveContext()
+        }else{
+            do {
+                // 拿到符合条件的所有数据 修改
+                let result = try context.fetch(fetchRequest)
+                if  result.count >= 1 {
+                    for novel in result {
+                        novel.id = Int16(item?.id ?? 0)
+                        novel.novel_id = Int64(item?.novel_id ?? 0)
+                        novel.novel_name = item?.novel_name ?? ""
+                        novel.novel_easyinfo = item?.novel_easyinfo ?? ""
+                        novel.novel_author = item?.novel_author ?? ""
+                        novel.novel_img = item?.novel_img ?? ""
+                        novel.novel_type = Int16(item?.novel_type ?? 0)
+                        novel.novel_typename = item?.novel_typename
+                        novel.novel_uptime = item?.novel_uptime ?? ""
+                        novel.novel_state = item?.novel_state ?? ""
+                    }
+                    
+                }
+                
+            } catch {
+                fatalError();
+            }
+            saveContext()
+        }
+        
+        
+    }
+    func getAllNovel()->[NovelInfo]?{
+        let fetchRequest: NSFetchRequest = NovelModel.fetchRequest()
+        do {
+            let result = try context.fetch(fetchRequest)
+            var list:[NovelInfo]? = []
+            for item in result {
+                let novel = NovelInfo()
+                novel.id = Int(item.id)
+                novel.novel_id = Int(item.novel_id)
+                novel.novel_name = item.novel_name ?? ""
+                novel.novel_easyinfo = item.novel_easyinfo ?? ""
+                novel.novel_author = item.novel_author ?? ""
+                novel.novel_img = item.novel_img ?? ""
+                novel.novel_type = Int(item.novel_type)
+                novel.novel_typename = item.novel_typename
+                novel.novel_uptime = item.novel_uptime ?? ""
+                novel.novel_state = item.novel_state ?? ""
+                list?.append(novel)
+            }
+            return list
+        } catch {
+            fatalError();
+        }
+    }
     // 获取所有用户
     func getAllUser() -> [User] {
         let fetchRequest: NSFetchRequest = User.fetchRequest()
@@ -45,7 +116,15 @@ class CoreDataManager {
             fatalError();
         }
     }
-    
+    func getAlldeleteNovel() -> [NovelModel] {
+        let fetchRequest: NSFetchRequest = NovelModel.fetchRequest()
+        do {
+            let result = try context.fetch(fetchRequest)
+            return result
+        } catch {
+            fatalError();
+        }
+    }
     // 查询手机号是否存在
     func getUserbyphone(phone: String) -> [User] {
         let fetchRequest: NSFetchRequest = User.fetchRequest()
@@ -101,13 +180,21 @@ class CoreDataManager {
     }
     
     // 删除所有数据
-    func deleteAllPerson() {
+    func deleteAllNovel(success successCallback: @escaping () -> Void) {
         // 这里直接调用上面获取所有数据的方法
-        let result = getAllUser()
+        let result = getAlldeleteNovel()
         // 循环删除所有数据
-        for person in result {
-            context.delete(person)
+        DispatchQueue.global().async {
+            for (index,d) in result.enumerated()  {
+                self.context.delete(d)
+            }
+            self.saveContext()
+            DispatchQueue.main.async {
+                  successCallback()
+            }
+          
         }
-        saveContext()
+        
+      
     }
 }

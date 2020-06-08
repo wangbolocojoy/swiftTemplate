@@ -13,12 +13,14 @@ enum MyController{
     case 注册
     case 个人中心
     case 修改信息
+    case 我的帖子
+    case 我的粉丝关注
 }
 
 extension UIViewController{
-   
+    
     func getMainVc () -> UITabBarController{
-         let sb = UIStoryboard.init(name: "Main", bundle: nil)
+        let sb = UIStoryboard.init(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "MAINTABVC") as! MainTabController
         return vc
     }
@@ -29,7 +31,7 @@ extension UIViewController{
     }
     
     func getVcByName(vc:MyController) -> UIViewController{
-         let sb = UIStoryboard.init(name: "Main", bundle: nil)
+        let sb = UIStoryboard.init(name: "Main", bundle: nil)
         switch vc {
         case .注册:
             let vc = sb.instantiateViewController(withIdentifier: "REGISTERVC") as! RegisterViewController
@@ -38,7 +40,15 @@ extension UIViewController{
             let vc = sb.instantiateViewController(withIdentifier: "BTMUSERINFOVC") as! BTMUserInfoController
             return vc
         case .修改信息:
-              let vc = sb.instantiateViewController(withIdentifier: "BTMMINEEDUSERVC") as! BTMMineEdUserController
+            let vc = sb.instantiateViewController(withIdentifier: "BTMMINEEDUSERVC") as! BTMMineEdUserController
+            return vc
+        case .我的帖子:
+            let vc = sb.instantiateViewController(withIdentifier: "BTMMYPOSTVC") as!
+            BTMMyPostViewController
+            return vc
+        case .我的粉丝关注:
+            let vc = sb.instantiateViewController(withIdentifier: "BTMMYFANCEFOLLOWVC") as!
+            BTMMyFanceFollowViewController
             return vc
         }
     }
@@ -53,7 +63,7 @@ struct Constant {
     static let 账号:String = "PHONE"
     var BaseApi :String{
         #if DEBUG
-
+        
         return "https://90btm.com"
         #else
         return "https://90btm.com"

@@ -79,6 +79,7 @@
                 <outlet property="item_image" destination="yaX-Jf-EX1" id="ygp-fy-La8"/>
                 <outlet property="item_leftname" destination="KxB-93-h0f" id="egW-Dv-Ok9"/>
                 <outlet property="item_rightname" destination="7cn-rV-8aR" id="9pA-cj-Te1"/>
+                <outlet property="right_image" destination="UGx-he-xwj" id="7iW-Jd-aYl"/>
             </connections>
             <point key="canvasLocation" x="18.840579710144929" y="176.11607142857142"/>
         </tableViewCell>

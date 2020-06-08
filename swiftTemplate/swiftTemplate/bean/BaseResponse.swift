@@ -38,6 +38,9 @@ class NovelInfo: Mappable {
     var novel_typename:String?
     var novel_uptime:String?
     var novel_state:String?
+    init() {
+        
+    }
     required init?(map: Map) {
     }
     func mapping(map: Map) {

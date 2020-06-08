@@ -10,8 +10,8 @@ import UIKit
 
 class TabMineViewController: BaseTabViewController {
     let time = 0.2
-    var list = ["我的图片","我的地址","我的朋友","我的消息","我到家啊"]
-    var imagelist = [#imageLiteral(resourceName: "IMG_2488-1"),#imageLiteral(resourceName: "IMG_2488-1"),#imageLiteral(resourceName: "IMG_2488-1"),#imageLiteral(resourceName: "IMG_2488-1"),#imageLiteral(resourceName: "IMG_2488-1")]
+    var list = ["我的图片","我的地址","我的朋友","我的消息","清除缓存","退出登录"]
+    var imagelist = [#imageLiteral(resourceName: "IMG_2488-1"),#imageLiteral(resourceName: "IMG_2488-1"),#imageLiteral(resourceName: "IMG_2488-1"),#imageLiteral(resourceName: "IMG_2488-1"),#imageLiteral(resourceName: "IMG_2488-1"),#imageLiteral(resourceName: "IMG_2488-1")]
     var user : UserInfo? = nil
     @IBOutlet weak var tableview: UITableView!
     override func viewDidLoad() {
@@ -25,30 +25,35 @@ class TabMineViewController: BaseTabViewController {
         
     }
     override func viewWillAppear(_ animated: Bool) {
-            super.viewWillAppear(animated)
-           self.navigationController?.setNavigationBarHidden(true, animated: false)
-         user = UserInfoHelper.instance.getUser()
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        user = UserInfoHelper.instance.getUser()
         tableview.reloadData()
-       }
-       override func viewWillDisappear(_ animated: Bool) {
-           super.viewWillDisappear(animated)
-           self.navigationController?.setNavigationBarHidden(false, animated: false)
-       }
-
-    
-//
-    
-    func logout(){
-          KeychainManager.User.DeleteByIdentifier(forKey: .UserInfo)
-                UIView.animate(withDuration: time, animations:{ }, completion: { (true) in
-                    let tranststion =  CATransition()
-                    tranststion.duration = self.time
-                    tranststion.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
-                    UIApplication.shared.keyWindow?.layer.add(tranststion, forKey: "animation")
-                    UIApplication.shared.keyWindow?.rootViewController = self.getloginVc()
-                })
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
+    
+    //
+    
+    func logout(){
+        KeychainManager.User.DeleteByIdentifier(forKey: .UserInfo)
+        UIView.animate(withDuration: time, animations:{ }, completion: { (true) in
+            let tranststion =  CATransition()
+            tranststion.duration = self.time
+            tranststion.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
+            UIApplication.shared.keyWindow?.layer.add(tranststion, forKey: "animation")
+            UIApplication.shared.keyWindow?.rootViewController = self.getloginVc()
+        })
+    }
+    func deleteCoreNovel(){
+        CoreDataManager.shared.deleteAllNovel {
+            self.ShowTip(Title: "删除缓存成功")
+        }
+        
+    }
     
 }
 extension TabMineViewController:UITableViewDelegate,UITableViewDataSource{
@@ -61,6 +66,8 @@ extension TabMineViewController:UITableViewDelegate,UITableViewDataSource{
             switch indexPath.item {
             case 0,1,2,3:
                 self.ShowTip(Title: list[indexPath.item])
+            case 4:
+                deleteCoreNovel()
             default:
                 logout()
             }
@@ -94,8 +101,7 @@ extension TabMineViewController:UITableViewDelegate,UITableViewDataSource{
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: MineItemViewCell.reuseID, for: indexPath) as! MineItemViewCell
             cell.updetaCell(image: imagelist[indexPath.item], lname: list[indexPath.item], rname: nil)
-                       return cell
-            
+            return cell
         }
     }
     

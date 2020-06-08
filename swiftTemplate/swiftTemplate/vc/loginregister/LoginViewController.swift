@@ -17,7 +17,7 @@ class LoginViewController: BaseTabViewController {
         initView()
         
     }
-    func initView(){
+    override func initView(){
         title = "登录"
         ev_phone.delegate = self
         ev_password.delegate = self
