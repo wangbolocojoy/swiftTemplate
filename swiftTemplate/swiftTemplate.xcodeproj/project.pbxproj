@@ -37,6 +37,8 @@
 		C43157EE2483DA810034A74E /* UserInfoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43157ED2483DA810034A74E /* UserInfoHelper.swift */; };
 		C43157F32483DF5B0034A74E /* TabHomeNovelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43157F12483DF5B0034A74E /* TabHomeNovelCell.swift */; };
 		C43157F42483DF5B0034A74E /* TabHomeNovelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C43157F22483DF5B0034A74E /* TabHomeNovelCell.xib */; };
+		C43FDF7B248E88C30023E3F2 /* TabFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43FDF7A248E88C30023E3F2 /* TabFriendsViewController.swift */; };
+		C43FDF7D248E89170023E3F2 /* TabDynamicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43FDF7C248E89170023E3F2 /* TabDynamicViewController.swift */; };
 		C4AEFCD9248BF09E0080904E /* MineItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEFCD7248BF09E0080904E /* MineItemViewCell.swift */; };
 		C4AEFCDA248BF09E0080904E /* MineItemViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4AEFCD8248BF09E0080904E /* MineItemViewCell.xib */; };
 		C4AEFCDD248BF0BD0080904E /* MineUserInfoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEFCDB248BF0BD0080904E /* MineUserInfoViewCell.swift */; };
@@ -93,6 +95,8 @@
 		C43157ED2483DA810034A74E /* UserInfoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoHelper.swift; sourceTree = "<group>"; };
 		C43157F12483DF5B0034A74E /* TabHomeNovelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabHomeNovelCell.swift; sourceTree = "<group>"; };
 		C43157F22483DF5B0034A74E /* TabHomeNovelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabHomeNovelCell.xib; sourceTree = "<group>"; };
+		C43FDF7A248E88C30023E3F2 /* TabFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabFriendsViewController.swift; sourceTree = "<group>"; };
+		C43FDF7C248E89170023E3F2 /* TabDynamicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabDynamicViewController.swift; sourceTree = "<group>"; };
 		C4AEFCD7248BF09E0080904E /* MineItemViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineItemViewCell.swift; sourceTree = "<group>"; };
 		C4AEFCD8248BF09E0080904E /* MineItemViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineItemViewCell.xib; sourceTree = "<group>"; };
 		C4AEFCDB248BF0BD0080904E /* MineUserInfoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineUserInfoViewCell.swift; sourceTree = "<group>"; };
@@ -235,6 +239,8 @@
 				C4AEFCDF248C925A0080904E /* mine */,
 				C43157DA24839C580034A74E /* TabHomeViewController.swift */,
 				C43157DC24839C670034A74E /* TabMineViewController.swift */,
+				C43FDF7A248E88C30023E3F2 /* TabFriendsViewController.swift */,
+				C43FDF7C248E89170023E3F2 /* TabDynamicViewController.swift */,
 			);
 			path = tab;
 			sourceTree = "<group>";
@@ -468,6 +474,7 @@
 				C43157D524839AC30034A74E /* BaseTabViewController.swift in Sources */,
 				C43157EC2483B16B0034A74E /* RequestBody.swift in Sources */,
 				C40240242480193B00F715DC /* AppDelegate.swift in Sources */,
+				C43FDF7B248E88C30023E3F2 /* TabFriendsViewController.swift in Sources */,
 				C43157D3248399FE0034A74E /* BaseViewController.swift in Sources */,
 				C4AEFCFA248E4B330080904E /* BTMMyFanceFollowViewController.swift in Sources */,
 				C402403F248381BE00F715DC /* Constant.swift in Sources */,
@@ -480,6 +487,7 @@
 				C4AEFCF6248E48C30080904E /* BTMMyPostViewController.swift in Sources */,
 				C43157E82483A47D0034A74E /* KeychainManager.swift in Sources */,
 				C43157F32483DF5B0034A74E /* TabHomeNovelCell.swift in Sources */,
+				C43FDF7D248E89170023E3F2 /* TabDynamicViewController.swift in Sources */,
 				C4AEFCE9248CAA310080904E /* BTMUserIconCell.swift in Sources */,
 				C4024046248392A300F715DC /* MyMoyaManager.swift in Sources */,
 				C43157E62483A1F60034A74E /* LoginNavViewController.swift in Sources */,

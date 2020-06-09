@@ -20,9 +20,18 @@ public enum NetworkService{
     case tabhome(K:String)
     //搜索小说
     case searchnovel(k:String)
-
+    //更新用户头像
     case uodateusericon(k:Any,dataAry:NSArray)
+    //更新用户信息
     case updateuserinfo(k:String)
+    //关注用户
+    case followuser(k:String)
+    //取消关注用户
+     case unfollowuser(k:String)
+    //获取关注用户列表
+     case getfollowlist(k:String)
+    //获取粉丝列表
+     case getfancelist(k:String)
 }
 extension NetworkService:Moya.TargetType{
     //MARK: - APISERVICE
@@ -44,11 +53,18 @@ extension NetworkService:Moya.TargetType{
         //novelName
         case .searchnovel:
             return "back-1/myApplication/cas/searchNovel"
- 
         case .uodateusericon:
             return "back-1/swiftTemplate/User/uploadusericon"
         case .updateuserinfo:
             return "back-1/swiftTemplate/User/updateUser"
+        case .followuser:
+            return "back-1/swiftTemplate/Follow/followuser"
+        case .unfollowuser:
+             return "back-1/swiftTemplate/Follow/unfollowuser"
+        case .getfollowlist:
+              return "back-1/swiftTemplate/Follow/unfollowuser"
+        case .getfancelist:
+              return "back-1/swiftTemplate/Follow/getfollowlist"
         }
     }
     //MARK: - 请求方式
@@ -62,7 +78,7 @@ extension NetworkService:Moya.TargetType{
     //MARK: - 请求参数
     public var task: Moya.Task {
         switch self {
-        case .login(let data),.register(let data),.getmsg(let data),.tabhome(let data),.searchnovel(let data),.updateuserinfo(let data):
+        case .login(let data),.register(let data),.getmsg(let data),.tabhome(let data),.searchnovel(let data),.updateuserinfo(let data),.followuser(let data),.unfollowuser(let data),.getfancelist(let data),.getfollowlist(let data):
             return  .requestData(data.utf8Encoded)
          
         case .uodateusericon(let param, let uploadImages):

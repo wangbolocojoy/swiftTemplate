@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -44,15 +45,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1Ju-jX-9aU"/>
                     </view>
-                    <navigationItem key="navigationItem" title="我的" id="00P-lG-Im0"/>
-                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationItem key="navigationItem" title="我的" id="00P-lG-Im0">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="7sf-xP-B10">
+                            <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableview" destination="odc-56-Ocv" id="zMJ-6B-RSK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rE8-XM-OD1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2734.7826086956525" y="332.8125"/>
+            <point key="canvasLocation" x="906" y="1700"/>
         </scene>
         <!--个人信息-->
         <scene sceneID="iFR-lz-2ir">
@@ -82,7 +86,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fEt-Yx-1Bd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3658" y="315"/>
+            <point key="canvasLocation" x="5478.2608695652179" y="314.73214285714283"/>
         </scene>
         <!--我的日记-->
         <scene sceneID="UiK-7Q-g2M">
@@ -112,7 +116,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZPM-FW-Cg5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4887" y="-406"/>
+            <point key="canvasLocation" x="5797.1014492753629" y="-406.47321428571428"/>
         </scene>
         <!--我的粉丝关注-->
         <scene sceneID="9Da-Sb-sDH">
@@ -142,7 +146,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yeb-Ya-pqp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5570" y="-480"/>
+            <point key="canvasLocation" x="6479.7101449275369" y="-480.13392857142856"/>
         </scene>
         <!--用户信息-->
         <scene sceneID="xFB-Oj-Vnd">
@@ -190,7 +194,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m47-oB-mY7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4686" y="350"/>
+            <point key="canvasLocation" x="6505.7971014492759" y="349.55357142857139"/>
         </scene>
         <!--首页-->
         <scene sceneID="qCK-DL-nxF">
@@ -221,31 +225,116 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dSB-uD-KyB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2734.7826086956525" y="-315.40178571428572"/>
+            <point key="canvasLocation" x="1554" y="-750"/>
         </scene>
-        <!--Main Tab Controller-->
+        <!--发现-->
         <scene sceneID="FWH-Zq-0cC">
             <objects>
-                <tabBarController storyboardIdentifier="MAINTABVC" id="njt-NS-v5s" customClass="MainTabController" customModule="swiftTemplate" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5cN-Nc-bV9">
+                <tabBarController storyboardIdentifier="MAINTABVC" title="发现" id="njt-NS-v5s" customClass="MainTabController" customModule="swiftTemplate" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" alpha="0.69999999999999996" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5cN-Nc-bV9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="1" green="0.0075555889129999996" blue="0.55574252310000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
                         <segue destination="Sze-28-tAD" kind="relationship" relationship="viewControllers" id="Bpw-zT-nVc"/>
-                        <segue destination="Phe-bY-Wb5" kind="relationship" relationship="viewControllers" id="Rmh-IA-fhG"/>
+                        <segue destination="gq2-I2-fUk" kind="relationship" relationship="viewControllers" id="sbl-r8-EEv"/>
+                        <segue destination="mHn-QZ-sto" kind="relationship" relationship="viewControllers" id="BBY-4n-GEe"/>
+                        <segue destination="Phe-bY-Wb5" kind="relationship" relationship="viewControllers" id="EmD-xx-lGP"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IhA-5c-iLD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="907" y="117"/>
         </scene>
+        <!--联系人-->
+        <scene sceneID="EKy-ZS-MOO">
+            <objects>
+                <viewController id="9OL-5e-XoK" customClass="TabFriendsViewController" customModule="swiftTemplate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="His-lN-kut">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L8y-WT-QsE">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="jRL-7G-vm2" firstAttribute="trailing" secondItem="L8y-WT-QsE" secondAttribute="trailing" id="4dU-dY-bDm"/>
+                            <constraint firstItem="L8y-WT-QsE" firstAttribute="leading" secondItem="jRL-7G-vm2" secondAttribute="leading" id="PD3-7D-usb"/>
+                            <constraint firstItem="jRL-7G-vm2" firstAttribute="bottom" secondItem="L8y-WT-QsE" secondAttribute="bottom" id="f7K-a0-gG6"/>
+                            <constraint firstItem="L8y-WT-QsE" firstAttribute="top" secondItem="jRL-7G-vm2" secondAttribute="top" id="ru7-z3-v8m"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jRL-7G-vm2"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="联系人" id="3gz-0h-dDB">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="lP8-dC-gPe">
+                            <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BSt-cl-Bx9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3039.130434782609" y="832.36607142857144"/>
+        </scene>
+        <!--动态-->
+        <scene sceneID="I1B-Uj-Yoi">
+            <objects>
+                <viewController id="SIP-Vs-ea7" customClass="TabDynamicViewController" customModule="swiftTemplate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1mj-ON-BY7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="akX-Xe-hM5">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6fn-AK-91T">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="u8A-OU-UrU">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="J1e-Jv-wH1">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="akX-Xe-hM5" firstAttribute="top" secondItem="ivJ-d5-AIr" secondAttribute="top" id="7bZ-6r-9fy"/>
+                            <constraint firstItem="ivJ-d5-AIr" firstAttribute="trailing" secondItem="akX-Xe-hM5" secondAttribute="trailing" id="VHb-Cr-6P7"/>
+                            <constraint firstItem="akX-Xe-hM5" firstAttribute="leading" secondItem="1mj-ON-BY7" secondAttribute="leading" id="XJc-eK-zXY"/>
+                            <constraint firstItem="ivJ-d5-AIr" firstAttribute="bottom" secondItem="akX-Xe-hM5" secondAttribute="bottom" id="tNS-NT-G9Q"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ivJ-d5-AIr"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="动态" id="sft-xX-5H1">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="acS-ua-3Cd">
+                            <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MP9-DS-9e5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3039.130434782609" y="49.553571428571423"/>
+        </scene>
         <!--首页-->
         <scene sceneID="rvg-LK-Pe0">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Sze-28-tAD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="首页" image="heart.fill" catalog="system" landscapeImage="heart" id="flP-4W-ICX"/>
+                    <tabBarItem key="tabBarItem" title="首页" image="house.fill" catalog="system" landscapeImage="house" id="flP-4W-ICX">
+                        <color key="badgeColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6tP-6k-84e">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -258,7 +347,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kon-gc-WLR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1824.6376811594205" y="-315.40178571428572"/>
+            <point key="canvasLocation" x="865" y="-750"/>
         </scene>
         <!--我的-->
         <scene sceneID="hnc-QS-FiV">
@@ -277,7 +366,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4mF-cw-tYB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1824.6376811594205" y="332.8125"/>
+            <point key="canvasLocation" x="906" y="1000"/>
         </scene>
         <!--登录-->
         <scene sceneID="WE1-Zw-aa9">
@@ -385,7 +474,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iIb-0w-nux" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2726.0869565217395" y="1185.9375"/>
+            <point key="canvasLocation" x="2725" y="1675"/>
         </scene>
         <!--注册-->
         <scene sceneID="gdc-0p-ugU">
@@ -517,7 +606,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dQx-JH-DKx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3734.7826086956525" y="1190.625"/>
+            <point key="canvasLocation" x="4644.927536231884" y="1190.625"/>
         </scene>
         <!--Login Nav View Controller-->
         <scene sceneID="JTo-Xz-C2B">
@@ -535,13 +624,57 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5oe-tO-M6t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1817.3913043478262" y="1185.9375"/>
+            <point key="canvasLocation" x="1816" y="1594"/>
+        </scene>
+        <!--动态-->
+        <scene sceneID="Uls-qU-yrH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mHn-QZ-sto" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="动态" image="heart.fill" catalog="system" landscapeImage="heart" id="PYT-t3-5LG">
+                        <color key="badgeColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LZS-Vx-4hr">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="SIP-Vs-ea7" kind="relationship" relationship="rootViewController" id="2o1-EO-6lX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Oc-Vl-aw5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2128.985507246377" y="49.553571428571423"/>
+        </scene>
+        <!--联系人-->
+        <scene sceneID="qOm-LL-UzX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gq2-I2-fUk" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="联系人" image="person.crop.square.fill" catalog="system" landscapeImage="person.crop.square" id="Rvr-qP-x6T"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="a3p-mA-cYT">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9OL-5e-XoK" kind="relationship" relationship="rootViewController" id="mcg-O4-E3p"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1To-Or-T60" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2128.985507246377" y="832.36607142857144"/>
         </scene>
     </scenes>
     <resources>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <image name="house" catalog="system" width="128" height="110"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="person.crop.circle" catalog="system" width="128" height="121"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="person.crop.square" catalog="system" width="128" height="114"/>
+        <image name="person.crop.square.fill" catalog="system" width="128" height="114"/>
     </resources>
 </document>
