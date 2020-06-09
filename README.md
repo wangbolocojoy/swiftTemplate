@@ -107,9 +107,22 @@ extension KeychainManagerSettable where defaultKeys.RawValue == String{
        let phone = UserDefaults.User.getvalue(forKey: .手机号) as? String
 ```
 
-#### app首页适配Dark模式，接入注册登录，[后台地址](https://github.com/wangbolocojoy/KotlinSpringBootBack)
+#### app适配Dark模式，[后台地址](https://github.com/wangbolocojoy/KotlinSpringBootBack)
+#####  [接入注册登录](✅)
 
-#### app部分界面
+##### [获取小说列表](✅)
+
+##### [修改用户信息](✅)
+
+##### [获取粉丝列表](👨🏻‍💻)
+
+##### [获取关注列表](👨🏻‍💻)
+
+##### [关注用户](👨🏻‍💻)
+
+##### [取消关注用户](👨🏻‍💻)
+
+####   app部分界面
 
 <img src="https://myiosandroidkotlinapplication.oss-cn-chengdu.aliyuncs.com/github/IMG_2557.PNG?x-oss-process=style/yasuo90" width="20%" height="20%" /> <img src="https://myiosandroidkotlinapplication.oss-cn-chengdu.aliyuncs.com/github/IMG_2558.PNG?x-oss-process=style/yasuo90" width="20%" height="20%" /> <img src="https://myiosandroidkotlinapplication.oss-cn-chengdu.aliyuncs.com/github/IMG_2559.PNG?x-oss-process=style/yasuo90" width="20%" height="20%" /> <img src="https://myiosandroidkotlinapplication.oss-cn-chengdu.aliyuncs.com/github/IMG_2560.PNG?x-oss-process=style/yasuo90" width="20%" height="20%" />
 
