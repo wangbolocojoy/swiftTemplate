@@ -10,6 +10,8 @@ import Foundation
 import ObjectMapper
 class RequestBody: Mappable {
     var id:Int?
+    var userid:Int?
+    var followid:Int?
     var icon:String?
     var password:String?
     var phone:String?
@@ -23,7 +25,7 @@ class RequestBody: Mappable {
     var relasename:String?
     var seayinfo:String?
     var address:String?
-    var userSex:Bool?
+    var usersex:Bool?
     init() {
         
     }
@@ -46,7 +48,9 @@ class RequestBody: Mappable {
         relasename <- map["relasename"]
         seayinfo <- map["seayinfo"]
         address <- map["address"]
-        userSex <- map["userSex"]
+        usersex <- map["usersex"]
+         userid <- map["userid"]
+         followid <- map["followid"]
         
     }
     

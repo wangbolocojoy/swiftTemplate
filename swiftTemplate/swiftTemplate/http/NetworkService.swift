@@ -61,9 +61,9 @@ extension NetworkService:Moya.TargetType{
         case .unfollowuser:
             return "back-1/swiftTemplate/Follow/unfollowuser"
         case .getfollowlist:
-            return "back-1/swiftTemplate/Follow/unfollowuser"
-        case .getfancelist:
             return "back-1/swiftTemplate/Follow/getfollowlist"
+        case .getfancelist:
+            return "back-1/swiftTemplate/Follow/getfancelist"
         }
     }
     //MARK: - 请求方式

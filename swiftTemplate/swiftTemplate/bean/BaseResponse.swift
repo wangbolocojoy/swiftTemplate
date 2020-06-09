@@ -15,6 +15,7 @@ class BaseResponse: Mappable {
     var userinfo:UserInfo?
     var novellist:[NovelInfo]?
     var imageurl:String?
+    var fancefollowlist:[UserInfo]?
     required init?(map: Map) {
     }
     func mapping(map: Map) {
@@ -24,6 +25,7 @@ class BaseResponse: Mappable {
         novellist <- map["data"]
         message <- map["message"]
         imageurl <- map["data"]
+        fancefollowlist <- map["data"]
     }
     
 }
@@ -71,7 +73,8 @@ class UserInfo: Mappable {
     var token:String?
     var seayinfo:String?
     var address:String?
-    var userSex:Bool?
+    var usersex:Bool?
+    var isfollow:Bool?
     required init?(map: Map) {
     }
     func mapping(map: Map) {
@@ -86,8 +89,9 @@ class UserInfo: Mappable {
         fances <- map["fances"]
         token <- map["token"]
         seayinfo <- map["seayinfo"]
-         address <- map["address"]
-        userSex <- map["userSex"]
+        address <- map["address"]
+        usersex <- map["usersex"]
+        isfollow <- map["isfollow"]
     }
     
 }

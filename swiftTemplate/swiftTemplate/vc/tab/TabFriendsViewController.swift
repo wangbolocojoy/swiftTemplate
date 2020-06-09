@@ -13,7 +13,6 @@ class TabFriendsViewController: BaseTabViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
     }
     
 
