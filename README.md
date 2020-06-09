@@ -111,7 +111,7 @@ extension KeychainManagerSettable where defaultKeys.RawValue == String{
 
 #### app首页
 
-<img src="https://myiosandroidkotlinapplication.oss-cn-chengdu.aliyuncs.com/github/IMG_2557.PNG?x-oss-process=style/yasuo90" />
+<img src="https://myiosandroidkotlinapplication.oss-cn-chengdu.aliyuncs.com/github/IMG_2557.PNG?x-oss-process=style/yasuo90" width="50%" height="50%" />
 <img src="https://myiosandroidkotlinapplication.oss-cn-chengdu.aliyuncs.com/github/IMG_2558.PNG?x-oss-process=style/yasuo90" />
 
 
