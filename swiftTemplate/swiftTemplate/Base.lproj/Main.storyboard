@@ -196,7 +196,7 @@
             </objects>
             <point key="canvasLocation" x="6505.7971014492759" y="349.55357142857139"/>
         </scene>
-        <!--首页-->
+        <!--Tab Home View Controller-->
         <scene sceneID="qCK-DL-nxF">
             <objects>
                 <viewController id="gMe-VO-irN" customClass="TabHomeViewController" customModule="swiftTemplate" customModuleProvider="target" sceneMemberID="viewController">
@@ -218,7 +218,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fWs-78-Wqt"/>
                     </view>
-                    <navigationItem key="navigationItem" title="首页" id="zJU-6Q-zHt"/>
+                    <navigationItem key="navigationItem" id="zJU-6Q-zHt"/>
                     <connections>
                         <outlet property="tableview" destination="ews-R8-dVu" id="16m-PX-JuR"/>
                     </connections>
@@ -258,7 +258,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L8y-WT-QsE">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -290,7 +290,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="akX-Xe-hM5">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6fn-AK-91T">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
