@@ -110,17 +110,11 @@ extension KeychainManagerSettable where defaultKeys.RawValue == String{
 #### app首页适配Dark模式，接入注册登录，[后台地址](https://github.com/wangbolocojoy/KotlinSpringBootBack)
 
 #### app首页
-
-<img src="https://www.google.com/doodles/kamma-rahbeks-241st-birthday" width="200px" />
-<img src="https://www.google.com/doodles/kamma-rahbeks-241st-birthday" style="height:200px" />
-
-
-    <img src="./xxx.png" width = "300" height = "200" alt="图片名称" align=center />
-    ![image](https://myiosandroidkotlinapplication.oss-cn-chengdu.aliyuncs.com/github/IMG_2557.PNG?x-oss-process=style/yasuo90)
-    ![image](https://myiosandroidkotlinapplication.oss-cn-chengdu.aliyuncs.com/github/IMG_2558.PNG?x-oss-process=style/yasuo90)
-    ![image](https://myiosandroidkotlinapplication.oss-cn-chengdu.aliyuncs.com/github/IMG_2559.PNG?x-oss-process=style/yasuo90)
-    ![image](https://myiosandroidkotlinapplication.oss-cn-chengdu.aliyuncs.com/github/IMG_2560.PNG?x-oss-process=style/yasuo90)
-    ![image](https://myiosandroidkotlinapplication.oss-cn-chengdu.aliyuncs.com/github/IMG_2562.PNG?x-oss-process=style/yasuo90)
-    ![image](https://myiosandroidkotlinapplication.oss-cn-chengdu.aliyuncs.com/github/IMG_2563.PNG?x-oss-process=style/yasuo90)
-    ![image](https://myiosandroidkotlinapplication.oss-cn-chengdu.aliyuncs.com/github/IMG_2566.PNG?x-oss-process=style/yasuo90)
-    ![image](https://myiosandroidkotlinapplication.oss-cn-chengdu.aliyuncs.com/github/IMG_2567.PNG?x-oss-process=style/yasuo90)
+![image](https://myiosandroidkotlinapplication.oss-cn-chengdu.aliyuncs.com/github/IMG_2557.PNG?x-oss-process=style/yasuo90)
+![image](https://myiosandroidkotlinapplication.oss-cn-chengdu.aliyuncs.com/github/IMG_2558.PNG?x-oss-process=style/yasuo90)
+![image](https://myiosandroidkotlinapplication.oss-cn-chengdu.aliyuncs.com/github/IMG_2559.PNG?x-oss-process=style/yasuo90)
+![image](https://myiosandroidkotlinapplication.oss-cn-chengdu.aliyuncs.com/github/IMG_2560.PNG?x-oss-process=style/yasuo90)
+![image](https://myiosandroidkotlinapplication.oss-cn-chengdu.aliyuncs.com/github/IMG_2562.PNG?x-oss-process=style/yasuo90)
+![image](https://myiosandroidkotlinapplication.oss-cn-chengdu.aliyuncs.com/github/IMG_2563.PNG?x-oss-process=style/yasuo90)
+![image](https://myiosandroidkotlinapplication.oss-cn-chengdu.aliyuncs.com/github/IMG_2566.PNG?x-oss-process=style/yasuo90)
+![image](https://myiosandroidkotlinapplication.oss-cn-chengdu.aliyuncs.com/github/IMG_2567.PNG?x-oss-process=style/yasuo90)
