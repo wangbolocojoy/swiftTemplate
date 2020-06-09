@@ -27,11 +27,11 @@ public enum NetworkService{
     //关注用户
     case followuser(k:String)
     //取消关注用户
-     case unfollowuser(k:String)
+    case unfollowuser(k:String)
     //获取关注用户列表
-     case getfollowlist(k:String)
+    case getfollowlist(k:String)
     //获取粉丝列表
-     case getfancelist(k:String)
+    case getfancelist(k:String)
 }
 extension NetworkService:Moya.TargetType{
     //MARK: - APISERVICE
@@ -50,7 +50,6 @@ extension NetworkService:Moya.TargetType{
             return "getmsg"
         case .tabhome:
             return "back-1/myApplication/cas/getPageNovelList"
-        //novelName
         case .searchnovel:
             return "back-1/myApplication/cas/searchNovel"
         case .uodateusericon:
@@ -60,11 +59,11 @@ extension NetworkService:Moya.TargetType{
         case .followuser:
             return "back-1/swiftTemplate/Follow/followuser"
         case .unfollowuser:
-             return "back-1/swiftTemplate/Follow/unfollowuser"
+            return "back-1/swiftTemplate/Follow/unfollowuser"
         case .getfollowlist:
-              return "back-1/swiftTemplate/Follow/unfollowuser"
+            return "back-1/swiftTemplate/Follow/unfollowuser"
         case .getfancelist:
-              return "back-1/swiftTemplate/Follow/getfollowlist"
+            return "back-1/swiftTemplate/Follow/getfollowlist"
         }
     }
     //MARK: - 请求方式
@@ -80,21 +79,21 @@ extension NetworkService:Moya.TargetType{
         switch self {
         case .login(let data),.register(let data),.getmsg(let data),.tabhome(let data),.searchnovel(let data),.updateuserinfo(let data),.followuser(let data),.unfollowuser(let data),.getfancelist(let data),.getfollowlist(let data):
             return  .requestData(data.utf8Encoded)
-         
+            
         case .uodateusericon(let param, let uploadImages):
-             let formDataAry:NSMutableArray = NSMutableArray()
-                            for (index,image) in uploadImages.enumerated() {
-                                let data:Data = (image as! UIImage).jpegData(compressionQuality: 0.8)!
-                                let date:Date = Date()
-                                let formatter = DateFormatter()
-                                formatter.dateFormat = "yyyy-MM-dd-HH:mm:ss"
-                                var dateStr:String = formatter.string(from: date as Date)
-                                dateStr = dateStr.appendingFormat("-%i.png", index)
-                                let formData = MultipartFormData(provider: .data(data), name: "uploadFile", fileName: dateStr, mimeType: "image/jpeg")
-                                formDataAry.add(formData)
-                            }
-                       guard let p1 = param as? [String:String] else { return .requestPlain}
-             return .uploadCompositeMultipart(formDataAry as! [MultipartFormData], urlParameters: p1)
+            let formDataAry:NSMutableArray = NSMutableArray()
+            for (index,image) in uploadImages.enumerated() {
+                let data:Data = (image as! UIImage).jpegData(compressionQuality: 0.8)!
+                let date:Date = Date()
+                let formatter = DateFormatter()
+                formatter.dateFormat = "yyyy-MM-dd-HH:mm:ss"
+                var dateStr:String = formatter.string(from: date as Date)
+                dateStr = dateStr.appendingFormat("-%i.png", index)
+                let formData = MultipartFormData(provider: .data(data), name: "uploadFile", fileName: dateStr, mimeType: "image/jpeg")
+                formDataAry.add(formData)
+            }
+            guard let p1 = param as? [String:String] else { return .requestPlain}
+            return .uploadCompositeMultipart(formDataAry as! [MultipartFormData], urlParameters: p1)
         }
         
         

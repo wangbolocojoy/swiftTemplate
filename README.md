@@ -2,7 +2,9 @@
 
 ## 集成该项目可以快速开发ios  app
 
-### 网络请求加解析框架 基于 [Moya](https://github.com/Moya/Moya) [ObjectMapper](https://github.com/tristanhimmelman/ObjectMapper) 基础上进行封装 使用  UIViewController.  ```AllRequest``` 进行使用
+### 网络请求加解析框架 基于 [Moya](https://github.com/Moya/Moya) [ObjectMapper](https://github.com/tristanhimmelman/ObjectMapper) 基础上进行封装 使用  MyMoyaManager.  AllRequest 进行使用
+### 继承BaseViewController实现Dark模式
+
 ```swift
 struct MyMoyaManager{
     //MARK: - 通用请求
@@ -108,5 +110,11 @@ extension KeychainManagerSettable where defaultKeys.RawValue == String{
 #### app首页适配Dark模式，接入注册登录，[后台地址](https://github.com/wangbolocojoy/KotlinSpringBootBack)
 
 #### app首页
-![image](https://github.com/wangbolocojoy/swiftTemplate/tree/master/swiftTemplate/1590933433212.jpg)
-![image](https://github.com/wangbolocojoy/swiftTemplate/tree/master/swiftTemplate/1590933458489.jpg)
+![image](https://myiosandroidkotlinapplication.oss-cn-chengdu.aliyuncs.com/github/IMG_2557.PNG?x-oss-process=style/yasuo90)
+![image](https://myiosandroidkotlinapplication.oss-cn-chengdu.aliyuncs.com/github/IMG_2558.PNG?x-oss-process=style/yasuo90)
+![image](https://myiosandroidkotlinapplication.oss-cn-chengdu.aliyuncs.com/github/IMG_2559.PNG?x-oss-process=style/yasuo90)
+![image](https://myiosandroidkotlinapplication.oss-cn-chengdu.aliyuncs.com/github/IMG_2560.PNG?x-oss-process=style/yasuo90)
+![image](https://myiosandroidkotlinapplication.oss-cn-chengdu.aliyuncs.com/github/IMG_2562.PNG?x-oss-process=style/yasuo90)
+![image](https://myiosandroidkotlinapplication.oss-cn-chengdu.aliyuncs.com/github/IMG_2563.PNG?x-oss-process=style/yasuo90)
+![image](https://myiosandroidkotlinapplication.oss-cn-chengdu.aliyuncs.com/github/IMG_2566.PNG?x-oss-process=style/yasuo90)
+![image](https://myiosandroidkotlinapplication.oss-cn-chengdu.aliyuncs.com/github/IMG_2567.PNG?x-oss-process=style/yasuo90)
