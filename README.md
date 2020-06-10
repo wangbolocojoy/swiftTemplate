@@ -1,6 +1,4 @@
-# Swift项目快速开发框架
-
-## 集成该项目可以快速开发ios  app
+# Photography
 
 ### 网络请求加解析框架 基于 [Moya](https://github.com/Moya/Moya) [ObjectMapper](https://github.com/tristanhimmelman/ObjectMapper) 基础上进行封装 使用  MyMoyaManager.  AllRequest 进行使用
 ### 继承BaseViewController实现Dark模式
@@ -114,18 +112,23 @@ extension KeychainManagerSettable where defaultKeys.RawValue == String{
 
 ##### [修改用户信息✅](https://github.com/wangbolocojoy/swiftTemplate/blob/master/swiftTemplate/swiftTemplate/http/NetworkService.swift)
 
-##### [获取粉丝列表👨🏻‍💻](https://github.com/wangbolocojoy/swiftTemplate/blob/master/swiftTemplate/swiftTemplate/http/NetworkService.swift)
+##### [上传头像到阿里云oss ,oss删除原有头像✅](https://github.com/wangbolocojoy/swiftTemplate/blob/master/swiftTemplate/swiftTemplate/http/NetworkService.swift)
 
-##### [获取关注列表👨🏻‍💻](https://github.com/wangbolocojoy/swiftTemplate/blob/master/swiftTemplate/swiftTemplate/http/NetworkService.swift)
+##### [获取粉丝列表✅](https://github.com/wangbolocojoy/swiftTemplate/blob/master/swiftTemplate/swiftTemplate/http/NetworkService.swift)
 
-##### [关注用户👨🏻‍💻](https://github.com/wangbolocojoy/swiftTemplate/blob/master/swiftTemplate/swiftTemplate/http/NetworkService.swift)
+##### [获取关注列表✅](https://github.com/wangbolocojoy/swiftTemplate/blob/master/swiftTemplate/swiftTemplate/http/NetworkService.swift)
 
-##### [取消关注用户👨🏻‍💻](https://github.com/wangbolocojoy/swiftTemplate/blob/master/swiftTemplate/swiftTemplate/http/NetworkService.swift)
+##### [关注用户✅](https://github.com/wangbolocojoy/swiftTemplate/blob/master/swiftTemplate/swiftTemplate/http/NetworkService.swift)
+
+##### [取消关注用户✅](https://github.com/wangbolocojoy/swiftTemplate/blob/master/swiftTemplate/swiftTemplate/http/NetworkService.swift)
+
+##### [获取推荐人列表✅](https://github.com/wangbolocojoy/swiftTemplate/blob/master/swiftTemplate/swiftTemplate/http/NetworkService.swift)
+
+##### [发帖👨🏻‍💻](https://github.com/wangbolocojoy/swiftTemplate/blob/master/swiftTemplate/swiftTemplate/http/NetworkService.swift)
 
 ####   app部分界面
 
 <img src="https://myiosandroidkotlinapplication.oss-cn-chengdu.aliyuncs.com/github/IMG_2557.PNG?x-oss-process=style/yasuo90" width="20%" height="20%" /> <img src="https://myiosandroidkotlinapplication.oss-cn-chengdu.aliyuncs.com/github/IMG_2558.PNG?x-oss-process=style/yasuo90" width="20%" height="20%" /> <img src="https://myiosandroidkotlinapplication.oss-cn-chengdu.aliyuncs.com/github/IMG_2559.PNG?x-oss-process=style/yasuo90" width="20%" height="20%" /> <img src="https://myiosandroidkotlinapplication.oss-cn-chengdu.aliyuncs.com/github/IMG_2560.PNG?x-oss-process=style/yasuo90" width="20%" height="20%" />
-
 
 
 <img src="https://myiosandroidkotlinapplication.oss-cn-chengdu.aliyuncs.com/github/IMG_2562.PNG?x-oss-process=style/yasuo90" width="20%" height="20%" /> <img src="https://myiosandroidkotlinapplication.oss-cn-chengdu.aliyuncs.com/github/IMG_2563.PNG?x-oss-process=style/yasuo90" width="20%" height="20%" /> <img src="https://myiosandroidkotlinapplication.oss-cn-chengdu.aliyuncs.com/github/IMG_2566.PNG?x-oss-process=style/yasuo90" width="20%" height="20%" /> <img src="https://myiosandroidkotlinapplication.oss-cn-chengdu.aliyuncs.com/github/IMG_2567.PNG?x-oss-process=style/yasuo90" width="20%" height="20%" />
