@@ -72,6 +72,9 @@ class MineUserInfoViewCell: UITableViewCell {
         lab_nickname.text = user?.nickname ?? "SuperHero"
         lab_useresayinfo.text = user?.seayinfo
         versionname.text = Constant.instance.版本环境
+        lab_userpostnumber.text = "\(user?.likestarts ?? 0)"
+        lab_guanzhunumber.text = "\(user?.follows ?? 0)"
+        lab_userfancenumber.text = "\(user?.fances ?? 0)"
     }
     
 }

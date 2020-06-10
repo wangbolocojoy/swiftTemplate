@@ -75,6 +75,7 @@ class UserInfo: Mappable {
     var address:String?
     var usersex:Bool?
     var isfollow:Bool?
+    var follows:Int?
     required init?(map: Map) {
     }
     func mapping(map: Map) {
@@ -92,6 +93,7 @@ class UserInfo: Mappable {
         address <- map["address"]
         usersex <- map["usersex"]
         isfollow <- map["isfollow"]
+        follows <- map["follows"]
     }
     
 }

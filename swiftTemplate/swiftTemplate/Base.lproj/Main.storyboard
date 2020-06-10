@@ -273,8 +273,14 @@
                     <navigationItem key="navigationItem" title="联系人" id="3gz-0h-dDB">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="lP8-dC-gPe">
                             <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <connections>
+                                <action selector="addfriend:" destination="9OL-5e-XoK" id="Eaq-0g-zvU"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableview" destination="L8y-WT-QsE" id="RDt-BF-nrp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BSt-cl-Bx9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

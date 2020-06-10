@@ -20,7 +20,7 @@
                         <rect key="frame" x="8" y="2" width="635" height="254"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_2506" translatesAutoresizingMaskIntoConstraints="NO" id="SxC-y1-cbJ">
-                                <rect key="frame" x="10" y="92" width="70" height="70"/>
+                                <rect key="frame" x="5" y="92" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="1eE-mg-UEb"/>
                                     <constraint firstAttribute="height" constant="70" id="457-oe-WaV"/>
@@ -33,30 +33,32 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iRI-Ve-HRI">
-                                <rect key="frame" x="90" y="92" width="37.5" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <rect key="frame" x="85" y="92" width="35" height="19.5"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sik-fh-mI7">
-                                <rect key="frame" x="90" y="120" width="435" height="16"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sik-fh-mI7">
+                                <rect key="frame" x="85" y="116.5" width="470" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhU-2n-yZV">
-                                <rect key="frame" x="540" y="112" width="80" height="30"/>
+                                <rect key="frame" x="565" y="114.5" width="60" height="25"/>
                                 <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="ZwQ-eO-LAk"/>
+                                    <constraint firstAttribute="width" constant="60" id="ZwQ-eO-LAk"/>
+                                    <constraint firstAttribute="height" constant="25" id="wEY-Nt-8vJ"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="互相关注">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="8"/>
+                                        <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -66,14 +68,14 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="xhU-2n-yZV" secondAttribute="trailing" constant="15" id="0dp-pA-J2f"/>
+                            <constraint firstAttribute="trailing" secondItem="xhU-2n-yZV" secondAttribute="trailing" constant="10" id="0dp-pA-J2f"/>
                             <constraint firstItem="SxC-y1-cbJ" firstAttribute="centerY" secondItem="eMj-LJ-aYD" secondAttribute="centerY" id="0sp-Tn-sa2"/>
                             <constraint firstItem="xhU-2n-yZV" firstAttribute="centerY" secondItem="eMj-LJ-aYD" secondAttribute="centerY" id="2xu-Ri-eOr"/>
                             <constraint firstItem="iRI-Ve-HRI" firstAttribute="top" secondItem="SxC-y1-cbJ" secondAttribute="top" id="6JL-xT-f4s"/>
-                            <constraint firstItem="xhU-2n-yZV" firstAttribute="leading" secondItem="sik-fh-mI7" secondAttribute="trailing" constant="15" id="7Zf-lj-nJo"/>
-                            <constraint firstItem="sik-fh-mI7" firstAttribute="top" secondItem="iRI-Ve-HRI" secondAttribute="bottom" constant="10" id="kuO-vX-SZe"/>
+                            <constraint firstItem="xhU-2n-yZV" firstAttribute="leading" secondItem="sik-fh-mI7" secondAttribute="trailing" constant="10" id="7Zf-lj-nJo"/>
+                            <constraint firstItem="sik-fh-mI7" firstAttribute="top" secondItem="iRI-Ve-HRI" secondAttribute="bottom" constant="5" id="kuO-vX-SZe"/>
                             <constraint firstItem="sik-fh-mI7" firstAttribute="leading" secondItem="SxC-y1-cbJ" secondAttribute="trailing" constant="10" id="rv7-w1-PA5"/>
-                            <constraint firstItem="SxC-y1-cbJ" firstAttribute="leading" secondItem="eMj-LJ-aYD" secondAttribute="leading" constant="10" id="sh8-N8-6eD"/>
+                            <constraint firstItem="SxC-y1-cbJ" firstAttribute="leading" secondItem="eMj-LJ-aYD" secondAttribute="leading" constant="5" id="sh8-N8-6eD"/>
                             <constraint firstItem="iRI-Ve-HRI" firstAttribute="leading" secondItem="SxC-y1-cbJ" secondAttribute="trailing" constant="10" id="zwK-ng-Wba"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -99,7 +101,7 @@
                 <outlet property="user_info" destination="sik-fh-mI7" id="F2U-i8-o5J"/>
                 <outlet property="user_name" destination="iRI-Ve-HRI" id="G5O-rb-bHi"/>
             </connections>
-            <point key="canvasLocation" x="154.34782608695653" y="219.64285714285714"/>
+            <point key="canvasLocation" x="37" y="267"/>
         </tableViewCell>
     </objects>
     <resources>

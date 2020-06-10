@@ -32,6 +32,10 @@ public enum NetworkService{
     case getfollowlist(k:String)
     //获取粉丝列表
     case getfancelist(k:String)
+    //查找用户
+    case finduser(k:String)
+    
+    case findrecommendlist(k:String)
 }
 extension NetworkService:Moya.TargetType{
     //MARK: - APISERVICE
@@ -64,7 +68,12 @@ extension NetworkService:Moya.TargetType{
             return "back-1/swiftTemplate/Follow/getfollowlist"
         case .getfancelist:
             return "back-1/swiftTemplate/Follow/getfancelist"
+        case .finduser:
+            return "back-1/swiftTemplate/User/searchfollow"
+        case .findrecommendlist:
+            return "back-1/swiftTemplate/Follow/getrecommendlist"
         }
+        
     }
     //MARK: - 请求方式
     public var method: Moya.Method {
@@ -77,7 +86,7 @@ extension NetworkService:Moya.TargetType{
     //MARK: - 请求参数
     public var task: Moya.Task {
         switch self {
-        case .login(let data),.register(let data),.getmsg(let data),.tabhome(let data),.searchnovel(let data),.updateuserinfo(let data),.followuser(let data),.unfollowuser(let data),.getfancelist(let data),.getfollowlist(let data):
+        case .login(let data),.register(let data),.getmsg(let data),.tabhome(let data),.searchnovel(let data),.updateuserinfo(let data),.followuser(let data),.unfollowuser(let data),.getfancelist(let data),.getfollowlist(let data),.finduser(let data),.findrecommendlist(let data):
             return  .requestData(data.utf8Encoded)
             
         case .uodateusericon(let param, let uploadImages):

@@ -12,6 +12,7 @@ import UIKit
 class BTMMyFanceFollowViewController: BaseViewController {
     var type:Int? = nil
     var list:[UserInfo]? = nil
+      let userid = UserInfoHelper.instance.getUser()?.id ?? 0
     @IBOutlet weak var tableview: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,7 @@ class BTMMyFanceFollowViewController: BaseViewController {
     
     func getFanceOrFollow(){
         let body = RequestBody()
-        body.userid = UserInfoHelper.instance.getUser()?.id ?? 0
+        body.userid = userid
         if type ?? 1 == 1 {
             getFanceList(body: body.toJSONString() ?? "")
         }else{
@@ -48,17 +49,45 @@ class BTMMyFanceFollowViewController: BaseViewController {
         }
     }
     
+    func follow(index:Int,u:UserInfo?)  {
+           let body = RequestBody()
+           body.userid = userid
+           body.followid = u?.id ?? 0
+           MyMoyaManager.AllRequest(controller: self, NetworkService.followuser(k: body.toJSONString() ?? "" )) { (data) in
+                   KeychainManager.User.UpdataByIdentifier(data: data.userinfo?.toJSONString() ?? "", forKey: .UserInfo)
+                   self.ShowTip(Title: data.msg ?? "")
+           }
+       }
+       func unfollow(index:Int,u:UserInfo?){
+           let body = RequestBody()
+                  body.userid = userid
+                  body.followid = u?.id ?? 0
+                  MyMoyaManager.AllRequest(controller: self, NetworkService.unfollowuser(k: body.toJSONString() ?? "" )) { (data) in
+                          KeychainManager.User.UpdataByIdentifier(data: data.userinfo?.toJSONString() ?? "", forKey: .UserInfo)
+                   self.list?.remove(at:index )
+                   self.tableview.reloadData()
+                   self.ShowTip(Title: data.msg ?? "")
+                  }
+       }
+    
 }
 extension BTMMyFanceFollowViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return list?.count ?? 0
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 90
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: FanceORFollowCell.reuseID, for: indexPath) as! FanceORFollowCell
-        cell.updateCell(u: list?[indexPath.item])
+        cell.updateCell(i:indexPath.item,u: list?[indexPath.item])
+        cell.callBackBlock { (indx, user) in
+            if user?.isfollow ?? false == true {
+                self.unfollow(index: indx, u: user)
+            }else{
+                self.follow(index: indx, u: user)
+            }
+        }
         return cell
     }
 }

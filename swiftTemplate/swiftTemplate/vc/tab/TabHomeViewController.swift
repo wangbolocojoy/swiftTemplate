@@ -22,12 +22,12 @@ class TabHomeViewController: BaseTabViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // 初始化搜索控制器
-              self.searchController = UISearchController(searchResultsController: nil)
-              self.searchController.searchResultsUpdater = self
-              self.searchController.dimsBackgroundDuringPresentation = false
+        self.searchController = UISearchController(searchResultsController: nil)
+        self.searchController.searchResultsUpdater = self
+        self.searchController.dimsBackgroundDuringPresentation = false
               // 将搜索控制器集成到导航栏上
-              navigationItem.searchController = self.searchController
-            navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.searchController = self.searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
     func getNovel(body:RequestBody){
         MyMoyaManager.AllRequest(controller: self, NetworkService.tabhome(K: body.toJSONString()!)) { (data) in

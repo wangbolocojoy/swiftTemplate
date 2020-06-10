@@ -45,10 +45,9 @@ class BTMUserInfoController: BaseViewController{
         iconActionSheet.addAction(UIAlertAction(title: "拍照", style: UIAlertAction.Style.default, handler: { (UIAlertAction) in
             if PermissionHelper.instance.cameraEnableDelegate(){
                            self.openCamera()
-                           
-                       }else{
-                           self.Showalert(Title: "相机访问受限")
-                       }
+            }else{
+                    self.Showalert(Title: "相机访问受限")
+            }
         }))
         iconActionSheet.addAction(UIAlertAction(title:"取消", style: UIAlertAction.Style.cancel, handler:nil))
         self.present(iconActionSheet, animated: true, completion: nil)
