@@ -55,7 +55,7 @@ class BTMUserInfoController: BaseViewController{
     }
     
     func refresh(){
-        user = UserInfoHelper.instance.getUser()
+        user = UserInfoHelper.instance.user
         tableview.reloadData()
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -214,9 +214,9 @@ extension BTMUserInfoController: UIImagePickerControllerDelegate ,UINavigationCo
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let img = info[UIImagePickerController.InfoKey.editedImage] as! UIImage
         let imglist :NSArray = [img]
-        let param = ["id":"\(UserInfoHelper.instance.getUser()?.id ?? 0)","uploadtype":"image"]
+        let param = ["id":"\(UserInfoHelper.instance.user?.id ?? 0)","uploadtype":"image"]
         MyMoyaManager.AllRequest(controller: self, NetworkService.uodateusericon(k: param, dataAry: imglist)) { (data) in
-            KeychainManager.User.UpdataByIdentifier(data: data.userinfo?.toJSONString() ?? "", forKey: .UserInfo)
+            UserInfoHelper.instance.user = data.userinfo
             self.refresh()
             self.ShowTip(Title: data.msg)
            

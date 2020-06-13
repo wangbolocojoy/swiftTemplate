@@ -27,7 +27,7 @@ class TabMineViewController: BaseTabViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-        user = UserInfoHelper.instance.getUser()
+        user = UserInfoHelper.instance.user
         tableview.reloadData()
     }
     override func viewWillDisappear(_ animated: Bool) {

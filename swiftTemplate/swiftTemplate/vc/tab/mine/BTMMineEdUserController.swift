@@ -32,7 +32,7 @@ class BTMMineEdUserController: BaseViewController {
     }
     @objc func save(){
         let body = RequestBody()
-        body.id = UserInfoHelper.instance.getUser()?.id ?? 0
+        body.id = UserInfoHelper.instance.user?.id ?? 0
         switch type ?? "" {
         case "昵称":
             body.nickname =  lab_test.text
@@ -46,7 +46,8 @@ class BTMMineEdUserController: BaseViewController {
             lab_test.placeholder = ""
         }
         MyMoyaManager.AllRequest(controller: self, NetworkService.updateuserinfo(k: body.toJSONString() ?? "")) { (data) in
-            KeychainManager.User.UpdataByIdentifier(data: data.userinfo?.toJSONString() ?? "", forKey: .UserInfo)
+            UserInfoHelper.instance.user = data.userinfo
+          
             self.ShowTipsClose(tite: data.msg ?? "更新成功")
         }
     }

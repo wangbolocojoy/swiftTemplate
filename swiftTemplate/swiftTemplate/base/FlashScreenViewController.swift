@@ -15,7 +15,7 @@ class FlashScreenViewController: BaseViewController {
         checkRootVc()
     }
     func checkRootVc(){
-        let user = UserInfoHelper.instance.getUser()
+        let user = UserInfoHelper.instance.user 
        UIView.animate(withDuration: time, animations:{ }, completion: { (true) in
                 let tranststion =  CATransition()
                 tranststion.duration = self.time

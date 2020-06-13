@@ -13,7 +13,7 @@ class TabFriendsViewController: BaseTabViewController {
     let header = MJRefreshNormalHeader()
     var list:[UserInfo]? = nil
     var page = 0
-    let userid = UserInfoHelper.instance.getUser()?.id ?? 0
+    let userid = UserInfoHelper.instance.user?.id ?? 0
     @IBOutlet weak var tableview: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,7 +72,7 @@ class TabFriendsViewController: BaseTabViewController {
         body.userid = userid
         body.followid = u?.id ?? 0
         MyMoyaManager.AllRequest(controller: self, NetworkService.followuser(k: body.toJSONString() ?? "" )) { (data) in
-                KeychainManager.User.UpdataByIdentifier(data: data.userinfo?.toJSONString() ?? "", forKey: .UserInfo)
+                UserInfoHelper.instance.user = data.userinfo
             self.list?.remove(at:index )
             self.tableview.reloadData()
             self.ShowTip(Title: data.msg ?? "")
@@ -83,7 +83,8 @@ class TabFriendsViewController: BaseTabViewController {
                body.userid = userid
                body.followid = u?.id ?? 0
                MyMoyaManager.AllRequest(controller: self, NetworkService.unfollowuser(k: body.toJSONString() ?? "" )) { (data) in
-                       KeychainManager.User.UpdataByIdentifier(data: data.userinfo?.toJSONString() ?? "", forKey: .UserInfo)
+                UserInfoHelper.instance.user = data.userinfo
+                       
                self.list?.remove(at:index )
                 self.tableview.reloadData()
                 
