@@ -19,6 +19,10 @@ class MainPostCell: UITableViewCell {
         }
     }
     
+    @IBOutlet weak var btn_sendmessage: UIImageView!
+    @IBOutlet weak var post_detail: UILabel!
+    @IBOutlet weak var post_auther_nickname: UILabel!
+    @IBOutlet weak var post_auther_address: UILabel!
     @IBOutlet weak var pagecontrol: FSPageControl!
     @IBOutlet weak var ev_message: UITextField!
     @IBOutlet weak var usericon: UIImageView!
@@ -42,8 +46,9 @@ class MainPostCell: UITableViewCell {
         banner.transformer = FSPagerViewTransformer(type: .linear)
         // Initialization code
         pagecontrol.numberOfPages = postinfo?.postImages?.count ?? 0
-        pagecontrol.setStrokeColor(#colorLiteral(red: 1, green: 0, blue: 0.5620405674, alpha: 1), for: .selected)
-        pagecontrol.setFillColor(#colorLiteral(red: 1, green: 0, blue: 0.5620405674, alpha: 1), for: .selected)
+        pagecontrol.setStrokeColor(.label, for: .selected)
+        pagecontrol.setFillColor(.label, for: .selected)
+        usericon.setImageUrl(UserInfoHelper.instance.user?.icon, proimage: #imageLiteral(resourceName: "IMG_2506"))
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -51,11 +56,12 @@ class MainPostCell: UITableViewCell {
         selectionStyle = .none
         // Configure the view for the selected state
     }
-    @IBAction func btn_sendmessage(_ sender: Any) {
-    }
+  
     func updateCell(pinfo:PostInfo?){
         postinfo = pinfo
         poster_nickname.text = pinfo?.author?.nickName ?? ""
+        post_detail.text = pinfo?.postDetail ?? ""
+        post_auther_nickname.text = pinfo?.author?.nickName ?? ""
         pagecontrol.numberOfPages = pinfo?.postImages?.count ?? 0
         postauther_icon.setImageUrl(pinfo?.author?.icon, proimage: #imageLiteral(resourceName: "IMG_2507"))
         
