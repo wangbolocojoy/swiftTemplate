@@ -22,36 +22,36 @@ class TabHomeViewController: BaseTabViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // 初始化搜索控制器
-        self.searchController = UISearchController(searchResultsController: nil)
-        self.searchController.searchResultsUpdater = self
-        self.searchController.dimsBackgroundDuringPresentation = false
-              // 将搜索控制器集成到导航栏上
-        navigationItem.searchController = self.searchController
-        navigationItem.hidesSearchBarWhenScrolling = false
+//        self.searchController = UISearchController(searchResultsController: nil)
+//        self.searchController.searchResultsUpdater = self
+//        self.searchController.dimsBackgroundDuringPresentation = false
+//              // 将搜索控制器集成到导航栏上
+//        navigationItem.searchController = self.searchController
+//        navigationItem.hidesSearchBarWhenScrolling = false
     }
     func getNovel(body:RequestBody){
         MyMoyaManager.AllRequest(controller: self, NetworkService.tabhome(K: body.toJSONString()!)) { (data) in
-            if self.type == 1 {
-                
-                self.list = data.novellist
-                if data.novellist?.count ?? 0 != 0 {
-                    DispatchQueue.global().async {
-                        for item in data.novellist ?? [] {
-                            CoreDataManager.shared.saveandupdateNovel(item: item)
-                        }
-                    }
-                }
-                
-            }else{
-                self.list?.append(contentsOf: data.novellist ?? [])
-                if data.novellist?.count ?? 0 != 0 {
-                    DispatchQueue.global().async {
-                        for item in data.novellist ?? [] {
-                            CoreDataManager.shared.saveandupdateNovel(item: item)
-                        }
-                    }
-                }
-            }
+//            if self.type == 1 {
+//                
+//                self.list = data.novellist
+//                if data.novellist?.count ?? 0 != 0 {
+//                    DispatchQueue.global().async {
+//                        for item in data.novellist ?? [] {
+//                            CoreDataManager.shared.saveandupdateNovel(item: item)
+//                        }
+//                    }
+//                }
+//                
+//            }else{
+//                self.list?.append(contentsOf: data.novellist ?? [])
+//                if data.novellist?.count ?? 0 != 0 {
+//                    DispatchQueue.global().async {
+//                        for item in data.novellist ?? [] {
+//                            CoreDataManager.shared.saveandupdateNovel(item: item)
+//                        }
+//                    }
+//                }
+//            }
             self.tableview.reloadData()
         }
         self.header.endRefreshing()
@@ -76,8 +76,8 @@ class TabHomeViewController: BaseTabViewController {
         tableview.delegate = self
         tableview.dataSource = self
         tableview.separatorStyle = .none
-        self.navigationItem.searchController = UISearchController()
-        tableview.register(UINib(nibName: TabHomeNovelCell.reuseID, bundle: nil), forCellReuseIdentifier: TabHomeNovelCell.reuseID)
+//        self.navigationItem.searchController = UISearchController()
+        tableview.register(UINib(nibName: MainPostCell.reuseID, bundle: nil), forCellReuseIdentifier: MainPostCell.reuseID)
         header.setRefreshingTarget(self, refreshingAction: #selector(refresh))
         tableview.mj_header = header
         footer.setRefreshingTarget(self, refreshingAction: #selector(getMore))
@@ -104,13 +104,13 @@ extension TabHomeViewController:UITableViewDataSource,UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TabHomeNovelCell.reuseID, for: indexPath) as! TabHomeNovelCell
-        cell.updateCell(novel: list?[indexPath.item])
+        let cell = tableView.dequeueReusableCell(withIdentifier: MainPostCell.reuseID, for: indexPath) as! MainPostCell
+//        cell.updateCell(novel: list?[indexPath.item])
         
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 570
     }
     
     

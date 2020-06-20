@@ -320,7 +320,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fWs-78-Wqt"/>
                     </view>
-                    <navigationItem key="navigationItem" id="zJU-6Q-zHt"/>
+                    <navigationItem key="navigationItem" id="zJU-6Q-zHt">
+                        <barButtonItem key="leftBarButtonItem" systemItem="camera" id="YCV-Hi-LF0"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="gPp-lV-Hmc"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableview" destination="ews-R8-dVu" id="16m-PX-JuR"/>
                     </connections>
@@ -337,7 +340,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="selectedImageTintColor" red="1" green="0.0075555889129999996" blue="0.55574252310000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="selectedImageTintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="Sze-28-tAD" kind="relationship" relationship="viewControllers" id="Bpw-zT-nVc"/>
@@ -447,6 +450,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6tP-6k-84e">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

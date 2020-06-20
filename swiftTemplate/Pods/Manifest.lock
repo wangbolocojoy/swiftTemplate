@@ -4,6 +4,7 @@ PODS:
     - Alamofire (~> 4.8)
   - Bugly (2.5.4)
   - CryptoSwift (1.0.0)
+  - FSPagerView (0.8.3)
   - Gifu (3.2.0)
   - IQKeyboardManagerSwift (6.4.2)
   - MJRefresh (3.2.3)
@@ -23,6 +24,7 @@ DEPENDENCIES:
   - AlamofireImage (~> 3.5.2)
   - Bugly (~> 2.5.0)
   - CryptoSwift (~> 1.0.0)
+  - FSPagerView
   - Gifu (~> 3.2.0)
   - IQKeyboardManagerSwift (~> 6.4.0)
   - MJRefresh (~> 3.2.0)
@@ -37,6 +39,7 @@ SPEC REPOS:
     - AlamofireImage
     - Bugly
     - CryptoSwift
+    - FSPagerView
     - Gifu
     - IQKeyboardManagerSwift
     - MJRefresh
@@ -51,6 +54,7 @@ SPEC CHECKSUMS:
   AlamofireImage: 63cfe3baf1370be6c498149687cf6db3e3b00999
   Bugly: 4edda9bb0e3017fd453612189069757195fa23ca
   CryptoSwift: d81eeaa59dc5a8d03720fe919a6fd07b51f7439f
+  FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
   Gifu: 7bcb6427457d85e0b4dff5a84ec5947ac19a93ea
   IQKeyboardManagerSwift: 79a3ec200dfb41cb66a89b8575417b5378107c5d
   MJRefresh: 2b1214a2dc8f4df4c5dcb028ea2ad4e245425fb7
@@ -60,6 +64,6 @@ SPEC CHECKSUMS:
   SwiftyBeaver: da5e573ad583586c18236324c36900990afe1733
   SwiftyRSA: 6e528fb1b1a87d5111c48081083b141d6d65f1cf
 
-PODFILE CHECKSUM: 07f377d19c83c8f19894b52a373eb751df20494f
+PODFILE CHECKSUM: 93781c0adf7e0ad682a0dce19c007ece9ad89a0b
 
 COCOAPODS: 1.9.1

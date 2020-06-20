@@ -64,6 +64,8 @@
 		C4AEFCF4248CBAC60080904E /* PermissionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEFCF3248CBAC60080904E /* PermissionHelper.swift */; };
 		C4AEFCF6248E48C30080904E /* BTMMyPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEFCF5248E48C30080904E /* BTMMyPostViewController.swift */; };
 		C4AEFCFA248E4B330080904E /* BTMMyFanceFollowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEFCF9248E4B330080904E /* BTMMyFanceFollowViewController.swift */; };
+		C4FDACA5249E2B7A0095F1E3 /* MainPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FDACA3249E2B7A0095F1E3 /* MainPostCell.swift */; };
+		C4FDACA6249E2B7A0095F1E3 /* MainPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4FDACA4249E2B7A0095F1E3 /* MainPostCell.xib */; };
 		C9AF910697E673BF178A1F0E /* Pods_swiftTemplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96C494185AD3E08D4C8C3503 /* Pods_swiftTemplate.framework */; };
 /* End PBXBuildFile section */
 
@@ -131,6 +133,8 @@
 		C4AEFCF3248CBAC60080904E /* PermissionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionHelper.swift; sourceTree = "<group>"; };
 		C4AEFCF5248E48C30080904E /* BTMMyPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTMMyPostViewController.swift; sourceTree = "<group>"; };
 		C4AEFCF9248E4B330080904E /* BTMMyFanceFollowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTMMyFanceFollowViewController.swift; sourceTree = "<group>"; };
+		C4FDACA3249E2B7A0095F1E3 /* MainPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPostCell.swift; sourceTree = "<group>"; };
+		C4FDACA4249E2B7A0095F1E3 /* MainPostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainPostCell.xib; sourceTree = "<group>"; };
 		DCA72CBB041D702BBAC53701 /* Pods-swiftTemplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftTemplate.release.xcconfig"; path = "Target Support Files/Pods-swiftTemplate/Pods-swiftTemplate.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -342,6 +346,8 @@
 			children = (
 				C4AEB302249863EF00196DAE /* UploadImageCollectionViewCell.swift */,
 				C4AEB303249863EF00196DAE /* UploadImageCollectionViewCell.xib */,
+				C4FDACA3249E2B7A0095F1E3 /* MainPostCell.swift */,
+				C4FDACA4249E2B7A0095F1E3 /* MainPostCell.xib */,
 			);
 			path = post;
 			sourceTree = "<group>";
@@ -462,6 +468,7 @@
 				C40240302480193E00F715DC /* Assets.xcassets in Resources */,
 				C402402B2480193B00F715DC /* Main.storyboard in Resources */,
 				C4206F25248FFC2900F4537C /* FanceORFollowCell.xib in Resources */,
+				C4FDACA6249E2B7A0095F1E3 /* MainPostCell.xib in Resources */,
 				C4AEFCEE248CAB620080904E /* BTMUserItemCell.xib in Resources */,
 				C4AEFCF2248CAD070080904E /* BTMCleanHeader.xib in Resources */,
 				C4AEFCDE248BF0BD0080904E /* MineUserInfoViewCell.xib in Resources */,
@@ -536,6 +543,7 @@
 				C43157EE2483DA810034A74E /* UserInfoHelper.swift in Sources */,
 				C4AEB30024985F9D00196DAE /* SendPostViewController.swift in Sources */,
 				C4AEFCE1248C92D40080904E /* BTMMineEdUserController.swift in Sources */,
+				C4FDACA5249E2B7A0095F1E3 /* MainPostCell.swift in Sources */,
 				C43157D524839AC30034A74E /* BaseTabViewController.swift in Sources */,
 				C43157EC2483B16B0034A74E /* RequestBody.swift in Sources */,
 				C40240242480193B00F715DC /* AppDelegate.swift in Sources */,
