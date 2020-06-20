@@ -22,7 +22,7 @@ class RequestBody: Mappable {
     var nickName:String?
     var likeStarts:Int?
     var fances:Int?
-    var relaseName:String?
+    var realName:String?
     var easyInfo:String?
     var address:String?
     var userSex:Bool?
@@ -45,7 +45,7 @@ class RequestBody: Mappable {
         nickName <- map["nickName"]
         likeStarts <- map["likeStarts"]
         fances <- map["fances"]
-        relaseName <- map["relaseName"]
+        realName <- map["realName"]
         easyInfo <- map["easyInfo"]
         address <- map["address"]
         userSex <- map["userSex"]
