@@ -15,6 +15,19 @@ enum MyController{
     case 修改信息
     case 我的帖子
     case 我的粉丝关注
+    case 发帖
+    case 粉丝详情
+}
+
+enum PictureType{
+    case 原图加水印
+    case 原图
+    case 压缩90
+    case 压缩90水印
+    case 压缩80
+    case 压缩80水印
+    case 压缩70
+    case 压缩70水印
 }
 
 extension UIViewController{
@@ -49,6 +62,12 @@ extension UIViewController{
         case .我的粉丝关注:
             let vc = sb.instantiateViewController(withIdentifier: "BTMMYFANCEFOLLOWVC") as!
             BTMMyFanceFollowViewController
+            return vc
+        case .发帖:
+            let vc = sb.instantiateViewController(withIdentifier: "SENDPOSTVC") as! SendPostViewController
+            return vc
+        case .粉丝详情:
+            let vc = sb.instantiateViewController(withIdentifier: "FANCESINFOVC") as! FancesInfoViewController
             return vc
         }
     }

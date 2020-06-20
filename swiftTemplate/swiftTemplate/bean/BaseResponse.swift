@@ -61,38 +61,38 @@ class NovelInfo: Mappable {
     
 }
 class UserInfo: Mappable {
-    var relasename:String?
+    var relaseName:String?
     var phone:String?
     var id:Int?
-    var nickname:String?
+    var nickName:String?
     var account:String?
     var password:String?
     var icon:String?
-    var likestarts:Int?
+    var likeStarts:Int?
     var fances:Int?
     var token:String?
-    var seayinfo:String?
+    var easyInfo:String?
     var address:String?
-    var usersex:Bool?
-    var isfollow:Bool?
+    var userSex:Bool?
+    var isFollow:Bool?
     var follows:Int?
     required init?(map: Map) {
     }
     func mapping(map: Map) {
-        relasename <- map["relasename"]
+        relaseName <- map["relaseName"]
         phone <- map["phone"]
         id <- map["id"]
-        nickname <- map["nickname"]
+        nickName <- map["nickName"]
         account <- map["account"]
         password <- map["password"]
         icon <- map["icon"]
-        likestarts <- map["likestarts"]
+        likeStarts <- map["likeStarts"]
         fances <- map["fances"]
         token <- map["token"]
-        seayinfo <- map["seayinfo"]
+        easyInfo <- map["easyInfo"]
         address <- map["address"]
-        usersex <- map["usersex"]
-        isfollow <- map["isfollow"]
+        userSex <- map["userSex"]
+        isFollow <- map["isFollow"]
         follows <- map["follows"]
     }
     

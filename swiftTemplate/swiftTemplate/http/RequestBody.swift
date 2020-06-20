@@ -10,22 +10,22 @@ import Foundation
 import ObjectMapper
 class RequestBody: Mappable {
     var id:Int?
-    var userid:Int?
-    var followid:Int?
+    var userId:Int?
+    var followId:Int?
     var icon:String?
     var password:String?
     var phone:String?
     var msg:String?
     var page:Int?
-    var pagesize:Int?
+    var pageSize:Int?
     var type:Int?
-    var nickname:String?
-    var likestarts:Int?
+    var nickName:String?
+    var likeStarts:Int?
     var fances:Int?
-    var relasename:String?
-    var seayinfo:String?
+    var relaseName:String?
+    var easyInfo:String?
     var address:String?
-    var usersex:Bool?
+    var userSex:Bool?
     init() {
         
     }
@@ -38,19 +38,19 @@ class RequestBody: Mappable {
         password <- map["password"]
         msg <- map["msg"]
         page <- map["page"]
-        pagesize <- map["pagesize"]
+        pageSize <- map["pageSize"]
         type <- map["type"]
         id <- map["id"]
         icon <- map["icon"]
-        nickname <- map["nickname"]
-        likestarts <- map["likestarts"]
+        nickName <- map["nickName"]
+        likeStarts <- map["likeStarts"]
         fances <- map["fances"]
-        relasename <- map["relasename"]
-        seayinfo <- map["seayinfo"]
+        relaseName <- map["relaseName"]
+        easyInfo <- map["easyInfo"]
         address <- map["address"]
-        usersex <- map["usersex"]
-         userid <- map["userid"]
-         followid <- map["followid"]
+        userSex <- map["userSex"]
+         userId <- map["userId"]
+         followId <- map["followId"]
         
     }
     

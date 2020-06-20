@@ -29,7 +29,7 @@ class BTMMyFanceFollowViewController: BaseViewController {
     
     func getFanceOrFollow(){
         let body = RequestBody()
-        body.userid = userid
+        body.userId = userid
         if type ?? 1 == 1 {
             getFanceList(body: body.toJSONString() ?? "")
         }else{
@@ -51,8 +51,8 @@ class BTMMyFanceFollowViewController: BaseViewController {
     
     func follow(index:Int,u:UserInfo?)  {
            let body = RequestBody()
-           body.userid = userid
-           body.followid = u?.id ?? 0
+           body.userId = userid
+           body.followId = u?.id ?? 0
            MyMoyaManager.AllRequest(controller: self, NetworkService.followuser(k: body.toJSONString() ?? "" )) { (data) in
             UserInfoHelper.instance.user = data.userinfo 
                    self.ShowTip(Title: data.msg ?? "")
@@ -60,8 +60,8 @@ class BTMMyFanceFollowViewController: BaseViewController {
        }
        func unfollow(index:Int,u:UserInfo?){
            let body = RequestBody()
-                  body.userid = userid
-                  body.followid = u?.id ?? 0
+                  body.userId = userid
+                  body.followId = u?.id ?? 0
                   MyMoyaManager.AllRequest(controller: self, NetworkService.unfollowuser(k: body.toJSONString() ?? "" )) { (data) in
                     
                           UserInfoHelper.instance.user = data.userinfo
@@ -83,7 +83,7 @@ extension BTMMyFanceFollowViewController:UITableViewDelegate,UITableViewDataSour
         let cell = tableView.dequeueReusableCell(withIdentifier: FanceORFollowCell.reuseID, for: indexPath) as! FanceORFollowCell
         cell.updateCell(i:indexPath.item,u: list?[indexPath.item])
         cell.callBackBlock { (indx, user) in
-            if user?.isfollow ?? false == true {
+            if user?.isFollow ?? false == true {
                 self.unfollow(index: indx, u: user)
             }else{
                 self.follow(index: indx, u: user)

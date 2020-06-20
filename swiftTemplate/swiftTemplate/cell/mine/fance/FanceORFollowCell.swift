@@ -33,9 +33,9 @@ static let reuseID =  "FanceORFollowCell"
     func updateCell(i:Int,u:UserInfo?){
         index = i
         user = u
-        user_name.text = u?.nickname ?? ""
-        user_info.text = u?.seayinfo ?? ""
-        lab_isfollow.setTitle(u?.isfollow ?? false  ? "以关注" : "未关注", for: .normal)
+        user_name.text = u?.nickName ?? ""
+        user_info.text = u?.easyInfo ?? ""
+        lab_isfollow.setTitle(u?.isFollow ?? false  ? "以关注" : "未关注", for: .normal)
         icon_image.setImageUrl(u?.icon ?? "", proimage: #imageLiteral(resourceName: "IMG_2507"))
     }
     @IBAction func followorunfollow(_ sender: Any) {

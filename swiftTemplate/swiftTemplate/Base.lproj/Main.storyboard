@@ -58,6 +58,108 @@
             </objects>
             <point key="canvasLocation" x="906" y="1700"/>
         </scene>
+        <!--发帖-->
+        <scene sceneID="Kxl-or-Eua">
+            <objects>
+                <viewController storyboardIdentifier="SENDPOSTVC" title="发帖" id="84y-Nh-Kf7" customClass="SendPostViewController" customModule="swiftTemplate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uYW-2q-9wb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Yqz-HX-Tsy">
+                                <rect key="frame" x="5" y="44" width="404" height="120"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="2mf-p8-Z3R"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rfg-pQ-TPJ">
+                                <rect key="frame" x="0.0" y="179" width="414" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地址" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kFr-b5-Vxu">
+                                        <rect key="frame" x="5" y="16.5" width="29" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="环球中心" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5I-sg-gso">
+                                        <rect key="frame" x="326.5" y="16.5" width="57.5" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right02" translatesAutoresizingMaskIntoConstraints="NO" id="UOG-3E-281">
+                                        <rect key="frame" x="394" y="15" width="15" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="15" id="F1X-l5-2C4"/>
+                                            <constraint firstAttribute="height" constant="20" id="gCa-fB-A9S"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="UOG-3E-281" firstAttribute="leading" secondItem="Y5I-sg-gso" secondAttribute="trailing" constant="10" id="0VF-Qo-Tvd"/>
+                                    <constraint firstItem="Y5I-sg-gso" firstAttribute="centerY" secondItem="rfg-pQ-TPJ" secondAttribute="centerY" id="AFd-t9-fZw"/>
+                                    <constraint firstAttribute="height" constant="50" id="Nm6-bz-lEt"/>
+                                    <constraint firstAttribute="trailing" secondItem="UOG-3E-281" secondAttribute="trailing" constant="5" id="QeS-9m-0AU"/>
+                                    <constraint firstItem="kFr-b5-Vxu" firstAttribute="leading" secondItem="rfg-pQ-TPJ" secondAttribute="leading" constant="5" id="cT8-o9-wgC"/>
+                                    <constraint firstItem="UOG-3E-281" firstAttribute="centerY" secondItem="rfg-pQ-TPJ" secondAttribute="centerY" id="dAn-44-e9n"/>
+                                    <constraint firstItem="kFr-b5-Vxu" firstAttribute="centerY" secondItem="rfg-pQ-TPJ" secondAttribute="centerY" id="mWz-s0-s9X"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="IgS-3J-S9v">
+                                <rect key="frame" x="0.0" y="244" width="414" height="300"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="Gty-sA-cRU"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="sVT-oR-Xo2">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="KvH-PK-LBK">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="zDE-qa-e9M">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Yqz-HX-Tsy" firstAttribute="leading" secondItem="c0v-dW-mKg" secondAttribute="leading" constant="5" id="2lu-mE-nAK"/>
+                            <constraint firstItem="c0v-dW-mKg" firstAttribute="trailing" secondItem="rfg-pQ-TPJ" secondAttribute="trailing" id="9no-vA-WX2"/>
+                            <constraint firstItem="IgS-3J-S9v" firstAttribute="top" secondItem="rfg-pQ-TPJ" secondAttribute="bottom" constant="15" id="B8l-ib-4FS"/>
+                            <constraint firstItem="rfg-pQ-TPJ" firstAttribute="leading" secondItem="c0v-dW-mKg" secondAttribute="leading" id="FZJ-Cj-Ofo"/>
+                            <constraint firstItem="Yqz-HX-Tsy" firstAttribute="top" secondItem="c0v-dW-mKg" secondAttribute="top" id="KXl-Jr-gXF"/>
+                            <constraint firstItem="rfg-pQ-TPJ" firstAttribute="top" secondItem="Yqz-HX-Tsy" secondAttribute="bottom" constant="15" id="WVY-5y-PdG"/>
+                            <constraint firstItem="c0v-dW-mKg" firstAttribute="trailing" secondItem="IgS-3J-S9v" secondAttribute="trailing" id="Xbp-1h-oVe"/>
+                            <constraint firstItem="IgS-3J-S9v" firstAttribute="leading" secondItem="c0v-dW-mKg" secondAttribute="leading" id="bKJ-bX-98D"/>
+                            <constraint firstItem="c0v-dW-mKg" firstAttribute="trailing" secondItem="Yqz-HX-Tsy" secondAttribute="trailing" constant="5" id="dX4-nh-1Ru"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="c0v-dW-mKg"/>
+                    </view>
+                    <connections>
+                        <outlet property="btn_address" destination="rfg-pQ-TPJ" id="A91-ev-abf"/>
+                        <outlet property="collectionview" destination="IgS-3J-S9v" id="cEz-4p-J2J"/>
+                        <outlet property="ev_detail" destination="Yqz-HX-Tsy" id="fhM-Ae-Xcb"/>
+                        <outlet property="lab_address" destination="Y5I-sg-gso" id="KSD-I6-gUf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CbE-TE-Vx0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1704" y="2447"/>
+        </scene>
         <!--个人信息-->
         <scene sceneID="iFR-lz-2ir">
             <objects>
@@ -88,10 +190,10 @@
             </objects>
             <point key="canvasLocation" x="5478.2608695652179" y="314.73214285714283"/>
         </scene>
-        <!--我的日记-->
+        <!--我的帖子-->
         <scene sceneID="UiK-7Q-g2M">
             <objects>
-                <viewController storyboardIdentifier="BTMMYPOSTVC" title="我的日记" hidesBottomBarWhenPushed="YES" id="mLY-Vm-Vhe" customClass="BTMMyPostViewController" customModule="swiftTemplate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BTMMYPOSTVC" title="我的帖子" hidesBottomBarWhenPushed="YES" id="mLY-Vm-Vhe" customClass="BTMMyPostViewController" customModule="swiftTemplate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HQC-7c-cDs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -614,6 +716,36 @@
             </objects>
             <point key="canvasLocation" x="4644.927536231884" y="1190.625"/>
         </scene>
+        <!--粉丝详情-->
+        <scene sceneID="MYK-5V-TdY">
+            <objects>
+                <viewController storyboardIdentifier="FANCESINFOVC" title="粉丝详情" hidesBottomBarWhenPushed="YES" id="byz-gR-6R2" customClass="FancesInfoViewController" customModule="swiftTemplate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HLb-Kn-SXg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vuF-2f-xdD">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="qYB-SL-VrV" firstAttribute="bottom" secondItem="vuF-2f-xdD" secondAttribute="bottom" id="asH-7y-Pk3"/>
+                            <constraint firstItem="qYB-SL-VrV" firstAttribute="trailing" secondItem="vuF-2f-xdD" secondAttribute="trailing" id="ht1-vt-Z1T"/>
+                            <constraint firstItem="vuF-2f-xdD" firstAttribute="leading" secondItem="qYB-SL-VrV" secondAttribute="leading" id="rcU-Vy-YeS"/>
+                            <constraint firstItem="vuF-2f-xdD" firstAttribute="top" secondItem="qYB-SL-VrV" secondAttribute="top" id="yon-dX-Fv4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="qYB-SL-VrV"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableview" destination="vuF-2f-xdD" id="rnU-WJ-K0H"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wqM-Kr-U8A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5478" y="1025"/>
+        </scene>
         <!--Login Nav View Controller-->
         <scene sceneID="JTo-Xz-C2B">
             <objects>
@@ -682,5 +814,6 @@
         <image name="person.crop.circle.fill" catalog="system" width="128" height="121"/>
         <image name="person.crop.square" catalog="system" width="128" height="114"/>
         <image name="person.crop.square.fill" catalog="system" width="128" height="114"/>
+        <image name="right02" width="15" height="15"/>
     </resources>
 </document>

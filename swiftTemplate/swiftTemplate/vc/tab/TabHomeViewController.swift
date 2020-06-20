@@ -61,7 +61,7 @@ class TabHomeViewController: BaseTabViewController {
         type = 1
         page = 1
         pagebody.page = page
-        pagebody.pagesize = 10
+        pagebody.pageSize = 10
         getNovel(body: pagebody)
         
     }
@@ -69,7 +69,7 @@ class TabHomeViewController: BaseTabViewController {
         type = 2
         page+=1
         pagebody.page = page
-        pagebody.pagesize = 10
+        pagebody.pageSize = 10
         getNovel(body: pagebody)
     }
     override func initView(){
@@ -85,7 +85,7 @@ class TabHomeViewController: BaseTabViewController {
         type = 1
         page = 1
         pagebody.page = page
-        pagebody.pagesize = 10
+        pagebody.pageSize = 10
         if list?.count ?? 0 != 0 {
             log.info("使用缓存数据\(list?.count ?? 0)条")
             tableview.reloadData()

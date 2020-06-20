@@ -40,6 +40,7 @@ class TabMineViewController: BaseTabViewController {
     
     func logout(){
         KeychainManager.User.DeleteByIdentifier(forKey: .UserInfo)
+        UserInfoHelper.instance._setuser = nil
         UIView.animate(withDuration: time, animations:{ }, completion: { (true) in
             let tranststion =  CATransition()
             tranststion.duration = self.time

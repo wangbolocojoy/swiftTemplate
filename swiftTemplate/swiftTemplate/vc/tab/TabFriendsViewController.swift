@@ -40,9 +40,9 @@ class TabFriendsViewController: BaseTabViewController {
     
     func getRecommend(){
         let body = RequestBody()
-        body.userid = userid
+        body.userId = userid
         body.page = page
-        body.pagesize = 10
+        body.pageSize = 10
         MyMoyaManager.AllRequest(controller: self, NetworkService.findrecommendlist(k: body.toJSONString() ?? "")) { (data) in
             if self.page == 0 {
                 self.list = data.fancefollowlist ?? []
@@ -69,8 +69,8 @@ class TabFriendsViewController: BaseTabViewController {
     }
     func follow(index:Int,u:UserInfo?)  {
         let body = RequestBody()
-        body.userid = userid
-        body.followid = u?.id ?? 0
+        body.userId = userid
+        body.followId = u?.id ?? 0
         MyMoyaManager.AllRequest(controller: self, NetworkService.followuser(k: body.toJSONString() ?? "" )) { (data) in
                 UserInfoHelper.instance.user = data.userinfo
             self.list?.remove(at:index )
@@ -80,11 +80,10 @@ class TabFriendsViewController: BaseTabViewController {
     }
     func unfollow(index:Int,u:UserInfo?){
         let body = RequestBody()
-               body.userid = userid
-               body.followid = u?.id ?? 0
+               body.userId = userid
+               body.followId = u?.id ?? 0
                MyMoyaManager.AllRequest(controller: self, NetworkService.unfollowuser(k: body.toJSONString() ?? "" )) { (data) in
                 UserInfoHelper.instance.user = data.userinfo
-                       
                self.list?.remove(at:index )
                 self.tableview.reloadData()
                 
@@ -99,11 +98,16 @@ extension TabFriendsViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = getVcByName(vc: .粉丝详情) as! FancesInfoViewController
+        vc.userinfo = list?[indexPath.item]
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: FanceORFollowCell.reuseID, for: indexPath) as! FanceORFollowCell
         cell.updateCell(i:indexPath.item,u: list?[indexPath.item])
         cell.callBackBlock { (i,user) in
-            if user?.isfollow ?? false == true {
+            if user?.isFollow ?? false == true {
                 self.unfollow(index:i,u: user)
             }else{
                 self.follow(index:i,u: user)

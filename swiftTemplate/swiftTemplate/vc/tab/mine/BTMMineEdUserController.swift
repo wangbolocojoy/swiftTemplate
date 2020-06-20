@@ -35,13 +35,13 @@ class BTMMineEdUserController: BaseViewController {
         body.id = UserInfoHelper.instance.user?.id ?? 0
         switch type ?? "" {
         case "昵称":
-            body.nickname =  lab_test.text
+            body.nickName =  lab_test.text
         case "个人简介":
-            body.seayinfo =  lab_test.text
+            body.easyInfo =  lab_test.text
         case "地区":
             body.address =  lab_test.text
         case "真实姓名":
-            body.relasename =  lab_test.text
+            body.relaseName =  lab_test.text
         default:
             lab_test.placeholder = ""
         }

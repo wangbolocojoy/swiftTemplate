@@ -12,7 +12,6 @@ class BTMMinePostController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
     }
     

@@ -103,13 +103,15 @@ extension NetworkService:Moya.TargetType{
             }
             guard let p1 = param as? [String:String] else { return .requestPlain}
             return .uploadCompositeMultipart(formDataAry as! [MultipartFormData], urlParameters: p1)
+            
+        
         }
         
         
     }
     // MARK: - 请求HEADER
     public var headers: [String : String]? {
-        return ["Content-type":"application/json","token":UserDefaults.User.getvalue(forKey: .token) as? String ?? ""]
+        return ["Content-type":"application/json","token":UserInfoHelper.instance.user?.token as? String ?? ""]
     }
     
 }
