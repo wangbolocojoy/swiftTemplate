@@ -68,7 +68,7 @@ class MineUserInfoViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func updateCell(user:UserInfo?){
-        img_usericon.setImageUrl(user?.icon ?? "",ptype: .压缩90水印, proimage: #imageLiteral(resourceName: "IMG_2506"))
+        img_usericon.setImageUrl(image: img_usericon,string: user?.icon ,proimage: #imageLiteral(resourceName: "IMG_2506"))
         lab_nickname.text = user?.nickName ?? "SuperHero"
         lab_useresayinfo.text = user?.easyInfo
         versionname.text = Constant.instance.版本环境

@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import AlamofireImage
+import Kingfisher
 extension UIViewController{
     
     func Showalert(Title:String?)  {
@@ -93,25 +93,40 @@ extension BaseViewController{
     }
 }
 extension UIImageView{
-    func setImageUrl(_ string : String?,ptype:PictureType?,proimage:UIImage?) {
-        if(string != nil){
-            do {
-                guard let url = try URL(string: "\(string!)\(GetImageType(type: ptype ?? nil))" ) ?? nil else { return   self.image = proimage }
-                self.af_setImage(withURL: url, placeholderImage: proimage)
-            } catch  {
-                
+//    func setImageUrl(_ string : String?,ptype:PictureType?,proimage:UIImage?) {
+//        if(string != nil){
+//            do {
+//                guard let url = try URL(string: "\(string!)\(GetImageType(type: ptype ?? nil))" ) ?? nil else { return   self.image = proimage }
+//                self.af_setImage(withURL: url, placeholderImage: proimage)
+//            } catch  {
+//                
+//            }
+//        }
+//    }
+    func setImageUrl(image:UIImageView, string : String?,proimage:UIImage?) {
+        let url = URL(string: string ?? "")
+        let processor = DownsamplingImageProcessor(size: image.bounds.size)
+            |> RoundCornerImageProcessor(cornerRadius: 0)
+        image.kf.indicatorType = .activity
+        image.kf.setImage(
+            with: url,
+            placeholder: proimage,
+            options: [
+                .processor(processor),
+                .scaleFactor(UIScreen.main.scale),
+                .transition(.fade(1)),
+                .diskCacheAccessExtendingExpiration(.cacheTime)
+            ])
+        {
+            result in
+            switch result {
+            case .success(let value):
+                debugPrint("下载图片成功: \(value.source.url?.absoluteString ?? "")")
+            case .failure(let error):
+                debugPrint("下载图片失败: \(error.localizedDescription)")
             }
         }
-    }
-    func setImageUrl(_ string : String?,proimage:UIImage?) {
-        if(string != nil){
-            do {
-                guard let url = try URL(string: string ?? "" ) ?? nil else { return   self.image = proimage }
-                self.af_setImage(withURL: url, placeholderImage: proimage)
-            } catch  {
-                
-            }
-        }
+       
     }
     func GetImageType(type:PictureType?)->String{
         switch type {

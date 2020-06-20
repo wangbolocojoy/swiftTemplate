@@ -37,7 +37,7 @@ static let reuseID =  "FanceInfoViewCell"
         post_num.text = "\(user?.likeStarts ?? 0)"
         lab_fancenickname.text = user?.nickName ?? ""
         lab_fanceeasyinfo.text = user?.easyInfo ?? ""
-        image_fanceicon.setImageUrl(user?.icon, proimage: #imageLiteral(resourceName: "IMG_2506"))
+        image_fanceicon.setImageUrl(image: image_fanceicon,string: user?.icon, proimage: #imageLiteral(resourceName: "IMG_2506"))
     }
     
 }

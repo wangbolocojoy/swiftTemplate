@@ -48,7 +48,7 @@ class MainPostCell: UITableViewCell {
         pagecontrol.numberOfPages = postinfo?.postImages?.count ?? 0
         pagecontrol.setStrokeColor(.label, for: .selected)
         pagecontrol.setFillColor(.label, for: .selected)
-        usericon.setImageUrl(UserInfoHelper.instance.user?.icon, proimage: #imageLiteral(resourceName: "IMG_2506"))
+        usericon.setImageUrl(image: usericon,string: UserInfoHelper.instance.user?.icon, proimage: #imageLiteral(resourceName: "IMG_2506"))
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -63,7 +63,7 @@ class MainPostCell: UITableViewCell {
         post_detail.text = pinfo?.postDetail ?? ""
         post_auther_nickname.text = pinfo?.author?.nickName ?? ""
         pagecontrol.numberOfPages = pinfo?.postImages?.count ?? 0
-        postauther_icon.setImageUrl(pinfo?.author?.icon, proimage: #imageLiteral(resourceName: "IMG_2507"))
+        postauther_icon.setImageUrl(image: postauther_icon,string: pinfo?.author?.icon, proimage: #imageLiteral(resourceName: "IMG_2507"))
         
     }
     
@@ -76,7 +76,7 @@ extension MainPostCell:FSPagerViewDelegate,FSPagerViewDataSource{
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
          let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
         cell.imageView?.contentMode = .redraw
-        cell.imageView?.setImageUrl(postinfo?.postImages?[index].fileUrl , proimage:#imageLiteral(resourceName: "IMG_2628") )
+        cell.imageView?.setImageUrl(image: cell.imageView!,string: postinfo?.postImages?[index].fileUrl , proimage:#imageLiteral(resourceName: "IMG_2628") )
         return cell
     }
     func pagerView(_ pagerView: FSPagerView, shouldSelectItemAt index: Int) -> Bool {

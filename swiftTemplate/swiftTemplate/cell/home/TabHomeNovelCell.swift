@@ -37,7 +37,7 @@ static let reuseID =  "TabHomeNovelCell"
         novel_typename.text = novel?.novel_typename ?? ""
         novel_uptime.text = novel?.novel_uptime ?? ""
         novel_easyinfo.text = novel?.novel_easyinfo ?? ""
-        novel_icon.setImageUrl(novel?.novel_img, proimage: #imageLiteral(resourceName: "quanshidaluandou"))
+        novel_icon.setImageUrl(image: novel_icon,string: novel?.novel_img, proimage: #imageLiteral(resourceName: "quanshidaluandou"))
     
     }
     
