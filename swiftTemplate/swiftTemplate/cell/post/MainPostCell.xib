@@ -59,7 +59,7 @@
                                     <constraint firstItem="hze-1T-JQ8" firstAttribute="leading" secondItem="bo7-R8-Yi7" secondAttribute="leading" constant="15" id="vsk-i6-NOR"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sAE-zu-wlv" customClass="FSPageControl" customModule="FSPagerView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sAE-zu-wlv" customClass="FSPagerView" customModule="FSPagerView">
                                 <rect key="frame" x="0.0" y="50" width="862" height="350"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -101,6 +101,13 @@
                                             <constraint firstAttribute="height" constant="25" id="u7E-7P-CUc"/>
                                         </constraints>
                                     </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hih-bt-GBk" customClass="FSPageControl" customModule="FSPagerView">
+                                        <rect key="frame" x="356" y="0.0" width="150" height="34"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="QeP-ps-EtN"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -109,9 +116,12 @@
                                     <constraint firstItem="8WP-Re-2HS" firstAttribute="centerY" secondItem="cGX-fX-8gn" secondAttribute="centerY" id="Hrc-h1-cAK"/>
                                     <constraint firstAttribute="height" constant="34" id="ISK-KQ-v2y"/>
                                     <constraint firstItem="KpR-MC-By9" firstAttribute="centerY" secondItem="cGX-fX-8gn" secondAttribute="centerY" id="ISV-O6-yBZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="Hih-bt-GBk" secondAttribute="bottom" id="Iap-nM-zq4"/>
+                                    <constraint firstItem="Hih-bt-GBk" firstAttribute="centerX" secondItem="cGX-fX-8gn" secondAttribute="centerX" id="R2e-9n-16g"/>
                                     <constraint firstItem="zzv-yM-GeP" firstAttribute="leading" secondItem="8WP-Re-2HS" secondAttribute="trailing" constant="15" id="Tga-sq-HRZ"/>
                                     <constraint firstItem="zzv-yM-GeP" firstAttribute="centerY" secondItem="cGX-fX-8gn" secondAttribute="centerY" id="eAI-LD-qe4"/>
                                     <constraint firstItem="UGP-RO-jTc" firstAttribute="leading" secondItem="cGX-fX-8gn" secondAttribute="leading" constant="15" id="r0E-EJ-2mu"/>
+                                    <constraint firstItem="Hih-bt-GBk" firstAttribute="top" secondItem="cGX-fX-8gn" secondAttribute="top" id="sJK-zM-6hQ"/>
                                     <constraint firstItem="UGP-RO-jTc" firstAttribute="centerY" secondItem="cGX-fX-8gn" secondAttribute="centerY" id="vop-Ja-XVs"/>
                                 </constraints>
                             </view>
@@ -256,7 +266,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="banner" destination="sAE-zu-wlv" id="a8i-kN-Q1d"/>
+                <outlet property="banner" destination="sAE-zu-wlv" id="d7i-bj-bQi"/>
                 <outlet property="btn_collection" destination="KpR-MC-By9" id="0Zz-QN-uaC"/>
                 <outlet property="btn_message" destination="8WP-Re-2HS" id="LY6-bc-wAR"/>
                 <outlet property="btn_share" destination="zzv-yM-GeP" id="lVq-TS-ATW"/>
@@ -264,6 +274,7 @@
                 <outlet property="ev_message" destination="nDG-WJ-zRa" id="Vo3-2s-yOi"/>
                 <outlet property="lab_postnum" destination="fLK-vb-wMK" id="D9s-2H-Z6J"/>
                 <outlet property="lab_startnum" destination="Fnd-W7-EAV" id="fSG-yO-LBy"/>
+                <outlet property="pagecontrol" destination="Hih-bt-GBk" id="aPr-mA-DHl"/>
                 <outlet property="postauther_icon" destination="hze-1T-JQ8" id="ECS-xY-VDv"/>
                 <outlet property="poster_more" destination="HPB-W8-7Zf" id="OxV-Az-mfJ"/>
                 <outlet property="poster_nickname" destination="Fqz-BR-OD0" id="fEc-jK-caI"/>

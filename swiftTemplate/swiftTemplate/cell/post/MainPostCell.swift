@@ -9,12 +9,17 @@
 import UIKit
 import FSPagerView
 class MainPostCell: UITableViewCell {
-static let reuseID =  "MainPostCell"
+    static let reuseID =  "MainPostCell"
     
     @IBOutlet weak var poster_more: UIButton!
     
-    @IBOutlet weak var banner: FSPageControl!
+    @IBOutlet weak var banner: FSPagerView!{
+        didSet{
+            banner.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "cell")
+        }
+    }
     
+    @IBOutlet weak var pagecontrol: FSPageControl!
     @IBOutlet weak var ev_message: UITextField!
     @IBOutlet weak var usericon: UIImageView!
     @IBOutlet weak var lab_postnum: UILabel!
@@ -24,19 +29,65 @@ static let reuseID =  "MainPostCell"
     @IBOutlet weak var btn_message: UIImageView!
     @IBOutlet weak var btn_start: UIImageView!
     @IBOutlet weak var postauther_icon: UIImageView!
+    var postinfo : PostInfo? = nil
     
     @IBOutlet weak var poster_nickname: UILabel!
+    
+   
     override func awakeFromNib() {
         super.awakeFromNib()
+        banner.dataSource = self
+        banner.delegate = self
+        banner.isInfinite = false
+        banner.transformer = FSPagerViewTransformer(type: .linear)
         // Initialization code
+        pagecontrol.numberOfPages = postinfo?.postImages?.count ?? 0
+        pagecontrol.setStrokeColor(#colorLiteral(red: 1, green: 0, blue: 0.5620405674, alpha: 1), for: .selected)
+        pagecontrol.setFillColor(#colorLiteral(red: 1, green: 0, blue: 0.5620405674, alpha: 1), for: .selected)
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         selectionStyle = .none
         // Configure the view for the selected state
     }
     @IBAction func btn_sendmessage(_ sender: Any) {
+    }
+    func updateCell(pinfo:PostInfo?){
+        postinfo = pinfo
+        poster_nickname.text = pinfo?.author?.nickName ?? ""
+        pagecontrol.numberOfPages = pinfo?.postImages?.count ?? 0
+        postauther_icon.setImageUrl(pinfo?.author?.icon, proimage: #imageLiteral(resourceName: "IMG_2507"))
+        
+    }
+    
+}
+extension MainPostCell:FSPagerViewDelegate,FSPagerViewDataSource{
+    func numberOfItems(in pagerView: FSPagerView) -> Int {
+        return postinfo?.postImages?.count ?? 0
+    }
+    
+    func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
+         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
+        cell.imageView?.contentMode = .redraw
+        cell.imageView?.setImageUrl(postinfo?.postImages?[index].fileUrl , proimage:#imageLiteral(resourceName: "IMG_2628") )
+        return cell
+    }
+    func pagerView(_ pagerView: FSPagerView, shouldSelectItemAt index: Int) -> Bool {
+       
+        return true
+    }
+    
+    func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
+       
+    }
+    func pagerView(_ pagerView: FSPagerView, willDisplay cell: FSPagerViewCell, forItemAt index: Int) {
+//        pagecontrol.currentPage = index
+//               log.info("index\(index)")
+    }
+    func pagerViewWillEndDragging(_ pagerView: FSPagerView, targetIndex: Int) {
+        pagecontrol.currentPage = targetIndex
+        
     }
     
 }

@@ -33,13 +33,13 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Superhero" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jwT-y9-LyH">
-                        <rect key="frame" x="150" y="197.5" width="71.5" height="18.5"/>
+                        <rect key="frame" x="150" y="197.5" width="325" height="18.5"/>
                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我是一只小毛驴" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3G4-9D-xkN">
-                        <rect key="frame" x="150" y="226" width="91" height="16.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我是一只小毛驴" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3G4-9D-xkN">
+                        <rect key="frame" x="150" y="226" width="325" height="16.5"/>
                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -134,7 +134,7 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="liT-Pf-Txz">
-                        <rect key="frame" x="220" y="261.5" width="150" height="30"/>
+                        <rect key="frame" x="150" y="281.5" width="150" height="30"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="版本号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axc-5c-cj5">
                                 <rect key="frame" x="5" y="0.0" width="43" height="30"/>
@@ -162,6 +162,7 @@
                     </view>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="jwT-y9-LyH" secondAttribute="trailing" constant="15" id="0s0-6Q-iyc"/>
                     <constraint firstAttribute="trailing" secondItem="z6c-TF-vVN" secondAttribute="trailing" id="3zp-pb-cr7"/>
                     <constraint firstItem="3G4-9D-xkN" firstAttribute="leading" secondItem="dzu-EN-mC6" secondAttribute="trailing" constant="15" id="66r-TM-OqQ"/>
                     <constraint firstItem="jwT-y9-LyH" firstAttribute="leading" secondItem="dzu-EN-mC6" secondAttribute="trailing" constant="15" id="CEg-d8-KU1"/>
@@ -175,9 +176,10 @@
                     <constraint firstAttribute="bottom" secondItem="z6c-TF-vVN" secondAttribute="bottom" id="cMJ-dS-PoW"/>
                     <constraint firstAttribute="bottom" secondItem="pCr-VZ-rUZ" secondAttribute="bottom" id="gng-HX-v5K"/>
                     <constraint firstItem="dzu-EN-mC6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="15" id="juW-ub-8mA"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="3G4-9D-xkN" secondAttribute="trailing" constant="15" id="ufk-yd-PpX"/>
                     <constraint firstItem="jwT-y9-LyH" firstAttribute="centerY" secondItem="dzu-EN-mC6" secondAttribute="centerY" constant="-15" id="vHp-gm-oCB"/>
-                    <constraint firstItem="liT-Pf-Txz" firstAttribute="top" secondItem="dzu-EN-mC6" secondAttribute="bottom" constant="-10" id="ve5-Qa-NHM"/>
-                    <constraint firstItem="liT-Pf-Txz" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" constant="40" id="wFx-p7-SOM"/>
+                    <constraint firstItem="liT-Pf-Txz" firstAttribute="top" secondItem="dzu-EN-mC6" secondAttribute="bottom" constant="10" id="ve5-Qa-NHM"/>
+                    <constraint firstItem="liT-Pf-Txz" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" constant="-30" id="wFx-p7-SOM"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

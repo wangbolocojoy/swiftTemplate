@@ -16,6 +16,7 @@ class BaseResponse: Mappable {
     var novellist:[NovelInfo]?
     var imageurl:String?
     var fancefollowlist:[UserInfo]?
+    var postlist:[PostInfo]?
     required init?(map: Map) {
     }
     func mapping(map: Map) {
@@ -26,7 +27,71 @@ class BaseResponse: Mappable {
         message <- map["message"]
         imageurl <- map["data"]
         fancefollowlist <- map["data"]
+        postlist <- map["data"]
     }
+    
+}
+class PostInfo: Mappable {
+    var id:Int?
+    var userId:Int?
+    var postTitle:String?
+    var postDetail:String?
+    var postAddress:String?
+    var postPublic:String?
+    var postStarts:Int?
+    var author:PostAuthor?
+    var postImages:[PostImages]?
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        id <- map["id"]
+        userId <- map["userId"]
+        postTitle <- map["postTitle"]
+        postDetail <- map["postDetail"]
+        postAddress <- map["postAddress"]
+        postPublic <- map["postPublic"]
+        postStarts <- map["postStarts"]
+        author <- map["author"]
+        postImages <- map["postImages"]
+    }
+    
+    
+}
+class PostAuthor: Mappable {
+    var id:Int?
+    var nickName:String?
+    var icon:String?
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        id <- map["id"]
+        nickName <- map["nickName"]
+        icon <- map["icon"]
+    }
+    
+    
+}
+class PostImages: Mappable {
+    var id:Int?
+    var userId:Int?
+    var fileUrl:String?
+    var fileType:String?
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        id <- map["id"]
+        userId <- map["userId"]
+        fileUrl <- map["fileUrl"]
+        fileType <- map["fileType"]
+    }
+    
     
 }
 class NovelInfo: Mappable {

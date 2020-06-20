@@ -11,47 +11,25 @@ import MJRefresh
 class TabHomeViewController: BaseTabViewController {
     let footer = MJRefreshBackFooter()
     let header = MJRefreshNormalHeader()
-    lazy var list :[NovelInfo]? = CoreDataManager.shared.getAllNovel()
+    lazy var list :[PostInfo]? = nil
     var pagebody = RequestBody()
-    var page = 1
+    var page = 0
     var pagesize = 10
     var type = 1
     // 搜索控制器
-      var searchController: UISearchController!
+//      var searchController: UISearchController!
     @IBOutlet weak var tableview: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // 初始化搜索控制器
-//        self.searchController = UISearchController(searchResultsController: nil)
-//        self.searchController.searchResultsUpdater = self
-//        self.searchController.dimsBackgroundDuringPresentation = false
-//              // 将搜索控制器集成到导航栏上
-//        navigationItem.searchController = self.searchController
-//        navigationItem.hidesSearchBarWhenScrolling = false
+  
     }
     func getNovel(body:RequestBody){
-        MyMoyaManager.AllRequest(controller: self, NetworkService.tabhome(K: body.toJSONString()!)) { (data) in
-//            if self.type == 1 {
-//                
-//                self.list = data.novellist
-//                if data.novellist?.count ?? 0 != 0 {
-//                    DispatchQueue.global().async {
-//                        for item in data.novellist ?? [] {
-//                            CoreDataManager.shared.saveandupdateNovel(item: item)
-//                        }
-//                    }
-//                }
-//                
-//            }else{
-//                self.list?.append(contentsOf: data.novellist ?? [])
-//                if data.novellist?.count ?? 0 != 0 {
-//                    DispatchQueue.global().async {
-//                        for item in data.novellist ?? [] {
-//                            CoreDataManager.shared.saveandupdateNovel(item: item)
-//                        }
-//                    }
-//                }
-//            }
+        MyMoyaManager.AllRequest(controller: self, NetworkService.getposts(k: body.toJSONString()!)) { (data) in
+            if self.type == 1 {
+                self.list = data.postlist
+            }else{
+                
+            }
             self.tableview.reloadData()
         }
         self.header.endRefreshing()
@@ -59,14 +37,14 @@ class TabHomeViewController: BaseTabViewController {
     }
     @objc func refresh(){
         type = 1
-        page = 1
+        page = 0
         pagebody.page = page
         pagebody.pageSize = 10
         getNovel(body: pagebody)
         
     }
     @objc func getMore(){
-        type = 2
+//        type = 2
         page+=1
         pagebody.page = page
         pagebody.pageSize = 10
@@ -76,15 +54,14 @@ class TabHomeViewController: BaseTabViewController {
         tableview.delegate = self
         tableview.dataSource = self
         tableview.separatorStyle = .none
-//        self.navigationItem.searchController = UISearchController()
+
         tableview.register(UINib(nibName: MainPostCell.reuseID, bundle: nil), forCellReuseIdentifier: MainPostCell.reuseID)
         header.setRefreshingTarget(self, refreshingAction: #selector(refresh))
         tableview.mj_header = header
-        footer.setRefreshingTarget(self, refreshingAction: #selector(getMore))
-        tableview.mj_footer = footer
+//        footer.setRefreshingTarget(self, refreshingAction: #selector(getMore))
+//        tableview.mj_footer = footer
         type = 1
-        page = 1
-        pagebody.page = page
+        pagebody.page = 0
         pagebody.pageSize = 10
         if list?.count ?? 0 != 0 {
             log.info("使用缓存数据\(list?.count ?? 0)条")
@@ -92,7 +69,7 @@ class TabHomeViewController: BaseTabViewController {
         }else{
             log.info("从网络获取数据")
             getNovel(body: pagebody)
-            
+
         }
     }
     
@@ -105,12 +82,11 @@ extension TabHomeViewController:UITableViewDataSource,UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MainPostCell.reuseID, for: indexPath) as! MainPostCell
-//        cell.updateCell(novel: list?[indexPath.item])
-        
+        cell.updateCell(pinfo: list?[indexPath.item])
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 570
+        return 550
     }
     
     
