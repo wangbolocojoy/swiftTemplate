@@ -32,7 +32,7 @@ static let reuseID =  "BTMUserItemCell"
         case "昵称":
             item_value.text = user?.nickName ?? ""
         case "真实姓名":
-              item_value.text = user?.relaseName ?? ""
+              item_value.text = user?.realName ?? ""
         case "个人简介":
             item_value.text = user?.easyInfo ?? ""
         case "地区":

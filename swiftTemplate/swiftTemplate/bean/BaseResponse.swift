@@ -61,7 +61,7 @@ class NovelInfo: Mappable {
     
 }
 class UserInfo: Mappable {
-    var relaseName:String?
+    var realName:String?
     var phone:String?
     var id:Int?
     var nickName:String?
@@ -79,7 +79,7 @@ class UserInfo: Mappable {
     required init?(map: Map) {
     }
     func mapping(map: Map) {
-        relaseName <- map["relaseName"]
+        realName <- map["realName"]
         phone <- map["phone"]
         id <- map["id"]
         nickName <- map["nickName"]
