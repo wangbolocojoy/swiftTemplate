@@ -34,8 +34,18 @@ public enum NetworkService{
     case getfancelist(k:String)
     //查找用户
     case finduser(k:String)
-    
+    //发帖
+    case sendpost(k:String)
+    //获取用户的所有帖子
+    case getuserposts(k:String)
+    //首页获取推荐帖子
+    case getposts(k:String)
+    //删除帖子
+    case deletspost(K:String)
+    //获取推荐关注列表
     case findrecommendlist(k:String)
+    //上传多张图片
+    case upLoadFiless(K:Any,dataAry:NSArray)
 }
 extension NetworkService:Moya.TargetType{
     //MARK: - APISERVICE
@@ -72,6 +82,16 @@ extension NetworkService:Moya.TargetType{
             return "back-1/swiftTemplate/User/searchfollow"
         case .findrecommendlist:
             return "back-1/swiftTemplate/Follow/getrecommendlist"
+        case .sendpost:
+            return "back-1/swiftTemplate/Post/sendPost"
+        case .getuserposts:
+             return "back-1/swiftTemplate/Post/getPostsByUserId"
+        case .getposts:
+             return "back-1/swiftTemplate/Post/getPosts"
+        case .deletspost:
+             return "back-1/swiftTemplate/Post/deletePost"
+        case .upLoadFiless:
+            return "back-1/swiftTemplate/file/upLoadFiless"
         }
         
     }
@@ -86,7 +106,7 @@ extension NetworkService:Moya.TargetType{
     //MARK: - 请求参数
     public var task: Moya.Task {
         switch self {
-        case .login(let data),.register(let data),.getmsg(let data),.tabhome(let data),.searchnovel(let data),.updateuserinfo(let data),.followuser(let data),.unfollowuser(let data),.getfancelist(let data),.getfollowlist(let data),.finduser(let data),.findrecommendlist(let data):
+        case .login(let data),.register(let data),.getmsg(let data),.tabhome(let data),.searchnovel(let data),.updateuserinfo(let data),.followuser(let data),.unfollowuser(let data),.getfancelist(let data),.getfollowlist(let data),.finduser(let data),.findrecommendlist(let data),.sendpost(let data),.getposts(let data),.getuserposts(let data),.deletspost(let data):
             return  .requestData(data.utf8Encoded)
             
         case .uodateusericon(let param, let uploadImages):
@@ -103,7 +123,25 @@ extension NetworkService:Moya.TargetType{
             }
             guard let p1 = param as? [String:String] else { return .requestPlain}
             return .uploadCompositeMultipart(formDataAry as! [MultipartFormData], urlParameters: p1)
-            
+        case .upLoadFiless(let param, let uploadImages):
+            let formDataAry:NSMutableArray = NSMutableArray()
+                       for (index,image) in uploadImages.enumerated() {
+                           let data:Data = (image as! UIImage).jpegData(compressionQuality: 0.8)!
+                           let date:Date = Date()
+                           let formatter = DateFormatter()
+                           formatter.dateFormat = "yyyy-MM-dd-HH:mm:ss"
+                           var dateStr:String = formatter.string(from: date as Date)
+                           dateStr = dateStr.appendingFormat("-%i.png", index)
+                           let formData = MultipartFormData(provider: .data(data), name: "uploadFile", fileName: dateStr, mimeType: "image/jpeg")
+                           formDataAry.add(formData)
+                       }
+            let p1 = param as? [String:String]
+            p1?.forEach({ (arg0) in
+                let (key, value) = arg0
+                let formData = MultipartFormData(provider: .data(Data(base64Encoded: value)!), name: key, fileName: nil , mimeType: "text")
+                 formDataAry.add(formData)
+            })
+            return .uploadMultipart(formDataAry as! [MultipartFormData])
         
         }
         
