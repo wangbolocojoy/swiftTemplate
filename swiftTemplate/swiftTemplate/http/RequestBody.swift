@@ -26,6 +26,9 @@ class RequestBody: Mappable {
     var easyInfo:String?
     var address:String?
     var userSex:Bool?
+    var postTitle:String?
+    var postDetail:String?
+    var postAddress:String?
     init() {
         
     }
@@ -49,8 +52,11 @@ class RequestBody: Mappable {
         easyInfo <- map["easyInfo"]
         address <- map["address"]
         userSex <- map["userSex"]
-         userId <- map["userId"]
-         followId <- map["followId"]
+        userId <- map["userId"]
+        followId <- map["followId"]
+        postTitle <- map["postTitle"]
+        postDetail <- map["postDetail"]
+        postAddress <- map["postAddress"]
         
     }
     

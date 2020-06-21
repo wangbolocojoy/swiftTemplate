@@ -8,6 +8,9 @@ ${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework
 ${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework
 ${BUILT_PRODUCTS_DIR}/Moya/Moya.framework
 ${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework
+${BUILT_PRODUCTS_DIR}/PryntTrimmerView/PryntTrimmerView.framework
 ${BUILT_PRODUCTS_DIR}/Result/Result.framework
+${BUILT_PRODUCTS_DIR}/SteviaLayout/Stevia.framework
 ${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework
 ${BUILT_PRODUCTS_DIR}/SwiftyRSA/SwiftyRSA.framework
+${BUILT_PRODUCTS_DIR}/YPImagePicker/YPImagePicker.framework

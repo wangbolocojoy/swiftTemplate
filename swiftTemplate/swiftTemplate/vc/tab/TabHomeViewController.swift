@@ -16,9 +16,14 @@ class TabHomeViewController: BaseTabViewController {
     var type = 1
     var hasmore :Bool = false
     @IBOutlet weak var tableview: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    @IBAction func btnsendpost(_ sender: Any) {
+        self.navigationController?.pushViewController(self.getVcByName(vc: .发帖), animated: true)
     }
     func getNovel(body:RequestBody){
         MyMoyaManager.AllRequest(controller: self, NetworkService.getposts(k: body.toJSONString()!)) { (data) in

@@ -132,13 +132,17 @@ extension NetworkService:Moya.TargetType{
                            formatter.dateFormat = "yyyy-MM-dd-HH:mm:ss"
                            var dateStr:String = formatter.string(from: date as Date)
                            dateStr = dateStr.appendingFormat("-%i.png", index)
-                           let formData = MultipartFormData(provider: .data(data), name: "uploadFile", fileName: dateStr, mimeType: "image/jpeg")
+                           let formData = MultipartFormData(provider: .data(data), name: "uploadFiles", fileName: dateStr, mimeType: "image/jpeg")
                            formDataAry.add(formData)
                        }
             let p1 = param as? [String:String]
             p1?.forEach({ (arg0) in
                 let (key, value) = arg0
-                let formData = MultipartFormData(provider: .data(Data(base64Encoded: value)!), name: key, fileName: nil , mimeType: "text")
+                log.info("key\(key)")
+                log.info("value\(value)")
+               let strData = value.data(using: .utf8)
+                 log.info("value\(strData!)")
+                let formData = MultipartFormData(provider:.data(strData!), name: key)
                  formDataAry.add(formData)
             })
             return .uploadMultipart(formDataAry as! [MultipartFormData])

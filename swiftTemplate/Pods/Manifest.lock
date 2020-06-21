@@ -15,11 +15,16 @@ PODS:
     - Alamofire (~> 4.1)
     - Result (~> 4.1)
   - ObjectMapper (3.5.3)
+  - PryntTrimmerView (4.0.0)
   - Result (4.1.0)
+  - SteviaLayout (4.7.3)
   - SwiftyBeaver (1.7.1)
   - SwiftyRSA (1.5.0):
     - SwiftyRSA/ObjC (= 1.5.0)
   - SwiftyRSA/ObjC (1.5.0)
+  - YPImagePicker (4.2.1):
+    - PryntTrimmerView (~> 4.0.0)
+    - SteviaLayout (~> 4.7.3)
 
 DEPENDENCIES:
   - Bugly (~> 2.5.0)
@@ -33,6 +38,7 @@ DEPENDENCIES:
   - ObjectMapper (~> 3.5.2)
   - SwiftyBeaver (~> 1.7.0)
   - SwiftyRSA (~> 1.5.0)
+  - YPImagePicker
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -46,9 +52,12 @@ SPEC REPOS:
     - MJRefresh
     - Moya
     - ObjectMapper
+    - PryntTrimmerView
     - Result
+    - SteviaLayout
     - SwiftyBeaver
     - SwiftyRSA
+    - YPImagePicker
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
@@ -61,10 +70,13 @@ SPEC CHECKSUMS:
   MJRefresh: 2b1214a2dc8f4df4c5dcb028ea2ad4e245425fb7
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
+  PryntTrimmerView: 67e67573ffd4c073f1308effa66aefd0cfa667a0
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  SteviaLayout: c2ecdcff57d44e38fd2f65e54ad52aeae28ca0c4
   SwiftyBeaver: da5e573ad583586c18236324c36900990afe1733
   SwiftyRSA: 6e528fb1b1a87d5111c48081083b141d6d65f1cf
+  YPImagePicker: 3b88ca0c50134af2856c48c481572c98a8b8b65b
 
-PODFILE CHECKSUM: 7f143c65dc82f3583935e95b4776cc2c684e940b
+PODFILE CHECKSUM: 3fe5f49a2b2a0b0283b6026a91550aa2b6c7f016
 
 COCOAPODS: 1.9.1

@@ -10,9 +10,14 @@ import UIKit
 
 class UploadImageCollectionViewCell: UICollectionViewCell {
 static let reuseID =  "UploadImageCollectionViewCell"
+    
+    @IBOutlet weak var image_post: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+    }
+    func updateCell(image:UIImage){
+        image_post.image = image
     }
 
 }

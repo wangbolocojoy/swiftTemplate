@@ -16,4 +16,5 @@ pod 'CryptoSwift' , '~> 1.0.0'
 pod 'Bugly','~> 2.5.0'
 pod 'FSPagerView'
 pod 'Kingfisher', '~> 5.0'
+pod 'YPImagePicker'
 end

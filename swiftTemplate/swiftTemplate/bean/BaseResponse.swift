@@ -15,6 +15,7 @@ class BaseResponse: Mappable {
     var userinfo:UserInfo?
     var novellist:[NovelInfo]?
     var imageurl:String?
+    var sendpost:PostInfo?
     var fancefollowlist:[UserInfo]?
     var postlist:[PostInfo]?
     required init?(map: Map) {
@@ -28,6 +29,7 @@ class BaseResponse: Mappable {
         imageurl <- map["data"]
         fancefollowlist <- map["data"]
         postlist <- map["data"]
+        sendpost <- map["data"]
     }
     
 }

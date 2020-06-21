@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 import Kingfisher
 extension UIViewController{
-    
     func Showalert(Title:String?)  {
         let TipsActionSheet : UIAlertController = UIAlertController(title: "温馨提示", message: Title ?? "", preferredStyle: UIAlertController.Style.alert)
         TipsActionSheet.addAction(UIAlertAction(title: "确定", style: .cancel, handler: { (UIAlertAction) in
@@ -110,7 +109,7 @@ extension UIImageView{
         image.kf.indicatorType = .activity
         image.kf.setImage(
             with: url,
-            placeholder: proimage,
+            placeholder: #imageLiteral(resourceName: "imageloading"),
             options: [
                 .processor(processor),
                 .scaleFactor(UIScreen.main.scale),
