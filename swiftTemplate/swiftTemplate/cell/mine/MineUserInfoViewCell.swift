@@ -10,7 +10,6 @@ import UIKit
 
 class MineUserInfoViewCell: UITableViewCell {
     static let reuseID =  "MineUserInfoViewCell"
-    
     @IBOutlet weak var lab_guanzhunumber: UILabel!
     @IBOutlet weak var lab_userfancenumber: UILabel!
     @IBOutlet weak var lab_userpostnumber: UILabel!

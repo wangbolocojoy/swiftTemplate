@@ -162,7 +162,7 @@ class UserInfo: Mappable {
         userSex <- map["userSex"]
         isFollow <- map["isFollow"]
         follows <- map["follows"]
-         postNum <- map["postNum"]
+        postNum <- map["postNum"]
     }
     
 }

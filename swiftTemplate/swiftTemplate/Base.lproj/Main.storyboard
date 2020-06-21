@@ -303,6 +303,51 @@
             </objects>
             <point key="canvasLocation" x="6505.7971014492759" y="349.55357142857139"/>
         </scene>
+        <!--我的设置-->
+        <scene sceneID="4Be-PF-fJJ">
+            <objects>
+                <viewController storyboardIdentifier="MYSETTINGVC" title="我的设置" hidesBottomBarWhenPushed="YES" id="1HS-UF-TYu" customClass="MySettingViewController" customModule="swiftTemplate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6Zq-lJ-HNG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="TiL-j2-iEW"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LW0-ej-auk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9206" y="736"/>
+        </scene>
+        <!--我的朋友-->
+        <scene sceneID="Nxz-Ob-Qmm">
+            <objects>
+                <viewController storyboardIdentifier="MYFRIENDSVC" title="我的朋友" hidesBottomBarWhenPushed="YES" id="8dQ-CU-IpL" customClass="MyFriendsViewController" customModule="swiftTemplate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pfO-N7-iKr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="EGl-Cd-Sqh"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M78-kK-K5P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9278" y="1565"/>
+        </scene>
+        <!--我的消息-->
+        <scene sceneID="xR6-lI-ptm">
+            <objects>
+                <viewController storyboardIdentifier="MYMESSAGEVC" title="我的消息" hidesBottomBarWhenPushed="YES" id="WqJ-x0-8sn" customClass="MyMessageViewController" customModule="swiftTemplate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rKh-Qn-9R0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="qBt-Al-UYI"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CoO-la-rwO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="10314" y="1476"/>
+        </scene>
         <!--Instagram-->
         <scene sceneID="qCK-DL-nxF">
             <objects>
@@ -731,6 +776,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dQx-JH-DKx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4644.927536231884" y="1190.625"/>
+        </scene>
+        <!--我的图片-->
+        <scene sceneID="CbL-ZX-q3s">
+            <objects>
+                <viewController storyboardIdentifier="MYPICTUREVC" title="我的图片" hidesBottomBarWhenPushed="YES" id="wCR-c8-8aR" customClass="MyPictureViewController" customModule="swiftTemplate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gaw-Wg-5zR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Grr-rY-TIb"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="96s-QG-e77" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5787" y="2383"/>
+        </scene>
+        <!--我的地址-->
+        <scene sceneID="4jY-8Y-B8l">
+            <objects>
+                <viewController storyboardIdentifier="MYADDRESSVC" title="我的地址" hidesBottomBarWhenPushed="YES" id="1pv-pp-lGC" customClass="MyAddressViewController" customModule="swiftTemplate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xfs-Ij-Dsl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="FJh-QL-Fuf"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vr2-4m-jLv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6931" y="1810"/>
         </scene>
         <!--粉丝详情-->
         <scene sceneID="MYK-5V-TdY">

@@ -65,7 +65,7 @@ class MainPostCell: UITableViewCell {
         post_auther_nickname.text = pinfo?.author?.nickName ?? ""
         pagecontrol.numberOfPages = pinfo?.postImages?.count ?? 0
         postauther_icon.setImageUrl(image: postauther_icon,string: pinfo?.author?.icon, proimage: #imageLiteral(resourceName: "IMG_2507"))
-        
+        usericon.setImageUrl(image: usericon,string: UserInfoHelper.instance.user?.icon, proimage: #imageLiteral(resourceName: "IMG_2506"))
     }
     
 }

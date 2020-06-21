@@ -68,6 +68,11 @@
 		C4FDACA6249E2B7A0095F1E3 /* MainPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4FDACA4249E2B7A0095F1E3 /* MainPostCell.xib */; };
 		C4FDACAA249EF1F60095F1E3 /* PostBannerImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FDACA8249EF1F60095F1E3 /* PostBannerImageCell.swift */; };
 		C4FDACAB249EF1F60095F1E3 /* PostBannerImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4FDACA9249EF1F60095F1E3 /* PostBannerImageCell.xib */; };
+		C4FDACAE249F49010095F1E3 /* MyPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FDACAD249F49010095F1E3 /* MyPictureViewController.swift */; };
+		C4FDACB0249F491C0095F1E3 /* MyAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FDACAF249F491C0095F1E3 /* MyAddressViewController.swift */; };
+		C4FDACB2249F49380095F1E3 /* MyFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FDACB1249F49380095F1E3 /* MyFriendsViewController.swift */; };
+		C4FDACB4249F49500095F1E3 /* MyMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FDACB3249F49500095F1E3 /* MyMessageViewController.swift */; };
+		C4FDACB6249F4A9F0095F1E3 /* MySettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FDACB5249F4A9F0095F1E3 /* MySettingViewController.swift */; };
 		C9AF910697E673BF178A1F0E /* Pods_swiftTemplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96C494185AD3E08D4C8C3503 /* Pods_swiftTemplate.framework */; };
 /* End PBXBuildFile section */
 
@@ -139,6 +144,11 @@
 		C4FDACA4249E2B7A0095F1E3 /* MainPostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainPostCell.xib; sourceTree = "<group>"; };
 		C4FDACA8249EF1F60095F1E3 /* PostBannerImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostBannerImageCell.swift; sourceTree = "<group>"; };
 		C4FDACA9249EF1F60095F1E3 /* PostBannerImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostBannerImageCell.xib; sourceTree = "<group>"; };
+		C4FDACAD249F49010095F1E3 /* MyPictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPictureViewController.swift; sourceTree = "<group>"; };
+		C4FDACAF249F491C0095F1E3 /* MyAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAddressViewController.swift; sourceTree = "<group>"; };
+		C4FDACB1249F49380095F1E3 /* MyFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendsViewController.swift; sourceTree = "<group>"; };
+		C4FDACB3249F49500095F1E3 /* MyMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMessageViewController.swift; sourceTree = "<group>"; };
+		C4FDACB5249F4A9F0095F1E3 /* MySettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySettingViewController.swift; sourceTree = "<group>"; };
 		DCA72CBB041D702BBAC53701 /* Pods-swiftTemplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftTemplate.release.xcconfig"; path = "Target Support Files/Pods-swiftTemplate/Pods-swiftTemplate.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -383,6 +393,7 @@
 		C4AEFCDF248C925A0080904E /* mine */ = {
 			isa = PBXGroup;
 			children = (
+				C4FDACAC249F48B30095F1E3 /* mineitems */,
 				C4AEFCE0248C92D40080904E /* BTMMineEdUserController.swift */,
 				C4AEFCE2248C92F50080904E /* BTMMinePostController.swift */,
 				C4AEFCE4248CA8160080904E /* BTMUserInfoController.swift */,
@@ -410,6 +421,18 @@
 				C4FDACA9249EF1F60095F1E3 /* PostBannerImageCell.xib */,
 			);
 			path = bannercell;
+			sourceTree = "<group>";
+		};
+		C4FDACAC249F48B30095F1E3 /* mineitems */ = {
+			isa = PBXGroup;
+			children = (
+				C4FDACAD249F49010095F1E3 /* MyPictureViewController.swift */,
+				C4FDACAF249F491C0095F1E3 /* MyAddressViewController.swift */,
+				C4FDACB1249F49380095F1E3 /* MyFriendsViewController.swift */,
+				C4FDACB3249F49500095F1E3 /* MyMessageViewController.swift */,
+				C4FDACB5249F4A9F0095F1E3 /* MySettingViewController.swift */,
+			);
+			path = mineitems;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -540,6 +563,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4FDACB2249F49380095F1E3 /* MyFriendsViewController.swift in Sources */,
 				C4AEFCDD248BF0BD0080904E /* MineUserInfoViewCell.swift in Sources */,
 				C43157E424839CAB0034A74E /* AboutUsViewController.swift in Sources */,
 				C43157E024839C880034A74E /* LoginViewController.swift in Sources */,
@@ -549,6 +573,7 @@
 				C4AEB30724986C0400196DAE /* CollectionViewLeftFlowLayout.swift in Sources */,
 				C43157D924839C290034A74E /* FlashScreenViewController.swift in Sources */,
 				C4024049248393BC00F715DC /* BaseResponse.swift in Sources */,
+				C4FDACAE249F49010095F1E3 /* MyPictureViewController.swift in Sources */,
 				C43157E224839C960034A74E /* RegisterViewController.swift in Sources */,
 				C4AEFCE5248CA8160080904E /* BTMUserInfoController.swift in Sources */,
 				C43157D724839BDB0034A74E /* MainTabController.swift in Sources */,
@@ -557,6 +582,8 @@
 				C4AEB30F2498AAF400196DAE /* FanceInfoViewCell.swift in Sources */,
 				C402404E248394E200F715DC /* ext.swift in Sources */,
 				C43157EE2483DA810034A74E /* UserInfoHelper.swift in Sources */,
+				C4FDACB6249F4A9F0095F1E3 /* MySettingViewController.swift in Sources */,
+				C4FDACB0249F491C0095F1E3 /* MyAddressViewController.swift in Sources */,
 				C4AEB30024985F9D00196DAE /* SendPostViewController.swift in Sources */,
 				C4AEFCE1248C92D40080904E /* BTMMineEdUserController.swift in Sources */,
 				C4FDACA5249E2B7A0095F1E3 /* MainPostCell.swift in Sources */,
@@ -577,6 +604,7 @@
 				C402404124838BC300F715DC /* NetworkService.swift in Sources */,
 				C4AEB30C2498A7B500196DAE /* FancesInfoViewController.swift in Sources */,
 				C4AEFCF6248E48C30080904E /* BTMMyPostViewController.swift in Sources */,
+				C4FDACB4249F49500095F1E3 /* MyMessageViewController.swift in Sources */,
 				C43157E82483A47D0034A74E /* KeychainManager.swift in Sources */,
 				C43157F32483DF5B0034A74E /* TabHomeNovelCell.swift in Sources */,
 				C43FDF7D248E89170023E3F2 /* TabDynamicViewController.swift in Sources */,

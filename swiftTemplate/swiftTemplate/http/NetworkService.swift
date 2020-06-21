@@ -24,6 +24,8 @@ public enum NetworkService{
     case uodateusericon(k:Any,dataAry:NSArray)
     //更新用户信息
     case updateuserinfo(k:String)
+    //获取用户信息
+    case getuserinfo(k:String)
     //关注用户
     case followuser(k:String)
     //取消关注用户
@@ -92,6 +94,8 @@ extension NetworkService:Moya.TargetType{
              return "back-1/swiftTemplate/Post/deletePost"
         case .upLoadFiless:
             return "back-1/swiftTemplate/file/upLoadFiless"
+        case .getuserinfo:
+            return "back-1/swiftTemplate/User/getUseInfo"
         }
         
     }
@@ -106,7 +110,7 @@ extension NetworkService:Moya.TargetType{
     //MARK: - 请求参数
     public var task: Moya.Task {
         switch self {
-        case .login(let data),.register(let data),.getmsg(let data),.tabhome(let data),.searchnovel(let data),.updateuserinfo(let data),.followuser(let data),.unfollowuser(let data),.getfancelist(let data),.getfollowlist(let data),.finduser(let data),.findrecommendlist(let data),.sendpost(let data),.getposts(let data),.getuserposts(let data),.deletspost(let data):
+        case .login(let data),.register(let data),.getmsg(let data),.tabhome(let data),.searchnovel(let data),.updateuserinfo(let data),.followuser(let data),.unfollowuser(let data),.getfancelist(let data),.getfollowlist(let data),.finduser(let data),.findrecommendlist(let data),.sendpost(let data),.getposts(let data),.getuserposts(let data),.deletspost(let data),.getuserinfo(let data):
             return  .requestData(data.utf8Encoded)
             
         case .uodateusericon(let param, let uploadImages):
@@ -148,12 +152,19 @@ extension NetworkService:Moya.TargetType{
             return .uploadMultipart(formDataAry as! [MultipartFormData])
         
         }
-        
-        
+         
     }
+    
     // MARK: - 请求HEADER
     public var headers: [String : String]? {
-        return ["Content-type":"application/json","token":UserInfoHelper.instance.user?.token as? String ?? ""]
+        switch self {
+        case .upLoadFiless,.uodateusericon:
+            let boundary = String(format: "boundary.%08x%08x", arc4random(), arc4random())
+                   let contentType = String(format: "multipart/form-data;boundary=%@", boundary)
+            return ["Content-type":contentType,"token":UserInfoHelper.instance.user?.token  ?? ""]
+        default:
+            return ["Content-type":"application/json","token":UserInfoHelper.instance.user?.token   ?? ""]
+        }
     }
     
 }

@@ -17,6 +17,11 @@ enum MyController{
     case 我的粉丝关注
     case 发帖
     case 粉丝详情
+    case 我的图片
+    case 我的地址
+    case 我的朋友
+    case 我的消息
+    case 我的设置
 }
 
 enum PictureType{
@@ -68,6 +73,21 @@ extension UIViewController{
             return vc
         case .粉丝详情:
             let vc = sb.instantiateViewController(withIdentifier: "FANCESINFOVC") as! FancesInfoViewController
+            return vc
+        case .我的图片:
+            let vc = sb.instantiateViewController(withIdentifier: "MYPICTUREVC") as! MyPictureViewController
+            return vc
+        case .我的地址:
+            let vc = sb.instantiateViewController(withIdentifier: "MYADDRESSVC") as! MyAddressViewController
+            return vc
+        case .我的朋友:
+            let vc = sb.instantiateViewController(withIdentifier: "MYFRIENDSVC") as! MyFriendsViewController
+            return vc
+        case .我的消息:
+            let vc = sb.instantiateViewController(withIdentifier: "MYMESSAGEVC") as! MyMessageViewController
+            return vc
+        case .我的设置:
+            let vc = sb.instantiateViewController(withIdentifier: "MYSETTINGVC") as! MySettingViewController
             return vc
         }
     }

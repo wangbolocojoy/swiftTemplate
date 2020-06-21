@@ -7,21 +7,17 @@
 //
 // MARK: - 我的
 import UIKit
-
+import MJRefresh
 class TabMineViewController: BaseTabViewController {
     let time = 0.2
-    var list = ["我的图片","我的地址","我的朋友","我的消息","清除缓存","退出登录"]
-    var imagelist = [UIImage(systemName: "map"),UIImage(systemName: "trash")?.withTintColor(.label),UIImage(systemName: "trash")?.withTintColor(.label),UIImage(systemName: "trash")?.withTintColor(.label),UIImage(systemName: "trash")?.withTintColor(.label),UIImage(systemName: "trash")?.withTintColor(.label)]
+    var list = ["我的图片","我的地址","我的朋友","我的消息","设置","清除缓存","退出登录"]
+    var imagelist = [UIImage(systemName: "photo.on.rectangle"),UIImage(systemName: "mappin.circle"),UIImage(systemName: "person.2"),UIImage(systemName: "ellipses.bubble"),UIImage(systemName: "gear"),UIImage(systemName: "xmark.icloud"),UIImage(systemName: "power")]
     var user : UserInfo? = nil
+    let header = MJRefreshNormalHeader()
     @IBOutlet weak var tableview: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableview.delegate = self
-        tableview.dataSource = self
-        tableview.separatorStyle = .none
-        tableview.contentInsetAdjustmentBehavior = .never
-        tableview.register(UINib(nibName: MineUserInfoViewCell.reuseID, bundle: nil), forCellReuseIdentifier: MineUserInfoViewCell.reuseID)
-        tableview.register(UINib(nibName: MineItemViewCell.reuseID, bundle: nil), forCellReuseIdentifier: MineItemViewCell.reuseID)
+        
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -34,10 +30,26 @@ class TabMineViewController: BaseTabViewController {
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
-    
-    
-    //
-    
+    override func initView() {
+        tableview.delegate = self
+        tableview.dataSource = self
+        tableview.separatorStyle = .none
+        tableview.contentInsetAdjustmentBehavior = .never
+        tableview.register(UINib(nibName: MineUserInfoViewCell.reuseID, bundle: nil), forCellReuseIdentifier: MineUserInfoViewCell.reuseID)
+        tableview.register(UINib(nibName: MineItemViewCell.reuseID, bundle: nil), forCellReuseIdentifier: MineItemViewCell.reuseID)
+        tableview.register(UINib(nibName: BTMCleanHeader.reuseID, bundle: nil), forHeaderFooterViewReuseIdentifier: BTMCleanHeader.reuseID)
+        header.setRefreshingTarget(self, refreshingAction: #selector(refresh))
+        tableview.mj_header = header
+        
+    }
+    @objc func refresh(){
+        let body = RequestBody()
+        body.id = user?.id ?? 0
+        MyMoyaManager.AllRequest(controller: self, NetworkService.getuserinfo(k: body.toJSONString() ?? "")) { (data) in
+            UserInfoHelper.instance.user = data.userinfo
+            self.tableview.reloadData()
+        }
+    }
     func logout(){
         KeychainManager.User.DeleteByIdentifier(forKey: .UserInfo)
         UserInfoHelper.instance._setuser = nil
@@ -65,12 +77,22 @@ extension TabMineViewController:UITableViewDelegate,UITableViewDataSource{
             log.info("哈哈哈")
         default:
             switch indexPath.item {
-            case 0,1,2,3:
-                self.ShowTip(Title: list[indexPath.item])
+            case 0:
+                self.navigationController?.pushViewController(getVcByName(vc: .我的图片), animated: true)
+            case 1:
+                self.navigationController?.pushViewController(getVcByName(vc: .我的地址), animated: true)
+            case 2:
+                self.navigationController?.pushViewController(getVcByName(vc: .我的朋友), animated: true)
+            case 3:
+                self.navigationController?.pushViewController(getVcByName(vc: .我的消息), animated: true)
             case 4:
+                self.navigationController?.pushViewController(getVcByName(vc: .我的设置), animated: true)
+            case 5:
                 deleteCoreNovel()
-            default:
+            case 6:
                 logout()
+            default:
+                 debugPrint()
             }
         }
     }
@@ -80,6 +102,19 @@ extension TabMineViewController:UITableViewDelegate,UITableViewDataSource{
             return 1
         default:
             return list.count
+        }
+    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: BTMCleanHeader.reuseID) as! BTMCleanHeader
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        switch section {
+        case 0:
+            return 0
+        default:
+            return 10
         }
     }
     func numberOfSections(in tableView: UITableView) -> Int {
