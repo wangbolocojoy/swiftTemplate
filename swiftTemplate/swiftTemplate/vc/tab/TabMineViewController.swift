@@ -46,7 +46,9 @@ class TabMineViewController: BaseTabViewController {
         let body = RequestBody()
         body.id = user?.id ?? 0
         MyMoyaManager.AllRequest(controller: self, NetworkService.getuserinfo(k: body.toJSONString() ?? "")) { (data) in
+            
             UserInfoHelper.instance.user = data.userinfo
+            
             self.tableview.reloadData()
         }
     }
@@ -132,7 +134,7 @@ extension TabMineViewController:UITableViewDelegate,UITableViewDataSource{
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: MineUserInfoViewCell.reuseID, for: indexPath) as! MineUserInfoViewCell
-            cell.updateCell(user: user )
+            cell.updateCell(user: UserInfoHelper.instance.user )
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: MineItemViewCell.reuseID, for: indexPath) as! MineItemViewCell
