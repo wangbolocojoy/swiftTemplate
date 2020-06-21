@@ -37,6 +37,7 @@ class MineUserInfoViewCell: UITableViewCell {
         let tapfollow =  UITapGestureRecognizer(target: self, action: #selector(toMyFollow))
         btn_guanzhu.isUserInteractionEnabled = true
         btn_guanzhu.addGestureRecognizer(tapfollow)
+        view_version.isHidden = true
     }
     
     
@@ -53,7 +54,10 @@ class MineUserInfoViewCell: UITableViewCell {
     }
     
     @objc func toMyPost(){
-        self.pushVC(vc: (self.parentViewController()?.getVcByName(vc: .我的帖子))!)
+         let vc = self.parentViewController()?.getVcByName(vc: .我的帖子) as! BTMMyPostViewController
+        vc.vcname = "我的主页"
+        vc.userid = UserInfoHelper.instance.user?.id ?? 0
+        self.pushVC(vc: vc)
         
     }
     

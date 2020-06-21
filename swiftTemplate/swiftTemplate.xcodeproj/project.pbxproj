@@ -73,6 +73,8 @@
 		C4FDACB2249F49380095F1E3 /* MyFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FDACB1249F49380095F1E3 /* MyFriendsViewController.swift */; };
 		C4FDACB4249F49500095F1E3 /* MyMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FDACB3249F49500095F1E3 /* MyMessageViewController.swift */; };
 		C4FDACB6249F4A9F0095F1E3 /* MySettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FDACB5249F4A9F0095F1E3 /* MySettingViewController.swift */; };
+		C4FDACBE249FB5610095F1E3 /* DynamicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FDACBC249FB5610095F1E3 /* DynamicCollectionViewCell.swift */; };
+		C4FDACBF249FB5610095F1E3 /* DynamicCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4FDACBD249FB5610095F1E3 /* DynamicCollectionViewCell.xib */; };
 		C9AF910697E673BF178A1F0E /* Pods_swiftTemplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96C494185AD3E08D4C8C3503 /* Pods_swiftTemplate.framework */; };
 /* End PBXBuildFile section */
 
@@ -149,6 +151,8 @@
 		C4FDACB1249F49380095F1E3 /* MyFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendsViewController.swift; sourceTree = "<group>"; };
 		C4FDACB3249F49500095F1E3 /* MyMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMessageViewController.swift; sourceTree = "<group>"; };
 		C4FDACB5249F4A9F0095F1E3 /* MySettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySettingViewController.swift; sourceTree = "<group>"; };
+		C4FDACBC249FB5610095F1E3 /* DynamicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicCollectionViewCell.swift; sourceTree = "<group>"; };
+		C4FDACBD249FB5610095F1E3 /* DynamicCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DynamicCollectionViewCell.xib; sourceTree = "<group>"; };
 		DCA72CBB041D702BBAC53701 /* Pods-swiftTemplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftTemplate.release.xcconfig"; path = "Target Support Files/Pods-swiftTemplate/Pods-swiftTemplate.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -331,6 +335,7 @@
 		C43157EF2483DF200034A74E /* cell */ = {
 			isa = PBXGroup;
 			children = (
+				C4FDACB7249FB0E20095F1E3 /* dynamic */,
 				C4AEB301249863BD00196DAE /* post */,
 				C4AEFCD6248BF07C0080904E /* mine */,
 				C43157F02483DF270034A74E /* home */,
@@ -435,6 +440,15 @@
 			path = mineitems;
 			sourceTree = "<group>";
 		};
+		C4FDACB7249FB0E20095F1E3 /* dynamic */ = {
+			isa = PBXGroup;
+			children = (
+				C4FDACBC249FB5610095F1E3 /* DynamicCollectionViewCell.swift */,
+				C4FDACBD249FB5610095F1E3 /* DynamicCollectionViewCell.xib */,
+			);
+			path = dynamic;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -505,6 +519,7 @@
 				C4AEB305249863EF00196DAE /* UploadImageCollectionViewCell.xib in Resources */,
 				C40240302480193E00F715DC /* Assets.xcassets in Resources */,
 				C402402B2480193B00F715DC /* Main.storyboard in Resources */,
+				C4FDACBF249FB5610095F1E3 /* DynamicCollectionViewCell.xib in Resources */,
 				C4206F25248FFC2900F4537C /* FanceORFollowCell.xib in Resources */,
 				C4FDACA6249E2B7A0095F1E3 /* MainPostCell.xib in Resources */,
 				C4AEFCEE248CAB620080904E /* BTMUserItemCell.xib in Resources */,
@@ -589,6 +604,7 @@
 				C4FDACA5249E2B7A0095F1E3 /* MainPostCell.swift in Sources */,
 				C43157D524839AC30034A74E /* BaseTabViewController.swift in Sources */,
 				C43157EC2483B16B0034A74E /* RequestBody.swift in Sources */,
+				C4FDACBE249FB5610095F1E3 /* DynamicCollectionViewCell.swift in Sources */,
 				C40240242480193B00F715DC /* AppDelegate.swift in Sources */,
 				C43FDF7B248E88C30023E3F2 /* TabFriendsViewController.swift in Sources */,
 				C43157D3248399FE0034A74E /* BaseViewController.swift in Sources */,

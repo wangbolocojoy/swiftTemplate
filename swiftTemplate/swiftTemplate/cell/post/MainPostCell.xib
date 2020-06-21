@@ -260,20 +260,20 @@
                                 <rect key="frame" x="15" y="544" width="832" height="40"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_2506" translatesAutoresizingMaskIntoConstraints="NO" id="v8X-T1-oCt">
-                                        <rect key="frame" x="0.0" y="2" width="36" height="36"/>
+                                        <rect key="frame" x="0.0" y="5" width="30" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="36" id="3TE-wB-9Vc"/>
-                                            <constraint firstAttribute="width" constant="36" id="isu-UR-4v6"/>
+                                            <constraint firstAttribute="height" constant="30" id="3TE-wB-9Vc"/>
+                                            <constraint firstAttribute="width" constant="30" id="isu-UR-4v6"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="18"/>
+                                                <integer key="value" value="15"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="添加评论" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nDG-WJ-zRa">
-                                        <rect key="frame" x="41" y="0.0" width="751" height="40"/>
+                                        <rect key="frame" x="35" y="0.0" width="757" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>

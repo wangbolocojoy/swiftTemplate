@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="510" height="443"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_2485 2" translatesAutoresizingMaskIntoConstraints="NO" id="z6c-TF-vVN">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z6c-TF-vVN">
                         <rect key="frame" x="0.0" y="0.0" width="510" height="443"/>
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_2506" translatesAutoresizingMaskIntoConstraints="NO" id="dzu-EN-mC6">
@@ -201,7 +201,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="IMG_2485 2" width="375" height="228"/>
         <image name="IMG_2506" width="512" height="512"/>
     </resources>
 </document>

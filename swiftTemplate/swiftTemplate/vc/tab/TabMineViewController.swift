@@ -51,6 +51,7 @@ class TabMineViewController: BaseTabViewController {
             
             self.tableview.reloadData()
         }
+        header.endRefreshing()
     }
     func logout(){
         KeychainManager.User.DeleteByIdentifier(forKey: .UserInfo)

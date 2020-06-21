@@ -488,6 +488,9 @@
                             <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="collectionview" destination="akX-Xe-hM5" id="Y02-MO-tWQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MP9-DS-9e5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -92,43 +92,43 @@ extension BaseViewController{
     }
 }
 extension UIImageView{
-//    func setImageUrl(_ string : String?,ptype:PictureType?,proimage:UIImage?) {
-//        if(string != nil){
-//            do {
-//                guard let url = try URL(string: "\(string!)\(GetImageType(type: ptype ?? nil))" ) ?? nil else { return   self.image = proimage }
-//                self.af_setImage(withURL: url, placeholderImage: proimage)
-//            } catch  {
-//                
-//            }
-//        }
-//    }
+
     func setImageUrl(image:UIImageView, string : String?,proimage:UIImage?) {
         let url = URL(string: string ?? "")
-        let processor = DownsamplingImageProcessor(size: image.bounds.size)
-            |> RoundCornerImageProcessor(cornerRadius: 0)
+        let imageResource = ImageResource(downloadURL: url!, cacheKey: string)
+        let cache = ImageCache.default
+        // Limit memory cache size to 300 MB.
+        cache.memoryStorage.config.totalCostLimit = 300 * 1024 * 1024
+
+        // Limit memory cache to hold 150 images at most.
+        cache.memoryStorage.config.countLimit = 150
+        // Limit disk cache size to 1 GB.
+        cache.diskStorage.config.sizeLimit =   1000 * 1024 * 1024
+        // Memory image expires after 10 minutes.
+        cache.memoryStorage.config.expiration = .seconds(600)
+
+        // Disk image never expires.
+        cache.diskStorage.config.expiration = .never
+        // Check memory clean up every 30 seconds.
+//        cache.memoryStorage.config.cleanInterval = 30
         image.kf.indicatorType = .activity
+        
         image.kf.setImage(
-            with: url,
-            placeholder: #imageLiteral(resourceName: "IMG_2631"),
+            with: imageResource,
+            placeholder: #imageLiteral(resourceName: "IMG_2630"),
             options: [
-                .processor(processor),
+                .backgroundDecode,
                 .scaleFactor(UIScreen.main.scale),
                 .transition(.fade(1)),
-                .cacheOriginalImage
-            ])
+                .cacheOriginalImage,
+                .diskCacheExpiration(.days(10)),
+                .diskCacheAccessExtendingExpiration(.cacheTime)
+            ]
+            
+        )
         
         
-        {
-            result in
-            switch result {
-            case .success(let value):
-                 print()
-//                debugPrint("下载图片成功: \(value.source.url?.absoluteString ?? "")")
-            case .failure(let error):
-//                debugPrint("下载图片失败: \(error.localizedDescription)")
-               print()
-            }
-        }
+       
        
     }
     func GetImageType(type:PictureType?)->String{

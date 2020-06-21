@@ -38,6 +38,7 @@ class TabHomeViewController: BaseTabViewController {
                 self.hasmore = true
             }else{
                 self.hasmore = false
+                self.footer.endRefreshingWithNoMoreData()
             }
             self.tableview.reloadData()
         }
@@ -59,7 +60,7 @@ class TabHomeViewController: BaseTabViewController {
             pagebody.pageSize = 3
             getNovel(body: pagebody)
         }else{
-            footer.endRefreshingWithNoMoreData()
+            
         }
         
     }
@@ -96,29 +97,24 @@ extension TabHomeViewController:UITableViewDataSource,UITableViewDelegate,UIScro
     }
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if(!decelerate){
-            //             print("手指离开屏幕之后页面直接停住到这里")
             self.scrollLoadData()
         }else{
-            //            print("这里是页面没停住 继续滑动 但是时间点是手指离开屏幕的瞬间")
-            //            print("这种情况就等页面自然停住 然后走scrollViewDidEndDecelerating方法")
+
         }
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        //        print("手指离开屏幕之后 页面还以某个速度继续滑 然后在停下的时候 到这里")
         self.scrollLoadData()
     }
     
     func scrollLoadData() {
+        if !hasmore {
+            return
+        }
         let path = tableview.indexPathsForVisibleRows!  as [IndexPath]
-        //        log.info("path.count---\( path.count)")
         if ( path.count  > 0) {
             let lastPath = path[(path.count)-1]
-            //            log.info("lastPath\( lastPath.item)")
-            //             log.info("self.list?.count\( self.list?.count ?? 0 - 1)")
-            //如果是最后一行了 加载新数据 //这里应该再加一层判断返回的数据已经没有后续页可翻了
             if  lastPath.item == (self.list?.count ?? 0) - 1{
-                //                print("滑动到最后了")
                 self.getMore()
             }
         }
