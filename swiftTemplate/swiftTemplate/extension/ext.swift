@@ -115,8 +115,10 @@ extension UIImageView{
                 .processor(processor),
                 .scaleFactor(UIScreen.main.scale),
                 .transition(.fade(1)),
-                .diskCacheAccessExtendingExpiration(.cacheTime)
+                .cacheOriginalImage
             ])
+        
+        
         {
             result in
             switch result {
@@ -124,6 +126,7 @@ extension UIImageView{
                 debugPrint("下载图片成功: \(value.source.url?.absoluteString ?? "")")
             case .failure(let error):
                 debugPrint("下载图片失败: \(error.localizedDescription)")
+            
             }
         }
        

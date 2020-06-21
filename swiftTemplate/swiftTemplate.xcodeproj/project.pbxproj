@@ -66,6 +66,8 @@
 		C4AEFCFA248E4B330080904E /* BTMMyFanceFollowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEFCF9248E4B330080904E /* BTMMyFanceFollowViewController.swift */; };
 		C4FDACA5249E2B7A0095F1E3 /* MainPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FDACA3249E2B7A0095F1E3 /* MainPostCell.swift */; };
 		C4FDACA6249E2B7A0095F1E3 /* MainPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4FDACA4249E2B7A0095F1E3 /* MainPostCell.xib */; };
+		C4FDACAA249EF1F60095F1E3 /* PostBannerImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FDACA8249EF1F60095F1E3 /* PostBannerImageCell.swift */; };
+		C4FDACAB249EF1F60095F1E3 /* PostBannerImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4FDACA9249EF1F60095F1E3 /* PostBannerImageCell.xib */; };
 		C9AF910697E673BF178A1F0E /* Pods_swiftTemplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96C494185AD3E08D4C8C3503 /* Pods_swiftTemplate.framework */; };
 /* End PBXBuildFile section */
 
@@ -135,6 +137,8 @@
 		C4AEFCF9248E4B330080904E /* BTMMyFanceFollowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTMMyFanceFollowViewController.swift; sourceTree = "<group>"; };
 		C4FDACA3249E2B7A0095F1E3 /* MainPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPostCell.swift; sourceTree = "<group>"; };
 		C4FDACA4249E2B7A0095F1E3 /* MainPostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainPostCell.xib; sourceTree = "<group>"; };
+		C4FDACA8249EF1F60095F1E3 /* PostBannerImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostBannerImageCell.swift; sourceTree = "<group>"; };
+		C4FDACA9249EF1F60095F1E3 /* PostBannerImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostBannerImageCell.xib; sourceTree = "<group>"; };
 		DCA72CBB041D702BBAC53701 /* Pods-swiftTemplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftTemplate.release.xcconfig"; path = "Target Support Files/Pods-swiftTemplate/Pods-swiftTemplate.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -344,6 +348,7 @@
 		C4AEB301249863BD00196DAE /* post */ = {
 			isa = PBXGroup;
 			children = (
+				C4FDACA7249EF1CC0095F1E3 /* bannercell */,
 				C4AEB302249863EF00196DAE /* UploadImageCollectionViewCell.swift */,
 				C4AEB303249863EF00196DAE /* UploadImageCollectionViewCell.xib */,
 				C4FDACA3249E2B7A0095F1E3 /* MainPostCell.swift */,
@@ -396,6 +401,15 @@
 				C4AEFCEC248CAB620080904E /* BTMUserItemCell.xib */,
 			);
 			path = userinfo;
+			sourceTree = "<group>";
+		};
+		C4FDACA7249EF1CC0095F1E3 /* bannercell */ = {
+			isa = PBXGroup;
+			children = (
+				C4FDACA8249EF1F60095F1E3 /* PostBannerImageCell.swift */,
+				C4FDACA9249EF1F60095F1E3 /* PostBannerImageCell.xib */,
+			);
+			path = bannercell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -463,6 +477,7 @@
 				C4AEFCEA248CAA310080904E /* BTMUserIconCell.xib in Resources */,
 				C40240332480193E00F715DC /* LaunchScreen.storyboard in Resources */,
 				C4AEB3102498AAF400196DAE /* FanceInfoViewCell.xib in Resources */,
+				C4FDACAB249EF1F60095F1E3 /* PostBannerImageCell.xib in Resources */,
 				C43157F42483DF5B0034A74E /* TabHomeNovelCell.xib in Resources */,
 				C4AEB305249863EF00196DAE /* UploadImageCollectionViewCell.xib in Resources */,
 				C40240302480193E00F715DC /* Assets.xcassets in Resources */,
@@ -530,6 +545,7 @@
 				C43157E024839C880034A74E /* LoginViewController.swift in Sources */,
 				C43157CF2483994F0034A74E /* CALayer+MyColor.m in Sources */,
 				C4AEFCED248CAB620080904E /* BTMUserItemCell.swift in Sources */,
+				C4FDACAA249EF1F60095F1E3 /* PostBannerImageCell.swift in Sources */,
 				C4AEB30724986C0400196DAE /* CollectionViewLeftFlowLayout.swift in Sources */,
 				C43157D924839C290034A74E /* FlashScreenViewController.swift in Sources */,
 				C4024049248393BC00F715DC /* BaseResponse.swift in Sources */,
