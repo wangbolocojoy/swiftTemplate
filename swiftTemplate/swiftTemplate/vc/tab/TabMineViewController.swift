@@ -11,7 +11,7 @@ import UIKit
 class TabMineViewController: BaseTabViewController {
     let time = 0.2
     var list = ["我的图片","我的地址","我的朋友","我的消息","清除缓存","退出登录"]
-    var imagelist = [#imageLiteral(resourceName: "IMG_2488-1"),#imageLiteral(resourceName: "IMG_2488-1"),#imageLiteral(resourceName: "IMG_2488-1"),#imageLiteral(resourceName: "IMG_2488-1"),#imageLiteral(resourceName: "IMG_2488-1"),#imageLiteral(resourceName: "IMG_2488-1")]
+    var imagelist = [UIImage(systemName: "map"),UIImage(systemName: "trash")?.withTintColor(.label),UIImage(systemName: "trash")?.withTintColor(.label),UIImage(systemName: "trash")?.withTintColor(.label),UIImage(systemName: "trash")?.withTintColor(.label),UIImage(systemName: "trash")?.withTintColor(.label)]
     var user : UserInfo? = nil
     @IBOutlet weak var tableview: UITableView!
     override func viewDidLoad() {

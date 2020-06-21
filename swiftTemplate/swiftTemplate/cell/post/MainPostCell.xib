@@ -105,8 +105,8 @@
                                             <constraint firstAttribute="height" constant="25" id="D2R-rs-M4e"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bookmark" catalog="system" highlightedImage="bookmark.fill" translatesAutoresizingMaskIntoConstraints="NO" id="KpR-MC-By9">
-                                        <rect key="frame" x="822" y="4.5" width="25" height="25"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trash" catalog="system" highlightedImage="bookmark.fill" translatesAutoresizingMaskIntoConstraints="NO" id="KpR-MC-By9">
+                                        <rect key="frame" x="822" y="3.5" width="25" height="25.5"/>
                                         <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="25" id="L4G-v1-Fv2"/>
@@ -356,7 +356,6 @@
     <resources>
         <image name="IMG_2506" width="512" height="512"/>
         <image name="IMG_2507" width="50" height="50"/>
-        <image name="bookmark" catalog="system" width="112" height="128"/>
         <image name="bookmark.fill" catalog="system" width="112" height="128"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
@@ -365,5 +364,6 @@
         <image name="paperplane" catalog="system" width="128" height="121"/>
         <image name="paperplane.fill" catalog="system" width="128" height="121"/>
         <image name="text.bubble" catalog="system" width="128" height="110"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
     </resources>
 </document>

@@ -123,10 +123,11 @@ extension UIImageView{
             result in
             switch result {
             case .success(let value):
-                debugPrint("下载图片成功: \(value.source.url?.absoluteString ?? "")")
+                 print()
+//                debugPrint("下载图片成功: \(value.source.url?.absoluteString ?? "")")
             case .failure(let error):
-                debugPrint("下载图片失败: \(error.localizedDescription)")
-            
+//                debugPrint("下载图片失败: \(error.localizedDescription)")
+               print()
             }
         }
        

@@ -133,6 +133,7 @@ class UserInfo: Mappable {
     var account:String?
     var password:String?
     var icon:String?
+    var postNum:Int?
     var likeStarts:Int?
     var fances:Int?
     var token:String?
@@ -159,6 +160,7 @@ class UserInfo: Mappable {
         userSex <- map["userSex"]
         isFollow <- map["isFollow"]
         follows <- map["follows"]
+         postNum <- map["postNum"]
     }
     
 }

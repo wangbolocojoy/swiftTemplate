@@ -58,16 +58,16 @@ struct MyMoyaManager{
                                
                             }else if u.status ?? 0 == 500{
                                 controller.ShowTip(Title: u.message ?? u.msg ?? "请求失败")
-                                KeychainManager.User.DeleteByIdentifier(forKey: .UserInfo)
-                                UIView.animate(withDuration: 0.9, animations:{ }, completion: { (true) in
-                                               let tranststion =  CATransition()
-                                    tranststion.duration = 0.9
-                                               tranststion.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
-                                                   UIApplication.shared.keyWindow?.layer.add(tranststion, forKey: "animation")
-                                                                  UIApplication.shared.keyWindow?.rootViewController = controller.getloginVc()
-                                               
-                                              
-                                           })
+//                                KeychainManager.User.DeleteByIdentifier(forKey: .UserInfo)
+//                                UIView.animate(withDuration: 0.9, animations:{ }, completion: { (true) in
+//                                               let tranststion =  CATransition()
+//                                    tranststion.duration = 0.9
+//                                               tranststion.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
+//                                                   UIApplication.shared.keyWindow?.layer.add(tranststion, forKey: "animation")
+//                                                                  UIApplication.shared.keyWindow?.rootViewController = controller.getloginVc()
+//
+//
+//                                           })
                             }else{
                                 controller.ShowTip(Title: u.msg ?? "请求失败")
                             }
