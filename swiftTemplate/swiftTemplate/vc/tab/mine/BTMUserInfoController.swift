@@ -10,6 +10,7 @@ import UIKit
 
 class BTMUserInfoController: BaseViewController{
     let list = ["账号","昵称","真实姓名","个人简介","地区"]
+    
     @IBOutlet weak var tableview: UITableView!
     var user :UserInfo? = nil
     private lazy var pickVC: UIImagePickerController = {

@@ -36,19 +36,16 @@ class SendPostViewController: BaseViewController {
             ShowTip(Title: "请至少输入10个字的内容")
             return
         }
-        let postbody = RequestBody()
-        postbody.userId = UserInfoHelper.instance.user?.id ?? 0
+        
         if lab_address.text != "请选择地址" {
-             postbody.address = lab_address.text
         }
-        postbody.postTitle = ""
-        postbody.postDetail = ev_detail.text
-        MyMoyaManager.AllRequest(controller: self, NetworkService.sendpost(k: postbody.toJSONString() ?? "")) { (data) in
-            let param = ["postId":"\(data.sendpost?.id ?? 0)" ,"uploadtype":"image","id":"\(UserInfoHelper.instance.user?.id ?? 0)"]
-            MyMoyaManager.AllRequest(controller: self, NetworkService.upLoadFiless(K: param, dataAry: self.list as NSArray)) { (data) in
+        
+        let detail = ev_detail.text
+        let address = lab_address.text
+            let param = ["postDetail": detail ?? "" ,"postAddress": address ?? "" ,"uploadType":"image","userId":"\(UserInfoHelper.instance.user?.id ?? 0)"]
+            MyMoyaManager.AllRequest(controller: self, NetworkService.upLoadFiles(K: param, dataAry: self.list as NSArray)) { (data) in
                 self.ShowTipsClose(tite: data.msg ?? "发布成功")
             }
-        }
         
     }
     

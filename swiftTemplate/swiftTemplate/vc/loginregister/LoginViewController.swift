@@ -58,12 +58,14 @@ class LoginViewController: BaseTabViewController {
         
     }
     func gotoMainVC(){
-        UIView.animate(withDuration: time, animations:{ }, completion: { (true) in
+        UIView.animate(withDuration: time, animations:{
             let tranststion =  CATransition()
-            tranststion.duration = self.time
-            tranststion.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
-            UIApplication.shared.keyWindow?.layer.add(tranststion, forKey: "animation")
-            UIApplication.shared.keyWindow?.rootViewController = self.getMainVc()
+                       tranststion.duration = self.time
+                       tranststion.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
+                       UIApplication.shared.windows[0].layer.add(tranststion, forKey: "animation")
+        }, completion: { (true) in
+           
+            UIApplication.shared.windows[0].rootViewController = self.getMainVc()
             
             
         })
@@ -89,19 +91,19 @@ extension LoginViewController:UITextFieldDelegate{
         switch textField {
         case ev_phone:
             let maxLength = 11
-            let currentString: NSString = textField.text as? NSString ?? ""
+            let currentString: NSString = textField.text! as NSString
             let newString: NSString =
                 currentString.replacingCharacters(in: range, with: string) as NSString
             return newString.length <= maxLength
         case ev_password:
             let maxLength = 25
-            let currentString: NSString = textField.text as? NSString ?? ""
+            let currentString: NSString = textField.text! as NSString
             let newString: NSString =
                 currentString.replacingCharacters(in: range, with: string) as NSString
             return newString.length <= maxLength
         default:
             let maxLength = 1
-            let currentString: NSString = textField.text as! NSString
+            let currentString: NSString = textField.text! as NSString
             let newString: NSString =
                 currentString.replacingCharacters(in: range, with: string) as NSString
             return newString.length <= maxLength

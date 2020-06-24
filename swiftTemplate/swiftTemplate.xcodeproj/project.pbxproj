@@ -41,13 +41,17 @@
 		C43157F42483DF5B0034A74E /* TabHomeNovelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C43157F22483DF5B0034A74E /* TabHomeNovelCell.xib */; };
 		C43FDF7B248E88C30023E3F2 /* TabFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43FDF7A248E88C30023E3F2 /* TabFriendsViewController.swift */; };
 		C43FDF7D248E89170023E3F2 /* TabDynamicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43FDF7C248E89170023E3F2 /* TabDynamicViewController.swift */; };
+		C44E81BE24A33AE9000BD888 /* BTMMyQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44E81BD24A33AE9000BD888 /* BTMMyQRCodeViewController.swift */; };
+		C44E81C524A367D3000BD888 /* FanceInfoHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44E81C324A367D3000BD888 /* FanceInfoHeaderCell.swift */; };
+		C44E81C624A367D3000BD888 /* FanceInfoHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C44E81C424A367D3000BD888 /* FanceInfoHeaderCell.xib */; };
+		C44E81CB24A37CA3000BD888 /* ScanQrcodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44E81C924A37CA3000BD888 /* ScanQrcodeViewController.swift */; };
+		C44E81CE24A38006000BD888 /* sdc.gif in Resources */ = {isa = PBXBuildFile; fileRef = C44E81CD24A38006000BD888 /* sdc.gif */; };
+		C44E81D224A38A29000BD888 /* NewLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44E81D124A38A29000BD888 /* NewLogin.storyboard */; };
 		C4AEB30024985F9D00196DAE /* SendPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEB2FF24985F9D00196DAE /* SendPostViewController.swift */; };
 		C4AEB304249863EF00196DAE /* UploadImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEB302249863EF00196DAE /* UploadImageCollectionViewCell.swift */; };
 		C4AEB305249863EF00196DAE /* UploadImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4AEB303249863EF00196DAE /* UploadImageCollectionViewCell.xib */; };
 		C4AEB30724986C0400196DAE /* CollectionViewLeftFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEB30624986C0400196DAE /* CollectionViewLeftFlowLayout.swift */; };
 		C4AEB30C2498A7B500196DAE /* FancesInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEB30B2498A7B500196DAE /* FancesInfoViewController.swift */; };
-		C4AEB30F2498AAF400196DAE /* FanceInfoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEB30D2498AAF400196DAE /* FanceInfoViewCell.swift */; };
-		C4AEB3102498AAF400196DAE /* FanceInfoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4AEB30E2498AAF400196DAE /* FanceInfoViewCell.xib */; };
 		C4AEFCD9248BF09E0080904E /* MineItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEFCD7248BF09E0080904E /* MineItemViewCell.swift */; };
 		C4AEFCDA248BF09E0080904E /* MineItemViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4AEFCD8248BF09E0080904E /* MineItemViewCell.xib */; };
 		C4AEFCDD248BF0BD0080904E /* MineUserInfoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEFCDB248BF0BD0080904E /* MineUserInfoViewCell.swift */; };
@@ -119,13 +123,17 @@
 		C43157F22483DF5B0034A74E /* TabHomeNovelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabHomeNovelCell.xib; sourceTree = "<group>"; };
 		C43FDF7A248E88C30023E3F2 /* TabFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabFriendsViewController.swift; sourceTree = "<group>"; };
 		C43FDF7C248E89170023E3F2 /* TabDynamicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabDynamicViewController.swift; sourceTree = "<group>"; };
+		C44E81BD24A33AE9000BD888 /* BTMMyQRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTMMyQRCodeViewController.swift; sourceTree = "<group>"; };
+		C44E81C324A367D3000BD888 /* FanceInfoHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FanceInfoHeaderCell.swift; sourceTree = "<group>"; };
+		C44E81C424A367D3000BD888 /* FanceInfoHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FanceInfoHeaderCell.xib; sourceTree = "<group>"; };
+		C44E81C924A37CA3000BD888 /* ScanQrcodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQrcodeViewController.swift; sourceTree = "<group>"; };
+		C44E81CD24A38006000BD888 /* sdc.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sdc.gif; sourceTree = "<group>"; };
+		C44E81D124A38A29000BD888 /* NewLogin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewLogin.storyboard; sourceTree = "<group>"; };
 		C4AEB2FF24985F9D00196DAE /* SendPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendPostViewController.swift; sourceTree = "<group>"; };
 		C4AEB302249863EF00196DAE /* UploadImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		C4AEB303249863EF00196DAE /* UploadImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UploadImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		C4AEB30624986C0400196DAE /* CollectionViewLeftFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLeftFlowLayout.swift; sourceTree = "<group>"; };
 		C4AEB30B2498A7B500196DAE /* FancesInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FancesInfoViewController.swift; sourceTree = "<group>"; };
-		C4AEB30D2498AAF400196DAE /* FanceInfoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FanceInfoViewCell.swift; sourceTree = "<group>"; };
-		C4AEB30E2498AAF400196DAE /* FanceInfoViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FanceInfoViewCell.xib; sourceTree = "<group>"; };
 		C4AEFCD7248BF09E0080904E /* MineItemViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineItemViewCell.swift; sourceTree = "<group>"; };
 		C4AEFCD8248BF09E0080904E /* MineItemViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineItemViewCell.xib; sourceTree = "<group>"; };
 		C4AEFCDB248BF0BD0080904E /* MineUserInfoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineUserInfoViewCell.swift; sourceTree = "<group>"; };
@@ -214,8 +222,10 @@
 				C402404224838BCB00F715DC /* http */,
 				C402403D248381A900F715DC /* help */,
 				C402403A248164C500F715DC /* coredata */,
+				C44E81CF24A38295000BD888 /* storyboard */,
 				C40240232480193B00F715DC /* AppDelegate.swift */,
 				C40240272480193B00F715DC /* ViewController.swift */,
+				C44E81D124A38A29000BD888 /* NewLogin.storyboard */,
 				C40240292480193B00F715DC /* Main.storyboard */,
 				C402402F2480193E00F715DC /* Assets.xcassets */,
 				C40240312480193E00F715DC /* LaunchScreen.storyboard */,
@@ -267,6 +277,7 @@
 		C402404A248394B100F715DC /* vc */ = {
 			isa = PBXGroup;
 			children = (
+				C44E81C824A37C83000BD888 /* home */,
 				C4AEB2FE24985F7700196DAE /* post */,
 				C43157DE24839C720034A74E /* loginregister */,
 				C402404B248394B800F715DC /* tab */,
@@ -290,6 +301,7 @@
 		C402404C248394BF00F715DC /* extension */ = {
 			isa = PBXGroup;
 			children = (
+				C44E81CD24A38006000BD888 /* sdc.gif */,
 				C402404D248394E200F715DC /* ext.swift */,
 				C43157CC2483991E0034A74E /* swiftTemplate-Bridging-Header.h */,
 				C43157CE2483994F0034A74E /* CALayer+MyColor.m */,
@@ -304,8 +316,8 @@
 			children = (
 				C4206F22248FFC2900F4537C /* FanceORFollowCell.swift */,
 				C4206F23248FFC2900F4537C /* FanceORFollowCell.xib */,
-				C4AEB30D2498AAF400196DAE /* FanceInfoViewCell.swift */,
-				C4AEB30E2498AAF400196DAE /* FanceInfoViewCell.xib */,
+				C44E81C324A367D3000BD888 /* FanceInfoHeaderCell.swift */,
+				C44E81C424A367D3000BD888 /* FanceInfoHeaderCell.xib */,
 			);
 			path = fance;
 			sourceTree = "<group>";
@@ -350,6 +362,21 @@
 				C43157F22483DF5B0034A74E /* TabHomeNovelCell.xib */,
 			);
 			path = home;
+			sourceTree = "<group>";
+		};
+		C44E81C824A37C83000BD888 /* home */ = {
+			isa = PBXGroup;
+			children = (
+				C44E81C924A37CA3000BD888 /* ScanQrcodeViewController.swift */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
+		C44E81CF24A38295000BD888 /* storyboard */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = storyboard;
 			sourceTree = "<group>";
 		};
 		C4AEB2FE24985F7700196DAE /* post */ = {
@@ -404,6 +431,7 @@
 				C4AEFCE4248CA8160080904E /* BTMUserInfoController.swift */,
 				C4AEFCF5248E48C30080904E /* BTMMyPostViewController.swift */,
 				C4AEFCF9248E4B330080904E /* BTMMyFanceFollowViewController.swift */,
+				C44E81BD24A33AE9000BD888 /* BTMMyQRCodeViewController.swift */,
 			);
 			path = mine;
 			sourceTree = "<group>";
@@ -511,15 +539,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C44E81C624A367D3000BD888 /* FanceInfoHeaderCell.xib in Resources */,
 				C4AEFCEA248CAA310080904E /* BTMUserIconCell.xib in Resources */,
 				C40240332480193E00F715DC /* LaunchScreen.storyboard in Resources */,
-				C4AEB3102498AAF400196DAE /* FanceInfoViewCell.xib in Resources */,
 				C4FDACAB249EF1F60095F1E3 /* PostBannerImageCell.xib in Resources */,
 				C43157F42483DF5B0034A74E /* TabHomeNovelCell.xib in Resources */,
+				C44E81CE24A38006000BD888 /* sdc.gif in Resources */,
 				C4AEB305249863EF00196DAE /* UploadImageCollectionViewCell.xib in Resources */,
 				C40240302480193E00F715DC /* Assets.xcassets in Resources */,
 				C402402B2480193B00F715DC /* Main.storyboard in Resources */,
 				C4FDACBF249FB5610095F1E3 /* DynamicCollectionViewCell.xib in Resources */,
+				C44E81D224A38A29000BD888 /* NewLogin.storyboard in Resources */,
 				C4206F25248FFC2900F4537C /* FanceORFollowCell.xib in Resources */,
 				C4FDACA6249E2B7A0095F1E3 /* MainPostCell.xib in Resources */,
 				C4AEFCEE248CAB620080904E /* BTMUserItemCell.xib in Resources */,
@@ -592,9 +622,10 @@
 				C43157E224839C960034A74E /* RegisterViewController.swift in Sources */,
 				C4AEFCE5248CA8160080904E /* BTMUserInfoController.swift in Sources */,
 				C43157D724839BDB0034A74E /* MainTabController.swift in Sources */,
+				C44E81BE24A33AE9000BD888 /* BTMMyQRCodeViewController.swift in Sources */,
+				C44E81CB24A37CA3000BD888 /* ScanQrcodeViewController.swift in Sources */,
 				C40240282480193B00F715DC /* ViewController.swift in Sources */,
 				C43157DB24839C580034A74E /* TabHomeViewController.swift in Sources */,
-				C4AEB30F2498AAF400196DAE /* FanceInfoViewCell.swift in Sources */,
 				C402404E248394E200F715DC /* ext.swift in Sources */,
 				C43157EE2483DA810034A74E /* UserInfoHelper.swift in Sources */,
 				C4FDACB6249F4A9F0095F1E3 /* MySettingViewController.swift in Sources */,
@@ -620,6 +651,7 @@
 				C402404124838BC300F715DC /* NetworkService.swift in Sources */,
 				C4AEB30C2498A7B500196DAE /* FancesInfoViewController.swift in Sources */,
 				C4AEFCF6248E48C30080904E /* BTMMyPostViewController.swift in Sources */,
+				C44E81C524A367D3000BD888 /* FanceInfoHeaderCell.swift in Sources */,
 				C4FDACB4249F49500095F1E3 /* MyMessageViewController.swift in Sources */,
 				C43157E82483A47D0034A74E /* KeychainManager.swift in Sources */,
 				C43157F32483DF5B0034A74E /* TabHomeNovelCell.swift in Sources */,

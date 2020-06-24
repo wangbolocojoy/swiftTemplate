@@ -69,7 +69,7 @@ class RegisterViewController: BaseViewController {
             ShowTip(Title: "请输入大于6位字母和数字组合的密码")
             return
         }
-        var body = RequestBody()
+        let body = RequestBody()
         body.phone = phone
         body.msg = msg
         body.password = password
@@ -134,25 +134,25 @@ extension RegisterViewController:UITextFieldDelegate {
         switch textField {
         case ev_phone:
             let maxLength = 11
-            let currentString: NSString = textField.text as? NSString ?? ""
+            let currentString: NSString = textField.text as NSString? ?? ""
             let newString: NSString =
                 currentString.replacingCharacters(in: range, with: string) as NSString
             return newString.length <= maxLength
         case ev_password:
             let maxLength = 25
-            let currentString: NSString = textField.text as? NSString ?? ""
+            let currentString: NSString = textField.text as NSString? ?? ""
             let newString: NSString =
                 currentString.replacingCharacters(in: range, with: string) as NSString
             return newString.length <= maxLength
         case ev_msg:
             let maxLength = 6
-            let currentString: NSString = textField.text as? NSString ?? ""
+            let currentString: NSString = textField.text as NSString? ?? ""
             let newString: NSString =
                 currentString.replacingCharacters(in: range, with: string) as NSString
             return newString.length <= maxLength
         default:
             let maxLength = 1
-            let currentString: NSString = textField.text as! NSString
+            let currentString: NSString = textField.text! as NSString
             let newString: NSString =
                 currentString.replacingCharacters(in: range, with: string) as NSString
             return newString.length <= maxLength

@@ -22,6 +22,8 @@ class MineUserInfoViewCell: UITableViewCell {
     @IBOutlet weak var btn_guanzhu: UIView!
     
     @IBOutlet weak var btn_fance: UIView!
+    
+    @IBOutlet weak var btn_qrcode: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -38,8 +40,16 @@ class MineUserInfoViewCell: UITableViewCell {
         btn_guanzhu.isUserInteractionEnabled = true
         btn_guanzhu.addGestureRecognizer(tapfollow)
         view_version.isHidden = true
+        let tapqrcode = UITapGestureRecognizer(target: self, action: #selector(toMyQrcode))
+         btn_qrcode.isUserInteractionEnabled = true
+        btn_qrcode.addGestureRecognizer(tapqrcode)
     }
     
+    @objc func toMyQrcode() {
+        let vc = self.parentViewController()?.getVcByName(vc: .我的二维码) as! BTMMyQRCodeViewController
+        self.pushVC(vc: vc)
+        
+    }
     
     @objc func toMyFance(){
         let vc = self.parentViewController()?.getVcByName(vc: .我的粉丝关注) as! BTMMyFanceFollowViewController

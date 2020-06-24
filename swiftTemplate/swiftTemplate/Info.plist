@@ -27,6 +27,8 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>是否允许访问相机用来拍摄证件照或头像</string>
+	<key>NSMainStoryboardFile</key>
+	<string>NewLogin</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>是否允许访问相册以上传头像或证件照</string>
 	<key>UILaunchStoryboardName</key>

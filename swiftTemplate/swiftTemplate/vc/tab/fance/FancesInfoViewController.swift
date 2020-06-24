@@ -11,6 +11,8 @@ import UIKit
 class FancesInfoViewController: BaseViewController {
     var list :[String]? = []
     var userinfo :UserInfo? = nil 
+ 
+    
     @IBOutlet weak var tableview: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,34 +23,22 @@ class FancesInfoViewController: BaseViewController {
         tableview.delegate = self
         tableview.dataSource = self
         tableview.separatorStyle = .none
-         tableview.register(UINib(nibName: FanceInfoViewCell.reuseID, bundle: nil), forCellReuseIdentifier: FanceInfoViewCell.reuseID)
+        tableview.register(UINib(nibName: FanceInfoHeaderCell.reuseID, bundle: nil), forCellReuseIdentifier: FanceInfoHeaderCell.reuseID)
+
     }
     
 
 }
-extension FancesInfoViewController :UITableViewDelegate,UITableViewDataSource{
+extension FancesInfoViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            return 1
-        default:
-            return list?.count ?? 0
-            
-        }
+        return 1
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 250
+        return 200
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.section {
-        case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: FanceInfoViewCell.reuseID, for: indexPath) as! FanceInfoViewCell
-            cell.updateCell(user: userinfo)
-            return cell
-        default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: FanceInfoViewCell.reuseID, for: indexPath) as! FanceInfoViewCell
-            return cell
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: FanceInfoHeaderCell.reuseID, for: indexPath) as! FanceInfoHeaderCell
+        return cell
     }
     
     

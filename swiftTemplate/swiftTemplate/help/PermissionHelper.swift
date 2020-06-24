@@ -38,9 +38,8 @@ struct PermissionHelper {
                 savePhoto(value: "1")
             }
             else if (status == .restricted || status == .denied) {
-                let alertV = UIAlertView.init(title: "提示", message: "请去-> [设置 - 隐私 - 相册] 打开访问开关", delegate: nil, cancelButtonTitle: nil, otherButtonTitles: "确定")
-                alertV.show()
                 savePhoto(value: "0")
+                currentVc().Showalert(Title: "请去-> [设置 - 隐私 - 相册] 打开访问开关")
             }
             else if (status == .notDetermined) {//首次使用
                 PHPhotoLibrary.requestAuthorization({ (firstStatus) in
@@ -87,14 +86,13 @@ struct PermissionHelper {
                 
             else if (authStatus == .denied) {
                 saveCamera(value: "0")
-                let alertV = UIAlertView.init(title: "提示", message: "请去-> [设置 - 隐私 - 相机] 打开访问开关", delegate: nil, cancelButtonTitle: nil, otherButtonTitles: "确定")
-                alertV.show()
+              
+                currentVc().Showalert(Title: "请去-> [设置 - 隐私 - 相机] 打开访问开关")
             }
                 
             else if (authStatus == .restricted) {//相机权限受限
                 saveCamera(value: "0")
-                let alertV = UIAlertView.init(title: "提示", message: "相机权限受限", delegate: nil, cancelButtonTitle: nil, otherButtonTitles: "确定")
-                alertV.show()
+                currentVc().Showalert(Title: "相机权限受限")
             }
                 
             else if (authStatus == .notDetermined) {//首次 使用
@@ -143,8 +141,7 @@ struct PermissionHelper {
             
             return false
         case .restricted:
-            let alertV = UIAlertView.init(title: "提示", message: "相机权限受限", delegate: nil, cancelButtonTitle: nil, otherButtonTitles: "确定")
-            alertV.show()
+            currentVc().Showalert(Title: "相机权限受限")
             return false
         default:
             DispatchQueue.main.async(execute: { () -> Void in

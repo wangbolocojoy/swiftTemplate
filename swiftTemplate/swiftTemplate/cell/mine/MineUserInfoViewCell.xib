@@ -160,12 +160,22 @@
                             <constraint firstAttribute="bottom" secondItem="axc-5c-cj5" secondAttribute="bottom" id="xsH-k3-3ZN"/>
                         </constraints>
                     </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="40Y-qI-fxy">
+                        <rect key="frame" x="445" y="152.5" width="30" height="27.5"/>
+                        <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="D9y-fB-tSl"/>
+                            <constraint firstAttribute="height" constant="30" id="qCx-dc-yfU"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailingMargin" secondItem="jwT-y9-LyH" secondAttribute="trailing" constant="15" id="0s0-6Q-iyc"/>
                     <constraint firstAttribute="trailing" secondItem="z6c-TF-vVN" secondAttribute="trailing" id="3zp-pb-cr7"/>
                     <constraint firstItem="3G4-9D-xkN" firstAttribute="leading" secondItem="dzu-EN-mC6" secondAttribute="trailing" constant="15" id="66r-TM-OqQ"/>
                     <constraint firstItem="jwT-y9-LyH" firstAttribute="leading" secondItem="dzu-EN-mC6" secondAttribute="trailing" constant="15" id="CEg-d8-KU1"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="40Y-qI-fxy" secondAttribute="trailing" constant="15" id="CfE-iK-IiO"/>
+                    <constraint firstItem="dzu-EN-mC6" firstAttribute="top" secondItem="40Y-qI-fxy" secondAttribute="bottom" constant="-10" id="K5o-Vl-Kjw"/>
                     <constraint firstItem="z6c-TF-vVN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="MCK-YD-MPb"/>
                     <constraint firstItem="pCr-VZ-rUZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="MpX-Oe-pOB"/>
                     <constraint firstItem="3G4-9D-xkN" firstAttribute="top" secondItem="jwT-y9-LyH" secondAttribute="bottom" constant="10" id="PSE-n6-vcq"/>
@@ -188,6 +198,7 @@
                 <outlet property="btn_fance" destination="J9s-Vo-CvN" id="V3I-EQ-JQ2"/>
                 <outlet property="btn_guanzhu" destination="x6N-Zg-XAi" id="zWa-8m-DqA"/>
                 <outlet property="btn_post" destination="puL-l6-jG3" id="CLg-8o-Mh0"/>
+                <outlet property="btn_qrcode" destination="40Y-qI-fxy" id="yZA-CX-Tcb"/>
                 <outlet property="img_usericon" destination="dzu-EN-mC6" id="4Ld-CM-1Jt"/>
                 <outlet property="lab_guanzhunumber" destination="3bQ-aB-f7m" id="d87-aF-hR5"/>
                 <outlet property="lab_nickname" destination="jwT-y9-LyH" id="1aA-Sx-unH"/>
@@ -202,5 +213,6 @@
     </objects>
     <resources>
         <image name="IMG_2506" width="512" height="512"/>
+        <image name="qrcode" catalog="system" width="128" height="114"/>
     </resources>
 </document>

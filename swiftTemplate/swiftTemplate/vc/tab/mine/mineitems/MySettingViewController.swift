@@ -9,11 +9,10 @@
 import UIKit
 
 class MySettingViewController: BaseViewController {
-
+    let list = ["深色模式"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
     }
     
 

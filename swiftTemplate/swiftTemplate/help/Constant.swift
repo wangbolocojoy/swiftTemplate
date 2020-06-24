@@ -22,6 +22,7 @@ enum MyController{
     case 我的朋友
     case 我的消息
     case 我的设置
+    case 我的二维码
 }
 
 enum PictureType{
@@ -43,16 +44,17 @@ extension UIViewController{
         return vc
     }
     func getloginVc() -> UINavigationController{
-        let sb = UIStoryboard.init(name: "Main", bundle: nil)
+        let sb = UIStoryboard.init(name: "NewLogin", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "LOGINNAVVC") as! LoginNavViewController
         return vc
     }
     
     func getVcByName(vc:MyController) -> UIViewController{
         let sb = UIStoryboard.init(name: "Main", bundle: nil)
+        log.info(" -----  \(vc.self)")
         switch vc {
         case .注册:
-            let vc = sb.instantiateViewController(withIdentifier: "REGISTERVC") as! RegisterViewController
+            let vc = UIStoryboard.init(name: "NewLogin", bundle: nil).instantiateViewController(withIdentifier: "REGISTERVC") as! RegisterViewController
             return vc
         case .个人中心:
             let vc = sb.instantiateViewController(withIdentifier: "BTMUSERINFOVC") as! BTMUserInfoController
@@ -88,6 +90,9 @@ extension UIViewController{
             return vc
         case .我的设置:
             let vc = sb.instantiateViewController(withIdentifier: "MYSETTINGVC") as! MySettingViewController
+            return vc
+        case .我的二维码:
+            let vc = sb.instantiateViewController(withIdentifier: "BTMMYQRCODEVC") as! BTMMyQRCodeViewController
             return vc
         }
     }

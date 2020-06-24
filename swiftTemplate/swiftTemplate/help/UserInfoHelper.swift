@@ -16,17 +16,14 @@ class UserInfoHelper {
         }
         set{
             _setuser = newValue
-            KeychainManager.User.UpdataByIdentifier(data: _setuser?.toJSONString() ?? "", forKey: .UserInfo)
+           let _ = KeychainManager.User.UpdataByIdentifier(data: _setuser?.toJSONString() ?? "", forKey: .UserInfo)
         }
     }
 
     private init() {
         let str = KeychainManager.User.ReadDataByIdentifier(forKey: .UserInfo) as? String
-        do {
-            _setuser = try UserInfo(JSONString: str ?? "")
-        } catch  {
-            
-        }
+            _setuser =  UserInfo(JSONString: str ?? "")
+       
         
     }
   

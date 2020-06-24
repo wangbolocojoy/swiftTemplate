@@ -76,7 +76,7 @@ extension MainPostCell:FSPagerViewDelegate,FSPagerViewDataSource{
     
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
-        cell.imageView?.setImageUrl(image: cell.imageView!,string: postinfo?.postImages?[index].fileUrl , proimage:#imageLiteral(resourceName: "IMG_2631") )
+        cell.imageView?.setImageUrl(image: cell.imageView!,string: postinfo?.postImages?[index].fileUrl , proimage:#imageLiteral(resourceName: "IMG_2507") )
         return cell
     }
     func pagerView(_ pagerView: FSPagerView, shouldSelectItemAt index: Int) -> Bool {

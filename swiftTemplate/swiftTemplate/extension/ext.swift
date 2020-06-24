@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 import Kingfisher
 extension UIViewController{
+    /// 弹框
+    /// - Parameter Title: 内容
     func Showalert(Title:String?)  {
         let TipsActionSheet : UIAlertController = UIAlertController(title: "温馨提示", message: Title ?? "", preferredStyle: UIAlertController.Style.alert)
         TipsActionSheet.addAction(UIAlertAction(title: "确定", style: .cancel, handler: { (UIAlertAction) in
@@ -74,6 +76,8 @@ struct Taolsterhelper {
 }
 extension BaseViewController{
     
+    /// 获取父VC
+    /// - Returns: 父VC
     func parentViewController() -> UIViewController? {
         
         var n = self.next
@@ -92,7 +96,12 @@ extension BaseViewController{
     }
 }
 extension UIImageView{
-
+    
+    /// KF加载图片
+    /// - Parameters:
+    ///   - image: 需要设置图片的imageVIew
+    ///   - string: 图片地址
+    ///   - proimage: 占位图
     func setImageUrl(image:UIImageView, string : String?,proimage:UIImage?) {
         let url = URL(string: string ?? "")
         let imageResource = ImageResource(downloadURL: url!, cacheKey: string)
@@ -115,7 +124,7 @@ extension UIImageView{
         
         image.kf.setImage(
             with: imageResource,
-            placeholder: #imageLiteral(resourceName: "IMG_2630"),
+            placeholder: #imageLiteral(resourceName: "IMG_2507"),
             options: [
                 .backgroundDecode,
                 .scaleFactor(UIScreen.main.scale),
@@ -151,19 +160,12 @@ extension UIImageView{
             return "?x-oss-process=style/yasuo90"
         }
     }
-    
-}
-extension UIImage{
-    class func imageWithColor(color: UIColor) -> UIImage {
-        let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 0.1)
-        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
-        color.setFill()
-        UIRectFill(rect)
-        let image : UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        return image
-    }
-    func creatQrcode(qrstring:String?,imagename:String?) -> UIImage?{
+    /// 生产一个带头像的二维码
+    /// - Parameters:
+    ///   - imageView: UIImageview
+    ///   - qrstring: 生产二维码需要的数据
+    ///   - imagename: 二维码中间的图片
+    open func creatQrcode(imageView:UIImageView,qrstring:String?,imagename:String?) {
         if let qrs = qrstring {
             // 创建二维码滤镜
             let filter = CIFilter(name: "CIQRCodeGenerator")
@@ -182,7 +184,7 @@ extension UIImage{
             var image = filter?.outputImage
             
             // 生成一个高清图片
-            let transform = CGAffineTransform.init(scaleX: 20, y: 20)
+            let transform = CGAffineTransform.init(scaleX: 30, y: 30)
             image = image?.transformed(by: transform)
             
             // 图片处理
@@ -191,17 +193,24 @@ extension UIImage{
             if let name  = imagename  {
                 let center = UIImage(named: name)
                 resultImage = getClearImage(sourceImage: resultImage, center: center!)
-                return resultImage
+              imageView.image = resultImage
+            }else{
+                 imageView.image = #imageLiteral(resourceName: "IMG_2488-1")
             }
             
-            return resultImage
+            
             
             
         }else{
-            return nil
+            imageView.image = #imageLiteral(resourceName: "IMG_2488-1")
         }
     }
-    // 使图片放大也可以清晰
+    
+    /// 使图片放大也可以清晰
+    /// - Parameters:
+    ///   - sourceImage: 二维码图片
+    ///   - center: 二维码中间的图片
+    /// - Returns: 返回合成的图片
     func getClearImage(sourceImage: UIImage, center: UIImage) -> UIImage {
         
         let size = sourceImage.size
@@ -226,6 +235,22 @@ extension UIImage{
         
         return resultImage!
     }
+    
+}
+extension UIImage{
+    ///  根据颜色生产一张图片
+    /// - Parameter color: 颜色
+    /// - Returns: 图片
+    class func imageWithColor(color: UIColor) -> UIImage {
+        let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 0.1)
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
+        color.setFill()
+        UIRectFill(rect)
+        let image : UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return image
+    }
+   
 }
 extension UITableViewCell {
     
@@ -233,6 +258,8 @@ extension UITableViewCell {
         super.awakeFromNib()
         selectionStyle = .none
     }
+    /// 扩展类获取cell所在的VC
+    /// - Returns: 返回VC
     func parentViewController() -> UIViewController? {
         var n = self.next
         while n != nil {
@@ -243,6 +270,9 @@ extension UITableViewCell {
         }
         return nil
     }
+    
+    /// 扩展类PushVC
+    /// - Parameter vc: VC
     func pushVC(vc:UIViewController){
         
         parentViewController()?.navigationController?.pushViewController(vc, animated: true)

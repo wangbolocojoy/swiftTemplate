@@ -41,7 +41,7 @@ class CoreDataManager {
                     //int类型用 %d
         fetchRequest.predicate = NSPredicate(format: "novel_id ==  %d", item?.novel_id ?? 0)
         //数据库没有这条数据。新增
-        if fetchRequest.fetchLimit == nil || fetchRequest.fetchBatchSize == 0 {
+        if fetchRequest.fetchLimit == 0 || fetchRequest.fetchBatchSize == 0 {
             let novel = NSEntityDescription.insertNewObject(forEntityName: "NovelModel", into: context) as! NovelModel
             novel.id = Int16(item?.id ?? 0)
             novel.novel_id = Int64(item?.novel_id ?? 0)
@@ -185,7 +185,7 @@ class CoreDataManager {
         let result = getAlldeleteNovel()
         // 循环删除所有数据
         DispatchQueue.global().async {
-            for (index,d) in result.enumerated()  {
+            for (_,d) in result.enumerated()  {
                 self.context.delete(d)
             }
             self.saveContext()

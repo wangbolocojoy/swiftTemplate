@@ -16,19 +16,18 @@ class FlashScreenViewController: BaseViewController {
     }
     func checkRootVc(){
         let user = UserInfoHelper.instance.user 
-       UIView.animate(withDuration: time, animations:{ }, completion: { (true) in
-                let tranststion =  CATransition()
-                tranststion.duration = self.time
-                tranststion.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
-                if user?.phone != nil && user?.token != nil {
-                    UIApplication.shared.windows[0].layer.add(tranststion, forKey: "animation")
-                                   UIApplication.shared.windows[0].rootViewController = self.getMainVc()
-                }else{
-                    UIApplication.shared.windows[0].layer.add(tranststion, forKey: "animation")
-                                   UIApplication.shared.windows[0].rootViewController = self.getloginVc()
-                }
-               
-            })
+        UIView.animate(withDuration: time, animations:{ let tranststion =  CATransition()
+            tranststion.duration = self.time
+            tranststion.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
+            UIApplication.shared.windows[0].layer.add(tranststion, forKey: "animation")
+        }, completion: { (true) in
+            if user?.phone != nil && user?.token != nil {
+                UIApplication.shared.windows[0].rootViewController = self.getMainVc()
+            }else{
+                UIApplication.shared.windows[0].rootViewController = self.getloginVc()
+            }
+            
+        })
     }
-
+    
 }

@@ -47,7 +47,7 @@ public enum NetworkService{
     //获取推荐关注列表
     case findrecommendlist(k:String)
     //上传多张图片
-    case upLoadFiless(K:Any,dataAry:NSArray)
+    case upLoadFiles(K:Any,dataAry:NSArray)
 }
 extension NetworkService:Moya.TargetType{
     //MARK: - APISERVICE
@@ -92,8 +92,8 @@ extension NetworkService:Moya.TargetType{
              return "back-1/swiftTemplate/Post/getPosts"
         case .deletspost:
              return "back-1/swiftTemplate/Post/deletePost"
-        case .upLoadFiless:
-            return "back-1/swiftTemplate/file/upLoadFiless"
+        case .upLoadFiles:
+            return "back-1/swiftTemplate/file/upLoadFiles"
         case .getuserinfo:
             return "back-1/swiftTemplate/User/getUseInfo"
         }
@@ -127,7 +127,7 @@ extension NetworkService:Moya.TargetType{
             }
             guard let p1 = param as? [String:String] else { return .requestPlain}
             return .uploadCompositeMultipart(formDataAry as! [MultipartFormData], urlParameters: p1)
-        case .upLoadFiless(let param, let uploadImages):
+        case .upLoadFiles(let param, let uploadImages):
             let formDataAry:NSMutableArray = NSMutableArray()
                        for (index,image) in uploadImages.enumerated() {
                            let data:Data = (image as! UIImage).jpegData(compressionQuality: 0.8)!
@@ -158,7 +158,7 @@ extension NetworkService:Moya.TargetType{
     // MARK: - 请求HEADER
     public var headers: [String : String]? {
         switch self {
-        case .upLoadFiless,.uodateusericon:
+        case .upLoadFiles,.uodateusericon:
             let boundary = String(format: "boundary.%08x%08x", arc4random(), arc4random())
                    let contentType = String(format: "multipart/form-data;boundary=%@", boundary)
             return ["Content-type":contentType,"token":UserInfoHelper.instance.user?.token  ?? ""]

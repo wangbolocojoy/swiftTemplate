@@ -60,8 +60,8 @@ class TabMineViewController: BaseTabViewController {
             let tranststion =  CATransition()
             tranststion.duration = self.time
             tranststion.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
-            UIApplication.shared.keyWindow?.layer.add(tranststion, forKey: "animation")
-            UIApplication.shared.keyWindow?.rootViewController = self.getloginVc()
+            UIApplication.shared.windows[0].layer.add(tranststion, forKey: "animation")
+            UIApplication.shared.windows[0].rootViewController = self.getloginVc()
         })
     }
     func deleteCoreNovel(){
