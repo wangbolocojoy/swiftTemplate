@@ -21,11 +21,11 @@ class KtMyMapViewController: BaseViewController {
     var ktcity :String? = nil
     var MyMapViewType = 0
     lazy var  countrySearchController:UISearchController? = UISearchController()
-//    func callBackBlock(block : @escaping swiftblock)  {
-//          callBack = block
-//      }
-//      var callBack :swiftblock?
-//    typealias swiftblock = (_ btntag : AMapPOI? ) -> Void
+    func callBackBlock(block : @escaping swiftblock)  {
+          callBack = block
+      }
+      var callBack :swiftblock?
+    typealias swiftblock = (_ btntag : AMapPOI? ) -> Void
     @IBOutlet weak var mymap: MAMapView!
     @IBOutlet weak var tableview: UITableView!
     override func viewDidLoad() {
@@ -40,7 +40,7 @@ class KtMyMapViewController: BaseViewController {
             controller.dimsBackgroundDuringPresentation = true
             controller.searchBar.barStyle = .default
             //            controller.view.backgroundColor = .white
-            controller.searchBar.placeholder = "输入小区名搜索"
+            controller.searchBar.placeholder = "输入地名进行搜索"
             return controller
         })()
         self.navigationItem.titleView = self.countrySearchController?.searchBar
@@ -59,13 +59,7 @@ class KtMyMapViewController: BaseViewController {
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.locationTimeout = 2
         locationManager.reGeocodeTimeout = 2
-        if MyMapViewType != 2 {
-            //定位
-            startLoc()
-        }else{
-            
-        }
-       
+        startLoc()
     }
     
     /// 关闭持续定位
@@ -265,6 +259,12 @@ extension KtMyMapViewController:UITableViewDelegate,UITableViewDataSource{
                        UserInfoHelper.instance.user = data.userinfo
                        self.ShowTipsClose(tite: data.msg ?? "更新成功")
                    }
+        }else if MyMapViewType == 2 {
+            log.info("返回发帖")
+            if callBack != nil {
+                callBack!(infoList?[indexPath.item])
+                self.navigationController?.popViewController(animated: true)
+            }
         }
             
         

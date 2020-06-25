@@ -43,6 +43,8 @@ class PostInfo: Mappable {
     var postStarts:Int?
     var author:PostAuthor?
     var postImages:[PostImages]?
+    var latitude:String?
+    var longitude:String?
     required init?(map: Map) {
         
     }
@@ -57,6 +59,8 @@ class PostInfo: Mappable {
         postStarts <- map["postStarts"]
         author <- map["author"]
         postImages <- map["postImages"]
+        latitude <- map["latitude"]
+        longitude <- map["longitude"]
     }
     
     

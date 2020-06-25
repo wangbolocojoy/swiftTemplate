@@ -19,12 +19,28 @@ class SendPostViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "发布", style: .done, target: self, action: #selector(sendPost))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(toAddress))
+        btn_address.isUserInteractionEnabled = true
+        btn_address.addGestureRecognizer(tap)
     }
     override func initView() {
         collectionview.delegate = self
         collectionview.dataSource = self
         collectionview.register(UINib(nibName: UploadImageCollectionViewCell.reuseID, bundle: nil), forCellWithReuseIdentifier: UploadImageCollectionViewCell.reuseID)
         collectionview.collectionViewLayout = CollectionViewLeftFlowLayout()
+        
+    }
+    @objc func toAddress(){
+        let vc =  getVcByName(vc: .我的地图) as! KtMyMapViewController
+        vc.MyMapViewType = 2
+        vc.callBackBlock { (AMapPOI) in
+            if let info = AMapPOI{
+//                let address = "\(info.province ?? "")\(info.city ?? "")\(info.district ?? "")\(info.address ?? "")\(info.name ?? "")"
+                 let address = "\(info.name ?? "")"
+                self.lab_address.text = address
+            }
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
         
     }
     @objc func sendPost(){
