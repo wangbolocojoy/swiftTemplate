@@ -52,7 +52,7 @@ public enum NetworkService{
 extension NetworkService:Moya.TargetType{
     //MARK: - APISERVICE
     public var baseURL: URL {
-        let api = Constant.instance.BaseApi
+        let api = ApiKey.default.BaseApi
         return URL(string: api )!
     }
     //MARK: - 请求地址

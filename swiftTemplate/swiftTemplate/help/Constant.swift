@@ -105,21 +105,7 @@ struct Constant {
     static let DarkBackGround = #colorLiteral(red: 0.07843137255, green: 0.07843137255, blue: 0.07843137255, alpha: 1)
     static let 密码:String = "PASSWORD"
     static let 账号:String = "PHONE"
-    var BaseApi :String{
-        #if DEBUG
-        
-        return "https://90btm.com"
-        #else
-        return "https://90btm.com"
-        #endif
-    }
-    var 版本环境:String{
-        #if DEBUG
-        return "测试版本"
-        #else
-        return "正式版本"
-        #endif
-    }
+    
     
     
     

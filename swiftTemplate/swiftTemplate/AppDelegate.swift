@@ -13,67 +13,71 @@ var log = SwiftyBeaver.self
 import IQKeyboardManagerSwift
 import AVKit
 import Photos
+import AMapFoundationKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-         IQKeyboardManager.shared.enable = true
-               choosePermiss()
-                if #available(iOS 13.0, *) {
-                                let backgroundColor = UIColor { (traitCollection) -> UIColor in
-                                    switch traitCollection.userInterfaceStyle {
-                                    case .light:
-                                        return Constant.BackGround
-                                    case .dark:
-                                        return Constant.DarkBackGround
-                                    default:
-                                        fatalError()
-                                    }
-                                }
-                                window?.backgroundColor = backgroundColor
-                            } else {
-                                window?.backgroundColor = Constant.BackGround
-                            }
-               let console = ConsoleDestination()
-                     console.format = "$DHH:mm:ss.SSS$d $C$L$c $N.$F:$l - $M"
-                     console.levelString.debug   = "DEBUG "
-                     console.levelString.error   = "ERROR "
-                     console.levelString.info    = "INFO  "
-                     console.levelString.warning = "WARING"
-                     console.levelColor.debug    = "😬  "
-                     console.levelColor.error    = "😰  "
-                     console.levelColor.info     = "♻️  "
-                     console.levelColor.warning  = "⚠️  "
-                     log.addDestination(console)
-               log.info(Constant.instance.版本环境)
+        initConfigure()
+        choosePermiss()
         return true
     }
-  
+    /// 初始化配置
+    private func initConfigure(){
+        AMapServices.shared().apiKey = ApiKey.default.AMapkey
+                IQKeyboardManager.shared.enable = true
+        let console = ConsoleDestination()
+                           console.format = "$DHH:mm:ss.SSS$d $C$L$c $N.$F:$l - $M"
+                           console.levelString.debug   = "DEBUG "
+                           console.levelString.error   = "ERROR "
+                           console.levelString.info    = "INFO  "
+                           console.levelString.warning = "WARING"
+                           console.levelColor.debug    = "😬  "
+                           console.levelColor.error    = "😰  "
+                           console.levelColor.info     = "♻️  "
+                           console.levelColor.warning   = "⚠️  "
+                           log.addDestination(console)
+                     log.info(ApiKey.default.版本环境)
+        if #available(iOS 13.0, *) {
+            let backgroundColor = UIColor { (traitCollection) -> UIColor in
+                switch traitCollection.userInterfaceStyle {
+                case .light:
+                    return Constant.BackGround
+                case .dark:
+                    return Constant.DarkBackGround
+                default:
+                    fatalError()
+                }
+            }
+            window?.backgroundColor = backgroundColor
+        } else {
+            window?.backgroundColor = Constant.BackGround
+        }
+    }
+    /// 获取权限
      func choosePermiss(){
-
             if (AVCaptureDevice.authorizationStatus(for: AVMediaType.video) == .notDetermined) {
                 AVCaptureDevice.requestAccess(for: .video, completionHandler: { (statusFirst) in
                     if statusFirst {
                         //用户首次允许
-                        print("允许APP访问相机")
+                        debugPrint("允许APP访问相机")
                     } else {
                         //用户首次拒接
-                        print("拒绝APP访问相机")
+                        debugPrint("拒绝APP访问相机")
                     }
                 })
             }
-            
-      
             //MARK: APP启动时候，判断用户是否授权使用相册
             if (PHPhotoLibrary.authorizationStatus() == .notDetermined) {
                 PHPhotoLibrary.requestAuthorization({ (firstStatus) in
                     let result = (firstStatus == .authorized)
                     if result {
-                        print("允许APP访问相册")
+                        
+                        debugPrint("允许APP访问相册")
                     } else {
-                        print("拒绝APP访问相册")
+                        debugPrint("拒绝APP访问相册")
                     }
                 })
             }

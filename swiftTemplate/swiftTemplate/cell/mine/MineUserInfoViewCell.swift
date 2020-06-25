@@ -84,7 +84,7 @@ class MineUserInfoViewCell: UITableViewCell {
         img_usericon.setImageUrl(image: img_usericon,string: user?.icon ,proimage: #imageLiteral(resourceName: "IMG_2506"))
         lab_nickname.text = user?.nickName ?? "SuperHero"
         lab_useresayinfo.text = user?.easyInfo
-        versionname.text = Constant.instance.版本环境
+        versionname.text = ApiKey.default.版本环境
         lab_userpostnumber.text = "\(user?.postNum ?? 0)"
         lab_guanzhunumber.text = "\(user?.follows ?? 0)"
         lab_userfancenumber.text = "\(user?.fances ?? 0)"
