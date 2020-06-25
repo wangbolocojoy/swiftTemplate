@@ -1,5 +1,12 @@
 PODS:
   - Alamofire (4.9.1)
+  - AMapFoundation (1.6.3)
+  - AMapLocation (2.6.5):
+    - AMapFoundation (~> 1.6.3)
+  - AMapNavi (7.5.0):
+    - AMapFoundation (~> 1.6.3)
+  - AMapSearch (7.3.0):
+    - AMapFoundation (~> 1.6.3)
   - Bugly (2.5.4)
   - CryptoSwift (1.0.0)
   - FSPagerView (0.8.3)
@@ -27,22 +34,29 @@ PODS:
     - SteviaLayout (~> 4.7.3)
 
 DEPENDENCIES:
+  - AMapLocation (~> 2.6.5)
+  - AMapNavi (~> 7.5.0)
+  - AMapSearch (~> 7.3.0)
   - Bugly (~> 2.5.0)
   - CryptoSwift (~> 1.0.0)
-  - FSPagerView
+  - FSPagerView (~> 0.8.3)
   - Gifu (~> 3.2.0)
   - IQKeyboardManagerSwift (~> 6.4.0)
-  - Kingfisher (~> 5.0)
+  - Kingfisher (~> 5.14.0)
   - MJRefresh (~> 3.2.0)
   - Moya (~> 13.0.1)
   - ObjectMapper (~> 3.5.2)
   - SwiftyBeaver (~> 1.7.0)
   - SwiftyRSA (~> 1.5.0)
-  - YPImagePicker
+  - YPImagePicker (~> 4.2.1)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
+    - AMapFoundation
+    - AMapLocation
+    - AMapNavi
+    - AMapSearch
     - Bugly
     - CryptoSwift
     - FSPagerView
@@ -61,6 +75,10 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  AMapFoundation: 9ed923193b357ebb30a073e9fe255d3c24054d5a
+  AMapLocation: c566d448285cd502c1e313063d9e2460bd4d7100
+  AMapNavi: a47cf864249da145c0055fd31c49c0006da5ce64
+  AMapSearch: a048bcca3bf0b8083345070e1f193f814bd8dc01
   Bugly: 4edda9bb0e3017fd453612189069757195fa23ca
   CryptoSwift: d81eeaa59dc5a8d03720fe919a6fd07b51f7439f
   FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
@@ -77,6 +95,6 @@ SPEC CHECKSUMS:
   SwiftyRSA: 6e528fb1b1a87d5111c48081083b141d6d65f1cf
   YPImagePicker: 3b88ca0c50134af2856c48c481572c98a8b8b65b
 
-PODFILE CHECKSUM: 3fe5f49a2b2a0b0283b6026a91550aa2b6c7f016
+PODFILE CHECKSUM: a1fa300905b4969933fcce7239d2d8157225f126
 
 COCOAPODS: 1.9.1
