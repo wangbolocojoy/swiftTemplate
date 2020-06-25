@@ -13,7 +13,6 @@ var log = SwiftyBeaver.self
 import IQKeyboardManagerSwift
 import AVKit
 import Photos
-import AMapFoundationKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

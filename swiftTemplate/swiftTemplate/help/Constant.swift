@@ -23,6 +23,7 @@ enum MyController{
     case 我的消息
     case 我的设置
     case 我的二维码
+    case 我的地图
 }
 
 enum PictureType{
@@ -51,6 +52,7 @@ extension UIViewController{
     
     func getVcByName(vc:MyController) -> UIViewController{
         let sb = UIStoryboard.init(name: "Main", bundle: nil)
+        let otsb = UIStoryboard.init(name: "Other", bundle: nil)
         log.info(" -----  \(vc.self)")
         switch vc {
         case .注册:
@@ -93,6 +95,9 @@ extension UIViewController{
             return vc
         case .我的二维码:
             let vc = sb.instantiateViewController(withIdentifier: "BTMMYQRCODEVC") as! BTMMyQRCodeViewController
+            return vc
+        case .我的地图:
+            let vc = otsb.instantiateViewController(withIdentifier: "KTMYMAPVC") as! KtMyMapViewController
             return vc
         }
     }

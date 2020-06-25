@@ -7,13 +7,13 @@
 //
 // MARK: - 我的地图
 import UIKit
-
 class KtMyMapViewController: BaseViewController {
 
+    
+    @IBOutlet weak var tableview: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-         
+        
     }
     
 
