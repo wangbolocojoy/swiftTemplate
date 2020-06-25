@@ -25,7 +25,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d3e-Vv-dta">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_2506" translatesAutoresizingMaskIntoConstraints="NO" id="d3e-Vv-dta">
                                 <rect key="frame" x="479" y="34.5" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="SZC-q3-LmZ"/>
@@ -69,4 +69,7 @@
             <point key="canvasLocation" x="160.86956521739131" y="181.13839285714286"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="IMG_2506" width="512" height="512"/>
+    </resources>
 </document>

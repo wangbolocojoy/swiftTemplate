@@ -27,6 +27,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func initConfigure(){
         AMapServices.shared().apiKey = ApiKey.default.AMapkey
                 IQKeyboardManager.shared.enable = true
+        if #available(iOS 13.0, *) {
+                   let backgroundColor = UIColor { (traitCollection) -> UIColor in
+                       switch traitCollection.userInterfaceStyle {
+                       case .light:
+                           return Constant.BackGround
+                       case .dark:
+                           return Constant.DarkBackGround
+                       default:
+                           fatalError()
+                       }
+                   }
+                   window?.backgroundColor = backgroundColor
+               } else {
+                   window?.backgroundColor = Constant.BackGround
+               }
         let console = ConsoleDestination()
                            console.format = "$DHH:mm:ss.SSS$d $C$L$c $N.$F:$l - $M"
                            console.levelString.debug   = "DEBUG "
@@ -39,21 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                            console.levelColor.warning   = "⚠️  "
                            log.addDestination(console)
                      log.info(ApiKey.default.版本环境)
-        if #available(iOS 13.0, *) {
-            let backgroundColor = UIColor { (traitCollection) -> UIColor in
-                switch traitCollection.userInterfaceStyle {
-                case .light:
-                    return Constant.BackGround
-                case .dark:
-                    return Constant.DarkBackGround
-                default:
-                    fatalError()
-                }
-            }
-            window?.backgroundColor = backgroundColor
-        } else {
-            window?.backgroundColor = Constant.BackGround
-        }
+       
     }
     /// 获取权限
      func choosePermiss(){

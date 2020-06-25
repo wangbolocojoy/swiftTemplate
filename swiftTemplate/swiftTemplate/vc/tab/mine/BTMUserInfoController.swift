@@ -9,8 +9,9 @@
 import UIKit
 
 class BTMUserInfoController: BaseViewController{
-    let list = ["账号","昵称","真实姓名","个人简介","地区"]
-    
+    let list = ["账号","昵称","真实姓名","性别","生日"]
+    //     let list = ["账号","昵称","真实姓名","个人简介","地区"]
+    let list1 = ["个人简介","地区"]
     @IBOutlet weak var tableview: UITableView!
     var user :UserInfo? = nil
     private lazy var pickVC: UIImagePickerController = {
@@ -45,9 +46,9 @@ class BTMUserInfoController: BaseViewController{
         }))
         iconActionSheet.addAction(UIAlertAction(title: "拍照", style: UIAlertAction.Style.default, handler: { (UIAlertAction) in
             if PermissionHelper.instance.cameraEnableDelegate(){
-                           self.openCamera()
+                self.openCamera()
             }else{
-                    self.Showalert(Title: "相机访问受限")
+                self.Showalert(Title: "相机访问受限")
             }
         }))
         iconActionSheet.addAction(UIAlertAction(title:"取消", style: UIAlertAction.Style.cancel, handler:nil))
@@ -67,10 +68,12 @@ class BTMUserInfoController: BaseViewController{
 extension BTMUserInfoController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0,2:
+        case 0:
             return 1
-        default:
+        case 1:
             return list.count
+        default:
+            return list1.count
             
         }
     }
@@ -83,12 +86,26 @@ extension BTMUserInfoController:UITableViewDelegate,UITableViewDataSource{
             showCheckAlre()
         case 1:
             switch indexPath.item {
-            case 1,2,3,4:
+            case 1,2:
                 let vc = getVcByName(vc: .修改信息) as! BTMMineEdUserController
                 vc.type = list[indexPath.item]
                 self.navigationController?.pushViewController(vc, animated: true)
+                
             default:
-                log.info("")
+                log.info("\(list[indexPath.item])")
+            }
+        case 2:
+            switch indexPath.item {
+            case 0:
+                let vc = getVcByName(vc: .修改信息) as! BTMMineEdUserController
+                vc.type = list1[indexPath.item]
+                self.navigationController?.pushViewController(vc, animated: true)
+            case 1:
+                let vc = getVcByName(vc: .我的地图) as! KtMyMapViewController
+                vc.MyMapViewType = 1
+                self.navigationController?.pushViewController(vc, animated: true)
+            default:
+                log.info("\(list1[indexPath.item])")
             }
         default:
             log.info("")
@@ -126,10 +143,13 @@ extension BTMUserInfoController:UITableViewDelegate,UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: BTMUserIconCell.reuseID, for: indexPath) as! BTMUserIconCell
             cell.updateCell(user: user)
             return cell
+        case 1:
+            let cell =  tableView.dequeueReusableCell(withIdentifier: BTMUserItemCell.reuseID, for: indexPath) as! BTMUserItemCell
+            cell.updateCell(name: list[indexPath.item], user: user)
+            return cell
         default:
             let cell =  tableView.dequeueReusableCell(withIdentifier: BTMUserItemCell.reuseID, for: indexPath) as! BTMUserItemCell
-            
-            cell.updateCell(name: list[indexPath.item], user: user)
+            cell.updateCell(name: list1[indexPath.item], user: user)
             return cell
         }
     }
@@ -220,7 +240,7 @@ extension BTMUserInfoController: UIImagePickerControllerDelegate ,UINavigationCo
             UserInfoHelper.instance.user = data.userinfo
             self.refresh()
             self.ShowTip(Title: data.msg)
-           
+            
         }
         //            MoyaManager.updateusericon(controller: self, NetworkService.updateusericon(dataAry: imglist, USER_ID: String(describing: UserInfoHelper.instance.getUserId()), USER_TYPE: "USER_MEMBER", UP_TYPE: "MEMBER_HEAD_UPLOAD")) { (result) in
         //                if let date = result{

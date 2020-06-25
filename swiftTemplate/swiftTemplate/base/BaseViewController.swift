@@ -20,7 +20,8 @@ class BaseViewController: UIViewController ,UIGestureRecognizerDelegate{
     }
     @objc func back(){
           self.navigationController?.popViewController(animated: true)
-      }
+    }
+    /// 初始化该vc
     func initView(){
         
     }

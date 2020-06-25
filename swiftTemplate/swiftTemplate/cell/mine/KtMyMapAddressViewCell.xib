@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="KtMyMapAddressViewCell" rowHeight="112" id="KGk-i7-Jjw" customClass="KtMyMapAddressViewCell" customModule="swiftTemplate" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="381" height="112"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="381" height="112"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ji4-vo-wQ3">
+                        <rect key="frame" x="5" y="5" width="371" height="107"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ube-R3-jjR">
+                                <rect key="frame" x="10" y="10" width="351" height="15.5"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1c-Ny-b2H">
+                                <rect key="frame" x="10" y="47.5" width="351" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIq-WM-VGS">
+                                <rect key="frame" x="10" y="30.5" width="351" height="12"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="10"/>
+                                <color key="textColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Ube-R3-jjR" firstAttribute="top" secondItem="Ji4-vo-wQ3" secondAttribute="top" constant="10" id="AcO-gN-vxf"/>
+                            <constraint firstItem="M1c-Ny-b2H" firstAttribute="leading" secondItem="Ji4-vo-wQ3" secondAttribute="leading" constant="10" id="Kle-7B-WXk"/>
+                            <constraint firstItem="PIq-WM-VGS" firstAttribute="top" secondItem="Ube-R3-jjR" secondAttribute="bottom" constant="5" id="Ny8-8u-w6f"/>
+                            <constraint firstAttribute="trailing" secondItem="Ube-R3-jjR" secondAttribute="trailing" constant="10" id="hbe-vb-PTL"/>
+                            <constraint firstItem="PIq-WM-VGS" firstAttribute="leading" secondItem="Ji4-vo-wQ3" secondAttribute="leading" constant="10" id="mXe-d2-fKf"/>
+                            <constraint firstItem="Ube-R3-jjR" firstAttribute="leading" secondItem="Ji4-vo-wQ3" secondAttribute="leading" constant="10" id="n1T-rM-Hoo"/>
+                            <constraint firstAttribute="trailing" secondItem="PIq-WM-VGS" secondAttribute="trailing" constant="10" id="oxi-Tk-36B"/>
+                            <constraint firstAttribute="trailing" secondItem="M1c-Ny-b2H" secondAttribute="trailing" constant="10" id="qKl-j6-del"/>
+                            <constraint firstItem="M1c-Ny-b2H" firstAttribute="top" secondItem="PIq-WM-VGS" secondAttribute="bottom" constant="5" id="zjI-jd-K19"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="Ji4-vo-wQ3" secondAttribute="trailing" constant="5" id="AuG-dq-NDE"/>
+                    <constraint firstItem="Ji4-vo-wQ3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="JRk-5y-iQJ"/>
+                    <constraint firstItem="Ji4-vo-wQ3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="RNR-U5-gTR"/>
+                    <constraint firstAttribute="bottom" secondItem="Ji4-vo-wQ3" secondAttribute="bottom" id="qpG-b3-Z8j"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="lab_addressdetail" destination="M1c-Ny-b2H" id="LpG-PW-Ea9"/>
+                <outlet property="lab_addresstitle" destination="Ube-R3-jjR" id="Jmw-EN-k93"/>
+                <outlet property="lab_addresstype" destination="PIq-WM-VGS" id="B1J-IB-UwK"/>
+            </connections>
+            <point key="canvasLocation" x="93.478260869565219" y="175.44642857142856"/>
+        </tableViewCell>
+    </objects>
+</document>

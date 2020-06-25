@@ -3,21 +3,22 @@ source 'https://github.com/CocoaPods/Specs.git'
 target 'swiftTemplate' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-
+  
   # Pods for swiftTemplate
-pod 'Moya', '~> 13.0.1'
-pod 'ObjectMapper', '~> 3.5.2'
-pod 'SwiftyBeaver', '~> 1.7.0'
-pod 'IQKeyboardManagerSwift', '~> 6.4.0'
-pod 'MJRefresh', '~> 3.2.0'
-pod 'Gifu', '~> 3.2.0'
-pod 'SwiftyRSA','~>1.5.0'
-pod 'CryptoSwift' , '~> 1.0.0'
-pod 'Bugly','~> 2.5.0'
-pod 'FSPagerView','~> 0.8.3'
-pod 'Kingfisher', '~> 5.14.0'
-pod 'YPImagePicker' ,'~> 4.2.1'
-pod 'AMapLocation', '~> 2.6.5'
-pod 'AMapSearch', '~> 7.3.0'
-pod 'AMapNavi', '~> 7.5.0'
+  pod 'AMapLocation','~> 2.6.5'
+  pod 'AMapSearch','~> 7.3.0'
+  pod 'AMap3DMap','~> 7.4.0'
+  pod 'Moya', '~> 13.0.1'
+  pod 'ObjectMapper', '~> 3.5.2'
+  pod 'SwiftyBeaver', '~> 1.7.0'
+  pod 'IQKeyboardManagerSwift', '~> 6.4.0'
+  pod 'MJRefresh', '~> 3.2.0'
+  pod 'Gifu', '~> 3.2.0'
+  pod 'SwiftyRSA','~>1.5.0'
+  pod 'CryptoSwift' , '~> 1.0.0'
+  pod 'Bugly','~> 2.5.0'
+  pod 'FSPagerView','~> 0.8.3'
+  pod 'Kingfisher', '~> 5.14.0'
+  pod 'YPImagePicker' ,'~> 4.2.1'
+  
 end

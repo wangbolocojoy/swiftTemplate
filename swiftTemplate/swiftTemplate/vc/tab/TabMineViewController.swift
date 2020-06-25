@@ -83,7 +83,7 @@ extension TabMineViewController:UITableViewDelegate,UITableViewDataSource{
             case 0:
                 self.navigationController?.pushViewController(getVcByName(vc: .我的图片), animated: true)
             case 1:
-                self.navigationController?.pushViewController(getVcByName(vc: .我的地址), animated: true)
+                self.navigationController?.pushViewController(getVcByName(vc: .我的地图), animated: true)
             case 2:
                 self.navigationController?.pushViewController(getVcByName(vc: .我的朋友), animated: true)
             case 3:

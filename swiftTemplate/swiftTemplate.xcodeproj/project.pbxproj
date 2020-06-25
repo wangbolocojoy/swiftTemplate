@@ -71,6 +71,8 @@
 		C4AEFCF4248CBAC60080904E /* PermissionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEFCF3248CBAC60080904E /* PermissionHelper.swift */; };
 		C4AEFCF6248E48C30080904E /* BTMMyPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEFCF5248E48C30080904E /* BTMMyPostViewController.swift */; };
 		C4AEFCFA248E4B330080904E /* BTMMyFanceFollowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEFCF9248E4B330080904E /* BTMMyFanceFollowViewController.swift */; };
+		C4F55FD824A4B6DD00887B55 /* KtMyMapAddressViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F55FD624A4B6DC00887B55 /* KtMyMapAddressViewCell.swift */; };
+		C4F55FD924A4B6DD00887B55 /* KtMyMapAddressViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4F55FD724A4B6DD00887B55 /* KtMyMapAddressViewCell.xib */; };
 		C4FDACA5249E2B7A0095F1E3 /* MainPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FDACA3249E2B7A0095F1E3 /* MainPostCell.swift */; };
 		C4FDACA6249E2B7A0095F1E3 /* MainPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4FDACA4249E2B7A0095F1E3 /* MainPostCell.xib */; };
 		C4FDACAA249EF1F60095F1E3 /* PostBannerImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FDACA8249EF1F60095F1E3 /* PostBannerImageCell.swift */; };
@@ -88,7 +90,7 @@
 /* Begin PBXFileReference section */
 		1E5E45611692D9DB9FE0A5CE /* Pods-swiftTemplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftTemplate.debug.xcconfig"; path = "Target Support Files/Pods-swiftTemplate/Pods-swiftTemplate.debug.xcconfig"; sourceTree = "<group>"; };
 		96C494185AD3E08D4C8C3503 /* Pods_swiftTemplate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swiftTemplate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C40240202480193B00F715DC /* swiftTemplate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftTemplate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C40240202480193B00F715DC /* SwiftKt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftKt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C40240232480193B00F715DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C40240272480193B00F715DC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C402402A2480193B00F715DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -156,6 +158,8 @@
 		C4AEFCF3248CBAC60080904E /* PermissionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionHelper.swift; sourceTree = "<group>"; };
 		C4AEFCF5248E48C30080904E /* BTMMyPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTMMyPostViewController.swift; sourceTree = "<group>"; };
 		C4AEFCF9248E4B330080904E /* BTMMyFanceFollowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTMMyFanceFollowViewController.swift; sourceTree = "<group>"; };
+		C4F55FD624A4B6DC00887B55 /* KtMyMapAddressViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtMyMapAddressViewCell.swift; sourceTree = "<group>"; };
+		C4F55FD724A4B6DD00887B55 /* KtMyMapAddressViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KtMyMapAddressViewCell.xib; sourceTree = "<group>"; };
 		C4FDACA3249E2B7A0095F1E3 /* MainPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPostCell.swift; sourceTree = "<group>"; };
 		C4FDACA4249E2B7A0095F1E3 /* MainPostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainPostCell.xib; sourceTree = "<group>"; };
 		C4FDACA8249EF1F60095F1E3 /* PostBannerImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostBannerImageCell.swift; sourceTree = "<group>"; };
@@ -212,7 +216,7 @@
 		C40240212480193B00F715DC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C40240202480193B00F715DC /* swiftTemplate.app */,
+				C40240202480193B00F715DC /* SwiftKt.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -426,6 +430,8 @@
 				C4AEFCDC248BF0BD0080904E /* MineUserInfoViewCell.xib */,
 				C4AEFCEF248CACE30080904E /* BTMCleanHeader.swift */,
 				C4AEFCF1248CAD070080904E /* BTMCleanHeader.xib */,
+				C4F55FD624A4B6DC00887B55 /* KtMyMapAddressViewCell.swift */,
+				C4F55FD724A4B6DD00887B55 /* KtMyMapAddressViewCell.xib */,
 			);
 			path = mine;
 			sourceTree = "<group>";
@@ -498,7 +504,7 @@
 				C402401D2480193B00F715DC /* Frameworks */,
 				C402401E2480193B00F715DC /* Resources */,
 				7201C572C4BE31E11BA33BD1 /* [CP] Embed Pods Frameworks */,
-				EE5C12804F96C1A5359A0883 /* [CP] Copy Pods Resources */,
+				366072240BF5D996B4D7D3F3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -506,7 +512,7 @@
 			);
 			name = swiftTemplate;
 			productName = swiftTemplate;
-			productReference = C40240202480193B00F715DC /* swiftTemplate.app */;
+			productReference = C40240202480193B00F715DC /* SwiftKt.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -555,6 +561,7 @@
 				C4FDACAB249EF1F60095F1E3 /* PostBannerImageCell.xib in Resources */,
 				C43157F42483DF5B0034A74E /* TabHomeNovelCell.xib in Resources */,
 				C44E81CE24A38006000BD888 /* sdc.gif in Resources */,
+				C4F55FD924A4B6DD00887B55 /* KtMyMapAddressViewCell.xib in Resources */,
 				C4AEB305249863EF00196DAE /* UploadImageCollectionViewCell.xib in Resources */,
 				C40240302480193E00F715DC /* Assets.xcassets in Resources */,
 				C402402B2480193B00F715DC /* Main.storyboard in Resources */,
@@ -573,6 +580,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		366072240BF5D996B4D7D3F3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-swiftTemplate/Pods-swiftTemplate-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-swiftTemplate/Pods-swiftTemplate-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-swiftTemplate/Pods-swiftTemplate-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7201C572C4BE31E11BA33BD1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -612,23 +636,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EE5C12804F96C1A5359A0883 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-swiftTemplate/Pods-swiftTemplate-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-swiftTemplate/Pods-swiftTemplate-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-swiftTemplate/Pods-swiftTemplate-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -655,6 +662,7 @@
 				C40240282480193B00F715DC /* ViewController.swift in Sources */,
 				C43157DB24839C580034A74E /* TabHomeViewController.swift in Sources */,
 				C44E81D824A469E8000BD888 /* ApiKey.swift in Sources */,
+				C4F55FD824A4B6DD00887B55 /* KtMyMapAddressViewCell.swift in Sources */,
 				C402404E248394E200F715DC /* ext.swift in Sources */,
 				C43157EE2483DA810034A74E /* UserInfoHelper.swift in Sources */,
 				C4FDACB6249F4A9F0095F1E3 /* MySettingViewController.swift in Sources */,
@@ -846,7 +854,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.90btm.myapplication.swiftTemplate;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SwiftKt;
 				SWIFT_OBJC_BRIDGING_HEADER = "swiftTemplate/extension/swiftTemplate-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -868,7 +876,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.90btm.myapplication.swiftTemplate;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SwiftKt;
 				SWIFT_OBJC_BRIDGING_HEADER = "swiftTemplate/extension/swiftTemplate-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
