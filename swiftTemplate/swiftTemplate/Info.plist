@@ -32,13 +32,15 @@
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>是否允许获取位置信息以便用户可选是否分享位置或是导航</string>
 	<key>NSMainStoryboardFile</key>
-	<string>NewLogin</string>
+	<string>Other</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>是否允许访问相册以上传头像或照片</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<key>UIMainStoryboardFile~iphone</key>
+	<string>NewLogin</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

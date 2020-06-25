@@ -3,7 +3,7 @@
 //  swiftTemplate
 //
 //  Created by tomcat on 2020/6/21.
-//  Copyright © 2020 波王. All rights reserved.
+//  Copyright © 2020 SwiftKt-王波. All rights reserved.
 //
 // MARK: - 我的消息
 import UIKit

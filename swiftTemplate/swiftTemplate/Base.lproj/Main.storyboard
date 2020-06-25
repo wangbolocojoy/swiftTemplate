@@ -472,7 +472,7 @@
             </objects>
             <point key="canvasLocation" x="10314" y="1476"/>
         </scene>
-        <!--Instagram-->
+        <!--SwiftKt-->
         <scene sceneID="qCK-DL-nxF">
             <objects>
                 <viewController id="gMe-VO-irN" customClass="TabHomeViewController" customModule="swiftTemplate" customModuleProvider="target" sceneMemberID="viewController">
@@ -494,7 +494,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fWs-78-Wqt"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Instagram" id="zJU-6Q-zHt">
+                    <navigationItem key="navigationItem" title="SwiftKt" id="zJU-6Q-zHt">
                         <barButtonItem key="leftBarButtonItem" systemItem="camera" id="YCV-Hi-LF0"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="gPp-lV-Hmc">
                             <connections>

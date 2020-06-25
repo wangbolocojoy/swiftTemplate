@@ -48,6 +48,8 @@
 		C44E81CE24A38006000BD888 /* sdc.gif in Resources */ = {isa = PBXBuildFile; fileRef = C44E81CD24A38006000BD888 /* sdc.gif */; };
 		C44E81D224A38A29000BD888 /* NewLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44E81D124A38A29000BD888 /* NewLogin.storyboard */; };
 		C44E81D824A469E8000BD888 /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44E81D724A469E8000BD888 /* ApiKey.swift */; };
+		C44E81DA24A46ED9000BD888 /* Other.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44E81D924A46ED9000BD888 /* Other.storyboard */; };
+		C44E81DC24A47097000BD888 /* KtMyMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44E81DB24A47097000BD888 /* KtMyMapViewController.swift */; };
 		C4AEB30024985F9D00196DAE /* SendPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEB2FF24985F9D00196DAE /* SendPostViewController.swift */; };
 		C4AEB304249863EF00196DAE /* UploadImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEB302249863EF00196DAE /* UploadImageCollectionViewCell.swift */; };
 		C4AEB305249863EF00196DAE /* UploadImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4AEB303249863EF00196DAE /* UploadImageCollectionViewCell.xib */; };
@@ -131,6 +133,8 @@
 		C44E81CD24A38006000BD888 /* sdc.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sdc.gif; sourceTree = "<group>"; };
 		C44E81D124A38A29000BD888 /* NewLogin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewLogin.storyboard; sourceTree = "<group>"; };
 		C44E81D724A469E8000BD888 /* ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
+		C44E81D924A46ED9000BD888 /* Other.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Other.storyboard; sourceTree = "<group>"; };
+		C44E81DB24A47097000BD888 /* KtMyMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtMyMapViewController.swift; sourceTree = "<group>"; };
 		C4AEB2FF24985F9D00196DAE /* SendPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendPostViewController.swift; sourceTree = "<group>"; };
 		C4AEB302249863EF00196DAE /* UploadImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		C4AEB303249863EF00196DAE /* UploadImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UploadImageCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -229,6 +233,7 @@
 				C40240272480193B00F715DC /* ViewController.swift */,
 				C44E81D124A38A29000BD888 /* NewLogin.storyboard */,
 				C40240292480193B00F715DC /* Main.storyboard */,
+				C44E81D924A46ED9000BD888 /* Other.storyboard */,
 				C402402F2480193E00F715DC /* Assets.xcassets */,
 				C40240312480193E00F715DC /* LaunchScreen.storyboard */,
 				C40240342480193E00F715DC /* Info.plist */,
@@ -435,6 +440,7 @@
 				C4AEFCF5248E48C30080904E /* BTMMyPostViewController.swift */,
 				C4AEFCF9248E4B330080904E /* BTMMyFanceFollowViewController.swift */,
 				C44E81BD24A33AE9000BD888 /* BTMMyQRCodeViewController.swift */,
+				C44E81DB24A47097000BD888 /* KtMyMapViewController.swift */,
 			);
 			path = mine;
 			sourceTree = "<group>";
@@ -509,10 +515,10 @@
 		C40240182480193B00F715DC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = BTM;
+				CLASSPREFIX = Kt;
 				LastSwiftUpdateCheck = 1150;
 				LastUpgradeCheck = 1150;
-				ORGANIZATIONNAME = "波王";
+				ORGANIZATIONNAME = "SwiftKt-王波";
 				TargetAttributes = {
 					C402401F2480193B00F715DC = {
 						CreatedOnToolsVersion = 11.5;
@@ -554,6 +560,7 @@
 				C402402B2480193B00F715DC /* Main.storyboard in Resources */,
 				C4FDACBF249FB5610095F1E3 /* DynamicCollectionViewCell.xib in Resources */,
 				C44E81D224A38A29000BD888 /* NewLogin.storyboard in Resources */,
+				C44E81DA24A46ED9000BD888 /* Other.storyboard in Resources */,
 				C4206F25248FFC2900F4537C /* FanceORFollowCell.xib in Resources */,
 				C4FDACA6249E2B7A0095F1E3 /* MainPostCell.xib in Resources */,
 				C4AEFCEE248CAB620080904E /* BTMUserItemCell.xib in Resources */,
@@ -656,6 +663,7 @@
 				C4AEFCE1248C92D40080904E /* BTMMineEdUserController.swift in Sources */,
 				C4FDACA5249E2B7A0095F1E3 /* MainPostCell.swift in Sources */,
 				C43157D524839AC30034A74E /* BaseTabViewController.swift in Sources */,
+				C44E81DC24A47097000BD888 /* KtMyMapViewController.swift in Sources */,
 				C43157EC2483B16B0034A74E /* RequestBody.swift in Sources */,
 				C4FDACBE249FB5610095F1E3 /* DynamicCollectionViewCell.swift in Sources */,
 				C40240242480193B00F715DC /* AppDelegate.swift in Sources */,
