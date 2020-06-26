@@ -10,7 +10,7 @@
         <!--Kt My Map View Controller-->
         <scene sceneID="UuN-4t-Qou">
             <objects>
-                <viewController storyboardIdentifier="KTMYMAPVC" hidesBottomBarWhenPushed="YES" id="R0n-r5-R9T" customClass="KtMyMapViewController" customModule="swiftTemplate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="KTMYMAPVC" hidesBottomBarWhenPushed="YES" id="R0n-r5-R9T" customClass="KtMyMapViewController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I9o-S1-Cdn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -48,5 +48,102 @@
             </objects>
             <point key="canvasLocation" x="125" y="173"/>
         </scene>
+        <!--Kt Test View Controller-->
+        <scene sceneID="dsG-Pc-DLM">
+            <objects>
+                <viewController storyboardIdentifier="KTTESTVC" hidesBottomBarWhenPushed="YES" id="p3c-dr-Kfy" customClass="KtTestViewController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2W9-4T-6Oc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_2507" translatesAutoresizingMaskIntoConstraints="NO" id="euy-Jq-SFf">
+                                <rect key="frame" x="0.0" y="298" width="414" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="At5-9x-3O7"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nlw-IM-v5L">
+                                <rect key="frame" x="0.0" y="578" width="414" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="tPM-EG-L03"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pt5-PS-hu8">
+                                <rect key="frame" x="376.5" y="618" width="17.5" height="22"/>
+                                <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <state key="normal" image="bookmark" catalog="system"/>
+                                <connections>
+                                    <action selector="btn_collection:" destination="p3c-dr-Kfy" eventType="touchUpInside" id="FYD-ai-BN7"/>
+                                </connections>
+                            </button>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gOT-E7-RLY">
+                                <rect key="frame" x="177" y="418" width="60" height="60"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="suit.heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="oRY-fc-PN1">
+                                        <rect key="frame" x="0.0" y="1.5" width="60" height="57.5"/>
+                                        <color key="tintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="oRY-fc-PN1" secondAttribute="trailing" id="0iS-q2-UVM"/>
+                                    <constraint firstItem="oRY-fc-PN1" firstAttribute="top" secondItem="gOT-E7-RLY" secondAttribute="top" id="Bbu-Mn-vYS"/>
+                                    <constraint firstAttribute="width" constant="60" id="GUN-TD-VnO"/>
+                                    <constraint firstAttribute="height" constant="60" id="PCG-VE-ydv"/>
+                                    <constraint firstAttribute="bottom" secondItem="oRY-fc-PN1" secondAttribute="bottom" id="RCP-DD-xeZ"/>
+                                    <constraint firstItem="oRY-fc-PN1" firstAttribute="leading" secondItem="gOT-E7-RLY" secondAttribute="leading" id="gQm-qU-ZO7"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZX3-Ib-nId">
+                                <rect key="frame" x="184" y="648" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" catalog="system" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FiQ-ce-huk">
+                                <rect key="frame" x="20" y="619.5" width="30" height="27.5"/>
+                                <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="AyN-za-jxR"/>
+                                    <constraint firstAttribute="width" constant="30" id="OY1-TF-eVL"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="euy-Jq-SFf" firstAttribute="centerY" secondItem="2W9-4T-6Oc" secondAttribute="centerY" id="DLi-D6-4yd"/>
+                            <constraint firstItem="Nlw-IM-v5L" firstAttribute="bottom" secondItem="euy-Jq-SFf" secondAttribute="bottom" id="E6c-Ub-xUh"/>
+                            <constraint firstItem="OBv-La-RZw" firstAttribute="trailing" secondItem="euy-Jq-SFf" secondAttribute="trailing" id="I7a-YS-YWI"/>
+                            <constraint firstItem="FiQ-ce-huk" firstAttribute="leading" secondItem="OBv-La-RZw" secondAttribute="leading" constant="20" id="K3E-5q-iCD"/>
+                            <constraint firstItem="OBv-La-RZw" firstAttribute="trailing" secondItem="Nlw-IM-v5L" secondAttribute="trailing" id="TTv-8a-UFa"/>
+                            <constraint firstItem="euy-Jq-SFf" firstAttribute="leading" secondItem="OBv-La-RZw" secondAttribute="leading" id="Wtk-g6-FYt"/>
+                            <constraint firstItem="ZX3-Ib-nId" firstAttribute="top" secondItem="euy-Jq-SFf" secondAttribute="bottom" constant="50" id="YRb-pL-Q4D"/>
+                            <constraint firstItem="gOT-E7-RLY" firstAttribute="centerX" secondItem="euy-Jq-SFf" secondAttribute="centerX" id="YUS-b3-onq"/>
+                            <constraint firstItem="Nlw-IM-v5L" firstAttribute="leading" secondItem="OBv-La-RZw" secondAttribute="leading" id="aC4-u5-vuN"/>
+                            <constraint firstItem="Pt5-PS-hu8" firstAttribute="top" secondItem="euy-Jq-SFf" secondAttribute="bottom" constant="20" id="nae-EN-yxY"/>
+                            <constraint firstItem="OBv-La-RZw" firstAttribute="trailing" secondItem="Pt5-PS-hu8" secondAttribute="trailing" constant="20" id="wQg-30-aLy"/>
+                            <constraint firstItem="FiQ-ce-huk" firstAttribute="top" secondItem="euy-Jq-SFf" secondAttribute="bottom" constant="20" id="xa5-el-0Ue"/>
+                            <constraint firstItem="ZX3-Ib-nId" firstAttribute="centerX" secondItem="2W9-4T-6Oc" secondAttribute="centerX" id="z1Y-mo-LSL"/>
+                            <constraint firstItem="gOT-E7-RLY" firstAttribute="centerY" secondItem="euy-Jq-SFf" secondAttribute="centerY" id="zTA-zv-jWb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="OBv-La-RZw"/>
+                    </view>
+                    <connections>
+                        <outlet property="banner" destination="euy-Jq-SFf" id="Ur9-Zv-6EF"/>
+                        <outlet property="collectionactivity" destination="Nlw-IM-v5L" id="ngm-ep-hl2"/>
+                        <outlet property="heart" destination="oRY-fc-PN1" id="mih-rg-RIi"/>
+                        <outlet property="imageheart" destination="FiQ-ce-huk" id="s6V-yl-43K"/>
+                        <outlet property="tebutton" destination="ZX3-Ib-nId" id="cep-VC-dAC"/>
+                        <outlet property="viewheart" destination="gOT-E7-RLY" id="Vpe-Zs-nQu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LLc-8U-TdI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="976.81159420289862" y="146.65178571428569"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="IMG_2507" width="50" height="50"/>
+        <image name="bookmark" catalog="system" width="112" height="128"/>
+        <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="suit.heart.fill" catalog="system" width="128" height="109"/>
+    </resources>
 </document>

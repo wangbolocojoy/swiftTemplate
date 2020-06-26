@@ -73,6 +73,8 @@
 		C4AEFCFA248E4B330080904E /* BTMMyFanceFollowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEFCF9248E4B330080904E /* BTMMyFanceFollowViewController.swift */; };
 		C4F55FD824A4B6DD00887B55 /* KtMyMapAddressViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F55FD624A4B6DC00887B55 /* KtMyMapAddressViewCell.swift */; };
 		C4F55FD924A4B6DD00887B55 /* KtMyMapAddressViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4F55FD724A4B6DD00887B55 /* KtMyMapAddressViewCell.xib */; };
+		C4F55FDB24A59EB600887B55 /* KtTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F55FDA24A59EB600887B55 /* KtTestViewController.swift */; };
+		C4F55FDD24A5B6BC00887B55 /* ClearRequestAlertPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F55FDC24A5B6BC00887B55 /* ClearRequestAlertPlugin.swift */; };
 		C4FDACA5249E2B7A0095F1E3 /* MainPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FDACA3249E2B7A0095F1E3 /* MainPostCell.swift */; };
 		C4FDACA6249E2B7A0095F1E3 /* MainPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4FDACA4249E2B7A0095F1E3 /* MainPostCell.xib */; };
 		C4FDACAA249EF1F60095F1E3 /* PostBannerImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FDACA8249EF1F60095F1E3 /* PostBannerImageCell.swift */; };
@@ -160,6 +162,8 @@
 		C4AEFCF9248E4B330080904E /* BTMMyFanceFollowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTMMyFanceFollowViewController.swift; sourceTree = "<group>"; };
 		C4F55FD624A4B6DC00887B55 /* KtMyMapAddressViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtMyMapAddressViewCell.swift; sourceTree = "<group>"; };
 		C4F55FD724A4B6DD00887B55 /* KtMyMapAddressViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KtMyMapAddressViewCell.xib; sourceTree = "<group>"; };
+		C4F55FDA24A59EB600887B55 /* KtTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtTestViewController.swift; sourceTree = "<group>"; };
+		C4F55FDC24A5B6BC00887B55 /* ClearRequestAlertPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearRequestAlertPlugin.swift; sourceTree = "<group>"; };
 		C4FDACA3249E2B7A0095F1E3 /* MainPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPostCell.swift; sourceTree = "<group>"; };
 		C4FDACA4249E2B7A0095F1E3 /* MainPostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainPostCell.xib; sourceTree = "<group>"; };
 		C4FDACA8249EF1F60095F1E3 /* PostBannerImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostBannerImageCell.swift; sourceTree = "<group>"; };
@@ -274,6 +278,7 @@
 				C4024043248390C800F715DC /* RequestAlertPlugin.swift */,
 				C4024045248392A300F715DC /* MyMoyaManager.swift */,
 				C43157EB2483B16B0034A74E /* RequestBody.swift */,
+				C4F55FDC24A5B6BC00887B55 /* ClearRequestAlertPlugin.swift */,
 			);
 			path = http;
 			sourceTree = "<group>";
@@ -293,6 +298,7 @@
 				C4AEB2FE24985F7700196DAE /* post */,
 				C43157DE24839C720034A74E /* loginregister */,
 				C402404B248394B800F715DC /* tab */,
+				C4F55FDA24A59EB600887B55 /* KtTestViewController.swift */,
 			);
 			path = vc;
 			sourceTree = "<group>";
@@ -666,6 +672,7 @@
 				C402404E248394E200F715DC /* ext.swift in Sources */,
 				C43157EE2483DA810034A74E /* UserInfoHelper.swift in Sources */,
 				C4FDACB6249F4A9F0095F1E3 /* MySettingViewController.swift in Sources */,
+				C4F55FDD24A5B6BC00887B55 /* ClearRequestAlertPlugin.swift in Sources */,
 				C4FDACB0249F491C0095F1E3 /* MyAddressViewController.swift in Sources */,
 				C4AEB30024985F9D00196DAE /* SendPostViewController.swift in Sources */,
 				C4AEFCE1248C92D40080904E /* BTMMineEdUserController.swift in Sources */,
@@ -694,6 +701,7 @@
 				C43157E82483A47D0034A74E /* KeychainManager.swift in Sources */,
 				C43157F32483DF5B0034A74E /* TabHomeNovelCell.swift in Sources */,
 				C43FDF7D248E89170023E3F2 /* TabDynamicViewController.swift in Sources */,
+				C4F55FDB24A59EB600887B55 /* KtTestViewController.swift in Sources */,
 				C4AEFCE9248CAA310080904E /* BTMUserIconCell.swift in Sources */,
 				C4024046248392A300F715DC /* MyMoyaManager.swift in Sources */,
 				C43157E62483A1F60034A74E /* LoginNavViewController.swift in Sources */,

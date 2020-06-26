@@ -16,7 +16,8 @@ class FlashScreenViewController: BaseViewController {
     }
     func checkRootVc(){
         let user = UserInfoHelper.instance.user 
-        UIView.animate(withDuration: time, animations:{ let tranststion =  CATransition()
+        UIView.animate(withDuration: time, animations:{
+            let tranststion =  CATransition()
             tranststion.duration = self.time
             tranststion.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
             UIApplication.shared.windows[0].layer.add(tranststion, forKey: "animation")

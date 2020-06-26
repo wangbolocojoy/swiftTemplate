@@ -24,6 +24,7 @@ enum MyController{
     case 我的设置
     case 我的二维码
     case 我的地图
+    case 动画
 }
 
 enum PictureType{
@@ -98,6 +99,9 @@ extension UIViewController{
             return vc
         case .我的地图:
             let vc = otsb.instantiateViewController(withIdentifier: "KTMYMAPVC") as! KtMyMapViewController
+            return vc
+        case .动画:
+            let vc = otsb.instantiateViewController(withIdentifier: "KTTESTVC") as!KtTestViewController
             return vc
         }
     }

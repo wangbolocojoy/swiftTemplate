@@ -12,6 +12,7 @@ class TabHomeViewController: BaseTabViewController {
     let footer = MJRefreshBackFooter()
     let header = MJRefreshNormalHeader()
     lazy var list :[PostInfo]? = nil
+     lazy var listpost :[PostStart]? = nil
     var pagebody = RequestBody()
     var type = 1
     var hasmore :Bool = false
@@ -26,15 +27,15 @@ class TabHomeViewController: BaseTabViewController {
         self.navigationController?.pushViewController(self.getVcByName(vc: .发帖), animated: true)
     }
     func getNovel(body:RequestBody){
-        MyMoyaManager.AllRequest(controller: self, NetworkService.getposts(k: body.toJSONString()!)) { (data) in
+        MyMoyaManager.AllRequestNospinner(controller: self, NetworkService.getposts(k: body.toJSONString()!)) { (data) in
             if self.type == 1 {
                 self.list = data.postlist
-                
+
             }else{
                 
                 self.list! += data.postlist ?? []
             }
-            if data.postlist?.count ?? 0 == 3{
+            if data.postlist?.count ?? 0 == 5{
                 self.hasmore = true
             }else{
                 self.hasmore = false
@@ -49,15 +50,17 @@ class TabHomeViewController: BaseTabViewController {
         footer.resetNoMoreData()
         type = 1
         pagebody.page = 0
-        pagebody.pageSize = 3
+        pagebody.pageSize = 5
+        pagebody.userId = UserInfoHelper.instance.user?.id ?? 0
         getNovel(body: pagebody)
         
     }
     @objc func getMore(){
         if hasmore {
             type = 2
+            pagebody.userId = UserInfoHelper.instance.user?.id ?? 0
             pagebody.page = (pagebody.page ?? 0) + 1
-            pagebody.pageSize = 3
+            pagebody.pageSize = 5
             getNovel(body: pagebody)
         }else{
             
@@ -70,14 +73,17 @@ class TabHomeViewController: BaseTabViewController {
         tableview.separatorStyle = .none
         
         tableview.register(UINib(nibName: MainPostCell.reuseID, bundle: nil), forCellReuseIdentifier: MainPostCell.reuseID)
+        
         header.setRefreshingTarget(self, refreshingAction: #selector(refresh))
         tableview.mj_header = header
         footer.setRefreshingTarget(self, refreshingAction: #selector(getMore))
         tableview.mj_footer = footer
         type = 1
         pagebody.page = 0
-        pagebody.pageSize = 3
+        pagebody.pageSize = 5
+        pagebody.userId = UserInfoHelper.instance.user?.id ?? 0
         getNovel(body: pagebody)
+       
     }
     
     

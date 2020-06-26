@@ -65,7 +65,7 @@ class TabMineViewController: BaseTabViewController {
         })
     }
     func deleteCoreNovel(){
-        CoreDataManager.shared.deleteAllNovel {
+        CoreDataManager.default.deleteStartList {
             self.ShowTip(Title: "删除缓存成功")
         }
         
@@ -85,7 +85,7 @@ extension TabMineViewController:UITableViewDelegate,UITableViewDataSource{
             case 1:
                 self.navigationController?.pushViewController(getVcByName(vc: .我的地图), animated: true)
             case 2:
-                self.navigationController?.pushViewController(getVcByName(vc: .我的朋友), animated: true)
+                self.navigationController?.pushViewController(getVcByName(vc: .动画), animated: true)
             case 3:
                 self.navigationController?.pushViewController(getVcByName(vc: .我的消息), animated: true)
             case 4:

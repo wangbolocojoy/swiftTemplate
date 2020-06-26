@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C402401F2480193B00F715DC"
-               BuildableName = "swiftTemplate.app"
+               BuildableName = "SwiftKt.app"
                BlueprintName = "swiftTemplate"
                ReferencedContainer = "container:swiftTemplate.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C402401F2480193B00F715DC"
-            BuildableName = "swiftTemplate.app"
+            BuildableName = "SwiftKt.app"
             BlueprintName = "swiftTemplate"
             ReferencedContainer = "container:swiftTemplate.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C402401F2480193B00F715DC"
-            BuildableName = "swiftTemplate.app"
+            BuildableName = "SwiftKt.app"
             BlueprintName = "swiftTemplate"
             ReferencedContainer = "container:swiftTemplate.xcodeproj">
          </BuildableReference>

@@ -10,6 +10,7 @@ import Foundation
 import ObjectMapper
 class RequestBody: Mappable {
     var id:Int?
+    var postId:Int?
     var userId:Int?
     var followId:Int?
     var icon:String?
@@ -37,6 +38,7 @@ class RequestBody: Mappable {
     }
     
     func mapping(map: Map) {
+        postId <- map["postId"]
         phone <- map["phone"]
         password <- map["password"]
         msg <- map["msg"]

@@ -18,6 +18,7 @@ class BaseResponse: Mappable {
     var sendpost:PostInfo?
     var fancefollowlist:[UserInfo]?
     var postlist:[PostInfo]?
+    var poststartlist:[PostStart]?
     required init?(map: Map) {
     }
     func mapping(map: Map) {
@@ -30,7 +31,24 @@ class BaseResponse: Mappable {
         fancefollowlist <- map["data"]
         postlist <- map["data"]
         sendpost <- map["data"]
+        poststartlist <- map["data"]
     }
+    
+}
+class PostStart: Mappable {
+    var postId:Int?
+    var userId:Int?
+    var id:Int?
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        id <- map["id"]
+        postId <- map["postId"]
+        userId <- map["userId"]
+    }
+    
     
 }
 class PostInfo: Mappable {
@@ -45,6 +63,9 @@ class PostInfo: Mappable {
     var postImages:[PostImages]?
     var latitude:String?
     var longitude:String?
+    var isStart:Bool?
+    var isCollection:Bool?
+    var msgNum:Int?
     required init?(map: Map) {
         
     }
@@ -61,6 +82,9 @@ class PostInfo: Mappable {
         postImages <- map["postImages"]
         latitude <- map["latitude"]
         longitude <- map["longitude"]
+        isStart <- map["isStart"]
+        isCollection <- map["isCollection"]
+        msgNum <- map["msgNum"]
     }
     
     
