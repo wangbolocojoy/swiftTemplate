@@ -21,18 +21,17 @@ class MainPostCell: UITableViewCell {
     }
     
     @IBOutlet weak var btn_gotostart: UIView!
-    @IBOutlet weak var btn_sendmessage: UIImageView!
+    
     @IBOutlet weak var post_detail: UILabel!
     @IBOutlet weak var post_auther_nickname: UILabel!
     @IBOutlet weak var post_auther_address: UILabel!
     @IBOutlet weak var pagecontrol: FSPageControl!
-    @IBOutlet weak var ev_message: UITextField!
-    @IBOutlet weak var usericon: UIImageView!
+    
+    @IBOutlet weak var btn_message: UIView!
     @IBOutlet weak var lab_postnum: UILabel!
     @IBOutlet weak var lab_startnum: UILabel!
     @IBOutlet weak var btn_collection: UIImageView!
     @IBOutlet weak var btn_share: UIImageView!
-    @IBOutlet weak var btn_message: UIImageView!
     @IBOutlet weak var btn_start: UIImageView!
     @IBOutlet weak var postauther_icon: UIImageView!
     var postinfo : PostInfo? = nil
@@ -49,7 +48,7 @@ class MainPostCell: UITableViewCell {
         pagecontrol.numberOfPages = postinfo?.postImages?.count ?? 0
         pagecontrol.setStrokeColor(.label, for: .selected)
         pagecontrol.setFillColor(.label, for: .selected)
-        usericon.setImageUrl(image: usericon,string: UserInfoHelper.instance.user?.icon, proimage: #imageLiteral(resourceName: "IMG_2506"))
+     
        
     }
     
@@ -75,7 +74,9 @@ class MainPostCell: UITableViewCell {
         btn_collection.isUserInteractionEnabled = true
         btn_collection.addGestureRecognizer(tapcollec)
         let tapgoststartvc = UITapGestureRecognizer(target: self, action: #selector(toStartUser))
-               
+        let tapmessage = UITapGestureRecognizer(target: self, action: #selector(showMessageVC))
+        btn_message.isUserInteractionEnabled = true
+        btn_message.addGestureRecognizer(tapmessage)
         btn_gotostart.isUserInteractionEnabled = true
         btn_gotostart.addGestureRecognizer(tapgoststartvc)
         poster_nickname.text = pinfo?.author?.nickName ?? ""
@@ -83,9 +84,16 @@ class MainPostCell: UITableViewCell {
         post_auther_nickname.text = pinfo?.author?.nickName ?? ""
         pagecontrol.numberOfPages = pinfo?.postImages?.count ?? 0
         postauther_icon.setImageUrl(image: postauther_icon,string: pinfo?.author?.icon, proimage: #imageLiteral(resourceName: "IMG_2507"))
-        usericon.setImageUrl(image: usericon,string: UserInfoHelper.instance.user?.icon, proimage: #imageLiteral(resourceName: "IMG_2506"))
+      
         post_auther_address.text = pinfo?.postAddress ?? ""
         
+    }
+    
+    @objc func showMessageVC(){
+        let vc = self.parentViewController()?.getVcByName(vc: .消息列表) as! KtMessagelistViewController
+        vc.postId = postinfo?.id
+        vc.view.backgroundColor = .clear
+        self.parentViewController()?.present(vc, animated: true, completion: nil)
     }
     func updateStartOrCollection(){
         if postinfo?.isStart ?? false {

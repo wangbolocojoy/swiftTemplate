@@ -546,7 +546,7 @@
             </objects>
             <point key="canvasLocation" x="907" y="117"/>
         </scene>
-        <!--联系人-->
+        <!--推荐-->
         <scene sceneID="EKy-ZS-MOO">
             <objects>
                 <viewController id="9OL-5e-XoK" customClass="TabFriendsViewController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
@@ -568,7 +568,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jRL-7G-vm2"/>
                     </view>
-                    <navigationItem key="navigationItem" title="联系人" id="3gz-0h-dDB">
+                    <navigationItem key="navigationItem" title="推荐" id="3gz-0h-dDB">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="lP8-dC-gPe">
                             <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                             <connections>
@@ -584,7 +584,7 @@
             </objects>
             <point key="canvasLocation" x="3039.130434782609" y="832.36607142857144"/>
         </scene>
-        <!--动态-->
+        <!--发现-->
         <scene sceneID="I1B-Uj-Yoi">
             <objects>
                 <viewController id="SIP-Vs-ea7" customClass="TabDynamicViewController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
@@ -622,7 +622,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ivJ-d5-AIr"/>
                     </view>
-                    <navigationItem key="navigationItem" title="动态" id="sft-xX-5H1">
+                    <navigationItem key="navigationItem" title="发现" id="sft-xX-5H1">
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="acS-ua-3Cd">
                             <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                         </barButtonItem>
@@ -741,17 +741,20 @@
             </objects>
             <point key="canvasLocation" x="5478" y="1025"/>
         </scene>
-        <!--动态-->
+        <!--发现-->
         <scene sceneID="Uls-qU-yrH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mHn-QZ-sto" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="动态" image="heart.fill" catalog="system" landscapeImage="heart" id="PYT-t3-5LG">
+                    <tabBarItem key="tabBarItem" title="发现" image="circle.grid.hex.fill" catalog="system" landscapeImage="circle.grid.hex" id="PYT-t3-5LG">
                         <color key="badgeColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LZS-Vx-4hr">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="LZS-Vx-4hr">
+                        <rect key="frame" x="0.0" y="44" width="414" height="99.5"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="24"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -762,11 +765,11 @@
             </objects>
             <point key="canvasLocation" x="2128.985507246377" y="49.553571428571423"/>
         </scene>
-        <!--联系人-->
+        <!--推荐-->
         <scene sceneID="qOm-LL-UzX">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gq2-I2-fUk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="联系人" image="person.crop.square.fill" catalog="system" landscapeImage="person.crop.square" id="Rvr-qP-x6T"/>
+                    <tabBarItem key="tabBarItem" title="推荐" image="person.2.square.stack.fill" catalog="system" landscapeImage="person.2.square.stack" id="Rvr-qP-x6T"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="a3p-mA-cYT">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -785,15 +788,15 @@
     <resources>
         <image name="IMG_2506" width="512" height="512"/>
         <image name="IMG_2507" width="50" height="50"/>
-        <image name="heart" catalog="system" width="128" height="109"/>
-        <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <image name="circle.grid.hex" catalog="system" width="128" height="112"/>
+        <image name="circle.grid.hex.fill" catalog="system" width="128" height="112"/>
         <image name="house" catalog="system" width="128" height="110"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="person" catalog="system" width="128" height="117"/>
+        <image name="person.2.square.stack" catalog="system" width="113" height="128"/>
+        <image name="person.2.square.stack.fill" catalog="system" width="113" height="128"/>
         <image name="person.crop.circle" catalog="system" width="128" height="121"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="person.crop.square" catalog="system" width="128" height="114"/>
-        <image name="person.crop.square.fill" catalog="system" width="128" height="114"/>
         <image name="right02" width="15" height="15"/>
     </resources>
 </document>

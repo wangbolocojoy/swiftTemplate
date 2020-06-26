@@ -8,6 +8,7 @@
 // MARK: - 发帖
 import UIKit
 import YPImagePicker
+import AMapSearchKit
 class SendPostViewController: BaseViewController {
     
     @IBOutlet weak var collectionview: UICollectionView!
@@ -16,6 +17,8 @@ class SendPostViewController: BaseViewController {
     @IBOutlet weak var ev_detail: UITextView!
     lazy var picker = YPImagePicker()
     var list:[UIImage] = [#imageLiteral(resourceName: "添加图片")]
+    let  user = UserInfoHelper.instance.user
+    var amappoi:AMapPOI? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "发布", style: .done, target: self, action: #selector(sendPost))
@@ -33,9 +36,10 @@ class SendPostViewController: BaseViewController {
     @objc func toAddress(){
         let vc =  getVcByName(vc: .我的地图) as! KtMyMapViewController
         vc.MyMapViewType = 2
-        vc.callBackBlock { (AMapPOI) in
-            if let info = AMapPOI{
+        vc.callBackBlock { (POI) in
+            if let info = POI{
 //                let address = "\(info.province ?? "")\(info.city ?? "")\(info.district ?? "")\(info.address ?? "")\(info.name ?? "")"
+                self.amappoi = info
                  let address = "\(info.name ?? "")"
                 self.lab_address.text = address
             }
@@ -52,14 +56,19 @@ class SendPostViewController: BaseViewController {
             ShowTip(Title: "请至少输入10个字的内容")
             return
         }
-        
-        if lab_address.text != "请选择地址" {
+        var address = ""
+        if lab_address.text == "请选择地址" {
+            address = ""
+        }else{
+            address = lab_address.text ?? ""
         }
         
         let detail = ev_detail.text
-        let address = lab_address.text
-            let param = ["postDetail": detail ?? "" ,"postAddress": address ?? "" ,"uploadType":"image","userId":"\(UserInfoHelper.instance.user?.id ?? 0)"]
+        
+        let param = ["postDetail": detail ?? "" ,"postAddress": address,"latitude":"\(amappoi?.location.latitude ?? 0.0)","longitude":"\(amappoi?.location.longitude ?? 0.0)" ,"uploadType":"image","userId":"\(UserInfoHelper.instance.user?.id ?? 0)"]
             MyMoyaManager.AllRequest(controller: self, NetworkService.upLoadFiles(K: param, dataAry: self.list as NSArray)) { (data) in
+                self.user?.postNum =  (self.user?.postNum ?? 0) + 1
+                UserInfoHelper.instance.user = self.user
                 self.ShowTipsClose(tite: data.msg ?? "发布成功")
             }
         

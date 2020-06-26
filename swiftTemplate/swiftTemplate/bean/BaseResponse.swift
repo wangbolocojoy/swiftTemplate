@@ -20,6 +20,7 @@ class BaseResponse: Mappable {
     var postlist:[PostInfo]?
     var poststartlist:[PostStart]?
     var userlist :[UserInfo]?
+    var postmsg:[PostMessage]?
     required init?(map: Map) {
     }
     func mapping(map: Map) {
@@ -34,7 +35,36 @@ class BaseResponse: Mappable {
         sendpost <- map["data"]
         poststartlist <- map["data"]
         userlist <- map["data"]
+        postmsg <- map["data"]
     }
+    
+}
+class PostMessage: Mappable {
+    var id: Int?
+    var userId: Int?
+    var postId:Int?
+    var userIcon:String?
+    var userNickName:String?
+    var chiledMessage:[PostMessage]?
+    var postPostMessage: String?
+    var messageStart:Int?
+    var postMsgCreatTime: String?
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        id <- map["id"]
+        userId <- map["userId"]
+        postId <- map["postId"]
+        userIcon <- map["userIcon"]
+        userNickName <- map["userNickName"]
+        chiledMessage <- map["chiledMessage"]
+        postPostMessage <- map["postPostMessage"]
+        messageStart <- map["messageStart"]
+        postMsgCreatTime <- map["postMsgCreatTime"]
+    }
+    
     
 }
 class PostStart: Mappable {

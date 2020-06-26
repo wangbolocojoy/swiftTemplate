@@ -14,11 +14,23 @@ class TabFriendsViewController: BaseTabViewController {
     var list:[UserInfo]? = nil
     var page = 0
     let userid = UserInfoHelper.instance.user?.id ?? 0
+    lazy var  countrySearchController:UISearchController? = UISearchController()
     @IBOutlet weak var tableview: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     override func initView() {
+        self.countrySearchController = ({
+            let controller = UISearchController(searchResultsController: nil)
+            controller.searchResultsUpdater = self   //两个样例使用不同的代理
+            controller.hidesNavigationBarDuringPresentation = false
+            controller.dimsBackgroundDuringPresentation = true
+            controller.searchBar.barStyle = .default
+            //            controller.view.backgroundColor = .white
+            controller.searchBar.placeholder = "输入用户账号查找"
+            return controller
+        })()
+        self.navigationItem.titleView = self.countrySearchController?.searchBar
         tableview.delegate = self
         tableview.dataSource = self
         tableview.separatorStyle = .none
@@ -115,6 +127,13 @@ extension TabFriendsViewController:UITableViewDelegate,UITableViewDataSource{
             }
         }
         return cell
+    }
+    
+    
+}
+extension TabFriendsViewController:UISearchResultsUpdating{
+    func updateSearchResults(for searchController: UISearchController) {
+        
     }
     
     

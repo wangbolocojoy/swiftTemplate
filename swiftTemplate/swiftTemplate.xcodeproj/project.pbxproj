@@ -20,6 +20,10 @@
 		C4024046248392A300F715DC /* MyMoyaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4024045248392A300F715DC /* MyMoyaManager.swift */; };
 		C4024049248393BC00F715DC /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4024048248393BC00F715DC /* BaseResponse.swift */; };
 		C402404E248394E200F715DC /* ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402404D248394E200F715DC /* ext.swift */; };
+		C4070A8B24A63BA1000819BD /* KtMessagelistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4070A8A24A63BA1000819BD /* KtMessagelistViewController.swift */; };
+		C4070A8D24A64A80000819BD /* BaseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4070A8C24A64A80000819BD /* BaseDetailViewController.swift */; };
+		C4070A9024A66B15000819BD /* KtMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4070A8E24A66B15000819BD /* KtMessageCell.swift */; };
+		C4070A9124A66B15000819BD /* KtMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4070A8F24A66B15000819BD /* KtMessageCell.xib */; };
 		C4206F24248FFC2900F4537C /* FanceORFollowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4206F22248FFC2900F4537C /* FanceORFollowCell.swift */; };
 		C4206F25248FFC2900F4537C /* FanceORFollowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4206F23248FFC2900F4537C /* FanceORFollowCell.xib */; };
 		C43157CF2483994F0034A74E /* CALayer+MyColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C43157CE2483994F0034A74E /* CALayer+MyColor.m */; };
@@ -110,6 +114,10 @@
 		C4024045248392A300F715DC /* MyMoyaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMoyaManager.swift; sourceTree = "<group>"; };
 		C4024048248393BC00F715DC /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
 		C402404D248394E200F715DC /* ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ext.swift; sourceTree = "<group>"; };
+		C4070A8A24A63BA1000819BD /* KtMessagelistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtMessagelistViewController.swift; sourceTree = "<group>"; };
+		C4070A8C24A64A80000819BD /* BaseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDetailViewController.swift; sourceTree = "<group>"; };
+		C4070A8E24A66B15000819BD /* KtMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtMessageCell.swift; sourceTree = "<group>"; };
+		C4070A8F24A66B15000819BD /* KtMessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KtMessageCell.xib; sourceTree = "<group>"; };
 		C4206F22248FFC2900F4537C /* FanceORFollowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FanceORFollowCell.swift; sourceTree = "<group>"; };
 		C4206F23248FFC2900F4537C /* FanceORFollowCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FanceORFollowCell.xib; sourceTree = "<group>"; };
 		C43157CC2483991E0034A74E /* swiftTemplate-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "swiftTemplate-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -354,6 +362,7 @@
 				C43157D424839AC30034A74E /* BaseTabViewController.swift */,
 				C43157D624839BDB0034A74E /* MainTabController.swift */,
 				C43157D824839C290034A74E /* FlashScreenViewController.swift */,
+				C4070A8C24A64A80000819BD /* BaseDetailViewController.swift */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -395,6 +404,7 @@
 			isa = PBXGroup;
 			children = (
 				C44E81C924A37CA3000BD888 /* ScanQrcodeViewController.swift */,
+				C4070A8A24A63BA1000819BD /* KtMessagelistViewController.swift */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -422,6 +432,8 @@
 				C4AEB303249863EF00196DAE /* UploadImageCollectionViewCell.xib */,
 				C4FDACA3249E2B7A0095F1E3 /* MainPostCell.swift */,
 				C4FDACA4249E2B7A0095F1E3 /* MainPostCell.xib */,
+				C4070A8E24A66B15000819BD /* KtMessageCell.swift */,
+				C4070A8F24A66B15000819BD /* KtMessageCell.xib */,
 			);
 			path = post;
 			sourceTree = "<group>";
@@ -595,6 +607,7 @@
 				C4206F25248FFC2900F4537C /* FanceORFollowCell.xib in Resources */,
 				C4FDACA6249E2B7A0095F1E3 /* MainPostCell.xib in Resources */,
 				C4AEFCEE248CAB620080904E /* BTMUserItemCell.xib in Resources */,
+				C4070A9124A66B15000819BD /* KtMessageCell.xib in Resources */,
 				C4AEFCF2248CAD070080904E /* BTMCleanHeader.xib in Resources */,
 				C4AEFCDE248BF0BD0080904E /* MineUserInfoViewCell.xib in Resources */,
 				C4AEFCDA248BF09E0080904E /* MineItemViewCell.xib in Resources */,
@@ -673,10 +686,12 @@
 				C43157E024839C880034A74E /* LoginViewController.swift in Sources */,
 				C43157CF2483994F0034A74E /* CALayer+MyColor.m in Sources */,
 				C4AEFCED248CAB620080904E /* BTMUserItemCell.swift in Sources */,
+				C4070A8D24A64A80000819BD /* BaseDetailViewController.swift in Sources */,
 				C4FDACAA249EF1F60095F1E3 /* PostBannerImageCell.swift in Sources */,
 				C4AEB30724986C0400196DAE /* CollectionViewLeftFlowLayout.swift in Sources */,
 				C43157D924839C290034A74E /* FlashScreenViewController.swift in Sources */,
 				C4024049248393BC00F715DC /* BaseResponse.swift in Sources */,
+				C4070A8B24A63BA1000819BD /* KtMessagelistViewController.swift in Sources */,
 				C4FDACAE249F49010095F1E3 /* MyPictureViewController.swift in Sources */,
 				C43157E224839C960034A74E /* RegisterViewController.swift in Sources */,
 				C4AEFCE5248CA8160080904E /* BTMUserInfoController.swift in Sources */,
@@ -700,6 +715,7 @@
 				C43157D524839AC30034A74E /* BaseTabViewController.swift in Sources */,
 				C44E81DC24A47097000BD888 /* KtMyMapViewController.swift in Sources */,
 				C43157EC2483B16B0034A74E /* RequestBody.swift in Sources */,
+				C4070A9024A66B15000819BD /* KtMessageCell.swift in Sources */,
 				C4FDACBE249FB5610095F1E3 /* DynamicCollectionViewCell.swift in Sources */,
 				C40240242480193B00F715DC /* AppDelegate.swift in Sources */,
 				C43FDF7B248E88C30023E3F2 /* TabFriendsViewController.swift in Sources */,

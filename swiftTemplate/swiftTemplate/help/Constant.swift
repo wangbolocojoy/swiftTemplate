@@ -26,6 +26,7 @@ enum MyController{
     case 我的地图
     case 动画
     case 赞👍
+    case 消息列表
 }
 
 enum PictureType{
@@ -106,7 +107,10 @@ extension UIViewController{
             return vc
         case .赞👍:
             let vc = otsb.instantiateViewController(withIdentifier: "KTFABULOUSVC") as! KtFabulousViewController
-                       return vc
+            return vc
+        case .消息列表:
+            let vc = otsb.instantiateViewController(withIdentifier: "KTMESSAGELIST") as! KtMessagelistViewController
+            return vc
         }
     }
 }
