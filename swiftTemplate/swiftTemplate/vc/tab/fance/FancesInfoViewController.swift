@@ -10,9 +10,9 @@ import UIKit
 
 class FancesInfoViewController: BaseViewController {
     var list :[String]? = []
-    var userinfo :UserInfo? = nil 
- 
-    
+    var userId :Int? = nil
+    var otherId :Int? = 0
+    var userinfo :UserInfo? = nil
     @IBOutlet weak var tableview: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +24,18 @@ class FancesInfoViewController: BaseViewController {
         tableview.dataSource = self
         tableview.separatorStyle = .none
         tableview.register(UINib(nibName: FanceInfoHeaderCell.reuseID, bundle: nil), forCellReuseIdentifier: FanceInfoHeaderCell.reuseID)
-
+        
+    }
+    
+    func getuserInfo(){
+        let body = RequestBody()
+        body.id = userId
+        
+        MyMoyaManager.AllRequestNospinner(controller: self, NetworkService.getuserinfo(k: body.toJSONString() ?? "")) { (data) in
+            self.userinfo = data.userinfo
+            self.tableview.reloadData()
+        }
+        
     }
     
 
@@ -38,6 +49,7 @@ extension FancesInfoViewController:UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: FanceInfoHeaderCell.reuseID, for: indexPath) as! FanceInfoHeaderCell
+        cell.updateCell(info: userinfo)
         return cell
     }
     

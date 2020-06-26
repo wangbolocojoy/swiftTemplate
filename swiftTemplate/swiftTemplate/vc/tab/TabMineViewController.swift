@@ -10,7 +10,7 @@ import UIKit
 import MJRefresh
 class TabMineViewController: BaseTabViewController {
     let time = 0.2
-    var list = ["我的图片","我的地址","我的朋友","我的消息","设置","清除缓存","退出登录"]
+    var list = ["我的图片","我的地址","我的收藏","我的消息","设置","清除缓存","退出登录"]
     var imagelist = [UIImage(systemName: "photo.on.rectangle"),UIImage(systemName: "mappin.circle"),UIImage(systemName: "person.2"),UIImage(systemName: "ellipses.bubble"),UIImage(systemName: "gear"),UIImage(systemName: "xmark.icloud"),UIImage(systemName: "power")]
     var user : UserInfo? = nil
     let header = MJRefreshNormalHeader()
@@ -85,7 +85,7 @@ extension TabMineViewController:UITableViewDelegate,UITableViewDataSource{
             case 1:
                 self.navigationController?.pushViewController(getVcByName(vc: .我的地图), animated: true)
             case 2:
-                self.navigationController?.pushViewController(getVcByName(vc: .动画), animated: true)
+                self.navigationController?.pushViewController(getVcByName(vc: .我的收藏), animated: true)
             case 3:
                 self.navigationController?.pushViewController(getVcByName(vc: .我的消息), animated: true)
             case 4:

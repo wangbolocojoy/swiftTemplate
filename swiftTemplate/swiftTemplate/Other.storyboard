@@ -139,6 +139,36 @@
             </objects>
             <point key="canvasLocation" x="976.81159420289862" y="146.65178571428569"/>
         </scene>
+        <!--赞👍-->
+        <scene sceneID="uLC-7I-2IR">
+            <objects>
+                <viewController storyboardIdentifier="KTFABULOUSVC" title="赞👍" hidesBottomBarWhenPushed="YES" id="Opq-Db-UAa" customClass="KtFabulousViewController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dW8-VZ-YjM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="V6o-XJ-Yat">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="yhJ-Cf-ekc" firstAttribute="trailing" secondItem="V6o-XJ-Yat" secondAttribute="trailing" id="9Xh-xm-S9l"/>
+                            <constraint firstItem="V6o-XJ-Yat" firstAttribute="leading" secondItem="yhJ-Cf-ekc" secondAttribute="leading" id="GNR-gl-3aG"/>
+                            <constraint firstItem="yhJ-Cf-ekc" firstAttribute="bottom" secondItem="V6o-XJ-Yat" secondAttribute="bottom" id="O7x-fU-Jk4"/>
+                            <constraint firstItem="V6o-XJ-Yat" firstAttribute="top" secondItem="yhJ-Cf-ekc" secondAttribute="top" id="e8e-Gy-jOE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="yhJ-Cf-ekc"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableview" destination="V6o-XJ-Yat" id="qnr-fk-Sdg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zHs-B2-21V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2484" y="251"/>
+        </scene>
     </scenes>
     <resources>
         <image name="IMG_2507" width="50" height="50"/>

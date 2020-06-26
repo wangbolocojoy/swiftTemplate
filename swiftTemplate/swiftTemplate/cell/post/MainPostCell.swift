@@ -20,6 +20,7 @@ class MainPostCell: UITableViewCell {
         }
     }
     
+    @IBOutlet weak var btn_gotostart: UIView!
     @IBOutlet weak var btn_sendmessage: UIImageView!
     @IBOutlet weak var post_detail: UILabel!
     @IBOutlet weak var post_auther_nickname: UILabel!
@@ -49,6 +50,7 @@ class MainPostCell: UITableViewCell {
         pagecontrol.setStrokeColor(.label, for: .selected)
         pagecontrol.setFillColor(.label, for: .selected)
         usericon.setImageUrl(image: usericon,string: UserInfoHelper.instance.user?.icon, proimage: #imageLiteral(resourceName: "IMG_2506"))
+       
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -56,7 +58,12 @@ class MainPostCell: UITableViewCell {
         selectionStyle = .none
         // Configure the view for the selected state
     }
-    
+    /// 去点赞的用户页面
+    @objc func toStartUser(){
+        let vc = self.parentViewController()?.getVcByName(vc: .赞👍) as! KtFabulousViewController
+        vc.postId = postinfo?.id
+        self.pushVC(vc: vc)
+    }
     func updateCell(pinfo:PostInfo?){
         postinfo = pinfo
         banner.reloadData()
@@ -67,13 +74,17 @@ class MainPostCell: UITableViewCell {
         let tapcollec = UITapGestureRecognizer(target: self, action: #selector(checkcollection))
         btn_collection.isUserInteractionEnabled = true
         btn_collection.addGestureRecognizer(tapcollec)
+        let tapgoststartvc = UITapGestureRecognizer(target: self, action: #selector(toStartUser))
+               
+        btn_gotostart.isUserInteractionEnabled = true
+        btn_gotostart.addGestureRecognizer(tapgoststartvc)
         poster_nickname.text = pinfo?.author?.nickName ?? ""
         post_detail.text = pinfo?.postDetail ?? ""
         post_auther_nickname.text = pinfo?.author?.nickName ?? ""
         pagecontrol.numberOfPages = pinfo?.postImages?.count ?? 0
         postauther_icon.setImageUrl(image: postauther_icon,string: pinfo?.author?.icon, proimage: #imageLiteral(resourceName: "IMG_2507"))
         usericon.setImageUrl(image: usericon,string: UserInfoHelper.instance.user?.icon, proimage: #imageLiteral(resourceName: "IMG_2506"))
-       
+        post_auther_address.text = pinfo?.postAddress ?? ""
         
     }
     func updateStartOrCollection(){

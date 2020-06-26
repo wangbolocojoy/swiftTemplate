@@ -19,6 +19,7 @@ class BaseResponse: Mappable {
     var fancefollowlist:[UserInfo]?
     var postlist:[PostInfo]?
     var poststartlist:[PostStart]?
+    var userlist :[UserInfo]?
     required init?(map: Map) {
     }
     func mapping(map: Map) {
@@ -32,6 +33,7 @@ class BaseResponse: Mappable {
         postlist <- map["data"]
         sendpost <- map["data"]
         poststartlist <- map["data"]
+        userlist <- map["data"]
     }
     
 }

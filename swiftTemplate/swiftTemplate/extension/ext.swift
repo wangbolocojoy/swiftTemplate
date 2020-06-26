@@ -103,7 +103,12 @@ extension UIImageView{
     ///   - string: 图片地址
     ///   - proimage: 占位图
     func setImageUrl(image:UIImageView, string : String?,proimage:UIImage?) {
+        if string == nil{
+            image.image = proimage
+            return
+        }
         let url = URL(string: string ?? "")
+        
         let imageResource = ImageResource(downloadURL: url!, cacheKey: string)
         let cache = ImageCache.default
         // Limit memory cache size to 300 MB.

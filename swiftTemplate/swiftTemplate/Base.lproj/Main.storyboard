@@ -11,7 +11,7 @@
         <!--Flash Screen View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="FlashScreenViewController" customModule="swiftTemplate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="FlashScreenViewController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,7 +26,7 @@
         <!--我的-->
         <scene sceneID="fk9-oj-aKg">
             <objects>
-                <viewController id="5gZ-ia-0ts" customClass="TabMineViewController" customModule="swiftTemplate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="5gZ-ia-0ts" customClass="TabMineViewController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dBs-Al-81a">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -61,7 +61,7 @@
         <!--New Post-->
         <scene sceneID="Kxl-or-Eua">
             <objects>
-                <viewController storyboardIdentifier="SENDPOSTVC" title="New Post" hidesBottomBarWhenPushed="YES" id="84y-Nh-Kf7" customClass="SendPostViewController" customModule="swiftTemplate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SENDPOSTVC" title="New Post" hidesBottomBarWhenPushed="YES" id="84y-Nh-Kf7" customClass="SendPostViewController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uYW-2q-9wb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -183,7 +183,7 @@
         <!--个人信息-->
         <scene sceneID="iFR-lz-2ir">
             <objects>
-                <viewController storyboardIdentifier="BTMUSERINFOVC" title="个人信息" hidesBottomBarWhenPushed="YES" id="dGQ-R5-mpq" customClass="BTMUserInfoController" customModule="swiftTemplate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BTMUSERINFOVC" title="个人信息" hidesBottomBarWhenPushed="YES" id="dGQ-R5-mpq" customClass="BTMUserInfoController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tmS-tt-sN0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -213,7 +213,7 @@
         <!--我的帖子-->
         <scene sceneID="UiK-7Q-g2M">
             <objects>
-                <viewController storyboardIdentifier="BTMMYPOSTVC" title="我的帖子" hidesBottomBarWhenPushed="YES" id="mLY-Vm-Vhe" customClass="BTMMyPostViewController" customModule="swiftTemplate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BTMMYPOSTVC" title="我的帖子" hidesBottomBarWhenPushed="YES" id="mLY-Vm-Vhe" customClass="BTMMyPostViewController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HQC-7c-cDs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -243,7 +243,7 @@
         <!--我的粉丝关注-->
         <scene sceneID="9Da-Sb-sDH">
             <objects>
-                <viewController storyboardIdentifier="BTMMYFANCEFOLLOWVC" title="我的粉丝关注" hidesBottomBarWhenPushed="YES" id="L2G-QB-4yY" customClass="BTMMyFanceFollowViewController" customModule="swiftTemplate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BTMMYFANCEFOLLOWVC" title="我的粉丝关注" hidesBottomBarWhenPushed="YES" id="L2G-QB-4yY" customClass="BTMMyFanceFollowViewController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ylJ-16-hGD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -273,7 +273,7 @@
         <!--用户信息-->
         <scene sceneID="xFB-Oj-Vnd">
             <objects>
-                <viewController storyboardIdentifier="BTMMINEEDUSERVC" title="用户信息" id="fH3-yQ-m4F" customClass="BTMMineEdUserController" customModule="swiftTemplate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BTMMINEEDUSERVC" title="用户信息" id="fH3-yQ-m4F" customClass="BTMMineEdUserController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YUP-xg-CUx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -321,7 +321,7 @@
         <!--我的二维码-->
         <scene sceneID="q8M-SZ-o2B">
             <objects>
-                <viewController storyboardIdentifier="BTMMYQRCODEVC" title="我的二维码" hidesBottomBarWhenPushed="YES" id="hdK-UJ-4ha" customClass="BTMMyQRCodeViewController" customModule="swiftTemplate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BTMMYQRCODEVC" title="我的二维码" hidesBottomBarWhenPushed="YES" id="hdK-UJ-4ha" customClass="BTMMyQRCodeViewController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JiT-Ms-rgR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -430,7 +430,7 @@
         <!--我的设置-->
         <scene sceneID="4Be-PF-fJJ">
             <objects>
-                <viewController storyboardIdentifier="MYSETTINGVC" title="我的设置" hidesBottomBarWhenPushed="YES" id="1HS-UF-TYu" customClass="MySettingViewController" customModule="swiftTemplate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MYSETTINGVC" title="我的设置" hidesBottomBarWhenPushed="YES" id="1HS-UF-TYu" customClass="MySettingViewController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Zq-lJ-HNG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -442,16 +442,31 @@
             </objects>
             <point key="canvasLocation" x="9206" y="736"/>
         </scene>
-        <!--我的朋友-->
+        <!--我的收藏-->
         <scene sceneID="Nxz-Ob-Qmm">
             <objects>
-                <viewController storyboardIdentifier="MYFRIENDSVC" title="我的朋友" hidesBottomBarWhenPushed="YES" id="8dQ-CU-IpL" customClass="MyFriendsViewController" customModule="swiftTemplate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MYCOLLECTVC" title="我的收藏" hidesBottomBarWhenPushed="YES" id="8dQ-CU-IpL" customClass="MyCollectViewController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pfO-N7-iKr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hFf-9z-95l">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="EGl-Cd-Sqh" firstAttribute="trailing" secondItem="hFf-9z-95l" secondAttribute="trailing" id="5ln-MJ-Mwj"/>
+                            <constraint firstItem="hFf-9z-95l" firstAttribute="leading" secondItem="EGl-Cd-Sqh" secondAttribute="leading" id="OWJ-Ng-jEh"/>
+                            <constraint firstItem="EGl-Cd-Sqh" firstAttribute="bottom" secondItem="hFf-9z-95l" secondAttribute="bottom" id="Q0j-Tg-XPu"/>
+                            <constraint firstItem="hFf-9z-95l" firstAttribute="top" secondItem="EGl-Cd-Sqh" secondAttribute="top" id="RjE-Ra-FIS"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="EGl-Cd-Sqh"/>
                     </view>
+                    <connections>
+                        <outlet property="tableview" destination="hFf-9z-95l" id="C52-ge-FhS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M78-kK-K5P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -460,7 +475,7 @@
         <!--我的消息-->
         <scene sceneID="xR6-lI-ptm">
             <objects>
-                <viewController storyboardIdentifier="MYMESSAGEVC" title="我的消息" hidesBottomBarWhenPushed="YES" id="WqJ-x0-8sn" customClass="MyMessageViewController" customModule="swiftTemplate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MYMESSAGEVC" title="我的消息" hidesBottomBarWhenPushed="YES" id="WqJ-x0-8sn" customClass="MyMessageViewController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rKh-Qn-9R0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -475,7 +490,7 @@
         <!--SwiftKt-->
         <scene sceneID="qCK-DL-nxF">
             <objects>
-                <viewController id="gMe-VO-irN" customClass="TabHomeViewController" customModule="swiftTemplate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gMe-VO-irN" customClass="TabHomeViewController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T8H-Nv-c2s">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -513,7 +528,7 @@
         <!--发现-->
         <scene sceneID="FWH-Zq-0cC">
             <objects>
-                <tabBarController storyboardIdentifier="MAINTABVC" title="发现" id="njt-NS-v5s" customClass="MainTabController" customModule="swiftTemplate" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MAINTABVC" title="发现" id="njt-NS-v5s" customClass="MainTabController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" alpha="0.69999999999999996" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5cN-Nc-bV9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -534,7 +549,7 @@
         <!--联系人-->
         <scene sceneID="EKy-ZS-MOO">
             <objects>
-                <viewController id="9OL-5e-XoK" customClass="TabFriendsViewController" customModule="swiftTemplate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9OL-5e-XoK" customClass="TabFriendsViewController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="His-lN-kut">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -572,7 +587,7 @@
         <!--动态-->
         <scene sceneID="I1B-Uj-Yoi">
             <objects>
-                <viewController id="SIP-Vs-ea7" customClass="TabDynamicViewController" customModule="swiftTemplate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="SIP-Vs-ea7" customClass="TabDynamicViewController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1mj-ON-BY7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -667,7 +682,7 @@
         <!--我的图片-->
         <scene sceneID="CbL-ZX-q3s">
             <objects>
-                <viewController storyboardIdentifier="MYPICTUREVC" title="我的图片" hidesBottomBarWhenPushed="YES" id="wCR-c8-8aR" customClass="MyPictureViewController" customModule="swiftTemplate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MYPICTUREVC" title="我的图片" hidesBottomBarWhenPushed="YES" id="wCR-c8-8aR" customClass="MyPictureViewController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gaw-Wg-5zR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -682,7 +697,7 @@
         <!--我的地址-->
         <scene sceneID="4jY-8Y-B8l">
             <objects>
-                <viewController storyboardIdentifier="MYADDRESSVC" title="我的地址" hidesBottomBarWhenPushed="YES" id="1pv-pp-lGC" customClass="MyAddressViewController" customModule="swiftTemplate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MYADDRESSVC" title="我的地址" hidesBottomBarWhenPushed="YES" id="1pv-pp-lGC" customClass="MyAddressViewController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xfs-Ij-Dsl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -697,7 +712,7 @@
         <!--粉丝详情-->
         <scene sceneID="MYK-5V-TdY">
             <objects>
-                <viewController storyboardIdentifier="FANCESINFOVC" title="粉丝详情" hidesBottomBarWhenPushed="YES" id="byz-gR-6R2" customClass="FancesInfoViewController" customModule="swiftTemplate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FANCESINFOVC" title="粉丝详情" hidesBottomBarWhenPushed="YES" id="byz-gR-6R2" customClass="FancesInfoViewController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HLb-Kn-SXg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

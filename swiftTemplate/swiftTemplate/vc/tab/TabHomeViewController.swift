@@ -30,9 +30,7 @@ class TabHomeViewController: BaseTabViewController {
         MyMoyaManager.AllRequestNospinner(controller: self, NetworkService.getposts(k: body.toJSONString()!)) { (data) in
             if self.type == 1 {
                 self.list = data.postlist
-
             }else{
-                
                 self.list! += data.postlist ?? []
             }
             if data.postlist?.count ?? 0 == 5{

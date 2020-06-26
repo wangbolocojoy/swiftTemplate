@@ -101,6 +101,7 @@ extension TabFriendsViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = getVcByName(vc: .粉丝详情) as! FancesInfoViewController
         vc.userinfo = list?[indexPath.item]
+        vc.userId = list?[indexPath.item].id
         self.navigationController?.pushViewController(vc, animated: true)
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

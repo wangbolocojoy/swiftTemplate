@@ -36,8 +36,8 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="swift" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fqz-BR-OD0">
-                                        <rect key="frame" x="65" y="5.5" width="31" height="19.5"/>
-                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                        <rect key="frame" x="65" y="5.5" width="35" height="19.5"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -190,7 +190,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="条评论" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s0y-mn-IBu">
-                                                <rect key="frame" x="45.5" y="7" width="40" height="16"/>
+                                                <rect key="frame" x="22" y="7" width="40" height="16"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="mA0-Hk-0QK"/>
                                                 </constraints>
@@ -198,8 +198,8 @@
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2525" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLK-vb-wMK">
-                                                <rect key="frame" x="14" y="7" width="31.5" height="16"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLK-vb-wMK">
+                                                <rect key="frame" x="14" y="7" width="8" height="16"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -208,12 +208,10 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="s0y-mn-IBu" firstAttribute="centerY" secondItem="VKY-p3-Idr" secondAttribute="centerY" id="Cyf-DM-Cla"/>
-                                            <constraint firstItem="s0y-mn-IBu" firstAttribute="centerY" secondItem="fLK-vb-wMK" secondAttribute="centerY" id="GrD-VY-fKD"/>
                                             <constraint firstItem="8w3-gu-gHq" firstAttribute="leading" secondItem="VKY-p3-Idr" secondAttribute="leading" id="GzU-je-8Eo"/>
-                                            <constraint firstItem="s0y-mn-IBu" firstAttribute="leading" secondItem="VKY-p3-Idr" secondAttribute="leading" constant="45.5" id="PJc-EA-ZPF"/>
+                                            <constraint firstItem="s0y-mn-IBu" firstAttribute="leading" secondItem="fLK-vb-wMK" secondAttribute="trailing" id="IKq-fj-nSS"/>
+                                            <constraint firstItem="fLK-vb-wMK" firstAttribute="leading" secondItem="8w3-gu-gHq" secondAttribute="trailing" id="ISn-Bi-PFc"/>
                                             <constraint firstItem="fLK-vb-wMK" firstAttribute="centerY" secondItem="VKY-p3-Idr" secondAttribute="centerY" id="ShF-nM-KqL"/>
-                                            <constraint firstItem="fLK-vb-wMK" firstAttribute="centerY" secondItem="8w3-gu-gHq" secondAttribute="centerY" id="aqe-lg-OkY"/>
-                                            <constraint firstItem="s0y-mn-IBu" firstAttribute="leading" secondItem="fLK-vb-wMK" secondAttribute="trailing" id="br3-GF-6oU"/>
                                             <constraint firstItem="8w3-gu-gHq" firstAttribute="centerY" secondItem="VKY-p3-Idr" secondAttribute="centerY" id="u0c-14-w4I"/>
                                             <constraint firstAttribute="height" constant="30" id="utu-rG-38X"/>
                                         </constraints>
@@ -221,18 +219,19 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Ku-Kv-o8a">
                                         <rect key="frame" x="15" y="30" width="832" height="25"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RmF-fF-eVj">
-                                                <rect key="frame" x="0.0" y="0.0" width="40" height="0.0"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="就啊还发了三顿饭" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RmF-fF-eVj">
+                                                <rect key="frame" x="0.0" y="0.0" width="40" height="14.5"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="width" constant="40" id="14C-oD-EKd"/>
+                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="79R-5e-ifk"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="ewN-Nd-dmi"/>
-                                                    <constraint firstAttribute="width" constant="40" id="plQ-fd-JH5"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JAg-g0-y6b">
-                                                <rect key="frame" x="45" y="0.0" width="777" height="0.0"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="阿好烦三闾大夫" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JAg-g0-y6b">
+                                                <rect key="frame" x="45" y="0.0" width="777" height="14.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -346,6 +345,7 @@
                 <outlet property="actionheart" destination="qHC-3C-HUt" id="umv-F1-nvK"/>
                 <outlet property="banner" destination="sAE-zu-wlv" id="d7i-bj-bQi"/>
                 <outlet property="btn_collection" destination="KpR-MC-By9" id="0Zz-QN-uaC"/>
+                <outlet property="btn_gotostart" destination="GxG-X6-xAm" id="nNH-hY-zIm"/>
                 <outlet property="btn_message" destination="8WP-Re-2HS" id="LY6-bc-wAR"/>
                 <outlet property="btn_sendmessage" destination="RJi-GI-pag" id="WcU-g6-OQs"/>
                 <outlet property="btn_share" destination="zzv-yM-GeP" id="lVq-TS-ATW"/>

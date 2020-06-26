@@ -10,6 +10,14 @@ import UIKit
 
 class FanceInfoHeaderCell: UITableViewCell {
 static let reuseID =  "FanceInfoHeaderCell"
+    
+    
+    @IBOutlet weak var lab_user_easyinfo: UILabel!
+    @IBOutlet weak var lab_user_name: UILabel!
+    @IBOutlet weak var lab_follow_num: UILabel!
+    @IBOutlet weak var lab_fance_num: UILabel!
+    @IBOutlet weak var lab_postnum: UILabel!
+    @IBOutlet weak var userIcon: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -17,8 +25,17 @@ static let reuseID =  "FanceInfoHeaderCell"
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        selectionStyle = .none
+        
+    }
+   func updateCell(info:UserInfo?){
+    userIcon.setImageUrl(image: userIcon, string: info?.icon, proimage: #imageLiteral(resourceName: "IMG_2507"))
+    lab_postnum.text = "\(info?.postNum ?? 0)"
+    lab_fance_num.text = "\(info?.fances ?? 0)"
+    lab_follow_num.text = "\(info?.follows ?? 0)"
+    lab_user_name.text = info?.nickName ?? ""
+    lab_user_easyinfo.text = info?.easyInfo ?? ""
+    
     }
     
 }
