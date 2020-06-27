@@ -6,20 +6,18 @@
 //  Copyright © 2020 SwiftKt-王波. All rights reserved.
 //
 // MARK: - 消息列表
+import IQKeyboardManagerSwift
 import UIKit
 import MJRefresh
+import InputBarAccessoryView
 class KtMessagelistViewController: BaseDetailViewController {
     var postId :Int? = 0
     var list:[PostMessage]? = nil
-    @IBOutlet weak var send_message: UIImageView!
-    
-    @IBOutlet weak var btn_message: UILabel!
-    
+    let inputBar = iMessageInputBar()
     @IBOutlet weak var messagebackground: UIView!
-    
     @IBOutlet weak var message_num: UILabel!
     @IBOutlet weak var tableview: UITableView!
-    
+     private var keyboardManager = KeyboardManager()
     let footer = MJRefreshBackFooter()
     let header = MJRefreshNormalHeader()
     var type = 0
@@ -30,6 +28,15 @@ class KtMessagelistViewController: BaseDetailViewController {
         self.modalPresentationStyle = .formSheet
     }
     override func initView() {
+        inputBar.delegate = self
+        inputBar.inputTextView.keyboardType = .default
+        inputBar.inputTextView.textContentType = .none
+        inputBar.inputTextView.placeholder = "说点好听的吧"
+        view.addSubview(inputBar)
+              // Binding the inputBar will set the needed callback actions to position the inputBar on top of the keyboard
+        keyboardManager.bind(inputAccessoryView: inputBar)
+              // Binding to the tableView will enabled interactive dismissal
+        keyboardManager.bind(to: tableview)
         tableview.delegate = self
         tableview.dataSource = self
         tableview.register(UINib(nibName: KtMessageCell.reuseID, bundle: nil), forCellReuseIdentifier: KtMessageCell.reuseID)
@@ -44,7 +51,19 @@ class KtMessagelistViewController: BaseDetailViewController {
         body.postId = postId
         commentlist(body: body.toJSONString() ?? "")
     }
-    
+   
+    override func viewWillAppear(_ animated: Bool) {
+        IQKeyboardManager.shared.enable = false
+        IQKeyboardManager.shared.shouldShowToolbarPlaceholder = false
+        
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+         IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.shouldShowToolbarPlaceholder = true
+         
+
+    }
     @objc func refresh(){
         footer.resetNoMoreData()
         type = 1
@@ -89,6 +108,42 @@ class KtMessagelistViewController: BaseDetailViewController {
     
     
 }
+extension KtMessagelistViewController:InputBarAccessoryViewDelegate{
+    
+      func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
+          
+          // Here we can parse for which substrings were autocompleted
+          let attributedText = inputBar.inputTextView.attributedText!
+          let range = NSRange(location: 0, length: attributedText.length)
+          attributedText.enumerateAttribute(.autocompleted, in: range, options: []) { (attributes, range, stop) in
+              
+              let substring = attributedText.attributedSubstring(from: range)
+              let context = substring.attribute(.autocompletedContext, at: 0, effectiveRange: nil)
+              print("Autocompleted: `", substring, "` with context: ", context ?? [])
+          }
+
+          inputBar.inputTextView.text = String()
+          inputBar.invalidatePlugins()
+
+          // Send button activity animation
+          inputBar.sendButton.startAnimating()
+          inputBar.inputTextView.placeholder = "发送中"
+         
+      }
+      
+      func inputBar(_ inputBar: InputBarAccessoryView, didChangeIntrinsicContentTo size: CGSize) {
+          // Adjust content insets
+          print(size)
+          // keyboard size estimate
+      }
+      
+      func inputBar(_ inputBar: InputBarAccessoryView, textViewTextDidChangeTo text: String) {
+          
+         
+      }
+      
+    
+}
 extension KtMessagelistViewController:UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return list?.count ?? 10
@@ -125,4 +180,16 @@ extension KtMessagelistViewController:UITableViewDelegate,UITableViewDataSource,
         }
     }
     
+}
+extension KtMessagelistViewController:UITextFieldDelegate{
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return true
+    }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        log.info(event)
+        log.info(touches)
+          
+    }
 }

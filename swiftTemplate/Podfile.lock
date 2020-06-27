@@ -11,6 +11,9 @@ PODS:
   - CryptoSwift (1.0.0)
   - FSPagerView (0.8.3)
   - Gifu (3.2.0)
+  - InputBarAccessoryView (4.3.2):
+    - InputBarAccessoryView/Core (= 4.3.2)
+  - InputBarAccessoryView/Core (4.3.2)
   - IQKeyboardManagerSwift (6.4.2)
   - Kingfisher (5.14.0):
     - Kingfisher/Core (= 5.14.0)
@@ -41,6 +44,7 @@ DEPENDENCIES:
   - CryptoSwift (~> 1.0.0)
   - FSPagerView (~> 0.8.3)
   - Gifu (~> 3.2.0)
+  - InputBarAccessoryView
   - IQKeyboardManagerSwift (~> 6.4.0)
   - Kingfisher (~> 5.14.0)
   - MJRefresh (~> 3.2.0)
@@ -61,6 +65,7 @@ SPEC REPOS:
     - CryptoSwift
     - FSPagerView
     - Gifu
+    - InputBarAccessoryView
     - IQKeyboardManagerSwift
     - Kingfisher
     - MJRefresh
@@ -83,6 +88,7 @@ SPEC CHECKSUMS:
   CryptoSwift: d81eeaa59dc5a8d03720fe919a6fd07b51f7439f
   FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
   Gifu: 7bcb6427457d85e0b4dff5a84ec5947ac19a93ea
+  InputBarAccessoryView: 7985d418040a05fe894bd4b8328dd43ab35517c3
   IQKeyboardManagerSwift: 79a3ec200dfb41cb66a89b8575417b5378107c5d
   Kingfisher: 7b64389a43139c903ec434788344c288217c792d
   MJRefresh: 2b1214a2dc8f4df4c5dcb028ea2ad4e245425fb7
@@ -95,6 +101,6 @@ SPEC CHECKSUMS:
   SwiftyRSA: 6e528fb1b1a87d5111c48081083b141d6d65f1cf
   YPImagePicker: 3b88ca0c50134af2856c48c481572c98a8b8b65b
 
-PODFILE CHECKSUM: 32a900f27b882d0fcd3f2442a9ce411bf5b6af3a
+PODFILE CHECKSUM: 95cad969b6dd437756b46b5cdd9137038f02dc7c
 
 COCOAPODS: 1.9.1

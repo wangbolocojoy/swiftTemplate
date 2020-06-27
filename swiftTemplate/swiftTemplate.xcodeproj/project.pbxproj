@@ -24,6 +24,15 @@
 		C4070A8D24A64A80000819BD /* BaseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4070A8C24A64A80000819BD /* BaseDetailViewController.swift */; };
 		C4070A9024A66B15000819BD /* KtMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4070A8E24A66B15000819BD /* KtMessageCell.swift */; };
 		C4070A9124A66B15000819BD /* KtMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4070A8F24A66B15000819BD /* KtMessageCell.xib */; };
+		C4070A9A24A6F624000819BD /* KtInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4070A9924A6F624000819BD /* KtInputView.xib */; };
+		C4070A9C24A6F8A5000819BD /* KtInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4070A9B24A6F8A5000819BD /* KtInputView.swift */; };
+		C4070AA424A73871000819BD /* FacebookInputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4070A9E24A73870000819BD /* FacebookInputBar.swift */; };
+		C4070AA524A73871000819BD /* InputBarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4070A9F24A73870000819BD /* InputBarStyle.swift */; };
+		C4070AA624A73871000819BD /* GitHawkInputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4070AA024A73870000819BD /* GitHawkInputBar.swift */; };
+		C4070AA724A73871000819BD /* SlackInputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4070AA124A73870000819BD /* SlackInputBar.swift */; };
+		C4070AA824A73871000819BD /* NoTextViewInputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4070AA224A73871000819BD /* NoTextViewInputBar.swift */; };
+		C4070AA924A73871000819BD /* iMessageInputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4070AA324A73871000819BD /* iMessageInputBar.swift */; };
+		C4070AAB24A738A6000819BD /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4070AAA24A738A6000819BD /* ImageCell.swift */; };
 		C4206F24248FFC2900F4537C /* FanceORFollowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4206F22248FFC2900F4537C /* FanceORFollowCell.swift */; };
 		C4206F25248FFC2900F4537C /* FanceORFollowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4206F23248FFC2900F4537C /* FanceORFollowCell.xib */; };
 		C43157CF2483994F0034A74E /* CALayer+MyColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C43157CE2483994F0034A74E /* CALayer+MyColor.m */; };
@@ -118,6 +127,15 @@
 		C4070A8C24A64A80000819BD /* BaseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDetailViewController.swift; sourceTree = "<group>"; };
 		C4070A8E24A66B15000819BD /* KtMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtMessageCell.swift; sourceTree = "<group>"; };
 		C4070A8F24A66B15000819BD /* KtMessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KtMessageCell.xib; sourceTree = "<group>"; };
+		C4070A9924A6F624000819BD /* KtInputView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KtInputView.xib; sourceTree = "<group>"; };
+		C4070A9B24A6F8A5000819BD /* KtInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtInputView.swift; sourceTree = "<group>"; };
+		C4070A9E24A73870000819BD /* FacebookInputBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookInputBar.swift; sourceTree = "<group>"; };
+		C4070A9F24A73870000819BD /* InputBarStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputBarStyle.swift; sourceTree = "<group>"; };
+		C4070AA024A73870000819BD /* GitHawkInputBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHawkInputBar.swift; sourceTree = "<group>"; };
+		C4070AA124A73870000819BD /* SlackInputBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlackInputBar.swift; sourceTree = "<group>"; };
+		C4070AA224A73871000819BD /* NoTextViewInputBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoTextViewInputBar.swift; sourceTree = "<group>"; };
+		C4070AA324A73871000819BD /* iMessageInputBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iMessageInputBar.swift; sourceTree = "<group>"; };
+		C4070AAA24A738A6000819BD /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		C4206F22248FFC2900F4537C /* FanceORFollowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FanceORFollowCell.swift; sourceTree = "<group>"; };
 		C4206F23248FFC2900F4537C /* FanceORFollowCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FanceORFollowCell.xib; sourceTree = "<group>"; };
 		C43157CC2483991E0034A74E /* swiftTemplate-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "swiftTemplate-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -242,6 +260,7 @@
 		C40240222480193B00F715DC /* swiftTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				C4070A9224A6F394000819BD /* view */,
 				C43157EF2483DF200034A74E /* cell */,
 				C43157D1248399BB0034A74E /* base */,
 				C402404C248394BF00F715DC /* extension */,
@@ -342,6 +361,30 @@
 				C4AEB30624986C0400196DAE /* CollectionViewLeftFlowLayout.swift */,
 			);
 			path = extension;
+			sourceTree = "<group>";
+		};
+		C4070A9224A6F394000819BD /* view */ = {
+			isa = PBXGroup;
+			children = (
+				C4070A9D24A73842000819BD /* input */,
+				C4070A9924A6F624000819BD /* KtInputView.xib */,
+				C4070A9B24A6F8A5000819BD /* KtInputView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		C4070A9D24A73842000819BD /* input */ = {
+			isa = PBXGroup;
+			children = (
+				C4070AAA24A738A6000819BD /* ImageCell.swift */,
+				C4070A9E24A73870000819BD /* FacebookInputBar.swift */,
+				C4070AA024A73870000819BD /* GitHawkInputBar.swift */,
+				C4070AA324A73871000819BD /* iMessageInputBar.swift */,
+				C4070A9F24A73870000819BD /* InputBarStyle.swift */,
+				C4070AA224A73871000819BD /* NoTextViewInputBar.swift */,
+				C4070AA124A73870000819BD /* SlackInputBar.swift */,
+			);
+			path = input;
 			sourceTree = "<group>";
 		};
 		C4206F21248FFBF800F4537C /* fance */ = {
@@ -590,6 +633,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4070A9A24A6F624000819BD /* KtInputView.xib in Resources */,
 				C44E81C624A367D3000BD888 /* FanceInfoHeaderCell.xib in Resources */,
 				C4AEFCEA248CAA310080904E /* BTMUserIconCell.xib in Resources */,
 				C40240332480193E00F715DC /* LaunchScreen.storyboard in Resources */,
@@ -680,6 +724,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4070AA524A73871000819BD /* InputBarStyle.swift in Sources */,
 				C4AEFCDD248BF0BD0080904E /* MineUserInfoViewCell.swift in Sources */,
 				C43157E424839CAB0034A74E /* AboutUsViewController.swift in Sources */,
 				C4DAA44A24A6072C00BA6F7D /* KtFabulousViewController.swift in Sources */,
@@ -691,9 +736,11 @@
 				C4AEB30724986C0400196DAE /* CollectionViewLeftFlowLayout.swift in Sources */,
 				C43157D924839C290034A74E /* FlashScreenViewController.swift in Sources */,
 				C4024049248393BC00F715DC /* BaseResponse.swift in Sources */,
+				C4070AA924A73871000819BD /* iMessageInputBar.swift in Sources */,
 				C4070A8B24A63BA1000819BD /* KtMessagelistViewController.swift in Sources */,
 				C4FDACAE249F49010095F1E3 /* MyPictureViewController.swift in Sources */,
 				C43157E224839C960034A74E /* RegisterViewController.swift in Sources */,
+				C4070AA724A73871000819BD /* SlackInputBar.swift in Sources */,
 				C4AEFCE5248CA8160080904E /* BTMUserInfoController.swift in Sources */,
 				C43157D724839BDB0034A74E /* MainTabController.swift in Sources */,
 				C44E81BE24A33AE9000BD888 /* BTMMyQRCodeViewController.swift in Sources */,
@@ -703,7 +750,10 @@
 				C44E81D824A469E8000BD888 /* ApiKey.swift in Sources */,
 				C4F55FD824A4B6DD00887B55 /* KtMyMapAddressViewCell.swift in Sources */,
 				C4DAA44324A5FDC700BA6F7D /* MyCollectViewController.swift in Sources */,
+				C4070AA624A73871000819BD /* GitHawkInputBar.swift in Sources */,
 				C4DAA44624A6050C00BA6F7D /* KtFabulousTableViewCell.swift in Sources */,
+				C4070AA424A73871000819BD /* FacebookInputBar.swift in Sources */,
+				C4070A9C24A6F8A5000819BD /* KtInputView.swift in Sources */,
 				C402404E248394E200F715DC /* ext.swift in Sources */,
 				C43157EE2483DA810034A74E /* UserInfoHelper.swift in Sources */,
 				C4FDACB6249F4A9F0095F1E3 /* MySettingViewController.swift in Sources */,
@@ -713,9 +763,11 @@
 				C4AEFCE1248C92D40080904E /* BTMMineEdUserController.swift in Sources */,
 				C4FDACA5249E2B7A0095F1E3 /* MainPostCell.swift in Sources */,
 				C43157D524839AC30034A74E /* BaseTabViewController.swift in Sources */,
+				C4070AAB24A738A6000819BD /* ImageCell.swift in Sources */,
 				C44E81DC24A47097000BD888 /* KtMyMapViewController.swift in Sources */,
 				C43157EC2483B16B0034A74E /* RequestBody.swift in Sources */,
 				C4070A9024A66B15000819BD /* KtMessageCell.swift in Sources */,
+				C4070AA824A73871000819BD /* NoTextViewInputBar.swift in Sources */,
 				C4FDACBE249FB5610095F1E3 /* DynamicCollectionViewCell.swift in Sources */,
 				C40240242480193B00F715DC /* AppDelegate.swift in Sources */,
 				C43FDF7B248E88C30023E3F2 /* TabFriendsViewController.swift in Sources */,

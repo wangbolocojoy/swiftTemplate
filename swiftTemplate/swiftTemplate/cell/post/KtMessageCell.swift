@@ -38,7 +38,7 @@ static let reuseID =  "KtMessageCell"
         antuername.text = msgModel?.userNickName ?? ""
         msgstartnum.text = "\(msgModel?.messageStart ?? 0)"
         usericon.setImageUrl(image: usericon, string: msgModel?.userIcon, proimage: #imageLiteral(resourceName: "IMG_2507"))
-        message.text = msgModel?.postPostMessage ?? ""
+        message.text = msgModel?.message ?? ""
         time.text = msgModel?.postMsgCreatTime ?? ""
     }
 }
