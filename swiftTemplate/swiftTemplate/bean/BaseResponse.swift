@@ -46,7 +46,7 @@ class PostMessage: Mappable {
     var userIcon:String?
     var userNickName:String?
     var chiledMessage:[PostMessage]?
-    var postPostMessage: String?
+    var message: String?
     var messageStart:Int?
     var postMsgCreatTime: String?
     required init?(map: Map) {
@@ -60,7 +60,7 @@ class PostMessage: Mappable {
         userIcon <- map["userIcon"]
         userNickName <- map["userNickName"]
         chiledMessage <- map["chiledMessage"]
-        postPostMessage <- map["postPostMessage"]
+        message <- map["message"]
         messageStart <- map["messageStart"]
         postMsgCreatTime <- map["postMsgCreatTime"]
     }

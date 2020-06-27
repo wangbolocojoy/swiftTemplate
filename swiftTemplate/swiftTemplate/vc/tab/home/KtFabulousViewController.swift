@@ -33,7 +33,7 @@ class KtFabulousViewController: BaseViewController {
         body.userId = UserInfoHelper.instance.user?.id ?? 0
         type = 1
         body.page = 0
-        body.pageSize = 10
+        body.pageSize = 20
         body.userId = UserInfoHelper.instance.user?.id ?? 0
         body.postId = postId
         getUsers(body: body.toJSONString() ?? "")
@@ -47,7 +47,7 @@ class KtFabulousViewController: BaseViewController {
                   }else{
                       self.list! += data.userlist ?? []
                   }
-                  if data.postlist?.count ?? 0 == 5{
+                  if data.postlist?.count ?? 0 == 20{
                       self.hasmore = true
                   }else{
                       self.hasmore = false
