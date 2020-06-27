@@ -194,7 +194,7 @@
                                 <rect key="frame" x="0.0" y="254" width="414" height="608"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EIb-Mi-kFP">
-                                        <rect key="frame" x="0.0" y="40" width="414" height="568"/>
+                                        <rect key="frame" x="0.0" y="40" width="414" height="518"/>
                                         <color key="backgroundColor" systemColor="systemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w3b-hG-nb8">
@@ -233,7 +233,7 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="EIb-Mi-kFP" secondAttribute="trailing" id="Evt-8L-OWf"/>
                                     <constraint firstAttribute="trailing" secondItem="w3b-hG-nb8" secondAttribute="trailing" id="MAD-L6-1zp"/>
-                                    <constraint firstAttribute="bottom" secondItem="EIb-Mi-kFP" secondAttribute="bottom" id="MMV-Xw-aSo"/>
+                                    <constraint firstAttribute="bottom" secondItem="EIb-Mi-kFP" secondAttribute="bottom" constant="50" id="MMV-Xw-aSo"/>
                                     <constraint firstItem="EIb-Mi-kFP" firstAttribute="leading" secondItem="ZDi-sx-Hbr" secondAttribute="leading" id="TFS-VG-ddZ"/>
                                     <constraint firstItem="EIb-Mi-kFP" firstAttribute="top" secondItem="w3b-hG-nb8" secondAttribute="bottom" id="TWN-2d-97u"/>
                                     <constraint firstItem="w3b-hG-nb8" firstAttribute="top" secondItem="ZDi-sx-Hbr" secondAttribute="top" id="jIc-3e-QrO"/>

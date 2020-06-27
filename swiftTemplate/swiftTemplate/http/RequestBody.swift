@@ -30,6 +30,7 @@ class RequestBody: Mappable {
     var postTitle:String?
     var postDetail:String?
     var postAddress:String?
+    var postMessage:String?
     init() {
         
     }
@@ -59,6 +60,7 @@ class RequestBody: Mappable {
         postTitle <- map["postTitle"]
         postDetail <- map["postDetail"]
         postAddress <- map["postAddress"]
+        postMessage <- map["postMessage"]
         
     }
     

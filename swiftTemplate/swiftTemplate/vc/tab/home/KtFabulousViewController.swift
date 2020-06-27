@@ -10,7 +10,7 @@ import UIKit
 import MJRefresh
 class KtFabulousViewController: BaseViewController {
     lazy var list : [UserInfo]? = nil
-    var postId :Int? = 0
+    var postinfo :PostInfo? = nil
     @IBOutlet weak var tableview: UITableView!
     lazy var body = RequestBody()
     let footer = MJRefreshBackFooter()
@@ -35,7 +35,7 @@ class KtFabulousViewController: BaseViewController {
         body.page = 0
         body.pageSize = 20
         body.userId = UserInfoHelper.instance.user?.id ?? 0
-        body.postId = postId
+        body.postId = postinfo?.id ?? 0
         getUsers(body: body.toJSONString() ?? "")
     }
     

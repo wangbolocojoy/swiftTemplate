@@ -93,7 +93,7 @@ extension TabHomeViewController:UITableViewDataSource,UITableViewDelegate,UIScro
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MainPostCell.reuseID, for: indexPath) as! MainPostCell
-        cell.updateCell(pinfo: list?[indexPath.item])
+        cell.setModel(pinfo: list?[indexPath.item])
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

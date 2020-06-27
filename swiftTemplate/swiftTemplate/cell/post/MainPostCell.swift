@@ -48,25 +48,6 @@ class MainPostCell: UITableViewCell {
         pagecontrol.numberOfPages = postinfo?.postImages?.count ?? 0
         pagecontrol.setStrokeColor(.label, for: .selected)
         pagecontrol.setFillColor(.label, for: .selected)
-     
-       
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        selectionStyle = .none
-        // Configure the view for the selected state
-    }
-    /// 去点赞的用户页面
-    @objc func toStartUser(){
-        let vc = self.parentViewController()?.getVcByName(vc: .赞👍) as! KtFabulousViewController
-        vc.postId = postinfo?.id
-        self.pushVC(vc: vc)
-    }
-    func updateCell(pinfo:PostInfo?){
-        postinfo = pinfo
-        banner.reloadData()
-        updateStartOrCollection()
         let tapstart = UITapGestureRecognizer(target: self, action: #selector(checkstart))
         btn_start.isUserInteractionEnabled = true
         btn_start.addGestureRecognizer(tapstart)
@@ -79,19 +60,41 @@ class MainPostCell: UITableViewCell {
         btn_message.addGestureRecognizer(tapmessage)
         btn_gotostart.isUserInteractionEnabled = true
         btn_gotostart.addGestureRecognizer(tapgoststartvc)
-        poster_nickname.text = pinfo?.author?.nickName ?? ""
-        post_detail.text = pinfo?.postDetail ?? ""
-        post_auther_nickname.text = pinfo?.author?.nickName ?? ""
-        pagecontrol.numberOfPages = pinfo?.postImages?.count ?? 0
-        postauther_icon.setImageUrl(image: postauther_icon,string: pinfo?.author?.icon, proimage: #imageLiteral(resourceName: "IMG_2507"))
-      
-        post_auther_address.text = pinfo?.postAddress ?? ""
-        
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        selectionStyle = .none
+        // Configure the view for the selected state
+    }
+    /// 去点赞的用户页面
+    @objc func toStartUser(){
+        let vc = self.parentViewController()?.getVcByName(vc: .赞👍) as! KtFabulousViewController
+        vc.postinfo = postinfo
+        self.pushVC(vc: vc)
+    }
+    func setModel(pinfo:PostInfo?){
+        postinfo = pinfo
+        updateCell()
+    }
+    func updateCell(){
+        banner.reloadData()
+        updateStartOrCollection()
+        poster_nickname.text = postinfo?.author?.nickName ?? ""
+        post_detail.text = postinfo?.postDetail ?? ""
+        post_auther_nickname.text = postinfo?.author?.nickName ?? ""
+        pagecontrol.numberOfPages = postinfo?.postImages?.count ?? 0
+        postauther_icon.setImageUrl(image: postauther_icon,string: postinfo?.author?.icon, proimage: #imageLiteral(resourceName: "IMG_2507"))
+        post_auther_address.text = postinfo?.postAddress ?? ""
+        lab_postnum.text = "\(postinfo?.postMessageNum ?? 0)"
     }
     
     @objc func showMessageVC(){
         let vc = self.parentViewController()?.getVcByName(vc: .消息列表) as! KtMessagelistViewController
-        vc.postId = postinfo?.id
+        vc.postinfo = postinfo
+        vc.callBackBlock { (Info) in
+            self.setModel(pinfo: Info)
+        }
         vc.view.backgroundColor = .clear
         self.parentViewController()?.present(vc, animated: true, completion: nil)
     }
@@ -143,25 +146,25 @@ class MainPostCell: UITableViewCell {
     /// 收藏
     func collectionpost(){
         let body = RequestBody()
-               body.userId = user?.id ?? 0
-               body.postId = postinfo?.id
-               MyMoyaManager.AllRequest(controller: self.parentViewController()!, NetworkService.collection(K: body.toJSONString() ?? "")) { (data) in
-                   log.info("收藏\(data)")
-                   self.postinfo?.isCollection = true
-                
-                 self.updateStartOrCollection()
-               }
+        body.userId = user?.id ?? 0
+        body.postId = postinfo?.id
+        MyMoyaManager.AllRequest(controller: self.parentViewController()!, NetworkService.collection(K: body.toJSONString() ?? "")) { (data) in
+            log.info("收藏\(data)")
+            self.postinfo?.isCollection = true
+            
+            self.updateStartOrCollection()
+        }
     }
     /// 取消收藏
     func uncollectionpost(){
         let body = RequestBody()
-                      body.userId = user?.id ?? 0
-                      body.postId = postinfo?.id
-                      MyMoyaManager.AllRequest(controller: self.parentViewController()!, NetworkService.cancelcollection(K: body.toJSONString() ?? "")) { (data) in
-                          log.info("取消收藏\(data)")
-                          self.postinfo?.isCollection = false
-                        self.updateStartOrCollection()
-                      }
+        body.userId = user?.id ?? 0
+        body.postId = postinfo?.id
+        MyMoyaManager.AllRequest(controller: self.parentViewController()!, NetworkService.cancelcollection(K: body.toJSONString() ?? "")) { (data) in
+            log.info("取消收藏\(data)")
+            self.postinfo?.isCollection = false
+            self.updateStartOrCollection()
+        }
     }
     /// 点赞
     func start(){
@@ -183,7 +186,7 @@ class MainPostCell: UITableViewCell {
         MyMoyaManager.AllRequest(controller: self.parentViewController()!, NetworkService.postunstart(K: body.toJSONString() ?? "")) { (data) in
             log.info("取消点赞\(data)")
             self.postinfo?.isStart = false
-             self.postinfo?.postStarts = (self.postinfo?.postStarts ?? 1) - 1
+            self.postinfo?.postStarts = (self.postinfo?.postStarts ?? 1) - 1
             self.updateStartOrCollection()
             //                  self.postanimation()
         }

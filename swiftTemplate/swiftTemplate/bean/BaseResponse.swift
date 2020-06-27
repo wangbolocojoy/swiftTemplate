@@ -48,11 +48,13 @@ class PostMessage: Mappable {
     var chiledMessage:[PostMessage]?
     var message: String?
     var messageStart:Int?
-    var postMsgCreatTime: String?
+    var postMsgCreatTime: Date?
     required init?(map: Map) {
         
     }
-    
+    init() {
+           
+       }
     func mapping(map: Map) {
         id <- map["id"]
         userId <- map["userId"]
@@ -93,6 +95,8 @@ class PostInfo: Mappable {
     var postStarts:Int?
     var author:PostAuthor?
     var postImages:[PostImages]?
+    var postMessageNum:Int?
+    var creatTime:Date?
     var latitude:String?
     var longitude:String?
     var isStart:Bool?
@@ -112,6 +116,8 @@ class PostInfo: Mappable {
         postStarts <- map["postStarts"]
         author <- map["author"]
         postImages <- map["postImages"]
+        postMessageNum <- map["postMessageNum"]
+        creatTime <- map["creatTime"]
         latitude <- map["latitude"]
         longitude <- map["longitude"]
         isStart <- map["isStart"]

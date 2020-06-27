@@ -92,7 +92,7 @@ extension BTMMyPostViewController:UITableViewDataSource,UITableViewDelegate,UISc
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MainPostCell.reuseID, for: indexPath) as! MainPostCell
-        cell.updateCell(pinfo: list?[indexPath.item])
+        cell.setModel(pinfo: list?[indexPath.item])
         return cell
     }
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {

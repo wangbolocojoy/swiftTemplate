@@ -11,7 +11,7 @@ import UIKit
 import MJRefresh
 import InputBarAccessoryView
 class KtMessagelistViewController: BaseDetailViewController {
-    var postId :Int? = 0
+    var postinfo :PostInfo? = nil
     var list:[PostMessage]? = nil
     let inputBar = iMessageInputBar()
     @IBOutlet weak var messagebackground: UIView!
@@ -23,6 +23,11 @@ class KtMessagelistViewController: BaseDetailViewController {
     var type = 0
     var hasmore :Bool = false
     lazy var body = RequestBody()
+    func callBackBlock(block : @escaping swiftblock)  {
+             callBack = block
+    }
+    var callBack :swiftblock?
+    typealias swiftblock = (_ btntag : PostInfo? ) -> Void
     override func viewDidLoad() {
         super.viewDidLoad()
         self.modalPresentationStyle = .formSheet
@@ -40,15 +45,17 @@ class KtMessagelistViewController: BaseDetailViewController {
         tableview.delegate = self
         tableview.dataSource = self
         tableview.register(UINib(nibName: KtMessageCell.reuseID, bundle: nil), forCellReuseIdentifier: KtMessageCell.reuseID)
+        tableview.separatorStyle = .none
         header.setRefreshingTarget(self, refreshingAction: #selector(refresh))
         tableview.mj_header = header
         footer.setRefreshingTarget(self, refreshingAction: #selector(getMore))
         tableview.mj_footer = footer
+        self.message_num.text = "\(postinfo?.postMessageNum ?? 0)条评论"
         type = 1
         body.page = 0
         body.pageSize = 20
         body.userId = UserInfoHelper.instance.user?.id ?? 0
-        body.postId = postId
+        body.postId = postinfo?.id ?? 0
         commentlist(body: body.toJSONString() ?? "")
     }
    
@@ -63,6 +70,11 @@ class KtMessagelistViewController: BaseDetailViewController {
         IQKeyboardManager.shared.shouldShowToolbarPlaceholder = true
          
 
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        if callBack != nil {
+            callBack!(self.postinfo)
+        }
     }
     @objc func refresh(){
         footer.resetNoMoreData()
@@ -96,6 +108,7 @@ class KtMessagelistViewController: BaseDetailViewController {
                 self.hasmore = false
                 self.footer.endRefreshingWithNoMoreData()
             }
+            
             self.tableview.reloadData()
         }
         self.header.endRefreshing()
@@ -105,8 +118,28 @@ class KtMessagelistViewController: BaseDetailViewController {
     @IBAction func closevc(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    
+    func sendComment(value:String?){
+        let body = RequestBody()
+        body.userId = UserInfoHelper.instance.user?.id ?? 0
+        body.postId = postinfo?.id ?? 0
+        body.postMessage = value
+        MyMoyaManager.AllRequestNospinner(controller: self, NetworkService.sendcomment(k: body.toJSONString() ?? "")) { (data) in
+            self.postinfo?.postMessageNum = (self.postinfo?.postMessageNum ?? 0)+1
+            self.inputBar.inputTextView.text = String()
+            self.inputBar.sendButton.stopAnimating()
+            self.inputBar.inputTextView.placeholder = "说点好听的吧"
+            self.inputBar.inputTextView.endEditing(true)
+            let post = PostMessage()
+            post.message = value
+            post.messageStart = 0
+            post.userNickName = UserInfoHelper.instance.user?.nickName
+            post.userIcon = UserInfoHelper.instance.user?.icon
+            self.message_num.text = "\(self.postinfo?.postMessageNum ?? 0)条评论"
+            self.list?.append(post)
+            self.tableview.reloadData()
+            
+        }
+    }
 }
 extension KtMessagelistViewController:InputBarAccessoryViewDelegate{
     
@@ -122,12 +155,15 @@ extension KtMessagelistViewController:InputBarAccessoryViewDelegate{
               print("Autocompleted: `", substring, "` with context: ", context ?? [])
           }
 
-          inputBar.inputTextView.text = String()
-          inputBar.invalidatePlugins()
+//          inputBar.inputTextView.text = String()
+          inputBar.sendButton.startAnimating()
+        inputBar.invalidatePlugins()
 
           // Send button activity animation
-          inputBar.sendButton.startAnimating()
+        
           inputBar.inputTextView.placeholder = "发送中"
+            log.info("\(inputBar.inputTextView.text ?? "")")
+          sendComment(value: inputBar.inputTextView.text)
          
       }
       
@@ -146,7 +182,7 @@ extension KtMessagelistViewController:InputBarAccessoryViewDelegate{
 }
 extension KtMessagelistViewController:UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list?.count ?? 10
+        return list?.count ?? 0
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80

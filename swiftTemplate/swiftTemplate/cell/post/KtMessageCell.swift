@@ -27,7 +27,7 @@ static let reuseID =  "KtMessageCell"
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        selectionStyle = .none
         // Configure the view for the selected state
     }
     func setModel(info:PostMessage?){
@@ -39,6 +39,7 @@ static let reuseID =  "KtMessageCell"
         msgstartnum.text = "\(msgModel?.messageStart ?? 0)"
         usericon.setImageUrl(image: usericon, string: msgModel?.userIcon, proimage: #imageLiteral(resourceName: "IMG_2507"))
         message.text = msgModel?.message ?? ""
-        time.text = msgModel?.postMsgCreatTime ?? ""
+        time.text = msgModel?.postMsgCreatTime?.date2String ?? Date().date2String
     }
+   
 }

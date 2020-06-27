@@ -37,7 +37,6 @@ class KtMyMapViewController: BaseViewController {
             let controller = UISearchController(searchResultsController: nil)
             controller.searchResultsUpdater = self   //两个样例使用不同的代理
             controller.hidesNavigationBarDuringPresentation = false
-            controller.dimsBackgroundDuringPresentation = true
             controller.searchBar.barStyle = .default
             //            controller.view.backgroundColor = .white
             controller.searchBar.placeholder = "输入地名进行搜索"

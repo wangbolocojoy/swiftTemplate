@@ -209,8 +209,20 @@ extension NetworkService:Moya.TargetType{
     }
     
 }
+public extension Date{
+    var date2String: String {
+            let dateFormat:String = "yyyy-MM-dd HH:mm:ss"
+             let formatter = DateFormatter()
+             formatter.locale = Locale.init(identifier: "zh_CN")
+             formatter.dateFormat = dateFormat
+             let date = formatter.string(from: self)
+             return date
+         }
+}
 // MARK: - Helpers
 private extension String {
+    //日期 -> 字符串
+   
     var urlEscaped: String {
         return addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
     }
