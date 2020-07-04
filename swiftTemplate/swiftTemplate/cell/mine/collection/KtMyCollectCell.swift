@@ -42,6 +42,7 @@ static let reuseID =  "KtMyCollectCell"
         }else{
              ismore.isHidden = true
         }
+        numbermessage.text = "\(model?.postMessageNum ?? 0)"
         postahtuer.text = model?.author?.nickName ?? ""
         postdetail.text = model?.postDetail ??  ""
         

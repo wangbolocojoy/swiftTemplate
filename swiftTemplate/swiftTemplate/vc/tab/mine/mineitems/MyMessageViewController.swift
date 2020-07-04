@@ -113,7 +113,8 @@ extension MyMessageViewController:UITableViewDataSource,UITableViewDelegate,UISc
               // Delete the row from the data source
              let body = RequestBody()
             body.userId = list?[indexPath.item].userId ?? 0
-            body.postId = list?[indexPath.item].postId ?? 0
+            body.id = list?[indexPath.item].id ?? 0
+             body.postId = list?[indexPath.item].postId ?? 0
             deleteMsg(json: body.toJSONString() ?? "", index: indexPath.item)
           }
       }
