@@ -16,7 +16,7 @@ class RequestBody: Mappable {
     var icon:String?
     var password:String?
     var phone:String?
-    var msg:String?
+    var msgcode:String?
     var page:Int?
     var pageSize:Int?
     var type:Int?
@@ -31,6 +31,8 @@ class RequestBody: Mappable {
     var postDetail:String?
     var postAddress:String?
     var postMessage:String?
+    var birthDay:String?
+    var constellation:String?
     init() {
         
     }
@@ -42,7 +44,7 @@ class RequestBody: Mappable {
         postId <- map["postId"]
         phone <- map["phone"]
         password <- map["password"]
-        msg <- map["msg"]
+        msgcode <- map["msgcode"]
         page <- map["page"]
         pageSize <- map["pageSize"]
         type <- map["type"]
@@ -61,7 +63,8 @@ class RequestBody: Mappable {
         postDetail <- map["postDetail"]
         postAddress <- map["postAddress"]
         postMessage <- map["postMessage"]
-        
+        birthDay <- map["birthDay"]
+        constellation <- map["constellation"]
     }
     
     

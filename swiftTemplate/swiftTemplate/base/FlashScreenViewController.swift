@@ -25,6 +25,7 @@ class FlashScreenViewController: BaseViewController {
             if user?.phone != nil && user?.token != nil {
                 UIApplication.shared.windows[0].rootViewController = self.getMainVc()
             }else{
+                
                 UIApplication.shared.windows[0].rootViewController = self.getloginVc()
             }
             

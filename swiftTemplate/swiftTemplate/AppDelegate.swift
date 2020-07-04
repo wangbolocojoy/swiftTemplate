@@ -13,6 +13,7 @@ var log = SwiftyBeaver.self
 import IQKeyboardManagerSwift
 import AVKit
 import Photos
+import AuthenticationServices
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -25,6 +26,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     /// 初始化配置
     private func initConfigure(){
+        
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+        appleIDProvider.getCredentialState(forUserID: KeychainManager.User.ReadDataByIdentifier(forKey: .currentUserIdentifier) as? String ?? "") { (credentialState, error) in
+            switch credentialState {
+            case .authorized:
+                break // The Apple ID credential is valid.
+            case .revoked, .notFound:
+                // The Apple ID credential is either revoked or was not found, so show the sign-in UI.
+                DispatchQueue.main.async {
+                    self.window?.rootViewController?.getloginVc()
+                }
+            default:
+                break
+            }
+        }
         AMapServices.shared().apiKey = ApiKey.default.AMapkey
                 IQKeyboardManager.shared.enable = true
         if #available(iOS 13.0, *) {

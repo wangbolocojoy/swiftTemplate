@@ -27,6 +27,8 @@ enum MyController{
     case 动画
     case 赞👍
     case 消息列表
+    case 日期选择
+    case 性别选择
 }
 
 enum PictureType{
@@ -110,6 +112,12 @@ extension UIViewController{
             return vc
         case .消息列表:
             let vc = otsb.instantiateViewController(withIdentifier: "KTMESSAGELIST") as! KtMessagelistViewController
+            return vc
+        case .日期选择:
+            let vc = otsb.instantiateViewController(withIdentifier: "KTDATEPICKERVC") as! KtDatePickerViewController
+            return vc
+        case .性别选择:
+            let vc = otsb.instantiateViewController(withIdentifier: "KTSEXPICKERVC") as! KtSexPickerViewController
             return vc
         }
     }

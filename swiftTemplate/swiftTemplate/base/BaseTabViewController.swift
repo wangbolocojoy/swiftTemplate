@@ -9,7 +9,7 @@
 import UIKit
 
 class BaseTabViewController: UIViewController {
-
+    var isdark = false
     override func viewDidLoad() {
         super.viewDidLoad()
         BaseinitView()
@@ -34,6 +34,7 @@ class BaseTabViewController: UIViewController {
                                       
                                       self.navigationController?.navigationBar.tintColor = .white
                     return Constant.DarkBackGround
+                    
                 case .light:
                     log.debug("light")
                   

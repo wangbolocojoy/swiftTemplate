@@ -22,9 +22,9 @@ class KtMyMapViewController: BaseViewController {
     var MyMapViewType = 0
     lazy var  countrySearchController:UISearchController? = UISearchController()
     func callBackBlock(block : @escaping swiftblock)  {
-          callBack = block
-      }
-      var callBack :swiftblock?
+        callBack = block
+    }
+    var callBack :swiftblock?
     typealias swiftblock = (_ btntag : AMapPOI? ) -> Void
     @IBOutlet weak var mymap: MAMapView!
     @IBOutlet weak var tableview: UITableView!
@@ -39,6 +39,7 @@ class KtMyMapViewController: BaseViewController {
             controller.hidesNavigationBarDuringPresentation = false
             controller.searchBar.barStyle = .default
             //            controller.view.backgroundColor = .white
+            controller.dimsBackgroundDuringPresentation = false
             controller.searchBar.placeholder = "输入地名进行搜索"
             return controller
         })()
@@ -70,66 +71,67 @@ class KtMyMapViewController: BaseViewController {
     /// 开始定位
     func startLoc(){
         locationManager.requestLocation(withReGeocode: false, completionBlock: {  (location: CLLocation?, reGeocode: AMapLocationReGeocode?, error: Error?) in
-                   if let error = error {
-                       let error = error as NSError
-                       
-                       if error.code == AMapLocationErrorCode.locateFailed.rawValue {
-                           //定位错误：此时location和regeocode没有返回值，不进行annotation的添加
-                           NSLog("定位错误:{\(error.code) - \(error.localizedDescription)};")
-                           return
-                       }
-                       else if error.code == AMapLocationErrorCode.reGeocodeFailed.rawValue
-                           || error.code == AMapLocationErrorCode.timeOut.rawValue
-                           || error.code == AMapLocationErrorCode.cannotFindHost.rawValue
-                           || error.code == AMapLocationErrorCode.badURL.rawValue
-                           || error.code == AMapLocationErrorCode.notConnectedToInternet.rawValue
-                           || error.code == AMapLocationErrorCode.cannotConnectToHost.rawValue {
-                           
-                           //逆地理错误：在带逆地理的单次定位中，逆地理过程可能发生错误，此时location有返回值，regeocode无返回值，进行annotation的添加
-                           NSLog("逆地理错误:{\(error.code) - \(error.localizedDescription)};")
-                       }
-                       else {
-                           //没有错误：location有返回值，regeocode是否有返回值取决于是否进行逆地理操作，进行annotation的添加
-                       }
-                       self.ShowTip(Title: "定位失败")
-                   }
-                   
-                   if  let location = location {
-                       self.userlocation = location
-                       
-                   }
-                   
-                   if let reGeocode = reGeocode{
-                       log.info("\(reGeocode)")
-                       let request = AMapPOIKeywordsSearchRequest()
-                       if location != nil {
-                           request.location = AMapGeoPoint.location(withLatitude: CGFloat(location!.coordinate.latitude), longitude: CGFloat(location!.coordinate.longitude))
-                       }
-                       self.ktcity = reGeocode.city
-                       request.keywords = reGeocode.street
-                       request.cityLimit = true
-                       request.types = self.keyword
-                       request.city = reGeocode.city
-                       self.searchKeyPoit(request: request)
-                   }else{
-                       self.locationManager.locatingWithReGeocode = true
-                       self.locationManager.startUpdatingLocation()
-                   }
-                   
-               })
+            if let error = error {
+                let error = error as NSError
+                
+                if error.code == AMapLocationErrorCode.locateFailed.rawValue {
+                    //定位错误：此时location和regeocode没有返回值，不进行annotation的添加
+                    NSLog("定位错误:{\(error.code) - \(error.localizedDescription)};")
+                    return
+                }
+                else if error.code == AMapLocationErrorCode.reGeocodeFailed.rawValue
+                    || error.code == AMapLocationErrorCode.timeOut.rawValue
+                    || error.code == AMapLocationErrorCode.cannotFindHost.rawValue
+                    || error.code == AMapLocationErrorCode.badURL.rawValue
+                    || error.code == AMapLocationErrorCode.notConnectedToInternet.rawValue
+                    || error.code == AMapLocationErrorCode.cannotConnectToHost.rawValue {
+                    
+                    //逆地理错误：在带逆地理的单次定位中，逆地理过程可能发生错误，此时location有返回值，regeocode无返回值，进行annotation的添加
+                    NSLog("逆地理错误:{\(error.code) - \(error.localizedDescription)};")
+                }
+                else {
+                    //没有错误：location有返回值，regeocode是否有返回值取决于是否进行逆地理操作，进行annotation的添加
+                }
+                self.ShowTip(Title: "定位失败")
+            }
+            
+            if  let location = location {
+                self.userlocation = location
+                
+            }
+            
+            if let reGeocode = reGeocode{
+                log.info("\(reGeocode)")
+                let request = AMapPOIKeywordsSearchRequest()
+                if location != nil {
+                    request.location = AMapGeoPoint.location(withLatitude: CGFloat(location!.coordinate.latitude), longitude: CGFloat(location!.coordinate.longitude))
+                }
+                self.ktcity = reGeocode.city
+                request.keywords = reGeocode.street
+                request.cityLimit = true
+                request.types = self.keyword
+                request.city = reGeocode.city
+                self.searchKeyPoit(request: request)
+            }else{
+                self.locationManager.locatingWithReGeocode = true
+                self.locationManager.startUpdatingLocation()
+            }
+            
+        })
     }
     
     /// 搜索地点
     /// - Parameter request: 参数
     func searchKeyPoit(request:AMapPOIKeywordsSearchRequest){
+        locationManager.stopUpdatingLocation()
         mymap.removeAnnotations(list)
-        list?.removeAll()
         self.search?.aMapPOIKeywordsSearch(request)
     }
 }
 extension KtMyMapViewController:UISearchResultsUpdating{
     func updateSearchResults(for searchController: UISearchController) {
-        if searchController.searchBar.text == nil && (searchController.searchBar.text?.count ?? 0) > 2{
+        if searchController.searchBar.text == nil || (searchController.searchBar.text?.count ?? 0) < 2  || searchController.searchBar.text == ""{
+            log.info("搜查的内容---  \(searchController.searchBar.text ?? "")")
             return
         }else{
             let request = AMapPOIKeywordsSearchRequest()
@@ -198,23 +200,24 @@ extension KtMyMapViewController :MAMapViewDelegate{
 }
 extension KtMyMapViewController:AMapSearchDelegate{
     func onPOISearchDone(_ request: AMapPOISearchBaseRequest!, response: AMapPOISearchResponse!) {
-        if response.count == 0 {
+        log.info("搜索结果数量----\(response.pois.count)")
+        if response.count == 0 || response.pois.count == 0{
             return
         }
-        infoList = response.pois
-        self.tableview.reloadData()
-        for (index,item) in response!.pois.enumerated() {
-            if index > 9{
-                mymap.addAnnotations(list)
-                let padding = UIEdgeInsets(top: 10, left: 30, bottom: 10, right: 30)
-                showsAnnotations(list ?? [], edgePadding: padding, andMapView: mymap)
-                return
-            }
-            let pointAnnotation = MAPointAnnotation()
-            pointAnnotation.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(item.location.latitude), longitude: CLLocationDegrees(item.location.longitude))
-            pointAnnotation.title = item.name
-            pointAnnotation.subtitle = item.address
-            list?.append(pointAnnotation)
+        if let listf = response.pois{
+            log.info("tableview添加数据\(listf)")
+            infoList = listf
+            self.tableview.reloadData()
+        }
+        
+        for (_,item) in response!.pois.enumerated() {
+                 log.info("地图添加标记\(item)")
+                let pointAnnotation = MAPointAnnotation()
+                pointAnnotation.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(item.location.latitude), longitude: CLLocationDegrees(item.location.longitude))
+                pointAnnotation.title = item.name
+                pointAnnotation.subtitle = item.address
+                mymap.addAnnotation(pointAnnotation)
+                list?.append(pointAnnotation)
         }
         
     }
@@ -238,6 +241,7 @@ extension KtMyMapViewController:AMapLocationManagerDelegate{
             request.cityLimit = true
             request.city = reGeocode.city
             self.searchKeyPoit(request: request)
+            self.locationManager.stopUpdatingLocation()
         }
         
     }
@@ -251,13 +255,13 @@ extension KtMyMapViewController:UITableViewDelegate,UITableViewDataSource{
         let info = infoList?[indexPath.item]
         let address = "\(info?.province ?? "")\(info?.city ?? "")\(info?.district ?? "")\(info?.address ?? "")\(info?.name ?? "")"
         if address.count > 5 && MyMapViewType == 1{
-             let body = RequestBody()
+            let body = RequestBody()
             body.id = UserInfoHelper.instance.user?.id ?? 0
             body.address = address
             MyMoyaManager.AllRequest(controller: self, NetworkService.updateuserinfo(k: body.toJSONString() ?? "")) { (data) in
-                       UserInfoHelper.instance.user = data.userinfo
-                       self.ShowTipsClose(tite: data.msg ?? "更新成功")
-                   }
+                UserInfoHelper.instance.user = data.userinfo
+                self.ShowTipsClose(tite: data.msg ?? "更新成功")
+            }
         }else if MyMapViewType == 2 {
             log.info("返回发帖")
             if callBack != nil {
@@ -265,9 +269,9 @@ extension KtMyMapViewController:UITableViewDelegate,UITableViewDataSource{
                 self.navigationController?.popViewController(animated: true)
             }
         }
-            
         
-       
+        
+        
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 88

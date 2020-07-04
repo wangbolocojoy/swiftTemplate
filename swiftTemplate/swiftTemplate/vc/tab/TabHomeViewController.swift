@@ -4,7 +4,6 @@
 //
 //  Created by tomcat on 2020/5/31.
 //  Copyright © 2020 SwiftKt-王波. All rights reserved.
-//
 // MARK: - 首页
 import UIKit
 import MJRefresh
@@ -12,7 +11,7 @@ class TabHomeViewController: BaseTabViewController {
     let footer = MJRefreshBackFooter()
     let header = MJRefreshNormalHeader()
     lazy var list :[PostInfo]? = nil
-     lazy var listpost :[PostStart]? = nil
+    lazy var listpost :[PostStart]? = nil
     var pagebody = RequestBody()
     var type = 1
     var hasmore :Bool = false
@@ -20,7 +19,6 @@ class TabHomeViewController: BaseTabViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     @IBAction func btnsendpost(_ sender: Any) {
@@ -51,7 +49,6 @@ class TabHomeViewController: BaseTabViewController {
         pagebody.pageSize = 5
         pagebody.userId = UserInfoHelper.instance.user?.id ?? 0
         getNovel(body: pagebody)
-        
     }
     @objc func getMore(){
         if hasmore {
@@ -60,8 +57,6 @@ class TabHomeViewController: BaseTabViewController {
             pagebody.page = (pagebody.page ?? 0) + 1
             pagebody.pageSize = 5
             getNovel(body: pagebody)
-        }else{
-            
         }
         
     }
@@ -69,9 +64,7 @@ class TabHomeViewController: BaseTabViewController {
         tableview.delegate = self
         tableview.dataSource = self
         tableview.separatorStyle = .none
-        
         tableview.register(UINib(nibName: MainPostCell.reuseID, bundle: nil), forCellReuseIdentifier: MainPostCell.reuseID)
-        
         header.setRefreshingTarget(self, refreshingAction: #selector(refresh))
         tableview.mj_header = header
         footer.setRefreshingTarget(self, refreshingAction: #selector(getMore))
@@ -81,7 +74,7 @@ class TabHomeViewController: BaseTabViewController {
         pagebody.pageSize = 5
         pagebody.userId = UserInfoHelper.instance.user?.id ?? 0
         getNovel(body: pagebody)
-       
+        
     }
     
     
@@ -103,7 +96,7 @@ extension TabHomeViewController:UITableViewDataSource,UITableViewDelegate,UIScro
         if(!decelerate){
             self.scrollLoadData()
         }else{
-
+            
         }
     }
     

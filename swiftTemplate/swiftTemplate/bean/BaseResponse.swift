@@ -20,7 +20,8 @@ class BaseResponse: Mappable {
     var postlist:[PostInfo]?
     var poststartlist:[PostStart]?
     var userlist :[UserInfo]?
-    var postmsg:[PostMessage]?
+    var postmsgs:[PostMessage]?
+    var postmsg:PostMessage?
     required init?(map: Map) {
     }
     func mapping(map: Map) {
@@ -35,6 +36,7 @@ class BaseResponse: Mappable {
         sendpost <- map["data"]
         poststartlist <- map["data"]
         userlist <- map["data"]
+        postmsgs <- map["data"]
         postmsg <- map["data"]
     }
     
@@ -48,13 +50,13 @@ class PostMessage: Mappable {
     var chiledMessage:[PostMessage]?
     var message: String?
     var messageStart:Int?
-    var postMsgCreatTime: Date?
+    var postMsgCreatTime: String?
     required init?(map: Map) {
         
     }
     init() {
-           
-       }
+        
+    }
     func mapping(map: Map) {
         id <- map["id"]
         userId <- map["userId"]
@@ -210,6 +212,9 @@ class UserInfo: Mappable {
     var userSex:Bool?
     var isFollow:Bool?
     var follows:Int?
+    var birthDay:String?
+    var constellation:String?
+    var creatTime:Date?
     required init?(map: Map) {
     }
     func mapping(map: Map) {
@@ -229,6 +234,9 @@ class UserInfo: Mappable {
         isFollow <- map["isFollow"]
         follows <- map["follows"]
         postNum <- map["postNum"]
+        birthDay <- map["birthDay"]
+        constellation <- map["constellation"]
+        creatTime <- map["creatTime"]
     }
     
 }

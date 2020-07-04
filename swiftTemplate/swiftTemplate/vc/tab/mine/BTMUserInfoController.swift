@@ -58,6 +58,7 @@ class BTMUserInfoController: BaseViewController{
     
     func refresh(){
         user = UserInfoHelper.instance.user
+        log.info(user?.toJSONString())
         tableview.reloadData()
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -90,7 +91,24 @@ extension BTMUserInfoController:UITableViewDelegate,UITableViewDataSource{
                 let vc = getVcByName(vc: .修改信息) as! BTMMineEdUserController
                 vc.type = list[indexPath.item]
                 self.navigationController?.pushViewController(vc, animated: true)
+            case 3:
+                log.info("性别")
+                let vc = getVcByName(vc: .性别选择) as! KtSexPickerViewController
+                  vc.view.backgroundColor = .clear
+                vc.callBackBlock { (UserInfo) in
+                    self.refresh()
+                }
+              
+                self.present(vc, animated: true, completion: nil)
                 
+            case 4:
+                let vc = getVcByName(vc: .日期选择) as! KtDatePickerViewController
+                vc.view.backgroundColor = .clear
+                vc.callBackBlock { (UserInfo) in
+                    self.refresh()
+                }
+                self.present(vc, animated: true, completion: nil)
+                              
             default:
                 log.info("\(list[indexPath.item])")
             }

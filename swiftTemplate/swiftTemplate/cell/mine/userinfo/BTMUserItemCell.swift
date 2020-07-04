@@ -22,7 +22,6 @@ static let reuseID =  "BTMUserItemCell"
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         selectionStyle = .none
-        // Configure the view for the selected state
     }
     func updateCell(name:String?,user:UserInfo?){
         item_name.text = name ?? ""
@@ -37,6 +36,10 @@ static let reuseID =  "BTMUserItemCell"
             item_value.text = user?.easyInfo ?? ""
         case "地区":
              item_value.text = user?.address ?? ""
+        case "生日":
+            item_value.text = "\(user?.birthDay ?? "")--\( user?.constellation ?? "")"
+        case "性别":
+            item_value.text = (user?.userSex ?? false ) ? "女":"男"
         default:
             log.info("")
         }

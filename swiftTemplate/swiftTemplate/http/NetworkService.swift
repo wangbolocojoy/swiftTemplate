@@ -80,63 +80,63 @@ extension NetworkService:Moya.TargetType{
     public var path: String {
         switch self {
         case .login:
-            return "back-1/swiftTemplate/User/login"
+            return "swiftTemplate/User/login"
         case .register:
-            return "back-1/swiftTemplate/User/register"
+            return "swiftTemplate/User/register"
         case .getmsg:
-            return "getmsg"
+            return "swiftTemplate/User/sendMsg"
         case .tabhome:
-            return "back-1/myApplication/cas/getPageNovelList"
+            return "myApplication/cas/getPageNovelList"
         case .searchnovel:
-            return "back-1/myApplication/cas/searchNovel"
+            return "myApplication/cas/searchNovel"
         case .uodateusericon:
-            return "back-1/swiftTemplate/User/uploadusericon"
+            return "swiftTemplate/User/uploadusericon"
         case .updateuserinfo:
-            return "back-1/swiftTemplate/User/updateUser"
+            return "swiftTemplate/User/updateUser"
         case .followuser:
-            return "back-1/swiftTemplate/Follow/followuser"
+            return "swiftTemplate/Follow/followuser"
         case .unfollowuser:
-            return "back-1/swiftTemplate/Follow/unfollowuser"
+            return "swiftTemplate/Follow/unfollowuser"
         case .getfollowlist:
-            return "back-1/swiftTemplate/Follow/getfollowlist"
+            return "swiftTemplate/Follow/getfollowlist"
         case .getfancelist:
-            return "back-1/swiftTemplate/Follow/getfancelist"
+            return "swiftTemplate/Follow/getfancelist"
         case .finduser:
-            return "back-1/swiftTemplate/User/searchfollow"
+            return "swiftTemplate/User/searchfollow"
         case .findrecommendlist:
-            return "back-1/swiftTemplate/Follow/getrecommendlist"
+            return "swiftTemplate/Follow/getrecommendlist"
         case .sendpost:
-            return "back-1/swiftTemplate/Post/sendPost"
+            return "swiftTemplate/Post/sendPost"
         case .getuserposts:
-             return "back-1/swiftTemplate/Post/getPostsByUserId"
+            return "swiftTemplate/Post/getPostsByUserId"
         case .getposts:
-             return "back-1/swiftTemplate/Post/getPosts"
+            return "swiftTemplate/Post/getPosts"
         case .deletspost:
-             return "back-1/swiftTemplate/Post/deletePost"
+            return "swiftTemplate/Post/deletePost"
         case .upLoadFiles:
-            return "back-1/swiftTemplate/file/upLoadFiles"
+            return "swiftTemplate/file/upLoadFiles"
         case .getuserinfo:
-            return "back-1/swiftTemplate/User/getUseInfo"
+            return "swiftTemplate/User/getUseInfo"
         case .poststart:
-            return "back-1/swiftTemplate/PostStart/start"
+            return "swiftTemplate/PostStart/start"
         case .postunstart:
-            return "back-1/swiftTemplate/PostStart/unStart"
+            return "swiftTemplate/PostStart/unStart"
         case .getpoststartlist:
-            return "back-1/swiftTemplate/PostStart/getPostStartList"
+            return "swiftTemplate/PostStart/getPostStartList"
         case .collection:
-            return "back-1/swiftTemplate/PostStart/collection"
+            return "swiftTemplate/PostStart/collection"
         case .cancelcollection:
-            return "back-1/swiftTemplate/PostStart/cancelCollection"
+            return "swiftTemplate/PostStart/cancelCollection"
         case .getcollectionlist:
-            return "back-1/swiftTemplate/PostStart/getCollectionList"
+            return "swiftTemplate/PostStart/getCollectionList"
         case .getuserstartlist:
-            return "back-1/swiftTemplate/PostStart/getUserAllStartList"
+            return "swiftTemplate/PostStart/getUserAllStartList"
         case .sendcomment:
-             return "back-1/swiftTemplate/Message/sendMessage"
+            return "swiftTemplate/Message/sendMessage"
         case .commentlist:
-             return "back-1/swiftTemplate/Message/getMessages"
+            return "swiftTemplate/Message/getMessages"
         case .deletecomment:
-             return "back-1/swiftTemplate/Message/deleteMessage"
+            return "swiftTemplate/Message/deleteMessage"
         }
         
     }
@@ -170,30 +170,30 @@ extension NetworkService:Moya.TargetType{
             return .uploadCompositeMultipart(formDataAry as! [MultipartFormData], urlParameters: p1)
         case .upLoadFiles(let param, let uploadImages):
             let formDataAry:NSMutableArray = NSMutableArray()
-                       for (index,image) in uploadImages.enumerated() {
-                           let data:Data = (image as! UIImage).jpegData(compressionQuality: 0.8)!
-                           let date:Date = Date()
-                           let formatter = DateFormatter()
-                           formatter.dateFormat = "yyyy-MM-dd-HH:mm:ss"
-                           var dateStr:String = formatter.string(from: date as Date)
-                           dateStr = dateStr.appendingFormat("-%i.png", index)
-                           let formData = MultipartFormData(provider: .data(data), name: "uploadFiles", fileName: dateStr, mimeType: "image/jpeg")
-                           formDataAry.add(formData)
-                       }
+            for (index,image) in uploadImages.enumerated() {
+                let data:Data = (image as! UIImage).jpegData(compressionQuality: 0.8)!
+                let date:Date = Date()
+                let formatter = DateFormatter()
+                formatter.dateFormat = "yyyy-MM-dd-HH:mm:ss"
+                var dateStr:String = formatter.string(from: date as Date)
+                dateStr = dateStr.appendingFormat("-%i.png", index)
+                let formData = MultipartFormData(provider: .data(data), name: "uploadFiles", fileName: dateStr, mimeType: "image/jpeg")
+                formDataAry.add(formData)
+            }
             let p1 = param as? [String:String]
             p1?.forEach({ (arg0) in
                 let (key, value) = arg0
                 log.info("key\(key)")
                 log.info("value\(value)")
-               let strData = value.data(using: .utf8)
-                 log.info("value\(strData!)")
+                let strData = value.data(using: .utf8)
+                log.info("value\(strData!)")
                 let formData = MultipartFormData(provider:.data(strData!), name: key)
-                 formDataAry.add(formData)
+                formDataAry.add(formData)
             })
             return .uploadMultipart(formDataAry as! [MultipartFormData])
-        
+            
         }
-         
+        
     }
     
     // MARK: - 请求HEADER
@@ -201,7 +201,7 @@ extension NetworkService:Moya.TargetType{
         switch self {
         case .upLoadFiles,.uodateusericon:
             let boundary = String(format: "boundary.%08x%08x", arc4random(), arc4random())
-                   let contentType = String(format: "multipart/form-data;boundary=%@", boundary)
+            let contentType = String(format: "multipart/form-data;boundary=%@", boundary)
             return ["Content-type":contentType,"token":UserInfoHelper.instance.user?.token  ?? ""]
         default:
             return ["Content-type":"application/json","token":UserInfoHelper.instance.user?.token   ?? ""]
@@ -211,18 +211,86 @@ extension NetworkService:Moya.TargetType{
 }
 public extension Date{
     var date2String: String {
-            let dateFormat:String = "yyyy-MM-dd HH:mm:ss"
-             let formatter = DateFormatter()
-             formatter.locale = Locale.init(identifier: "zh_CN")
-             formatter.dateFormat = dateFormat
-             let date = formatter.string(from: self)
-             return date
-         }
+        let dateFormat:String = "yyyy-MM-dd HH:mm:ss"
+        let formatter = DateFormatter()
+        formatter.locale = Locale.init(identifier: "zh_CN")
+        formatter.dateFormat = dateFormat
+        let date = formatter.string(from: self)
+        return date
+    }
+    var calculateWithDate:String {
+        guard let calendar = NSCalendar(identifier: NSCalendar.Identifier.gregorian) else {
+            return ""
+        }
+        let components = calendar.components([.month, .day], from: self)
+        let month = components.month!
+        let day = components.day!
+        
+        // 月以100倍之月作为一个数字计算出来
+        let mmdd = month * 100 + day;
+        var result = ""
+        
+        if ((mmdd >= 321 && mmdd <= 331) ||
+            (mmdd >= 401 && mmdd <= 419)) {
+            result = "白羊座"
+        } else if ((mmdd >= 420 && mmdd <= 430) ||
+            (mmdd >= 501 && mmdd <= 520)) {
+            result = "金牛座"
+        } else if ((mmdd >= 521 && mmdd <= 531) ||
+            (mmdd >= 601 && mmdd <= 621)) {
+            result = "双子座"
+        } else if ((mmdd >= 622 && mmdd <= 630) ||
+            (mmdd >= 701 && mmdd <= 722)) {
+            result = "巨蟹座"
+        } else if ((mmdd >= 723 && mmdd <= 731) ||
+            (mmdd >= 801 && mmdd <= 822)) {
+            result = "狮子座"
+        } else if ((mmdd >= 823 && mmdd <= 831) ||
+            (mmdd >= 901 && mmdd <= 922)) {
+            result = "处女座"
+        } else if ((mmdd >= 923 && mmdd <= 930) ||
+            (mmdd >= 1001 && mmdd <= 1023)) {
+            result = "天秤座"
+        } else if ((mmdd >= 1024 && mmdd <= 1031) ||
+            (mmdd >= 1101 && mmdd <= 1122)) {
+            result = "天蝎座"
+        } else if ((mmdd >= 1123 && mmdd <= 1130) ||
+            (mmdd >= 1201 && mmdd <= 1221)) {
+            result = "射手座"
+        } else if ((mmdd >= 1222 && mmdd <= 1231) ||
+            (mmdd >= 101 && mmdd <= 119)) {
+            result = "摩羯座"
+        } else if ((mmdd >= 120 && mmdd <= 131) ||
+            (mmdd >= 201 && mmdd <= 218)) {
+            result = "水瓶座"
+        } else if ((mmdd >= 219 && mmdd <= 229) ||
+            (mmdd >= 301 && mmdd <= 320)) {
+            //考虑到2月闰年有29天的
+            result = "双鱼座"
+        }else{
+            print(mmdd)
+            result = "日期错误"
+        }
+        return result
+    }
+    
+    
+    
 }
 // MARK: - Helpers
-private extension String {
+public extension String {
     //日期 -> 字符串
-   
+    //字符串 -> 日期
+    var string2DateString : String {
+        let formatter1 = DateFormatter()
+        formatter1.locale = Locale.init(identifier: "en_US")
+        formatter1.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSz"
+        let date = formatter1.date(from: self) ?? Date()
+        let formatter = DateFormatter()
+        formatter.locale = Locale.init(identifier: "zh_CN")
+        formatter.dateFormat = "yyyy年MM月dd日 HH时:mm分:ss秒"
+        return formatter.string(from: date)
+    }
     var urlEscaped: String {
         return addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
     }

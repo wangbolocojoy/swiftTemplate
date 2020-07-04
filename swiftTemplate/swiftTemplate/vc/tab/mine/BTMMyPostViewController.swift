@@ -38,7 +38,7 @@ class BTMMyPostViewController: BaseViewController {
         tableview.mj_header = header
         pagebody.pageSize = 3
         pagebody.page = 0
-        pagebody.userId = UserInfoHelper.instance.user?.id ?? 0
+        pagebody.userId = userid
         getpost(json: pagebody.toJSONString() ?? "")
     }
     @objc func toSendPost(){
@@ -49,7 +49,7 @@ class BTMMyPostViewController: BaseViewController {
         footer.resetNoMoreData()
         type = 1
         pagebody.page = 0
-        pagebody.userId = UserInfoHelper.instance.user?.id ?? 0
+        pagebody.userId = userid
         getpost(json: pagebody.toJSONString() ?? "")
     }
     @objc func getMore(){

@@ -170,7 +170,7 @@ extension UIImageView{
     ///   - imageView: UIImageview
     ///   - qrstring: 生产二维码需要的数据
     ///   - imagename: 二维码中间的图片
-    open func creatQrcode(imageView:UIImageView,qrstring:String?,imagename:String?) {
+    open func creatQrcode(imageView:UIImageView,qrstring:String?,imagecenter:UIImage?) {
         if let qrs = qrstring {
             // 创建二维码滤镜
             let filter = CIFilter(name: "CIQRCodeGenerator")
@@ -195,9 +195,8 @@ extension UIImageView{
             // 图片处理
             var resultImage = UIImage(ciImage: image!)
             
-            if let name  = imagename  {
-                let center = UIImage(named: name)
-                resultImage = getClearImage(sourceImage: resultImage, center: center!)
+            if let name  = imagecenter  {
+                resultImage = getClearImage(sourceImage: resultImage, center: name)
               imageView.image = resultImage
             }else{
                  imageView.image = #imageLiteral(resourceName: "IMG_2488-1")

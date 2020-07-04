@@ -19,12 +19,12 @@ class BTMMyQRCodeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+    
     }
     override func initView() {
         user_name.text = user?.nickName ?? ""
         user_icon.setImageUrl(image: user_icon, string: user?.icon, proimage: #imageLiteral(resourceName: "IMG_2507"))
-        qr_code.creatQrcode(imageView: qr_code,qrstring: user?.account, imagename: "IMG_2507")
+        qr_code.creatQrcode(imageView: qr_code,qrstring: user?.account, imagecenter: user_icon.image)
     }
     
 

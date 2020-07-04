@@ -41,7 +41,21 @@ class RegisterViewController: BaseViewController {
     }
     
     @IBAction func sendMsg(_ sender: Any) {
-        self.isCounting = true
+        sendMsg()
+    }
+    
+    
+    func sendMsg(){
+        let phone = ev_phone.text
+        if phone == nil || phone == "" || phone?.count ?? 0 != 11 {
+                   ShowTip(Title: "手机号码位数不对请重新输入")
+                   return
+               }
+        let body = RequestBody()
+        body.phone = phone
+        MyMoyaManager.AllRequest(controller: self, NetworkService.getmsg(k: body.toJSONString() ?? "")) { (data) in
+            self.isCounting = true
+        }
     }
     
     @IBAction func register(_ sender: Any) {
@@ -71,7 +85,7 @@ class RegisterViewController: BaseViewController {
         }
         let body = RequestBody()
         body.phone = phone
-        body.msg = msg
+        body.msgcode = msg
         body.password = password
         if type == 0  {
             registerUser(body: body)
@@ -81,18 +95,12 @@ class RegisterViewController: BaseViewController {
         
     }
     func registerUser(body:RequestBody){
-        if body.msg == "666666" {
             MyMoyaManager.AllRequest(controller: self, NetworkService.register(k: body.toJSONString()!)) { (data) in
                 if self.callBack != nil {
                     self.callBack!(body.phone ?? "",body.password ?? "")
                     self.ShowTipsClose(tite: "注册成功")
                 }
             }
-        }else{
-            ShowTip(Title: "验证码错误")
-        }
-        
-        
     }
     func changePassword(body:RequestBody){
         

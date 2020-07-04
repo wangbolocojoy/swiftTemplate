@@ -9,9 +9,6 @@
 import UIKit
 
 class KtTestViewController: BaseViewController {
-    
-    
-    
     @IBOutlet weak var imageheart: UIImageView!
     @IBOutlet weak var tebutton: UIButton!
     @IBOutlet weak var viewheart: UIView!
@@ -66,7 +63,7 @@ class KtTestViewController: BaseViewController {
     @objc func towheart(){
          log.info("双击")
         self.viewheart.isHidden = false
-        let size = viewheart.frame
+      
         UIView.animate(withDuration: 0.3, animations: {
            self.viewheart.transform = CGAffineTransform.identity
             .scaledBy(x: 1.5, y: 1.5)
@@ -92,7 +89,7 @@ class KtTestViewController: BaseViewController {
             }
 //
         }
-//        viewheart.ani
+
     }
     
     

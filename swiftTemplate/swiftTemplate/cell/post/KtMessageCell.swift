@@ -32,6 +32,7 @@ static let reuseID =  "KtMessageCell"
     }
     func setModel(info:PostMessage?){
         msgModel = info
+        log.info(msgModel?.toJSONString() ?? "")
         updateCell()
     }
     func updateCell(){
@@ -39,7 +40,7 @@ static let reuseID =  "KtMessageCell"
         msgstartnum.text = "\(msgModel?.messageStart ?? 0)"
         usericon.setImageUrl(image: usericon, string: msgModel?.userIcon, proimage: #imageLiteral(resourceName: "IMG_2507"))
         message.text = msgModel?.message ?? ""
-        time.text = msgModel?.postMsgCreatTime?.date2String ?? Date().date2String
+        time.text = msgModel?.postMsgCreatTime?.string2DateString  ?? Date().date2String
     }
    
 }

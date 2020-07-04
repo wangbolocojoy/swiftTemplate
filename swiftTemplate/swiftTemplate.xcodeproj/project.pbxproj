@@ -35,6 +35,7 @@
 		C4070AAB24A738A6000819BD /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4070AAA24A738A6000819BD /* ImageCell.swift */; };
 		C4206F24248FFC2900F4537C /* FanceORFollowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4206F22248FFC2900F4537C /* FanceORFollowCell.swift */; };
 		C4206F25248FFC2900F4537C /* FanceORFollowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4206F23248FFC2900F4537C /* FanceORFollowCell.xib */; };
+		C422FB3C24ADBD1F006AC5CA /* KtSexPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C422FB3B24ADBD1F006AC5CA /* KtSexPickerViewController.swift */; };
 		C43157CF2483994F0034A74E /* CALayer+MyColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C43157CE2483994F0034A74E /* CALayer+MyColor.m */; };
 		C43157D3248399FE0034A74E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43157D2248399FE0034A74E /* BaseViewController.swift */; };
 		C43157D524839AC30034A74E /* BaseTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43157D424839AC30034A74E /* BaseTabViewController.swift */; };
@@ -63,6 +64,8 @@
 		C44E81D824A469E8000BD888 /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44E81D724A469E8000BD888 /* ApiKey.swift */; };
 		C44E81DA24A46ED9000BD888 /* Other.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44E81D924A46ED9000BD888 /* Other.storyboard */; };
 		C44E81DC24A47097000BD888 /* KtMyMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44E81DB24A47097000BD888 /* KtMyMapViewController.swift */; };
+		C44F284024A9B21500E16123 /* apphttps.cer in Resources */ = {isa = PBXBuildFile; fileRef = C44F283F24A9B21400E16123 /* apphttps.cer */; };
+		C44F284224A9C7FF00E16123 /* KtDatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44F284124A9C7FF00E16123 /* KtDatePickerViewController.swift */; };
 		C4AEB30024985F9D00196DAE /* SendPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEB2FF24985F9D00196DAE /* SendPostViewController.swift */; };
 		C4AEB304249863EF00196DAE /* UploadImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEB302249863EF00196DAE /* UploadImageCollectionViewCell.swift */; };
 		C4AEB305249863EF00196DAE /* UploadImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4AEB303249863EF00196DAE /* UploadImageCollectionViewCell.xib */; };
@@ -84,6 +87,8 @@
 		C4AEFCF4248CBAC60080904E /* PermissionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEFCF3248CBAC60080904E /* PermissionHelper.swift */; };
 		C4AEFCF6248E48C30080904E /* BTMMyPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEFCF5248E48C30080904E /* BTMMyPostViewController.swift */; };
 		C4AEFCFA248E4B330080904E /* BTMMyFanceFollowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEFCF9248E4B330080904E /* BTMMyFanceFollowViewController.swift */; };
+		C4D2874424A8ADFD0065F497 /* KtMyCollectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D2874224A8ADFC0065F497 /* KtMyCollectCell.swift */; };
+		C4D2874524A8ADFD0065F497 /* KtMyCollectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4D2874324A8ADFC0065F497 /* KtMyCollectCell.xib */; };
 		C4DAA44324A5FDC700BA6F7D /* MyCollectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DAA44224A5FDC700BA6F7D /* MyCollectViewController.swift */; };
 		C4DAA44624A6050C00BA6F7D /* KtFabulousTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DAA44424A6050C00BA6F7D /* KtFabulousTableViewCell.swift */; };
 		C4DAA44724A6050C00BA6F7D /* KtFabulousTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4DAA44524A6050C00BA6F7D /* KtFabulousTableViewCell.xib */; };
@@ -138,6 +143,9 @@
 		C4070AAA24A738A6000819BD /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		C4206F22248FFC2900F4537C /* FanceORFollowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FanceORFollowCell.swift; sourceTree = "<group>"; };
 		C4206F23248FFC2900F4537C /* FanceORFollowCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FanceORFollowCell.xib; sourceTree = "<group>"; };
+		C422FB3B24ADBD1F006AC5CA /* KtSexPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtSexPickerViewController.swift; sourceTree = "<group>"; };
+		C422FB3D24AF5F25006AC5CA /* SwiftKt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwiftKt.entitlements; sourceTree = "<group>"; };
+		C422FB3E24AF5F6D006AC5CA /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
 		C43157CC2483991E0034A74E /* swiftTemplate-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "swiftTemplate-Bridging-Header.h"; sourceTree = "<group>"; };
 		C43157CE2483994F0034A74E /* CALayer+MyColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CALayer+MyColor.m"; sourceTree = "<group>"; };
 		C43157D0248399690034A74E /* CALayer+MyColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CALayer+MyColor.h"; sourceTree = "<group>"; };
@@ -168,6 +176,8 @@
 		C44E81D724A469E8000BD888 /* ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
 		C44E81D924A46ED9000BD888 /* Other.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Other.storyboard; sourceTree = "<group>"; };
 		C44E81DB24A47097000BD888 /* KtMyMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtMyMapViewController.swift; sourceTree = "<group>"; };
+		C44F283F24A9B21400E16123 /* apphttps.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = apphttps.cer; sourceTree = "<group>"; };
+		C44F284124A9C7FF00E16123 /* KtDatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtDatePickerViewController.swift; sourceTree = "<group>"; };
 		C4AEB2FF24985F9D00196DAE /* SendPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendPostViewController.swift; sourceTree = "<group>"; };
 		C4AEB302249863EF00196DAE /* UploadImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		C4AEB303249863EF00196DAE /* UploadImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UploadImageCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -189,6 +199,8 @@
 		C4AEFCF3248CBAC60080904E /* PermissionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionHelper.swift; sourceTree = "<group>"; };
 		C4AEFCF5248E48C30080904E /* BTMMyPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTMMyPostViewController.swift; sourceTree = "<group>"; };
 		C4AEFCF9248E4B330080904E /* BTMMyFanceFollowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTMMyFanceFollowViewController.swift; sourceTree = "<group>"; };
+		C4D2874224A8ADFC0065F497 /* KtMyCollectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtMyCollectCell.swift; sourceTree = "<group>"; };
+		C4D2874324A8ADFC0065F497 /* KtMyCollectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KtMyCollectCell.xib; sourceTree = "<group>"; };
 		C4DAA44224A5FDC700BA6F7D /* MyCollectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectViewController.swift; sourceTree = "<group>"; };
 		C4DAA44424A6050C00BA6F7D /* KtFabulousTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtFabulousTableViewCell.swift; sourceTree = "<group>"; };
 		C4DAA44524A6050C00BA6F7D /* KtFabulousTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KtFabulousTableViewCell.xib; sourceTree = "<group>"; };
@@ -234,6 +246,7 @@
 		915766F5D0335407DAEA349C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C422FB3E24AF5F6D006AC5CA /* AuthenticationServices.framework */,
 				96C494185AD3E08D4C8C3503 /* Pods_swiftTemplate.framework */,
 			);
 			name = Frameworks;
@@ -260,6 +273,7 @@
 		C40240222480193B00F715DC /* swiftTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				C422FB3D24AF5F25006AC5CA /* SwiftKt.entitlements */,
 				C4070A9224A6F394000819BD /* view */,
 				C43157EF2483DF200034A74E /* cell */,
 				C43157D1248399BB0034A74E /* base */,
@@ -269,7 +283,6 @@
 				C402404224838BCB00F715DC /* http */,
 				C402403D248381A900F715DC /* help */,
 				C402403A248164C500F715DC /* coredata */,
-				C44E81CF24A38295000BD888 /* storyboard */,
 				C40240232480193B00F715DC /* AppDelegate.swift */,
 				C40240272480193B00F715DC /* ViewController.swift */,
 				C44E81D124A38A29000BD888 /* NewLogin.storyboard */,
@@ -278,6 +291,7 @@
 				C402402F2480193E00F715DC /* Assets.xcassets */,
 				C40240312480193E00F715DC /* LaunchScreen.storyboard */,
 				C40240342480193E00F715DC /* Info.plist */,
+				C44F283F24A9B21400E16123 /* apphttps.cer */,
 				C402402C2480193B00F715DC /* swiftTemplate.xcdatamodeld */,
 			);
 			path = swiftTemplate;
@@ -452,13 +466,6 @@
 			path = home;
 			sourceTree = "<group>";
 		};
-		C44E81CF24A38295000BD888 /* storyboard */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = storyboard;
-			sourceTree = "<group>";
-		};
 		C4AEB2FE24985F7700196DAE /* post */ = {
 			isa = PBXGroup;
 			children = (
@@ -492,6 +499,7 @@
 		C4AEFCD6248BF07C0080904E /* mine */ = {
 			isa = PBXGroup;
 			children = (
+				C4D2874124A8ADCA0065F497 /* collection */,
 				C4206F21248FFBF800F4537C /* fance */,
 				C4AEFCE6248CA97F0080904E /* userinfo */,
 				C4AEFCD7248BF09E0080904E /* MineItemViewCell.swift */,
@@ -532,10 +540,20 @@
 			path = userinfo;
 			sourceTree = "<group>";
 		};
+		C4D2874124A8ADCA0065F497 /* collection */ = {
+			isa = PBXGroup;
+			children = (
+				C4D2874224A8ADFC0065F497 /* KtMyCollectCell.swift */,
+				C4D2874324A8ADFC0065F497 /* KtMyCollectCell.xib */,
+			);
+			path = collection;
+			sourceTree = "<group>";
+		};
 		C4DAA44824A6070600BA6F7D /* home */ = {
 			isa = PBXGroup;
 			children = (
 				C4DAA44924A6072C00BA6F7D /* KtFabulousViewController.swift */,
+				C44F284124A9C7FF00E16123 /* KtDatePickerViewController.swift */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -557,6 +575,7 @@
 				C4FDACB3249F49500095F1E3 /* MyMessageViewController.swift */,
 				C4FDACB5249F4A9F0095F1E3 /* MySettingViewController.swift */,
 				C4DAA44224A5FDC700BA6F7D /* MyCollectViewController.swift */,
+				C422FB3B24ADBD1F006AC5CA /* KtSexPickerViewController.swift */,
 			);
 			path = mineitems;
 			sourceTree = "<group>";
@@ -636,10 +655,12 @@
 				C4070A9A24A6F624000819BD /* KtInputView.xib in Resources */,
 				C44E81C624A367D3000BD888 /* FanceInfoHeaderCell.xib in Resources */,
 				C4AEFCEA248CAA310080904E /* BTMUserIconCell.xib in Resources */,
+				C4D2874524A8ADFD0065F497 /* KtMyCollectCell.xib in Resources */,
 				C40240332480193E00F715DC /* LaunchScreen.storyboard in Resources */,
 				C4FDACAB249EF1F60095F1E3 /* PostBannerImageCell.xib in Resources */,
 				C43157F42483DF5B0034A74E /* TabHomeNovelCell.xib in Resources */,
 				C44E81CE24A38006000BD888 /* sdc.gif in Resources */,
+				C44F284024A9B21500E16123 /* apphttps.cer in Resources */,
 				C4F55FD924A4B6DD00887B55 /* KtMyMapAddressViewCell.xib in Resources */,
 				C4DAA44724A6050C00BA6F7D /* KtFabulousTableViewCell.xib in Resources */,
 				C4AEB305249863EF00196DAE /* UploadImageCollectionViewCell.xib in Resources */,
@@ -732,6 +753,7 @@
 				C43157CF2483994F0034A74E /* CALayer+MyColor.m in Sources */,
 				C4AEFCED248CAB620080904E /* BTMUserItemCell.swift in Sources */,
 				C4070A8D24A64A80000819BD /* BaseDetailViewController.swift in Sources */,
+				C44F284224A9C7FF00E16123 /* KtDatePickerViewController.swift in Sources */,
 				C4FDACAA249EF1F60095F1E3 /* PostBannerImageCell.swift in Sources */,
 				C4AEB30724986C0400196DAE /* CollectionViewLeftFlowLayout.swift in Sources */,
 				C43157D924839C290034A74E /* FlashScreenViewController.swift in Sources */,
@@ -785,9 +807,11 @@
 				C4AEB30C2498A7B500196DAE /* FancesInfoViewController.swift in Sources */,
 				C4AEFCF6248E48C30080904E /* BTMMyPostViewController.swift in Sources */,
 				C44E81C524A367D3000BD888 /* FanceInfoHeaderCell.swift in Sources */,
+				C4D2874424A8ADFD0065F497 /* KtMyCollectCell.swift in Sources */,
 				C4FDACB4249F49500095F1E3 /* MyMessageViewController.swift in Sources */,
 				C43157E82483A47D0034A74E /* KeychainManager.swift in Sources */,
 				C43157F32483DF5B0034A74E /* TabHomeNovelCell.swift in Sources */,
+				C422FB3C24ADBD1F006AC5CA /* KtSexPickerViewController.swift in Sources */,
 				C43FDF7D248E89170023E3F2 /* TabDynamicViewController.swift in Sources */,
 				C4F55FDB24A59EB600887B55 /* KtTestViewController.swift in Sources */,
 				C4AEFCE9248CAA310080904E /* BTMUserIconCell.swift in Sources */,
@@ -942,6 +966,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = swiftTemplate/SwiftKt.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W7BB6FVMMB;
 				INFOPLIST_FILE = swiftTemplate/Info.plist;
@@ -964,6 +989,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = swiftTemplate/SwiftKt.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W7BB6FVMMB;
 				INFOPLIST_FILE = swiftTemplate/Info.plist;

@@ -98,11 +98,11 @@ class KtMessagelistViewController: BaseDetailViewController {
         MyMoyaManager.AllRequest(controller: self, NetworkService.commentlist(k: body)) { (data) in
             if self.type == 1 {
                 log.info(data.userlist?.toJSONString() ?? "")
-                self.list = data.postmsg
+                self.list = data.postmsgs
             }else{
-                self.list! += data.postmsg ?? []
+                self.list! += data.postmsgs ?? []
             }
-            if data.postlist?.count ?? 0 == 20{
+            if data.postmsgs?.count ?? 0 == 20{
                 self.hasmore = true
             }else{
                 self.hasmore = false
@@ -135,8 +135,16 @@ class KtMessagelistViewController: BaseDetailViewController {
             post.userNickName = UserInfoHelper.instance.user?.nickName
             post.userIcon = UserInfoHelper.instance.user?.icon
             self.message_num.text = "\(self.postinfo?.postMessageNum ?? 0)条评论"
-            self.list?.append(post)
-            self.tableview.reloadData()
+            if let pos = data.postmsg {
+                
+                log.info(pos.toJSONString())
+                pos.userIcon = UserInfoHelper.instance.user?.icon
+                
+                pos.userNickName =  UserInfoHelper.instance.user?.nickName
+                self.list?.insert(pos, at: 0)
+                self.tableview.reloadData()
+            }
+           
             
         }
     }
