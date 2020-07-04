@@ -254,7 +254,21 @@ extension UIImage{
         UIGraphicsEndImageContext()
         return image
     }
-   
+    func downloadWith(urlStr: String, complete: ((UIImage?) -> ())? = nil) {
+       if let url = URL(string: urlStr) {
+           KingfisherManager.shared.retrieveImage(with: url) { (result) in
+               switch result {
+               case .success(let imgResult):
+                   complete?(imgResult.image)
+               case .failure(let error):
+                   print(error)
+                   complete?(nil)
+               }
+           }
+       } else {
+           complete?(nil)
+       }
+   }
 }
 extension UITableViewCell {
     

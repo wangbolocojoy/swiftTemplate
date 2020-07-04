@@ -60,6 +60,13 @@ class MainPostCell: UITableViewCell {
         btn_message.addGestureRecognizer(tapmessage)
         btn_gotostart.isUserInteractionEnabled = true
         btn_gotostart.addGestureRecognizer(tapgoststartvc)
+        let tapsharpost = UITapGestureRecognizer(target: self, action: #selector(shareInfo))
+        btn_share.isUserInteractionEnabled = true
+        btn_share.addGestureRecognizer(tapsharpost)
+        let tappostmore = UITapGestureRecognizer(target: self, action: #selector(showActions))
+        poster_more.isUserInteractionEnabled = true
+        poster_more.addGestureRecognizer(tappostmore)
+        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -190,6 +197,41 @@ class MainPostCell: UITableViewCell {
             self.updateStartOrCollection()
             //                  self.postanimation()
         }
+    }
+    
+    /// 显示更多
+   @objc func showActions(){
+        let iconActionSheet: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
+    iconActionSheet.addAction(UIAlertAction(title:"举报", style: UIAlertAction.Style.destructive, handler: { (UIAlertAction) in
+                 
+                  
+              }))
+              iconActionSheet.addAction(UIAlertAction(title: "移除", style: UIAlertAction.Style.default, handler: { (UIAlertAction) in
+                 
+              }))
+              iconActionSheet.addAction(UIAlertAction(title:"取消", style: UIAlertAction.Style.cancel, handler:nil))
+        self.parentViewController()?.present(iconActionSheet, animated: true, completion: nil)
+    }
+    
+    /// 分享post
+    @objc func shareInfo(){
+          var items : [Any] = []
+        items.append("\(postinfo?.postDetail ?? "")")
+        items.append(self.banner.cellForItem(at: 0)?.imageView?.image)
+        items.append(URL(string: "https://apps.apple.com/cn/app/%E5%BE%AE%E4%BF%A1/id414478124"))
+         let activityVC = UIActivityViewController(activityItems:items , applicationActivities: nil)
+        activityVC.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
+              // 如果錯誤存在，跳出錯誤視窗並顯示給使用者。
+              if error != nil {
+                self.parentViewController()?.ShowTip(Title: error!.localizedDescription)
+                  return
+              }
+              // 如果發送成功，跳出提示視窗顯示成功。
+              if completed {
+                 self.parentViewController()?.ShowTip(Title:"分享成功")
+              }
+          }
+        self.parentViewController()?.present(activityVC, animated: true, completion: nil)
     }
     /// 点赞动画
     func postanimation(){
