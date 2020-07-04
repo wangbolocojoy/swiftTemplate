@@ -72,6 +72,13 @@ class MyMessageViewController: BaseViewController {
         
     }
     
+    func deleteMsg(json:String,index:Int){
+        MyMoyaManager.AllRequestNospinner(controller: self, NetworkService.deletecomment(k: json)) { (data) in
+            self.list?.remove(at: index)
+            self.tableview.reloadData()
+        }
+    }
+    
 }
 extension MyMessageViewController:UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -80,12 +87,36 @@ extension MyMessageViewController:UITableViewDataSource,UITableViewDelegate,UISc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: KtMessageCell.reuseID, for: indexPath) as! KtMessageCell
-        cell.setModel(info: list?[indexPath.item])
+        cell.setModel(info: list?[indexPath.item],type: 1)
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
+    //设置哪些行可以编辑
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if(list?[indexPath.item].userId == user?.id ){
+              return true
+          }else{
+              return false
+          }
+      }
+      
+      // 设置单元格的编辑的样式
+      func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+          return UITableViewCell.EditingStyle.delete
+      }
+      
+      //设置点击删除之后的操作
+      func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+          if editingStyle == .delete {
+              // Delete the row from the data source
+             let body = RequestBody()
+            body.userId = list?[indexPath.item].userId ?? 0
+            body.postId = list?[indexPath.item].postId ?? 0
+            deleteMsg(json: body.toJSONString() ?? "", index: indexPath.item)
+          }
+      }
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if(!decelerate){
             self.scrollLoadData()

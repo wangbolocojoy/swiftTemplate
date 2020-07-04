@@ -35,6 +35,12 @@ static let reuseID =  "KtMessageCell"
         log.info(msgModel?.toJSONString() ?? "")
         updateCell()
     }
+    
+    func setModel(info:PostMessage?,type:Int){
+           msgModel = info
+           log.info(msgModel?.toJSONString() ?? "")
+           updateCell(type:type)
+       }
     func updateCell(){
         antuername.text = msgModel?.userNickName ?? ""
         msgstartnum.text = "\(msgModel?.messageStart ?? 0)"
@@ -42,5 +48,14 @@ static let reuseID =  "KtMessageCell"
         message.text = msgModel?.message ?? ""
         time.text = msgModel?.postMsgCreatTime?.string2DateString  ?? Date().date2String
     }
+    func updateCell(type:Int){
+        btn_heart.isHidden = true
+        msgstartnum.isHidden = true
+           antuername.text = msgModel?.userNickName ?? ""
+           msgstartnum.text = "\(msgModel?.messageStart ?? 0)"
+           usericon.setImageUrl(image: usericon, string: msgModel?.userIcon, proimage: #imageLiteral(resourceName: "IMG_2507"))
+           message.text = msgModel?.message ?? ""
+           time.text = msgModel?.postMsgCreatTime?.string2DateString  ?? Date().date2String
+       }
    
 }
