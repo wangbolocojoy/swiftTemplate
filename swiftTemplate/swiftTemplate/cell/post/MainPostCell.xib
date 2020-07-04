@@ -91,27 +91,19 @@
                                 <rect key="frame" x="0.0" y="400" width="862" height="34"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" catalog="system" highlightedImage="heart.fill" translatesAutoresizingMaskIntoConstraints="NO" id="UGP-RO-jTc">
-                                        <rect key="frame" x="15" y="6" width="25" height="22.5"/>
+                                        <rect key="frame" x="15" y="3.5" width="30" height="27.5"/>
                                         <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="jA6-KX-AvN"/>
-                                            <constraint firstAttribute="width" constant="25" id="k9m-Pi-1Fl"/>
+                                            <constraint firstAttribute="height" constant="30" id="jA6-KX-AvN"/>
+                                            <constraint firstAttribute="width" constant="30" id="k9m-Pi-1Fl"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message" catalog="system" highlightedImage="message.fill" translatesAutoresizingMaskIntoConstraints="NO" id="8WP-Re-2HS">
-                                        <rect key="frame" x="55" y="5" width="25" height="24.5"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up" catalog="system" highlightedImage="square.and.arrow.up.fill" translatesAutoresizingMaskIntoConstraints="NO" id="zzv-yM-GeP">
+                                        <rect key="frame" x="70" y="1" width="30" height="31"/>
                                         <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="Dk9-PL-sfv"/>
-                                            <constraint firstAttribute="width" constant="25" id="ltg-u7-UKr"/>
-                                        </constraints>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paperplane" catalog="system" highlightedImage="paperplane.fill" translatesAutoresizingMaskIntoConstraints="NO" id="zzv-yM-GeP">
-                                        <rect key="frame" x="95" y="5" width="25" height="24.5"/>
-                                        <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="25" id="B3B-8i-A7P"/>
-                                            <constraint firstAttribute="height" constant="25" id="D2R-rs-M4e"/>
+                                            <constraint firstAttribute="width" constant="30" id="B3B-8i-A7P"/>
+                                            <constraint firstAttribute="height" constant="30" id="D2R-rs-M4e"/>
                                         </constraints>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bookmark" catalog="system" highlightedImage="bookmark.fill" translatesAutoresizingMaskIntoConstraints="NO" id="KpR-MC-By9">
@@ -132,14 +124,12 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="8WP-Re-2HS" firstAttribute="leading" secondItem="UGP-RO-jTc" secondAttribute="trailing" constant="15" id="2nJ-Cr-UXN"/>
                                     <constraint firstAttribute="trailing" secondItem="KpR-MC-By9" secondAttribute="trailing" constant="15" id="39n-tM-bNs"/>
-                                    <constraint firstItem="8WP-Re-2HS" firstAttribute="centerY" secondItem="cGX-fX-8gn" secondAttribute="centerY" id="Hrc-h1-cAK"/>
                                     <constraint firstAttribute="height" constant="34" id="ISK-KQ-v2y"/>
                                     <constraint firstItem="KpR-MC-By9" firstAttribute="centerY" secondItem="cGX-fX-8gn" secondAttribute="centerY" id="ISV-O6-yBZ"/>
                                     <constraint firstAttribute="bottom" secondItem="Hih-bt-GBk" secondAttribute="bottom" id="Iap-nM-zq4"/>
                                     <constraint firstItem="Hih-bt-GBk" firstAttribute="centerX" secondItem="cGX-fX-8gn" secondAttribute="centerX" id="R2e-9n-16g"/>
-                                    <constraint firstItem="zzv-yM-GeP" firstAttribute="leading" secondItem="8WP-Re-2HS" secondAttribute="trailing" constant="15" id="Tga-sq-HRZ"/>
+                                    <constraint firstItem="zzv-yM-GeP" firstAttribute="leading" secondItem="UGP-RO-jTc" secondAttribute="trailing" constant="25" id="X6F-yS-Gw0"/>
                                     <constraint firstItem="zzv-yM-GeP" firstAttribute="centerY" secondItem="cGX-fX-8gn" secondAttribute="centerY" id="eAI-LD-qe4"/>
                                     <constraint firstItem="UGP-RO-jTc" firstAttribute="leading" secondItem="cGX-fX-8gn" secondAttribute="leading" constant="15" id="r0E-EJ-2mu"/>
                                     <constraint firstItem="Hih-bt-GBk" firstAttribute="top" secondItem="cGX-fX-8gn" secondAttribute="top" id="sJK-zM-6hQ"/>
@@ -330,10 +320,8 @@
         <image name="bookmark.fill" catalog="system" width="112" height="128"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
-        <image name="message" catalog="system" width="128" height="113"/>
-        <image name="message.fill" catalog="system" width="128" height="113"/>
-        <image name="paperplane" catalog="system" width="128" height="121"/>
-        <image name="paperplane.fill" catalog="system" width="128" height="121"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <image name="square.and.arrow.up.fill" catalog="system" width="115" height="128"/>
         <image name="text.bubble" catalog="system" width="128" height="110"/>
     </resources>
 </document>

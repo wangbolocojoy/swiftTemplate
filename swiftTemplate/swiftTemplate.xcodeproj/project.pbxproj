@@ -36,6 +36,8 @@
 		C4206F24248FFC2900F4537C /* FanceORFollowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4206F22248FFC2900F4537C /* FanceORFollowCell.swift */; };
 		C4206F25248FFC2900F4537C /* FanceORFollowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4206F23248FFC2900F4537C /* FanceORFollowCell.xib */; };
 		C422FB3C24ADBD1F006AC5CA /* KtSexPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C422FB3B24ADBD1F006AC5CA /* KtSexPickerViewController.swift */; };
+		C422FB4624B0822D006AC5CA /* KtMyPuctureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C422FB4424B0822D006AC5CA /* KtMyPuctureCollectionViewCell.swift */; };
+		C422FB4724B0822D006AC5CA /* KtMyPuctureCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C422FB4524B0822D006AC5CA /* KtMyPuctureCollectionViewCell.xib */; };
 		C43157CF2483994F0034A74E /* CALayer+MyColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C43157CE2483994F0034A74E /* CALayer+MyColor.m */; };
 		C43157D3248399FE0034A74E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43157D2248399FE0034A74E /* BaseViewController.swift */; };
 		C43157D524839AC30034A74E /* BaseTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43157D424839AC30034A74E /* BaseTabViewController.swift */; };
@@ -146,6 +148,8 @@
 		C422FB3B24ADBD1F006AC5CA /* KtSexPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtSexPickerViewController.swift; sourceTree = "<group>"; };
 		C422FB3D24AF5F25006AC5CA /* SwiftKt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwiftKt.entitlements; sourceTree = "<group>"; };
 		C422FB3E24AF5F6D006AC5CA /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
+		C422FB4424B0822D006AC5CA /* KtMyPuctureCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtMyPuctureCollectionViewCell.swift; sourceTree = "<group>"; };
+		C422FB4524B0822D006AC5CA /* KtMyPuctureCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KtMyPuctureCollectionViewCell.xib; sourceTree = "<group>"; };
 		C43157CC2483991E0034A74E /* swiftTemplate-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "swiftTemplate-Bridging-Header.h"; sourceTree = "<group>"; };
 		C43157CE2483994F0034A74E /* CALayer+MyColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CALayer+MyColor.m"; sourceTree = "<group>"; };
 		C43157D0248399690034A74E /* CALayer+MyColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CALayer+MyColor.h"; sourceTree = "<group>"; };
@@ -412,6 +416,15 @@
 			path = fance;
 			sourceTree = "<group>";
 		};
+		C422FB4324B081F8006AC5CA /* mypicture */ = {
+			isa = PBXGroup;
+			children = (
+				C422FB4424B0822D006AC5CA /* KtMyPuctureCollectionViewCell.swift */,
+				C422FB4524B0822D006AC5CA /* KtMyPuctureCollectionViewCell.xib */,
+			);
+			path = mypicture;
+			sourceTree = "<group>";
+		};
 		C43157D1248399BB0034A74E /* base */ = {
 			isa = PBXGroup;
 			children = (
@@ -499,6 +512,7 @@
 		C4AEFCD6248BF07C0080904E /* mine */ = {
 			isa = PBXGroup;
 			children = (
+				C422FB4324B081F8006AC5CA /* mypicture */,
 				C4D2874124A8ADCA0065F497 /* collection */,
 				C4206F21248FFBF800F4537C /* fance */,
 				C4AEFCE6248CA97F0080904E /* userinfo */,
@@ -673,6 +687,7 @@
 				C4FDACA6249E2B7A0095F1E3 /* MainPostCell.xib in Resources */,
 				C4AEFCEE248CAB620080904E /* BTMUserItemCell.xib in Resources */,
 				C4070A9124A66B15000819BD /* KtMessageCell.xib in Resources */,
+				C422FB4724B0822D006AC5CA /* KtMyPuctureCollectionViewCell.xib in Resources */,
 				C4AEFCF2248CAD070080904E /* BTMCleanHeader.xib in Resources */,
 				C4AEFCDE248BF0BD0080904E /* MineUserInfoViewCell.xib in Resources */,
 				C4AEFCDA248BF09E0080904E /* MineItemViewCell.xib in Resources */,
@@ -793,6 +808,7 @@
 				C4FDACBE249FB5610095F1E3 /* DynamicCollectionViewCell.swift in Sources */,
 				C40240242480193B00F715DC /* AppDelegate.swift in Sources */,
 				C43FDF7B248E88C30023E3F2 /* TabFriendsViewController.swift in Sources */,
+				C422FB4624B0822D006AC5CA /* KtMyPuctureCollectionViewCell.swift in Sources */,
 				C43157D3248399FE0034A74E /* BaseViewController.swift in Sources */,
 				C4AEFCFA248E4B330080904E /* BTMMyFanceFollowViewController.swift in Sources */,
 				C402403F248381BE00F715DC /* Constant.swift in Sources */,

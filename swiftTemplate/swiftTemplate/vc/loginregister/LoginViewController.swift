@@ -179,7 +179,7 @@ extension LoginViewController:ASAuthorizationControllerDelegate, ASAuthorization
             log.info("userIdentifier  \(userIdentifier)")
             log.info("fullName  \(String(describing: fullName?.familyName) )\(String(describing: fullName?.givenName))")
              log.info("email  \(email ?? "")")
-            log.info("realUserStatus  \(realUserStatus.rawValue ?? 0)")
+            log.info("realUserStatus  \(realUserStatus.rawValue )")
              log.info("identityToken  \(identityToken ?? "")")
              log.info("authCode  \(authCode ?? "")")
             // For the purpose of this demo app, store the `userIdentifier` in the keychain.

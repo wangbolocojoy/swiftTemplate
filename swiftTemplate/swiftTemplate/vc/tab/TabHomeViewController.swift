@@ -76,7 +76,16 @@ class TabHomeViewController: BaseTabViewController {
         getNovel(body: pagebody)
         
     }
-    
+    func deletePost(pfo:PostInfo,index:Int){
+        let body = RequestBody()
+        body.userId = UserInfoHelper.instance.user?.id ?? 0
+        body.postId = pfo.id
+        MyMoyaManager.AllRequest(controller: self, NetworkService.deletspost(K: body.toJSONString() ?? "")) { (data) in
+            UserInfoHelper.instance.user?.postNum = (UserInfoHelper.instance.user?.postNum ?? 1) - 1
+            self.list?.remove(at: index)
+            self.tableview.reloadData()
+        }
+    }
     
 }
 extension TabHomeViewController:UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate{
@@ -86,7 +95,18 @@ extension TabHomeViewController:UITableViewDataSource,UITableViewDelegate,UIScro
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MainPostCell.reuseID, for: indexPath) as! MainPostCell
-        cell.setModel(pinfo: list?[indexPath.item])
+        
+        cell.setModel(pinfo: list?[indexPath.item],ind: indexPath.item)
+        cell.callBackBlock { (type, poinfo,index) in
+            switch type{
+            case 2:
+                 self.deletePost(pfo: poinfo!, index: index)
+                break
+                
+            default:
+                break
+            }
+        }
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

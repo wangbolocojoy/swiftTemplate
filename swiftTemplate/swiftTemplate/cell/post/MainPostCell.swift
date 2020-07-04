@@ -19,7 +19,11 @@ class MainPostCell: UITableViewCell {
             banner.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "cell")
         }
     }
-    
+    func callBackBlock(block : @escaping swiftblock)  {
+        callBack = block
+    }
+    var callBack :swiftblock?
+    typealias swiftblock = (_ type:Int,_ btntag : PostInfo? ,_ index:Int) -> Void
     @IBOutlet weak var btn_gotostart: UIView!
     
     @IBOutlet weak var post_detail: UILabel!
@@ -36,6 +40,7 @@ class MainPostCell: UITableViewCell {
     @IBOutlet weak var postauther_icon: UIImageView!
     var postinfo : PostInfo? = nil
     var user = UserInfoHelper.instance.user
+    var index:Int = 0
     @IBOutlet weak var poster_nickname: UILabel!
     
     
@@ -80,7 +85,8 @@ class MainPostCell: UITableViewCell {
         vc.postinfo = postinfo
         self.pushVC(vc: vc)
     }
-    func setModel(pinfo:PostInfo?){
+    func setModel(pinfo:PostInfo?,ind:Int){
+        index = ind
         postinfo = pinfo
         updateCell()
     }
@@ -100,7 +106,7 @@ class MainPostCell: UITableViewCell {
         let vc = self.parentViewController()?.getVcByName(vc: .消息列表) as! KtMessagelistViewController
         vc.postinfo = postinfo
         vc.callBackBlock { (Info) in
-            self.setModel(pinfo: Info)
+            self.setModel(pinfo: Info,ind: self.index)
         }
         vc.view.backgroundColor = .clear
         self.parentViewController()?.present(vc, animated: true, completion: nil)
@@ -155,7 +161,7 @@ class MainPostCell: UITableViewCell {
         let body = RequestBody()
         body.userId = user?.id ?? 0
         body.postId = postinfo?.id
-        MyMoyaManager.AllRequest(controller: self.parentViewController()!, NetworkService.collection(K: body.toJSONString() ?? "")) { (data) in
+        MyMoyaManager.AllRequestNospinner(controller: self.parentViewController()!, NetworkService.collection(K: body.toJSONString() ?? "")) { (data) in
             log.info("收藏\(data)")
             self.postinfo?.isCollection = true
             
@@ -167,7 +173,7 @@ class MainPostCell: UITableViewCell {
         let body = RequestBody()
         body.userId = user?.id ?? 0
         body.postId = postinfo?.id
-        MyMoyaManager.AllRequest(controller: self.parentViewController()!, NetworkService.cancelcollection(K: body.toJSONString() ?? "")) { (data) in
+        MyMoyaManager.AllRequestNospinner(controller: self.parentViewController()!, NetworkService.cancelcollection(K: body.toJSONString() ?? "")) { (data) in
             log.info("取消收藏\(data)")
             self.postinfo?.isCollection = false
             self.updateStartOrCollection()
@@ -178,7 +184,7 @@ class MainPostCell: UITableViewCell {
         let body = RequestBody()
         body.userId = user?.id ?? 0
         body.postId = postinfo?.id
-        MyMoyaManager.AllRequest(controller: self.parentViewController()!, NetworkService.poststart(K: body.toJSONString() ?? "")) { (data) in
+        MyMoyaManager.AllRequestNospinner(controller: self.parentViewController()!, NetworkService.poststart(K: body.toJSONString() ?? "")) { (data) in
             log.info("点赞\(data)")
             self.postinfo?.isStart = true
             self.postinfo?.postStarts = (self.postinfo?.postStarts ?? 0) + 1
@@ -190,7 +196,7 @@ class MainPostCell: UITableViewCell {
         let body = RequestBody()
         body.userId = user?.id ?? 0
         body.postId = postinfo?.id
-        MyMoyaManager.AllRequest(controller: self.parentViewController()!, NetworkService.postunstart(K: body.toJSONString() ?? "")) { (data) in
+        MyMoyaManager.AllRequestNospinner(controller: self.parentViewController()!, NetworkService.postunstart(K: body.toJSONString() ?? "")) { (data) in
             log.info("取消点赞\(data)")
             self.postinfo?.isStart = false
             self.postinfo?.postStarts = (self.postinfo?.postStarts ?? 1) - 1
@@ -200,37 +206,50 @@ class MainPostCell: UITableViewCell {
     }
     
     /// 显示更多
-   @objc func showActions(){
+    @objc func showActions(){
         let iconActionSheet: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
-    iconActionSheet.addAction(UIAlertAction(title:"举报", style: UIAlertAction.Style.destructive, handler: { (UIAlertAction) in
-                 
-                  
-              }))
-              iconActionSheet.addAction(UIAlertAction(title: "移除", style: UIAlertAction.Style.default, handler: { (UIAlertAction) in
-                 
-              }))
-              iconActionSheet.addAction(UIAlertAction(title:"取消", style: UIAlertAction.Style.cancel, handler:nil))
+        
+        iconActionSheet.addAction(UIAlertAction(title:"举报", style: UIAlertAction.Style.destructive, handler: { (UIAlertAction) in
+            
+            
+        }))
+        iconActionSheet.addAction(UIAlertAction(title: "分享", style: UIAlertAction.Style.default, handler: { (UIAlertAction) in
+            self.shareInfo()
+        }))
+//        iconActionSheet.addAction(UIAlertAction(title: "移除", style: UIAlertAction.Style.default, handler: { (UIAlertAction) in
+//
+//        }))
+        
+        if postinfo?.author?.id == UserInfoHelper.instance.user?.id{
+            iconActionSheet.addAction(UIAlertAction(title: "删除帖子", style: UIAlertAction.Style.destructive, handler: { (UIAlertAction) in
+                if self.callBack != nil{
+                    self.callBack!(2,self.postinfo,self.index)
+                }
+            }))
+        }
+        
+        iconActionSheet.addAction(UIAlertAction(title:"取消", style: UIAlertAction.Style.cancel, handler:nil))
         self.parentViewController()?.present(iconActionSheet, animated: true, completion: nil)
     }
     
     /// 分享post
     @objc func shareInfo(){
-          var items : [Any] = []
+        var items : [Any] = []
         items.append("\(postinfo?.postDetail ?? "")")
-        items.append(self.banner.cellForItem(at: 0)?.imageView?.image)
-        items.append(URL(string: "https://apps.apple.com/cn/app/%E5%BE%AE%E4%BF%A1/id414478124"))
-         let activityVC = UIActivityViewController(activityItems:items , applicationActivities: nil)
+        items.append(self.banner.cellForItem(at: 0)?.imageView?.image!)
+        items.append(URL(string: "https://apps.apple.com/cn/app/%E5%BE%AE%E4%BF%A1/id414478124")!)
+        let activityVC = UIActivityViewController(activityItems:items , applicationActivities: nil)
         activityVC.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
-              // 如果錯誤存在，跳出錯誤視窗並顯示給使用者。
-              if error != nil {
+            // 如果錯誤存在，跳出錯誤視窗並顯示給使用者。
+            if error != nil {
                 self.parentViewController()?.ShowTip(Title: error!.localizedDescription)
-                  return
-              }
-              // 如果發送成功，跳出提示視窗顯示成功。
-              if completed {
-                 self.parentViewController()?.ShowTip(Title:"分享成功")
-              }
-          }
+                return
+            }
+            // 如果發送成功，跳出提示視窗顯示成功。
+            if completed {
+                self.parentViewController()?.ShowTip(Title:"分享成功")
+            }
+        }
         self.parentViewController()?.present(activityVC, animated: true, completion: nil)
     }
     /// 点赞动画

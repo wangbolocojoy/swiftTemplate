@@ -137,7 +137,7 @@ class KtMessagelistViewController: BaseDetailViewController {
             self.message_num.text = "\(self.postinfo?.postMessageNum ?? 0)条评论"
             if let pos = data.postmsg {
                 
-                log.info(pos.toJSONString())
+                log.info(pos.toJSONString() ?? "")
                 pos.userIcon = UserInfoHelper.instance.user?.icon
                 
                 pos.userNickName =  UserInfoHelper.instance.user?.nickName

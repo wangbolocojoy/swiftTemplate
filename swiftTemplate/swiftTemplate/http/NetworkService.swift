@@ -68,6 +68,10 @@ public enum NetworkService{
     case commentlist(k:String)
     //删除评论
     case deletecomment(k:String)
+    //获取我的图片
+    case getallimasges(k:String)
+    //我的所有评论
+    case getusermsgs(k:String)
     
 }
 extension NetworkService:Moya.TargetType{
@@ -137,6 +141,11 @@ extension NetworkService:Moya.TargetType{
             return "swiftTemplate/Message/getMessages"
         case .deletecomment:
             return "swiftTemplate/Message/deleteMessage"
+        case .getallimasges:
+            return "swiftTemplate/file/getMyAllImages"
+        case .getusermsgs:
+            return "swiftTemplate/Message/getUserMessages"
+            
         }
         
     }
@@ -151,7 +160,7 @@ extension NetworkService:Moya.TargetType{
     //MARK: - 请求参数
     public var task: Moya.Task {
         switch self {
-        case .login(let data),.register(let data),.getmsg(let data),.tabhome(let data),.searchnovel(let data),.updateuserinfo(let data),.followuser(let data),.unfollowuser(let data),.getfancelist(let data),.getfollowlist(let data),.finduser(let data),.findrecommendlist(let data),.sendpost(let data),.getposts(let data),.getuserposts(let data),.deletspost(let data),.getuserinfo(let data),.poststart(let data),.postunstart(let data),.getpoststartlist(let data),.collection(let data),.cancelcollection(let data),.getcollectionlist(let data),.getuserstartlist(let data),.sendcomment(let data),.commentlist(let data),.deletecomment(let data):
+        case .login(let data),.register(let data),.getmsg(let data),.tabhome(let data),.searchnovel(let data),.updateuserinfo(let data),.followuser(let data),.unfollowuser(let data),.getfancelist(let data),.getfollowlist(let data),.finduser(let data),.findrecommendlist(let data),.sendpost(let data),.getposts(let data),.getuserposts(let data),.deletspost(let data),.getuserinfo(let data),.poststart(let data),.postunstart(let data),.getpoststartlist(let data),.collection(let data),.cancelcollection(let data),.getcollectionlist(let data),.getuserstartlist(let data),.sendcomment(let data),.commentlist(let data),.deletecomment(let data),.getallimasges(let data),.getusermsgs(let data):
             return  .requestData(data.utf8Encoded)
             
         case .uodateusericon(let param, let uploadImages):

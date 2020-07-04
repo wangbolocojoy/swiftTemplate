@@ -76,7 +76,7 @@ class SendPostViewController: BaseViewController {
     
     func showChooseImagePicker(){
         var config = YPImagePickerConfiguration()
-        config.screens = [.video,.photo,.library]
+        config.screens = [.photo,.library]
         config.library.mediaType = .photo
         config.library.maxNumberOfItems = 6
         picker = YPImagePicker(configuration: config)

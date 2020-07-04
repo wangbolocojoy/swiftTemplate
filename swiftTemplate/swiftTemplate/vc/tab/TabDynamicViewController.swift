@@ -23,17 +23,17 @@ class TabDynamicViewController: BaseTabViewController{
         super.viewDidLoad()
     }
     override func initView() {
-        self.countrySearchController = ({
-            let controller = UISearchController(searchResultsController: nil)
-            controller.searchResultsUpdater = self   //两个样例使用不同的代理
-            controller.hidesNavigationBarDuringPresentation = false
-            controller.dimsBackgroundDuringPresentation = true
-            controller.searchBar.barStyle = .default
-            //            controller.view.backgroundColor = .white
-            controller.view.backgroundColor = self.view.backgroundColor
-            controller.searchBar.placeholder = "输入关键词进行搜索"
-            return controller
-        })()
+//        self.countrySearchController = ({
+//            let controller = UISearchController(searchResultsController: nil)
+//            controller.searchResultsUpdater = self   //两个样例使用不同的代理
+//            controller.hidesNavigationBarDuringPresentation = false
+//            controller.dimsBackgroundDuringPresentation = true
+//            controller.searchBar.barStyle = .default
+//            //            controller.view.backgroundColor = .white
+//            controller.view.backgroundColor = self.view.backgroundColor
+//            controller.searchBar.placeholder = "输入关键词进行搜索"
+//            return controller
+//        })()
         let imageview = UIImageView(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
         
         
@@ -44,8 +44,8 @@ class TabDynamicViewController: BaseTabViewController{
         view.addSubview(imageview)
         let item = UIBarButtonItem(customView: view)
         self.navigationItem.leftBarButtonItem = item
-        self.navigationItem.searchController = self.countrySearchController
-        self.navigationItem.hidesSearchBarWhenScrolling = true
+//        self.navigationItem.searchController = self.countrySearchController
+//        self.navigationItem.hidesSearchBarWhenScrolling = true
         collectionview.delegate = self
         collectionview.dataSource = self
         collectionview.collectionViewLayout = CollectionViewLeftFlowLayout()

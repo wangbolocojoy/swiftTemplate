@@ -22,6 +22,7 @@ class BaseResponse: Mappable {
     var userlist :[UserInfo]?
     var postmsgs:[PostMessage]?
     var postmsg:PostMessage?
+    var mypictures:[PostImages]?
     required init?(map: Map) {
     }
     func mapping(map: Map) {
@@ -38,6 +39,7 @@ class BaseResponse: Mappable {
         userlist <- map["data"]
         postmsgs <- map["data"]
         postmsg <- map["data"]
+        mypictures <- map["data"]
     }
     
 }
