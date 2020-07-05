@@ -53,6 +53,8 @@ class PostMessage: Mappable {
     var message: String?
     var messageStart:Int?
     var postMsgCreatTime: String?
+    var replyUserId:Int?
+    var replyNickName:String?
     required init?(map: Map) {
         
     }
@@ -69,6 +71,8 @@ class PostMessage: Mappable {
         message <- map["message"]
         messageStart <- map["messageStart"]
         postMsgCreatTime <- map["postMsgCreatTime"]
+        replyUserId <- map["replyUserId"]
+        replyNickName <- map["replyNickName"]
     }
     
     
@@ -217,6 +221,8 @@ class UserInfo: Mappable {
     var birthDay:String?
     var constellation:String?
     var creatTime:Date?
+    var province:String?
+       var city:String?
     required init?(map: Map) {
     }
     func mapping(map: Map) {
@@ -239,6 +245,8 @@ class UserInfo: Mappable {
         birthDay <- map["birthDay"]
         constellation <- map["constellation"]
         creatTime <- map["creatTime"]
+        province <- map["province"]
+        city <- map["city"]
     }
     
 }

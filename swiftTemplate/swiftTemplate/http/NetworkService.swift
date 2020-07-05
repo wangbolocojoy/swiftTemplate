@@ -300,6 +300,16 @@ public extension String {
         formatter.dateFormat = "yyyy年MM月dd日 HH时:mm分:ss秒"
         return formatter.string(from: date)
     }
+    var string2DateMMdd : String {
+           let formatter1 = DateFormatter()
+           formatter1.locale = Locale.init(identifier: "en_US")
+           formatter1.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSz"
+           let date = formatter1.date(from: self) ?? Date()
+           let formatter = DateFormatter()
+           formatter.locale = Locale.init(identifier: "zh_CN")
+           formatter.dateFormat = "MM月dd日 HH时"
+           return formatter.string(from: date)
+       }
     var urlEscaped: String {
         return addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
     }

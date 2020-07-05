@@ -20,17 +20,17 @@ class TabFriendsViewController: BaseTabViewController {
         super.viewDidLoad()
     }
     override func initView() {
-        self.countrySearchController = ({
-            let controller = UISearchController(searchResultsController: nil)
-            controller.searchResultsUpdater = self   //两个样例使用不同的代理
-            controller.hidesNavigationBarDuringPresentation = false
-            controller.dimsBackgroundDuringPresentation = true
-            controller.searchBar.barStyle = .default
-            //            controller.view.backgroundColor = .white
-            controller.searchBar.placeholder = "输入用户账号查找"
-            return controller
-        })()
-        self.navigationItem.titleView = self.countrySearchController?.searchBar
+//        self.countrySearchController = ({
+//            let controller = UISearchController(searchResultsController: nil)
+//            controller.searchResultsUpdater = self   //两个样例使用不同的代理
+//            controller.hidesNavigationBarDuringPresentation = false
+//            controller.dimsBackgroundDuringPresentation = true
+//            controller.searchBar.barStyle = .default
+//            //            controller.view.backgroundColor = .white
+//            controller.searchBar.placeholder = "输入用户账号查找"
+//            return controller
+//        })()
+//        self.navigationItem.titleView = self.countrySearchController?.searchBar
         tableview.delegate = self
         tableview.dataSource = self
         tableview.separatorStyle = .none
@@ -118,7 +118,7 @@ extension TabFriendsViewController:UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: FanceORFollowCell.reuseID, for: indexPath) as! FanceORFollowCell
-        cell.updateCell(i:indexPath.item,u: list?[indexPath.item])
+        cell.updateCell(i:indexPath.item,u: list?[indexPath.item], type: 0)
         cell.callBackBlock { (i,user) in
             if user?.isFollow ?? false == true {
                 self.unfollow(index:i,u: user)
@@ -128,7 +128,6 @@ extension TabFriendsViewController:UITableViewDelegate,UITableViewDataSource{
         }
         return cell
     }
-    
     
 }
 extension TabFriendsViewController:UISearchResultsUpdating{

@@ -11,6 +11,7 @@ import ObjectMapper
 class RequestBody: Mappable {
     var id:Int?
     var postId:Int?
+    var postMsgId:Int?
     var userId:Int?
     var followId:Int?
     var icon:String?
@@ -33,6 +34,10 @@ class RequestBody: Mappable {
     var postMessage:String?
     var birthDay:String?
     var constellation:String?
+    var replyNickName:String?
+    var replyUserId:Int?
+    var province:String?
+    var city:String?
     init() {
         
     }
@@ -42,6 +47,7 @@ class RequestBody: Mappable {
     
     func mapping(map: Map) {
         postId <- map["postId"]
+        postMsgId <- map["postMsgId"]
         phone <- map["phone"]
         password <- map["password"]
         msgcode <- map["msgcode"]
@@ -65,6 +71,10 @@ class RequestBody: Mappable {
         postMessage <- map["postMessage"]
         birthDay <- map["birthDay"]
         constellation <- map["constellation"]
+        replyNickName <- map["replyNickName"]
+        replyUserId <- map["replyUserId"]
+        province <- map["province"]
+        city <- map["city"]
     }
     
     

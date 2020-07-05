@@ -81,7 +81,7 @@ extension BTMMyFanceFollowViewController:UITableViewDelegate,UITableViewDataSour
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: FanceORFollowCell.reuseID, for: indexPath) as! FanceORFollowCell
-        cell.updateCell(i:indexPath.item,u: list?[indexPath.item])
+        cell.updateCell(i:indexPath.item,u: list?[indexPath.item],type:type)
         cell.callBackBlock { (indx, user) in
             if user?.isFollow ?? false == true {
                 self.unfollow(index: indx, u: user)

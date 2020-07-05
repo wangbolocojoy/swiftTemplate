@@ -30,11 +30,16 @@ static let reuseID =  "FanceORFollowCell"
         selectionStyle = .none
         
     }
-    func updateCell(i:Int,u:UserInfo?){
+    func updateCell(i:Int,u:UserInfo?,type:Int?){
         index = i
         user = u
         user_name.text = u?.nickName ?? ""
         user_info.text = u?.easyInfo ?? ""
+        if (type ?? 0) == 1 || (type ?? 0) == 2{
+            lab_isfollow.isHidden = true
+        }else{
+            lab_isfollow.isHidden = false
+        }
         lab_isfollow.setTitle(u?.isFollow ?? false  ? "以关注" : "未关注", for: .normal)
         icon_image.setImageUrl(image: icon_image,string: u?.icon ?? "", proimage: #imageLiteral(resourceName: "IMG_2507"))
     }

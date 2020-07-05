@@ -209,10 +209,10 @@ class MainPostCell: UITableViewCell {
     @objc func showActions(){
         let iconActionSheet: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
         
-        iconActionSheet.addAction(UIAlertAction(title:"举报", style: UIAlertAction.Style.destructive, handler: { (UIAlertAction) in
-            
-            
-        }))
+//        iconActionSheet.addAction(UIAlertAction(title:"举报", style: UIAlertAction.Style.destructive, handler: { (UIAlertAction) in
+//
+//
+//        }))
         iconActionSheet.addAction(UIAlertAction(title: "分享", style: UIAlertAction.Style.default, handler: { (UIAlertAction) in
             self.shareInfo()
         }))

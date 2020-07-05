@@ -38,6 +38,8 @@
 		C422FB3C24ADBD1F006AC5CA /* KtSexPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C422FB3B24ADBD1F006AC5CA /* KtSexPickerViewController.swift */; };
 		C422FB4624B0822D006AC5CA /* KtMyPuctureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C422FB4424B0822D006AC5CA /* KtMyPuctureCollectionViewCell.swift */; };
 		C422FB4724B0822D006AC5CA /* KtMyPuctureCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C422FB4524B0822D006AC5CA /* KtMyPuctureCollectionViewCell.xib */; };
+		C422FB4924B1ABB7006AC5CA /* KtMessageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C422FB4824B1ABB7006AC5CA /* KtMessageHeader.swift */; };
+		C422FB4B24B1ABC6006AC5CA /* KtMessageHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = C422FB4A24B1ABC6006AC5CA /* KtMessageHeader.xib */; };
 		C43157CF2483994F0034A74E /* CALayer+MyColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C43157CE2483994F0034A74E /* CALayer+MyColor.m */; };
 		C43157D3248399FE0034A74E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43157D2248399FE0034A74E /* BaseViewController.swift */; };
 		C43157D524839AC30034A74E /* BaseTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43157D424839AC30034A74E /* BaseTabViewController.swift */; };
@@ -150,6 +152,8 @@
 		C422FB3E24AF5F6D006AC5CA /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
 		C422FB4424B0822D006AC5CA /* KtMyPuctureCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtMyPuctureCollectionViewCell.swift; sourceTree = "<group>"; };
 		C422FB4524B0822D006AC5CA /* KtMyPuctureCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KtMyPuctureCollectionViewCell.xib; sourceTree = "<group>"; };
+		C422FB4824B1ABB7006AC5CA /* KtMessageHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtMessageHeader.swift; sourceTree = "<group>"; };
+		C422FB4A24B1ABC6006AC5CA /* KtMessageHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KtMessageHeader.xib; sourceTree = "<group>"; };
 		C43157CC2483991E0034A74E /* swiftTemplate-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "swiftTemplate-Bridging-Header.h"; sourceTree = "<group>"; };
 		C43157CE2483994F0034A74E /* CALayer+MyColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CALayer+MyColor.m"; sourceTree = "<group>"; };
 		C43157D0248399690034A74E /* CALayer+MyColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CALayer+MyColor.h"; sourceTree = "<group>"; };
@@ -497,6 +501,8 @@
 				C4FDACA4249E2B7A0095F1E3 /* MainPostCell.xib */,
 				C4070A8E24A66B15000819BD /* KtMessageCell.swift */,
 				C4070A8F24A66B15000819BD /* KtMessageCell.xib */,
+				C422FB4824B1ABB7006AC5CA /* KtMessageHeader.swift */,
+				C422FB4A24B1ABC6006AC5CA /* KtMessageHeader.xib */,
 			);
 			path = post;
 			sourceTree = "<group>";
@@ -673,6 +679,7 @@
 				C40240332480193E00F715DC /* LaunchScreen.storyboard in Resources */,
 				C4FDACAB249EF1F60095F1E3 /* PostBannerImageCell.xib in Resources */,
 				C43157F42483DF5B0034A74E /* TabHomeNovelCell.xib in Resources */,
+				C422FB4B24B1ABC6006AC5CA /* KtMessageHeader.xib in Resources */,
 				C44E81CE24A38006000BD888 /* sdc.gif in Resources */,
 				C44F284024A9B21500E16123 /* apphttps.cer in Resources */,
 				C4F55FD924A4B6DD00887B55 /* KtMyMapAddressViewCell.xib in Resources */,
@@ -813,6 +820,7 @@
 				C4AEFCFA248E4B330080904E /* BTMMyFanceFollowViewController.swift in Sources */,
 				C402403F248381BE00F715DC /* Constant.swift in Sources */,
 				C402403C248164E300F715DC /* CoreDataManager.swift in Sources */,
+				C422FB4924B1ABB7006AC5CA /* KtMessageHeader.swift in Sources */,
 				C43157DD24839C670034A74E /* TabMineViewController.swift in Sources */,
 				C4AEFCD9248BF09E0080904E /* MineItemViewCell.swift in Sources */,
 				C43157EA2483AF570034A74E /* TextUntils.swift in Sources */,

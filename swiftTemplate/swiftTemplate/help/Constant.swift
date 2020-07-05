@@ -20,7 +20,7 @@ enum MyController{
     case 我的图片
     case 我的地址
     case 我的收藏
-    case 我的消息
+    case 我的评论
     case 我的设置
     case 我的二维码
     case 我的地图
@@ -92,7 +92,7 @@ extension UIViewController{
         case .我的收藏:
             let vc = sb.instantiateViewController(withIdentifier: "MYCOLLECTVC") as! MyCollectViewController
             return vc
-        case .我的消息:
+        case .我的评论:
             let vc = sb.instantiateViewController(withIdentifier: "MYMESSAGEVC") as! MyMessageViewController
             return vc
         case .我的设置:

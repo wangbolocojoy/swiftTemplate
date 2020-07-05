@@ -258,6 +258,8 @@ extension KtMyMapViewController:UITableViewDelegate,UITableViewDataSource{
             let body = RequestBody()
             body.id = UserInfoHelper.instance.user?.id ?? 0
             body.address = address
+            body.province = info?.province ?? ""
+            body.city = info?.city ?? ""
             MyMoyaManager.AllRequest(controller: self, NetworkService.updateuserinfo(k: body.toJSONString() ?? "")) { (data) in
                 UserInfoHelper.instance.user = data.userinfo
                 self.ShowTipsClose(tite: data.msg ?? "更新成功")
