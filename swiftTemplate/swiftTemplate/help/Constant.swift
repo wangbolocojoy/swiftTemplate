@@ -29,6 +29,9 @@ enum MyController{
     case 消息列表
     case 日期选择
     case 性别选择
+    case 我的隐私协议
+    case 关于
+    case 关于我们
 }
 
 enum PictureType{
@@ -119,6 +122,16 @@ extension UIViewController{
         case .性别选择:
             let vc = otsb.instantiateViewController(withIdentifier: "KTSEXPICKERVC") as! KtSexPickerViewController
             return vc
+        case .我的隐私协议:
+            let vc = otsb.instantiateViewController(withIdentifier: "KYMYWKWEBVIEWVC") as! KtMyWkWebViewController
+            return vc
+        case .关于:
+            let vc = otsb.instantiateViewController(withIdentifier: "KTABOUTMINEVC") as! KtAboutMineViewController
+            return vc
+        case .关于我们:
+            let vc = otsb.instantiateViewController(withIdentifier: "KTDEVELOPERVC") as!
+            KtAboutDeveloperViewController
+            return vc
         }
     }
 }
@@ -130,6 +143,10 @@ struct Constant {
     static let DarkBackGround = #colorLiteral(red: 0.07843137255, green: 0.07843137255, blue: 0.07843137255, alpha: 1)
     static let 密码:String = "PASSWORD"
     static let 账号:String = "PHONE"
+    //    let infoDictionary = Bundle.main.infoDictionary
+    
+    let majorVersion  = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0.1"//主程序版本号
+    
     
     
     

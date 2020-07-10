@@ -38,6 +38,7 @@ class RequestBody: Mappable {
     var replyUserId:Int?
     var province:String?
     var city:String?
+    var msgType:Int?
     init() {
         
     }
@@ -75,6 +76,7 @@ class RequestBody: Mappable {
         replyUserId <- map["replyUserId"]
         province <- map["province"]
         city <- map["city"]
+        msgType <- map["msgType"]
     }
     
     

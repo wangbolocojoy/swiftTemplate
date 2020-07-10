@@ -44,7 +44,7 @@ DEPENDENCIES:
   - CryptoSwift (~> 1.0.0)
   - FSPagerView (~> 0.8.3)
   - Gifu (~> 3.2.0)
-  - InputBarAccessoryView
+  - InputBarAccessoryView (~> 4.3.2)
   - IQKeyboardManagerSwift (~> 6.4.0)
   - Kingfisher (~> 5.14.0)
   - MJRefresh (~> 3.2.0)
@@ -101,6 +101,6 @@ SPEC CHECKSUMS:
   SwiftyRSA: 6e528fb1b1a87d5111c48081083b141d6d65f1cf
   YPImagePicker: 3b88ca0c50134af2856c48c481572c98a8b8b65b
 
-PODFILE CHECKSUM: 95cad969b6dd437756b46b5cdd9137038f02dc7c
+PODFILE CHECKSUM: 509d161c415ce213e817017bc87cee08dfc9a392
 
 COCOAPODS: 1.9.1

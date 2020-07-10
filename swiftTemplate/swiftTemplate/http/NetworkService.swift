@@ -16,6 +16,8 @@ public enum NetworkService{
     case register(k:String)
     //验证码
     case getmsg(k:String)
+    //重置密码
+    case respsd(k:String)
     //我的首页
     case tabhome(K:String)
     //搜索小说
@@ -145,7 +147,8 @@ extension NetworkService:Moya.TargetType{
             return "swiftTemplate/file/getMyAllImages"
         case .getusermsgs:
             return "swiftTemplate/Message/getUserMessages"
-            
+        case .respsd:
+           return "swiftTemplate/User/updatePassWord"
         }
         
     }
@@ -160,13 +163,13 @@ extension NetworkService:Moya.TargetType{
     //MARK: - 请求参数
     public var task: Moya.Task {
         switch self {
-        case .login(let data),.register(let data),.getmsg(let data),.tabhome(let data),.searchnovel(let data),.updateuserinfo(let data),.followuser(let data),.unfollowuser(let data),.getfancelist(let data),.getfollowlist(let data),.finduser(let data),.findrecommendlist(let data),.sendpost(let data),.getposts(let data),.getuserposts(let data),.deletspost(let data),.getuserinfo(let data),.poststart(let data),.postunstart(let data),.getpoststartlist(let data),.collection(let data),.cancelcollection(let data),.getcollectionlist(let data),.getuserstartlist(let data),.sendcomment(let data),.commentlist(let data),.deletecomment(let data),.getallimasges(let data),.getusermsgs(let data):
+        case .login(let data),.register(let data),.getmsg(let data),.tabhome(let data),.searchnovel(let data),.updateuserinfo(let data),.followuser(let data),.unfollowuser(let data),.getfancelist(let data),.getfollowlist(let data),.finduser(let data),.findrecommendlist(let data),.sendpost(let data),.getposts(let data),.getuserposts(let data),.deletspost(let data),.getuserinfo(let data),.poststart(let data),.postunstart(let data),.getpoststartlist(let data),.collection(let data),.cancelcollection(let data),.getcollectionlist(let data),.getuserstartlist(let data),.sendcomment(let data),.commentlist(let data),.deletecomment(let data),.getallimasges(let data),.getusermsgs(let data),.respsd(let data):
             return  .requestData(data.utf8Encoded)
             
         case .uodateusericon(let param, let uploadImages):
             let formDataAry:NSMutableArray = NSMutableArray()
             for (index,image) in uploadImages.enumerated() {
-                let data:Data = (image as! UIImage).jpegData(compressionQuality: 0.8)!
+                let data:Data = (image as! UIImage).compressImageMid(maxLength: 2048) ?? Data()
                 let date:Date = Date()
                 let formatter = DateFormatter()
                 formatter.dateFormat = "yyyy-MM-dd-HH:mm:ss"
@@ -180,7 +183,7 @@ extension NetworkService:Moya.TargetType{
         case .upLoadFiles(let param, let uploadImages):
             let formDataAry:NSMutableArray = NSMutableArray()
             for (index,image) in uploadImages.enumerated() {
-                let data:Data = (image as! UIImage).jpegData(compressionQuality: 0.8)!
+                let data:Data = (image as! UIImage).compressImageMid(maxLength: 1024) ?? Data()
                 let date:Date = Date()
                 let formatter = DateFormatter()
                 formatter.dateFormat = "yyyy-MM-dd-HH:mm:ss"
@@ -192,10 +195,7 @@ extension NetworkService:Moya.TargetType{
             let p1 = param as? [String:String]
             p1?.forEach({ (arg0) in
                 let (key, value) = arg0
-                log.info("key\(key)")
-                log.info("value\(value)")
                 let strData = value.data(using: .utf8)
-                log.info("value\(strData!)")
                 let formData = MultipartFormData(provider:.data(strData!), name: key)
                 formDataAry.add(formData)
             })
@@ -307,7 +307,7 @@ public extension String {
            let date = formatter1.date(from: self) ?? Date()
            let formatter = DateFormatter()
            formatter.locale = Locale.init(identifier: "zh_CN")
-           formatter.dateFormat = "MM月dd日 HH时"
+           formatter.dateFormat = "MM-dd HH:mm:ss"
            return formatter.string(from: date)
        }
     var urlEscaped: String {

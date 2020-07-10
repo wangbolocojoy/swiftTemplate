@@ -113,7 +113,7 @@ class MainPostCell: UITableViewCell {
     }
     func updateStartOrCollection(){
         if postinfo?.isStart ?? false {
-            btn_start.tintColor = .systemPink
+            btn_start.tintColor = .red
             btn_start.image = UIImage(systemName: "heart.fill")
         }else{
             btn_start.tintColor = .label

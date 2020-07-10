@@ -98,6 +98,7 @@ extension UserDefaults{
             case 私钥
             case token
             case userid
+            case 验证码时间
             case currentUserIdentifier
         }
     }

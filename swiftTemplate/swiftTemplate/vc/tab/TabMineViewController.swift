@@ -10,8 +10,8 @@ import UIKit
 import MJRefresh
 class TabMineViewController: BaseTabViewController {
     let time = 0.2
-    var list = ["我的图片","我的地址","我的收藏","我的评论","设置","清除缓存","退出登录"]
-    var imagelist = [UIImage(systemName: "photo.on.rectangle"),UIImage(systemName: "mappin.circle"),UIImage(systemName: "person.2"),UIImage(systemName: "ellipses.bubble"),UIImage(systemName: "gear"),UIImage(systemName: "xmark.icloud"),UIImage(systemName: "power")]
+    var list = ["我的图片","我的地址","我的收藏","我的评论","关于","清除缓存","退出登录"]
+    var imagelist = [UIImage(systemName: "photo.on.rectangle"),UIImage(systemName: "mappin.circle"),UIImage(systemName: "person.2"),UIImage(systemName: "ellipses.bubble"),UIImage(systemName: "info.circle"),UIImage(systemName: "xmark.icloud"),UIImage(systemName: "power")]
     var user : UserInfo? = nil
     let header = MJRefreshNormalHeader()
     @IBOutlet weak var tableview: UITableView!
@@ -89,7 +89,7 @@ extension TabMineViewController:UITableViewDelegate,UITableViewDataSource{
             case 3:
                 self.navigationController?.pushViewController(getVcByName(vc: .我的评论), animated: true)
             case 4:
-                self.navigationController?.pushViewController(getVcByName(vc: .我的设置), animated: true)
+                self.navigationController?.pushViewController(getVcByName(vc: .关于), animated: true)
             case 5:
                 deleteCoreNovel()
             case 6:

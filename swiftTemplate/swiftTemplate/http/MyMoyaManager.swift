@@ -99,7 +99,7 @@ struct MyMoyaManager{
                             //
                             //                                           })
                         }else{
-//                            controller.ShowTip(Title: u.msg ?? "请求失败")
+                            controller.ShowTip(Title: u.msg ?? "请求失败")
                         }
                     }else{
                         controller.ShowTip(Title: "解析失败")

@@ -9,7 +9,7 @@
 import UIKit
 
 class MySettingViewController: BaseViewController {
-    let list = ["深色模式"]
+    let list = ["深色模式","关于我们"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

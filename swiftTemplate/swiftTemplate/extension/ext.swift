@@ -46,7 +46,6 @@ extension UIColor {
         assert(red >= 0 && red <= 255, "Invalid red component")
         assert(green >= 0 && green <= 255, "Invalid green component")
         assert(blue >= 0 && blue <= 255, "Invalid blue component")
-        
         self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
     }
     
@@ -269,6 +268,35 @@ extension UIImage{
            complete?(nil)
        }
    }
+    //二分压缩法
+        func compressImageMid(maxLength: Int) -> Data? {
+           var compression: CGFloat = 1
+            var data = self.jpegData(compressionQuality: 1)!
+            log.info( "压缩前:---- \( Double((data.count)/1024))kb")
+           if data.count < maxLength {
+               return data
+           }
+           var max: CGFloat = 1
+           var min: CGFloat = 0
+           for _ in 0..<4 {
+               compression = (max + min) / 2
+               data = jpegData(compressionQuality: compression)!
+               if CGFloat(data.count) < CGFloat(maxLength) * 0.9 {
+                   min = compression
+               } else if data.count > maxLength {
+                   max = compression
+               } else {
+                   break
+               }
+           }
+            var _: UIImage = UIImage(data: data)!
+           if data.count < maxLength {
+            log.info( "压缩后： \( Double((data.count)/1024))kb")
+               return data
+           }
+             log.info( "压缩后: \( Double((data.count)/1024))kb")
+            return data
+    }
 }
 extension UITableViewCell {
     
@@ -292,7 +320,6 @@ extension UITableViewCell {
     /// 扩展类PushVC
     /// - Parameter vc: VC
     func pushVC(vc:UIViewController){
-        
         parentViewController()?.navigationController?.pushViewController(vc, animated: true)
     }
 }

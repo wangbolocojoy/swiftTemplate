@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FanceInfoHeaderCell: UITableViewCell {
+class FanceInfoHeaderCell: UICollectionViewCell {
 static let reuseID =  "FanceInfoHeaderCell"
     
     
@@ -23,11 +23,7 @@ static let reuseID =  "FanceInfoHeaderCell"
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        selectionStyle = .none
-        
-    }
+ 
    func updateCell(info:UserInfo?){
     userIcon.setImageUrl(image: userIcon, string: info?.icon, proimage: #imageLiteral(resourceName: "IMG_2507"))
     lab_postnum.text = "\(info?.postNum ?? 0)"

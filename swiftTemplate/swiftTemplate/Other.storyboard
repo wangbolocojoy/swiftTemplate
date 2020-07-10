@@ -169,6 +169,100 @@
             </objects>
             <point key="canvasLocation" x="2484" y="251"/>
         </scene>
+        <!--Kt About Developer View Controller-->
+        <scene sceneID="DyR-hl-1ga">
+            <objects>
+                <viewController storyboardIdentifier="KTDEVELOPERVC" id="miZ-J7-v79" customClass="KtAboutDeveloperViewController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Dpo-8z-JGK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ra1-HD-d4T">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ra1-HD-d4T" firstAttribute="leading" secondItem="XAH-6I-T7K" secondAttribute="leading" id="1SX-ub-h71"/>
+                            <constraint firstItem="ra1-HD-d4T" firstAttribute="top" secondItem="XAH-6I-T7K" secondAttribute="top" id="GBh-bB-o2j"/>
+                            <constraint firstItem="XAH-6I-T7K" firstAttribute="bottom" secondItem="ra1-HD-d4T" secondAttribute="bottom" id="X1p-b8-WRs"/>
+                            <constraint firstItem="XAH-6I-T7K" firstAttribute="trailing" secondItem="ra1-HD-d4T" secondAttribute="trailing" id="ovf-Im-yZW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="XAH-6I-T7K"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableview" destination="ra1-HD-d4T" id="2ln-qb-Vlq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lue-yf-tWE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="286" y="1068"/>
+        </scene>
+        <!--Kt About Mine View Controller-->
+        <scene sceneID="uN9-c1-8bt">
+            <objects>
+                <viewController storyboardIdentifier="KTABOUTMINEVC" hidesBottomBarWhenPushed="YES" id="NwN-fO-6sW" customClass="KtAboutMineViewController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ej3-h1-4L4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="R4u-rU-WQX">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="WsM-5P-fhe" firstAttribute="bottom" secondItem="R4u-rU-WQX" secondAttribute="bottom" id="7NT-Nw-9OC"/>
+                            <constraint firstItem="R4u-rU-WQX" firstAttribute="top" secondItem="WsM-5P-fhe" secondAttribute="top" id="ZVx-Ky-yCd"/>
+                            <constraint firstItem="R4u-rU-WQX" firstAttribute="leading" secondItem="WsM-5P-fhe" secondAttribute="leading" id="peV-dv-gu7"/>
+                            <constraint firstItem="WsM-5P-fhe" firstAttribute="trailing" secondItem="R4u-rU-WQX" secondAttribute="trailing" id="xoH-tY-PZK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WsM-5P-fhe"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableview" destination="R4u-rU-WQX" id="EtY-lm-2HW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="go6-7e-VhA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1326" y="1085"/>
+        </scene>
+        <!--Kt My Wk Web View Controller-->
+        <scene sceneID="1vL-Yu-b9m">
+            <objects>
+                <viewController storyboardIdentifier="KYMYWKWEBVIEWVC" id="vfm-ct-FJP" customClass="KtMyWkWebViewController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="66a-H4-Of0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CP1-mL-MI3">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="CP1-mL-MI3" firstAttribute="leading" secondItem="plT-g4-xsG" secondAttribute="leading" id="5YI-BE-6lh"/>
+                            <constraint firstItem="plT-g4-xsG" firstAttribute="bottom" secondItem="CP1-mL-MI3" secondAttribute="bottom" id="P2X-7h-gTO"/>
+                            <constraint firstItem="CP1-mL-MI3" firstAttribute="top" secondItem="plT-g4-xsG" secondAttribute="top" id="s5G-wP-Z9F"/>
+                            <constraint firstItem="plT-g4-xsG" firstAttribute="trailing" secondItem="CP1-mL-MI3" secondAttribute="trailing" id="vzf-WC-gpK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="plT-g4-xsG"/>
+                    </view>
+                    <connections>
+                        <outlet property="webview" destination="CP1-mL-MI3" id="p7Y-GP-9cd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lN4-KV-r1R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2694" y="1129"/>
+        </scene>
         <!--Kt Messagelist View Controller-->
         <scene sceneID="drh-09-Oxg">
             <objects>

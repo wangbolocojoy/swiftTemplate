@@ -281,10 +281,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VYv-FA-D3b">
                                 <rect key="frame" x="8" y="59" width="398" height="50"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZEF-Ua-m6L">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="接口上的" placeholder="请输入内容" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZEF-Ua-m6L">
                                         <rect key="frame" x="5" y="5" width="388" height="19"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
@@ -756,24 +756,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qxa-FZ-gVt">
-                                <rect key="frame" x="0.0" y="44" width="414" height="300"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gMo-Hk-2Wo">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="iHX-tx-yR5"/>
-                                </constraints>
-                            </tableView>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JPU-0n-BDJ">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="PJ7-23-jzz">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fqo-yE-avQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Qxa-FZ-gVt" firstAttribute="top" secondItem="qYB-SL-VrV" secondAttribute="top" id="Hkr-fJ-l17"/>
-                            <constraint firstItem="qYB-SL-VrV" firstAttribute="trailing" secondItem="Qxa-FZ-gVt" secondAttribute="trailing" id="d3T-k2-dsQ"/>
-                            <constraint firstItem="Qxa-FZ-gVt" firstAttribute="leading" secondItem="qYB-SL-VrV" secondAttribute="leading" id="hv6-dU-9mZ"/>
+                            <constraint firstItem="gMo-Hk-2Wo" firstAttribute="leading" secondItem="qYB-SL-VrV" secondAttribute="leading" id="6iy-26-vza"/>
+                            <constraint firstItem="gMo-Hk-2Wo" firstAttribute="top" secondItem="qYB-SL-VrV" secondAttribute="top" id="JNA-Jb-Uxa"/>
+                            <constraint firstItem="qYB-SL-VrV" firstAttribute="trailing" secondItem="gMo-Hk-2Wo" secondAttribute="trailing" id="gpf-i0-ahx"/>
+                            <constraint firstItem="qYB-SL-VrV" firstAttribute="bottom" secondItem="gMo-Hk-2Wo" secondAttribute="bottom" id="mPi-N1-pPQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qYB-SL-VrV"/>
                     </view>
                     <connections>
-                        <outlet property="tableview" destination="Qxa-FZ-gVt" id="iLM-tI-tdL"/>
+                        <outlet property="collectionview" destination="gMo-Hk-2Wo" id="nd5-kv-PS5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wqM-Kr-U8A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -789,7 +803,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="LZS-Vx-4hr">
-                        <rect key="frame" x="0.0" y="44" width="414" height="99.5"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="largeTitleTextAttributes">
                             <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="24"/>

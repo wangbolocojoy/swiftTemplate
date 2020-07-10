@@ -16,6 +16,7 @@ class RegisterViewController: BaseViewController {
     @IBOutlet weak var ev_password: UITextField!
     @IBOutlet weak var ev_msg: UITextField!
     @IBOutlet weak var ev_phone: UITextField!
+    var time :Int? = nil
     typealias swiftblockResult = (_ phone : String ,_ passwd:String) -> Void
     var callBack :swiftblockResult?
     func callBackBlock(block : @escaping swiftblockResult)  {
@@ -38,6 +39,21 @@ class RegisterViewController: BaseViewController {
             title = "修改密码"
             lab_zhuce.setTitle("修改密码", for: .normal)
         }
+        
+        time  = UserDefaults.User.getvalue(forKey: .验证码时间) as? Int
+        if time == nil {
+            time = 120
+        }else{
+        let nowtime = Int(Date().timeIntervalSince1970)
+            time = 120 - (nowtime - (time ?? 0))
+            if (time ?? 0) > 0 && (time ?? 0) < 120{
+                self.isCounting = true
+            }else{
+                time = 120
+            }
+            
+        }
+       
     }
     
     @IBAction func sendMsg(_ sender: Any) {
@@ -52,9 +68,16 @@ class RegisterViewController: BaseViewController {
                    return
                }
         let body = RequestBody()
+        if type == 0{
+            body.msgType = 1
+        }else{
+            body.msgType = 2
+        }
         body.phone = phone
         MyMoyaManager.AllRequest(controller: self, NetworkService.getmsg(k: body.toJSONString() ?? "")) { (data) in
             self.isCounting = true
+             let nowtime = Int(Date().timeIntervalSince1970)
+            UserDefaults.User.set(value: nowtime, forKey: .验证码时间)
         }
     }
     
@@ -103,12 +126,17 @@ class RegisterViewController: BaseViewController {
             }
     }
     func changePassword(body:RequestBody){
-        
+        MyMoyaManager.AllRequest(controller: self, NetworkService.respsd(k: body.toJSONString()!)) { (data) in
+                              if self.callBack != nil {
+                                  self.callBack!(body.phone ?? "",body.password ?? "")
+                                  self.ShowTipsClose(tite: "修改密码成功")
+                              }
+                          }
     }
     var isCounting = false {
         willSet {
             if newValue {
-                remainingSeconds = 120
+                remainingSeconds = time ?? 0
                 lab_yanzhengma.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
                 lab_yanzhengma.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
                 countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime(Timer:)), userInfo: nil, repeats: true)
@@ -124,7 +152,6 @@ class RegisterViewController: BaseViewController {
     //显示倒计时
     var remainingSeconds : Int = 0 {
         willSet {
-            
             lab_yanzhengma.setTitle("\(newValue)秒", for: .normal)
             if newValue <= 0 {
                 lab_yanzhengma.setTitle("重新发送", for: .normal)

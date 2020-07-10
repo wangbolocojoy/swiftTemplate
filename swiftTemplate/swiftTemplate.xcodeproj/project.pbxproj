@@ -33,6 +33,17 @@
 		C4070AA824A73871000819BD /* NoTextViewInputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4070AA224A73871000819BD /* NoTextViewInputBar.swift */; };
 		C4070AA924A73871000819BD /* iMessageInputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4070AA324A73871000819BD /* iMessageInputBar.swift */; };
 		C4070AAB24A738A6000819BD /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4070AAA24A738A6000819BD /* ImageCell.swift */; };
+		C41CD2F824B712EA000A6613 /* KtMyWkWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CD2F724B712EA000A6613 /* KtMyWkWebViewController.swift */; };
+		C41CD2FA24B713BE000A6613 /* HTML in Resources */ = {isa = PBXBuildFile; fileRef = C41CD2F924B713BD000A6613 /* HTML */; };
+		C41CD2FC24B716F9000A6613 /* KtAboutMineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CD2FB24B716F9000A6613 /* KtAboutMineViewController.swift */; };
+		C41CD30024B7196C000A6613 /* KtAboutHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CD2FE24B7196C000A6613 /* KtAboutHeaderCell.swift */; };
+		C41CD30124B7196C000A6613 /* KtAboutHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C41CD2FF24B7196C000A6613 /* KtAboutHeaderCell.xib */; };
+		C41CD30424B8A274000A6613 /* KtAboutItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CD30224B8A274000A6613 /* KtAboutItemCell.swift */; };
+		C41CD30524B8A274000A6613 /* KtAboutItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C41CD30324B8A274000A6613 /* KtAboutItemCell.xib */; };
+		C41CD30C24B8A697000A6613 /* KtAboutMineInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CD30A24B8A697000A6613 /* KtAboutMineInfoCell.swift */; };
+		C41CD30D24B8A697000A6613 /* KtAboutMineInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C41CD30B24B8A697000A6613 /* KtAboutMineInfoCell.xib */; };
+		C41CD31024B8AB8C000A6613 /* KtAboutDeveloperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CD30F24B8AB8C000A6613 /* KtAboutDeveloperViewController.swift */; };
+		C41CD31224B8B390000A6613 /* CanCopyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CD31124B8B390000A6613 /* CanCopyLabel.swift */; };
 		C4206F24248FFC2900F4537C /* FanceORFollowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4206F22248FFC2900F4537C /* FanceORFollowCell.swift */; };
 		C4206F25248FFC2900F4537C /* FanceORFollowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4206F23248FFC2900F4537C /* FanceORFollowCell.xib */; };
 		C422FB3C24ADBD1F006AC5CA /* KtSexPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C422FB3B24ADBD1F006AC5CA /* KtSexPickerViewController.swift */; };
@@ -145,6 +156,17 @@
 		C4070AA224A73871000819BD /* NoTextViewInputBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoTextViewInputBar.swift; sourceTree = "<group>"; };
 		C4070AA324A73871000819BD /* iMessageInputBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iMessageInputBar.swift; sourceTree = "<group>"; };
 		C4070AAA24A738A6000819BD /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		C41CD2F724B712EA000A6613 /* KtMyWkWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtMyWkWebViewController.swift; sourceTree = "<group>"; };
+		C41CD2F924B713BD000A6613 /* HTML */ = {isa = PBXFileReference; lastKnownFileType = folder; path = HTML; sourceTree = "<group>"; };
+		C41CD2FB24B716F9000A6613 /* KtAboutMineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtAboutMineViewController.swift; sourceTree = "<group>"; };
+		C41CD2FE24B7196C000A6613 /* KtAboutHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtAboutHeaderCell.swift; sourceTree = "<group>"; };
+		C41CD2FF24B7196C000A6613 /* KtAboutHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KtAboutHeaderCell.xib; sourceTree = "<group>"; };
+		C41CD30224B8A274000A6613 /* KtAboutItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtAboutItemCell.swift; sourceTree = "<group>"; };
+		C41CD30324B8A274000A6613 /* KtAboutItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KtAboutItemCell.xib; sourceTree = "<group>"; };
+		C41CD30A24B8A697000A6613 /* KtAboutMineInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtAboutMineInfoCell.swift; sourceTree = "<group>"; };
+		C41CD30B24B8A697000A6613 /* KtAboutMineInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KtAboutMineInfoCell.xib; sourceTree = "<group>"; };
+		C41CD30F24B8AB8C000A6613 /* KtAboutDeveloperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtAboutDeveloperViewController.swift; sourceTree = "<group>"; };
+		C41CD31124B8B390000A6613 /* CanCopyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanCopyLabel.swift; sourceTree = "<group>"; };
 		C4206F22248FFC2900F4537C /* FanceORFollowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FanceORFollowCell.swift; sourceTree = "<group>"; };
 		C4206F23248FFC2900F4537C /* FanceORFollowCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FanceORFollowCell.xib; sourceTree = "<group>"; };
 		C422FB3B24ADBD1F006AC5CA /* KtSexPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtSexPickerViewController.swift; sourceTree = "<group>"; };
@@ -281,6 +303,7 @@
 		C40240222480193B00F715DC /* swiftTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				C41CD2F924B713BD000A6613 /* HTML */,
 				C422FB3D24AF5F25006AC5CA /* SwiftKt.entitlements */,
 				C4070A9224A6F394000819BD /* view */,
 				C43157EF2483DF200034A74E /* cell */,
@@ -391,6 +414,7 @@
 				C4070A9D24A73842000819BD /* input */,
 				C4070A9924A6F624000819BD /* KtInputView.xib */,
 				C4070A9B24A6F8A5000819BD /* KtInputView.swift */,
+				C41CD31124B8B390000A6613 /* CanCopyLabel.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -407,6 +431,27 @@
 				C4070AA124A73870000819BD /* SlackInputBar.swift */,
 			);
 			path = input;
+			sourceTree = "<group>";
+		};
+		C41CD2FD24B718DC000A6613 /* about */ = {
+			isa = PBXGroup;
+			children = (
+				C41CD2FE24B7196C000A6613 /* KtAboutHeaderCell.swift */,
+				C41CD2FF24B7196C000A6613 /* KtAboutHeaderCell.xib */,
+				C41CD30224B8A274000A6613 /* KtAboutItemCell.swift */,
+				C41CD30324B8A274000A6613 /* KtAboutItemCell.xib */,
+				C41CD30A24B8A697000A6613 /* KtAboutMineInfoCell.swift */,
+				C41CD30B24B8A697000A6613 /* KtAboutMineInfoCell.xib */,
+			);
+			path = about;
+			sourceTree = "<group>";
+		};
+		C41CD30E24B8AB5F000A6613 /* about */ = {
+			isa = PBXGroup;
+			children = (
+				C41CD30F24B8AB8C000A6613 /* KtAboutDeveloperViewController.swift */,
+			);
+			path = about;
 			sourceTree = "<group>";
 		};
 		C4206F21248FFBF800F4537C /* fance */ = {
@@ -518,6 +563,7 @@
 		C4AEFCD6248BF07C0080904E /* mine */ = {
 			isa = PBXGroup;
 			children = (
+				C41CD2FD24B718DC000A6613 /* about */,
 				C422FB4324B081F8006AC5CA /* mypicture */,
 				C4D2874124A8ADCA0065F497 /* collection */,
 				C4206F21248FFBF800F4537C /* fance */,
@@ -545,6 +591,7 @@
 				C4AEFCF9248E4B330080904E /* BTMMyFanceFollowViewController.swift */,
 				C44E81BD24A33AE9000BD888 /* BTMMyQRCodeViewController.swift */,
 				C44E81DB24A47097000BD888 /* KtMyMapViewController.swift */,
+				C41CD2F724B712EA000A6613 /* KtMyWkWebViewController.swift */,
 			);
 			path = mine;
 			sourceTree = "<group>";
@@ -590,12 +637,14 @@
 		C4FDACAC249F48B30095F1E3 /* mineitems */ = {
 			isa = PBXGroup;
 			children = (
+				C41CD30E24B8AB5F000A6613 /* about */,
 				C4FDACAD249F49010095F1E3 /* MyPictureViewController.swift */,
 				C4FDACAF249F491C0095F1E3 /* MyAddressViewController.swift */,
 				C4FDACB3249F49500095F1E3 /* MyMessageViewController.swift */,
 				C4FDACB5249F4A9F0095F1E3 /* MySettingViewController.swift */,
 				C4DAA44224A5FDC700BA6F7D /* MyCollectViewController.swift */,
 				C422FB3B24ADBD1F006AC5CA /* KtSexPickerViewController.swift */,
+				C41CD2FB24B716F9000A6613 /* KtAboutMineViewController.swift */,
 			);
 			path = mineitems;
 			sourceTree = "<group>";
@@ -677,21 +726,25 @@
 				C4AEFCEA248CAA310080904E /* BTMUserIconCell.xib in Resources */,
 				C4D2874524A8ADFD0065F497 /* KtMyCollectCell.xib in Resources */,
 				C40240332480193E00F715DC /* LaunchScreen.storyboard in Resources */,
+				C41CD30124B7196C000A6613 /* KtAboutHeaderCell.xib in Resources */,
 				C4FDACAB249EF1F60095F1E3 /* PostBannerImageCell.xib in Resources */,
 				C43157F42483DF5B0034A74E /* TabHomeNovelCell.xib in Resources */,
 				C422FB4B24B1ABC6006AC5CA /* KtMessageHeader.xib in Resources */,
 				C44E81CE24A38006000BD888 /* sdc.gif in Resources */,
+				C41CD2FA24B713BE000A6613 /* HTML in Resources */,
 				C44F284024A9B21500E16123 /* apphttps.cer in Resources */,
 				C4F55FD924A4B6DD00887B55 /* KtMyMapAddressViewCell.xib in Resources */,
 				C4DAA44724A6050C00BA6F7D /* KtFabulousTableViewCell.xib in Resources */,
 				C4AEB305249863EF00196DAE /* UploadImageCollectionViewCell.xib in Resources */,
 				C40240302480193E00F715DC /* Assets.xcassets in Resources */,
 				C402402B2480193B00F715DC /* Main.storyboard in Resources */,
+				C41CD30D24B8A697000A6613 /* KtAboutMineInfoCell.xib in Resources */,
 				C4FDACBF249FB5610095F1E3 /* DynamicCollectionViewCell.xib in Resources */,
 				C44E81D224A38A29000BD888 /* NewLogin.storyboard in Resources */,
 				C44E81DA24A46ED9000BD888 /* Other.storyboard in Resources */,
 				C4206F25248FFC2900F4537C /* FanceORFollowCell.xib in Resources */,
 				C4FDACA6249E2B7A0095F1E3 /* MainPostCell.xib in Resources */,
+				C41CD30524B8A274000A6613 /* KtAboutItemCell.xib in Resources */,
 				C4AEFCEE248CAB620080904E /* BTMUserItemCell.xib in Resources */,
 				C4070A9124A66B15000819BD /* KtMessageCell.xib in Resources */,
 				C422FB4724B0822D006AC5CA /* KtMyPuctureCollectionViewCell.xib in Resources */,
@@ -795,6 +848,7 @@
 				C4F55FD824A4B6DD00887B55 /* KtMyMapAddressViewCell.swift in Sources */,
 				C4DAA44324A5FDC700BA6F7D /* MyCollectViewController.swift in Sources */,
 				C4070AA624A73871000819BD /* GitHawkInputBar.swift in Sources */,
+				C41CD2FC24B716F9000A6613 /* KtAboutMineViewController.swift in Sources */,
 				C4DAA44624A6050C00BA6F7D /* KtFabulousTableViewCell.swift in Sources */,
 				C4070AA424A73871000819BD /* FacebookInputBar.swift in Sources */,
 				C4070A9C24A6F8A5000819BD /* KtInputView.swift in Sources */,
@@ -807,11 +861,14 @@
 				C4AEFCE1248C92D40080904E /* BTMMineEdUserController.swift in Sources */,
 				C4FDACA5249E2B7A0095F1E3 /* MainPostCell.swift in Sources */,
 				C43157D524839AC30034A74E /* BaseTabViewController.swift in Sources */,
+				C41CD30424B8A274000A6613 /* KtAboutItemCell.swift in Sources */,
+				C41CD31024B8AB8C000A6613 /* KtAboutDeveloperViewController.swift in Sources */,
 				C4070AAB24A738A6000819BD /* ImageCell.swift in Sources */,
 				C44E81DC24A47097000BD888 /* KtMyMapViewController.swift in Sources */,
 				C43157EC2483B16B0034A74E /* RequestBody.swift in Sources */,
 				C4070A9024A66B15000819BD /* KtMessageCell.swift in Sources */,
 				C4070AA824A73871000819BD /* NoTextViewInputBar.swift in Sources */,
+				C41CD30024B7196C000A6613 /* KtAboutHeaderCell.swift in Sources */,
 				C4FDACBE249FB5610095F1E3 /* DynamicCollectionViewCell.swift in Sources */,
 				C40240242480193B00F715DC /* AppDelegate.swift in Sources */,
 				C43FDF7B248E88C30023E3F2 /* TabFriendsViewController.swift in Sources */,
@@ -822,6 +879,7 @@
 				C402403C248164E300F715DC /* CoreDataManager.swift in Sources */,
 				C422FB4924B1ABB7006AC5CA /* KtMessageHeader.swift in Sources */,
 				C43157DD24839C670034A74E /* TabMineViewController.swift in Sources */,
+				C41CD31224B8B390000A6613 /* CanCopyLabel.swift in Sources */,
 				C4AEFCD9248BF09E0080904E /* MineItemViewCell.swift in Sources */,
 				C43157EA2483AF570034A74E /* TextUntils.swift in Sources */,
 				C4AEFCE3248C92F50080904E /* BTMMinePostController.swift in Sources */,
@@ -839,9 +897,11 @@
 				C43FDF7D248E89170023E3F2 /* TabDynamicViewController.swift in Sources */,
 				C4F55FDB24A59EB600887B55 /* KtTestViewController.swift in Sources */,
 				C4AEFCE9248CAA310080904E /* BTMUserIconCell.swift in Sources */,
+				C41CD2F824B712EA000A6613 /* KtMyWkWebViewController.swift in Sources */,
 				C4024046248392A300F715DC /* MyMoyaManager.swift in Sources */,
 				C43157E62483A1F60034A74E /* LoginNavViewController.swift in Sources */,
 				C402402E2480193B00F715DC /* swiftTemplate.xcdatamodeld in Sources */,
+				C41CD30C24B8A697000A6613 /* KtAboutMineInfoCell.swift in Sources */,
 				C4AEFCF4248CBAC60080904E /* PermissionHelper.swift in Sources */,
 				C4AEFCF0248CACE30080904E /* BTMCleanHeader.swift in Sources */,
 				C4024044248390C800F715DC /* RequestAlertPlugin.swift in Sources */,
@@ -998,6 +1058,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.90btm.myapplication.swiftTemplate;
 				PRODUCT_NAME = SwiftKt;
 				SWIFT_OBJC_BRIDGING_HEADER = "swiftTemplate/extension/swiftTemplate-Bridging-Header.h";
@@ -1021,6 +1082,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.90btm.myapplication.swiftTemplate;
 				PRODUCT_NAME = SwiftKt;
 				SWIFT_OBJC_BRIDGING_HEADER = "swiftTemplate/extension/swiftTemplate-Bridging-Header.h";

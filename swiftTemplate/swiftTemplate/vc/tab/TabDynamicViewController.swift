@@ -82,6 +82,7 @@ class TabDynamicViewController: BaseTabViewController{
     }
     func getpost(json:String){
         MyMoyaManager.AllRequest(controller: self, NetworkService.getposts(k:json )) { (data) in
+          
             if self.type == 1 {
                 self.list = data.postlist
             }else{

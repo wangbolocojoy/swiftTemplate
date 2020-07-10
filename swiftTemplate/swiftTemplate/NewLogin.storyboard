@@ -105,6 +105,18 @@
                                     <constraint firstAttribute="height" constant="0.5" id="9MK-GW-kfL"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="登录SwiftKt即代表您已经同意SwiftKt隐私协议" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ibq-cj-TmP">
+                                <rect key="frame" x="80.5" y="831.5" width="253" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SwiftKt隐私协议" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yer-O5-dV6">
+                                <rect key="frame" x="162" y="812" width="90" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -112,7 +124,10 @@
                             <constraint firstItem="xFH-Wn-rxC" firstAttribute="top" secondItem="rH8-Zf-3OG" secondAttribute="bottom" constant="25" id="9Fc-fC-pl0"/>
                             <constraint firstItem="Ok3-HB-Jb7" firstAttribute="centerX" secondItem="fm6-8d-cQB" secondAttribute="centerX" id="9In-IS-qy7"/>
                             <constraint firstItem="ESG-dY-gVa" firstAttribute="top" secondItem="kSS-hF-2np" secondAttribute="bottom" id="9id-Qk-ePg"/>
+                            <constraint firstItem="Ibq-cj-TmP" firstAttribute="centerX" secondItem="fm6-8d-cQB" secondAttribute="centerX" id="EAV-53-3R8"/>
                             <constraint firstItem="4GQ-WZ-NCu" firstAttribute="trailing" secondItem="rH8-Zf-3OG" secondAttribute="trailing" constant="25" id="Eff-hd-a7d"/>
+                            <constraint firstItem="Yer-O5-dV6" firstAttribute="centerX" secondItem="fm6-8d-cQB" secondAttribute="centerX" id="F2S-BO-9RF"/>
+                            <constraint firstAttribute="bottom" secondItem="Ibq-cj-TmP" secondAttribute="bottom" constant="50" id="Hox-Z6-DfP"/>
                             <constraint firstItem="AGW-98-c68" firstAttribute="top" secondItem="rH8-Zf-3OG" secondAttribute="bottom" constant="25" id="Kqo-c3-sYD"/>
                             <constraint firstItem="Pee-kx-Kor" firstAttribute="centerX" secondItem="fm6-8d-cQB" secondAttribute="centerX" id="Lrp-S0-Wd0"/>
                             <constraint firstItem="rH8-Zf-3OG" firstAttribute="centerY" secondItem="fm6-8d-cQB" secondAttribute="centerY" id="PFU-eb-NNm"/>
@@ -128,6 +143,7 @@
                             <constraint firstItem="rH8-Zf-3OG" firstAttribute="leading" secondItem="4GQ-WZ-NCu" secondAttribute="leading" constant="25" id="eHs-6b-Moy"/>
                             <constraint firstItem="zLS-uM-kjW" firstAttribute="leading" secondItem="Pee-kx-Kor" secondAttribute="trailing" constant="10" id="eso-cW-bbD"/>
                             <constraint firstItem="4GQ-WZ-NCu" firstAttribute="trailing" secondItem="zLS-uM-kjW" secondAttribute="trailing" id="hEt-ne-UfZ"/>
+                            <constraint firstItem="Ibq-cj-TmP" firstAttribute="top" secondItem="Yer-O5-dV6" secondAttribute="bottom" constant="5" id="hMY-NQ-ATU"/>
                             <constraint firstItem="4GQ-WZ-NCu" firstAttribute="trailing" secondItem="VVR-DQ-jdM" secondAttribute="trailing" constant="25" id="hoc-jT-9Jn"/>
                             <constraint firstItem="Pee-kx-Kor" firstAttribute="top" secondItem="rH8-Zf-3OG" secondAttribute="bottom" constant="60" id="l0R-Nb-sac"/>
                             <constraint firstItem="kSS-hF-2np" firstAttribute="top" secondItem="VVR-DQ-jdM" secondAttribute="bottom" constant="25" id="l8r-V1-VMh"/>
@@ -142,6 +158,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="CL2-fU-9EH"/>
                     <connections>
+                        <outlet property="btn_agreement" destination="Yer-O5-dV6" id="cq2-Vz-nms"/>
                         <outlet property="ev_password" destination="kSS-hF-2np" id="6J8-vl-fnm"/>
                         <outlet property="ev_phone" destination="C60-MT-N4b" id="L7e-km-fk5"/>
                         <outlet property="loginProviderStackView" destination="Ok3-HB-Jb7" id="hiB-JW-yyw"/>

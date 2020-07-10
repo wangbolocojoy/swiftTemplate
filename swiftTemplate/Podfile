@@ -20,5 +20,5 @@ target 'swiftTemplate' do
   pod 'FSPagerView','~> 0.8.3'
   pod 'Kingfisher', '~> 5.14.0'
   pod 'YPImagePicker' ,'~> 4.2.1'
-  pod 'InputBarAccessoryView'
+  pod 'InputBarAccessoryView' , '~> 4.3.2'
 end

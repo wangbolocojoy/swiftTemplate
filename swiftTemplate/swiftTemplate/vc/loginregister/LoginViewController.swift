@@ -12,13 +12,17 @@ class LoginViewController: BaseTabViewController {
     let time = 0.2
     @IBOutlet weak var ev_password: UITextField!
     @IBOutlet weak var ev_phone: UITextField!
+    
+    @IBOutlet weak var btn_agreement: UILabel!
+    
     var authorizationButton :ASAuthorizationAppleIDButton? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
         setupProviderLoginView()
         initView()
-        
+       
     }
+    
     // Add “Sign In with Apple” button to your login view
     @IBOutlet weak var loginProviderStackView: UIStackView!
     
@@ -57,12 +61,9 @@ class LoginViewController: BaseTabViewController {
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         let request = appleIDProvider.createRequest()
         request.requestedScopes = [.fullName, .email]
-        
         let authorizationController = ASAuthorizationController(authorizationRequests: [request])
-        
         authorizationController.delegate = self
         authorizationController.presentationContextProvider = self
-        
         authorizationController.performRequests()
     }
     override func initView(){
@@ -70,8 +71,14 @@ class LoginViewController: BaseTabViewController {
         ev_phone.delegate = self
         ev_password.delegate = self
         ev_password.isSecureTextEntry = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(gotoAgreement))
+        btn_agreement.isUserInteractionEnabled = true
+        btn_agreement.addGestureRecognizer(tap)
     }
-    
+    @objc func gotoAgreement(){
+        let vc = getVcByName(vc: .我的隐私协议) as! KtMyWkWebViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     @IBAction func login(_ sender: Any) {
         let phone = ev_phone.text
         let password = ev_password.text
@@ -112,16 +119,17 @@ class LoginViewController: BaseTabViewController {
             tranststion.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
             UIApplication.shared.windows[0].layer.add(tranststion, forKey: "animation")
         }, completion: { (true) in
-            
             UIApplication.shared.windows[0].rootViewController = self.getMainVc()
-            
-            
         })
     }
     
     @IBAction func frogetpass(_ sender: Any) {
         let vc =  getVcByName(vc: .注册) as! RegisterViewController
         vc.type = 1
+        vc.callBackBlock { (phone, passwd) in
+                   self.ev_phone.text = phone
+                   self.ev_password.text = passwd
+               }
         self.navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func gotoRegister(_ sender: Any) {

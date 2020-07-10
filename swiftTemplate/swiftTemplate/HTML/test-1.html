@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no" />
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="btn5">拨打电话号码</div>
+  <br>
+  <a href="tel:13000000000" id="tel">拨号</a>
+
+  <script>
+    var tel = '13000000000';
+
+    var btn5 = document.querySelector('#btn5');
+    btn5.addEventListener('click', function () {
+      if (window.webkit) {
+        //IOS调用用拨打电话
+        window.webkit.messageHandlers.ios_call.postMessage(
+          tel
+        );
+      } else {
+        window.location.href = "tel://" + tel;
+      }
+    })
+
+
+
+  </script>
+
+
+</body>
+
+</html>
