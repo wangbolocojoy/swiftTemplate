@@ -55,18 +55,18 @@ import UIKit
     //设置好xib视图约束
     func addConstraints() {
         contentView.translatesAutoresizingMaskIntoConstraints = false
-        var constraint = NSLayoutConstraint(item: contentView, attribute: .leading,
+        var constraint = NSLayoutConstraint(item: contentView!, attribute: .leading,
                                             relatedBy: .equal, toItem: self, attribute: .leading,
                                             multiplier: 1, constant: 0)
         addConstraint(constraint)
-        constraint = NSLayoutConstraint(item: contentView, attribute: .trailing,
+        constraint = NSLayoutConstraint(item: contentView!, attribute: .trailing,
                                         relatedBy: .equal, toItem: self, attribute: .trailing,
                                         multiplier: 1, constant: 0)
         addConstraint(constraint)
-        constraint = NSLayoutConstraint(item: contentView, attribute: .top, relatedBy: .equal,
+        constraint = NSLayoutConstraint(item: contentView!, attribute: .top, relatedBy: .equal,
                                         toItem: self, attribute: .top, multiplier: 1, constant: 0)
         addConstraint(constraint)
-        constraint = NSLayoutConstraint(item: contentView, attribute: .bottom,
+        constraint = NSLayoutConstraint(item: contentView!, attribute: .bottom,
                                         relatedBy: .equal, toItem: self, attribute: .bottom,
                                         multiplier: 1, constant: 0)
         addConstraint(constraint)

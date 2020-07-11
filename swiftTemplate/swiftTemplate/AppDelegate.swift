@@ -35,7 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             case .revoked, .notFound:
                 // The Apple ID credential is either revoked or was not found, so show the sign-in UI.
                 DispatchQueue.main.async {
-                    self.window?.rootViewController?.getloginVc()
+                    
+                      self.window?.rootViewController?.getloginVc()
                 }
             default:
                 break

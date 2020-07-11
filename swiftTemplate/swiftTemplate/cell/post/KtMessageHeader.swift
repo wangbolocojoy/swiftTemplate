@@ -48,10 +48,20 @@ static let reuseID =  "KtMessageHeader"
         }else{
               isatuher.isHidden = true
         }
+        if model?.isStart ?? false {
+            start.image = UIImage(systemName: "heart.fill")
+            start.tintColor = .red
+        }else{
+            start.image = UIImage(systemName: "heart")
+            start.tintColor = .label
+        }
         startnum.text = "\(model?.messageStart ?? 0)"
         datetime.text = model?.postMsgCreatTime?.string2DateMMdd
         auther.text = model?.userNickName
         messagedetail.text = model?.message
         image.setImageUrl(image: image, string: model?.userIcon, proimage: #imageLiteral(resourceName: "IMG_2507"))
     }
+    
+    
+    
 }

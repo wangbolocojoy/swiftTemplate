@@ -282,7 +282,7 @@ extension KtMessagelistViewController:UITextFieldDelegate{
     func textFieldDidBeginEditing(_ textField: UITextField) {
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        log.info(event)
+        log.info(event ?? "阿斯顿")
         log.info(touches)
         
     }

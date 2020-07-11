@@ -197,8 +197,8 @@ extension LoginViewController:ASAuthorizationControllerDelegate, ASAuthorization
         case let passwordCredential as ASPasswordCredential:
             
             // Sign in using an existing iCloud Keychain credential.
-            let username = passwordCredential.user
-            let password = passwordCredential.password
+            _ = passwordCredential.user
+            _ = passwordCredential.password
             
             // For the purpose of this demo app, show the password credential as an alert.
             DispatchQueue.main.async {

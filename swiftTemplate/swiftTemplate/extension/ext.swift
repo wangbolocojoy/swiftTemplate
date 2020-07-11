@@ -201,9 +201,6 @@ extension UIImageView{
                  imageView.image = #imageLiteral(resourceName: "IMG_2488-1")
             }
             
-            
-            
-            
         }else{
             imageView.image = #imageLiteral(resourceName: "IMG_2488-1")
         }
