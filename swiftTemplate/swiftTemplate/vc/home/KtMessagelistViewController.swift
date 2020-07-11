@@ -102,7 +102,7 @@ class KtMessagelistViewController: BaseDetailViewController {
     func commentlist(body:String){
         MyMoyaManager.AllRequest(controller: self, NetworkService.commentlist(k: body)) { (data) in
             if self.type == 1 {
-                log.info(data.userlist?.toJSONString() ?? "")
+                log.verbose(data.userlist?.toJSONString() ?? "")
                 self.list = data.postmsgs
             }else{
                 self.list! += data.postmsgs ?? []
@@ -124,9 +124,9 @@ class KtMessagelistViewController: BaseDetailViewController {
         self.dismiss(animated: true, completion: nil)
     }
     deinit {
-        log.info("释放")
+        log.verbose("释放")
         // 删除键盘监听
-        log.info("删除键盘监听")
+        log.verbose("删除键盘监听")
         NotificationCenter.default.removeObserver(self)
     }
     func sendComment(value:String?){
@@ -149,7 +149,7 @@ class KtMessagelistViewController: BaseDetailViewController {
                 if self.postmsg != nil {
                     self.list?[self.edsection ?? 0].chiledMessage?.insert(pos, at: 0)
                 }else{
-                    log.info(pos.toJSONString() ?? "")
+                    log.verbose(pos.toJSONString() ?? "")
                     self.list?.insert(pos, at: 0)
                 }
                 self.tableview.reloadData()
@@ -189,7 +189,7 @@ extension KtMessagelistViewController:InputBarAccessoryViewDelegate{
         // Send button activity animation
         
         inputBar.inputTextView.placeholder = "发送中"
-        log.info("\(inputBar.inputTextView.text ?? "")")
+        log.verbose("\(inputBar.inputTextView.text ?? "")")
         sendComment(value: inputBar.inputTextView.text)
     }
     
@@ -282,8 +282,8 @@ extension KtMessagelistViewController:UITextFieldDelegate{
     func textFieldDidBeginEditing(_ textField: UITextField) {
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        log.info(event ?? "阿斯顿")
-        log.info(touches)
+        log.verbose(event ?? "阿斯顿")
+        log.verbose(touches)
         
     }
 }

@@ -12,7 +12,7 @@ import ObjectMapper
 import Alamofire
 
 private func endpointMapping<Target: TargetType>(target: Target) -> Endpoint {
-    log.info("Moya请求连接：____   \(target.baseURL)/\(target.path)   ___________   \(target.method)")
+    log.verbose("Moya请求连接：____   \(target.baseURL)/\(target.path)   ___________   \(target.method)")
     
     return MoyaProvider.defaultEndpointMapping(for: target)
 }
@@ -23,9 +23,9 @@ private let requestClosure = { (endpoint: Endpoint, done: MoyaProvider.RequestRe
         request.timeoutInterval = 30
         // 打印请求参数
         if let requestData = request.httpBody {
-            log.info("\(request.url!)"+"\n"+"\(request.httpMethod ?? "")"+"发送参数"+"\(String(data: request.httpBody!, encoding: String.Encoding.utf8) ?? "")")
+            log.verbose("\(request.url!)"+"\n"+"\(request.httpMethod ?? "")"+"发送参数"+"\(String(data: request.httpBody!, encoding: String.Encoding.utf8) ?? "")")
         }else{
-            log.info("\(request.url!)"+"\(String(describing: request.httpMethod))")
+            log.verbose("\(request.url!)"+"\(String(describing: request.httpMethod))")
         }
         done(.success(request))
     } catch {
@@ -82,37 +82,29 @@ struct MyMoyaManager{
                 do {
                     let data = try response.mapJSON() as! [String:Any]
                     if let u = BaseResponse(JSON: data){
-                        log.info(u)
+                        log.verbose(u)
                         if u.status ?? 0 == 200{
                             successCallback(u)
                             
                         }else if u.status ?? 0 == 500{
                             controller.ShowTip(Title: u.message ?? u.msg ?? "请求失败")
-                            //                                KeychainManager.User.DeleteByIdentifier(forKey: .UserInfo)
-                            //                                UIView.animate(withDuration: 0.9, animations:{ }, completion: { (true) in
-                            //                                               let tranststion =  CATransition()
-                            //                                    tranststion.duration = 0.9
-                            //                                               tranststion.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
-                            //                                                   UIApplication.shared.keyWindow?.layer.add(tranststion, forKey: "animation")
-                            //                                                                  UIApplication.shared.keyWindow?.rootViewController = controller.getloginVc()
-                            //
-                            //
-                            //                                           })
+                            log.warning(u.toJSONString() ?? "")
                         }else{
                             controller.ShowTip(Title: u.msg ?? "请求失败")
+                             log.warning(u.toJSONString() ?? "")
                         }
                     }else{
+                        log.warning(data.debugDescription)
                         controller.ShowTip(Title: "解析失败")
                     }
-                    
                 } catch {
                     //可不做处理
-                    
+                    log.error(error.localizedDescription)
                     controller.ShowTip(Title: "请求失败，解析异常")
                 }
                 break
             case let .failure(error):
-                log.error(error)
+                log.error(error.failureReason ?? "")
                 break
             }
         }
@@ -130,41 +122,28 @@ struct MyMoyaManager{
                 do {
                     let data = try response.mapJSON() as! [String:Any]
                     if let u = BaseResponse(JSON: data){
-                        log.info(u)
+                        
                         if u.status ?? 0 == 200{
                             successCallback(u)
                             
                         }else if u.status ?? 0 == 500{
-                            //                                  controller.ShowTip(Title: u.message ?? u.msg ?? "请求失败")
-                            //                                KeychainManager.User.DeleteByIdentifier(forKey: .UserInfo)
-                            //                                UIView.animate(withDuration: 0.9, animations:{ }, completion: { (true) in
-                            //                                               let tranststion =  CATransition()
-                            //                                    tranststion.duration = 0.9
-                            //                                               tranststion.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
-                            //                                                   UIApplication.shared.keyWindow?.layer.add(tranststion, forKey: "animation")
-                            //                                                                  UIApplication.shared.keyWindow?.rootViewController = controller.getloginVc()
-                            //
-                            //
-                            //                                           })
-                            log.error(u.msg ?? "")
+                                                         
+                             log.warning(u.toJSONString() ?? "")
                         }else{
-                            //                                  controller.ShowTip(Title: u.msg ?? "请求失败")
-                            log.error(u.msg ?? "")
+                              log.warning(u.toJSONString() ?? "")
                         }
-                        
                     }else{
-                        log.error(data )
+                        log.warning(data.debugDescription )
                         controller.ShowTip(Title: "解析失败")
                     }
-                    
                 } catch {
                     //可不做处理
-                    
-                    //                      controller.ShowTip(Title: "请求失败，解析异常")
+                    log.error(error.localizedDescription)
+                    controller.ShowTip(Title: "请求失败，解析异常")
                 }
                 break
             case let .failure(error):
-                log.error(error)
+                log.error(error.failureReason ?? "")
                 break
             }
         }

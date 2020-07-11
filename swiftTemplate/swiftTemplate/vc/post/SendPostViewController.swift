@@ -105,7 +105,7 @@ class SendPostViewController: BaseViewController {
         config.library.mediaType = .video
         picker = YPImagePicker(configuration: config)
         picker.didFinishPicking { [unowned picker] items, _ in
-            log.info("items")
+            log.verbose("items")
             if let video = items.singleVideo {
                 print(video.fromCamera)
                 print(video.thumbnail)

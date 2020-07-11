@@ -55,7 +55,7 @@ class MyCollectViewController: BaseViewController {
     func getCollectList(body:String){
         MyMoyaManager.AllRequest(controller: self, NetworkService.getcollectionlist(K: body)) { (data) in
                    if self.type == 1 {
-                       log.info(data.userlist?.toJSONString() ?? "")
+                       log.verbose(data.userlist?.toJSONString() ?? "")
                        self.list = data.postlist
                    }else{
                        self.list! += data.postlist ?? []

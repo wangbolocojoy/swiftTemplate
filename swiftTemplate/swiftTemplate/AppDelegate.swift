@@ -16,8 +16,8 @@ import Photos
 import AuthenticationServices
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
+    
+    
     var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         initConfigure()
@@ -26,95 +26,113 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     /// 初始化配置
     private func initConfigure(){
-        
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         appleIDProvider.getCredentialState(forUserID: KeychainManager.User.ReadDataByIdentifier(forKey: .currentUserIdentifier) as? String ?? "") { (credentialState, error) in
             switch credentialState {
             case .authorized:
-                break // The Apple ID credential is valid.
+            break // The Apple ID credential is valid.
             case .revoked, .notFound:
                 // The Apple ID credential is either revoked or was not found, so show the sign-in UI.
                 DispatchQueue.main.async {
-                    
-                      self.window?.rootViewController?.getloginVc()
+                    self.window?.rootViewController?.getloginVc()
                 }
             default:
                 break
             }
         }
         AMapServices.shared().apiKey = ApiKey.default.AMapkey
-                IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.enable = true
         if #available(iOS 13.0, *) {
-                   let backgroundColor = UIColor { (traitCollection) -> UIColor in
-                       switch traitCollection.userInterfaceStyle {
-                       case .light:
-                           return Constant.BackGround
-                       case .dark:
-                           return Constant.DarkBackGround
-                       default:
-                           fatalError()
-                       }
-                   }
-                   window?.backgroundColor = backgroundColor
-               } else {
-                   window?.backgroundColor = Constant.BackGround
-               }
+            let backgroundColor = UIColor { (traitCollection) -> UIColor in
+                switch traitCollection.userInterfaceStyle {
+                case .light:
+                    return Constant.BackGround
+                case .dark:
+                    return Constant.DarkBackGround
+                default:
+                    fatalError()
+                }
+            }
+            window?.backgroundColor = backgroundColor
+        } else {
+            window?.backgroundColor = Constant.BackGround
+        }
+        
+        let  file = FileDestination()
+        file.format = "$DHH:mm:ss.SSS$d $C$L$c $N.$F:$l - $M"
+        file.levelString.debug   = "DEBUG "
+        file.levelString.error   = "ERROR "
+        file.levelString.info    = "INFO  "
+        file.levelString.warning = "WARING"
+        file.levelString.verbose = "verbose"
+        file.levelColor.debug    = "😬😬  "
+        file.levelColor.error    = "🍄🍄  "
+        file.levelColor.info     = "♻️♻️  "
+        file.levelColor.warning   = "⚠️⚠️  "
+         file.levelColor.verbose   = "🍀🍀  "
+        file.minLevel = .warning
         let console = ConsoleDestination()
-                           console.format = "$DHH:mm:ss.SSS$d $C$L$c $N.$F:$l - $M"
-                           console.levelString.debug   = "DEBUG "
-                           console.levelString.error   = "ERROR "
-                           console.levelString.info    = "INFO  "
-                           console.levelString.warning = "WARING"
-                           console.levelColor.debug    = "😬  "
-                           console.levelColor.error    = "😰  "
-                           console.levelColor.info     = "♻️  "
-                           console.levelColor.warning   = "⚠️  "
-                           log.addDestination(console)
-                     log.info(ApiKey.default.版本环境)
-       
+        console.format = "$DHH:mm:ss.SSS$d $C$L$c $N.$F:$l - $M"
+        console.levelString.debug   = "DEBUG "
+        console.levelString.error   = "ERROR "
+        console.levelString.info    = "INFO  "
+        console.levelString.warning = "WARING"
+        console.levelString.verbose = "verbose"
+        console.levelColor.debug    = "😬😬  "
+        console.levelColor.error    = "🍄🍄  "
+        console.levelColor.info     = "♻️♻️  "
+        console.levelColor.warning   = "⚠️⚠️  "
+        console.levelColor.verbose   = "🍀🍀  "
+        if ApiKey.default.版本环境 == "测试版本" {
+            log.addDestination(file)
+            log.addDestination(console)
+        }else{
+            log.addDestination(file)
+        }
+        log.verbose(ApiKey.default.版本环境)
     }
     /// 获取权限
-     func choosePermiss(){
-            if (AVCaptureDevice.authorizationStatus(for: AVMediaType.video) == .notDetermined) {
-                AVCaptureDevice.requestAccess(for: .video, completionHandler: { (statusFirst) in
-                    if statusFirst {
-                        //用户首次允许
-                        debugPrint("允许APP访问相机")
-                    } else {
-                        //用户首次拒接
-                        debugPrint("拒绝APP访问相机")
-                    }
-                })
-            }
-            //MARK: APP启动时候，判断用户是否授权使用相册
-            if (PHPhotoLibrary.authorizationStatus() == .notDetermined) {
-                PHPhotoLibrary.requestAuthorization({ (firstStatus) in
-                    let result = (firstStatus == .authorized)
-                    if result {
-                        
-                        debugPrint("允许APP访问相册")
-                    } else {
-                        debugPrint("拒绝APP访问相册")
-                    }
-                })
-            }
-         
-     }
+    func choosePermiss(){
+        if (AVCaptureDevice.authorizationStatus(for: AVMediaType.video) == .notDetermined) {
+            AVCaptureDevice.requestAccess(for: .video, completionHandler: { (statusFirst) in
+                if statusFirst {
+                    //用户首次允许
+                    debugPrint("允许APP访问相机")
+                } else {
+                    //用户首次拒接
+                    debugPrint("拒绝APP访问相机")
+                }
+            })
+        }
+        //MARK: APP启动时候，判断用户是否授权使用相册
+        if (PHPhotoLibrary.authorizationStatus() == .notDetermined) {
+            PHPhotoLibrary.requestAuthorization({ (firstStatus) in
+                let result = (firstStatus == .authorized)
+                if result {
+                    
+                    debugPrint("允许APP访问相册")
+                } else {
+                    debugPrint("拒绝APP访问相册")
+                }
+            })
+        }
+        
+    }
     // MARK: - Core Data stack
-
+    
     lazy var persistentContainer: NSPersistentCloudKitContainer = {
         /*
          The persistent container for the application. This implementation
          creates and returns a container, having loaded the store for the
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
-        */
+         */
         let container = NSPersistentCloudKitContainer(name: "swiftTemplate")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                 
+                
                 /*
                  Typical reasons for an error here include:
                  * The parent directory does not exist, cannot be created, or disallows writing.
@@ -128,9 +146,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         return container
     }()
-
+    
     // MARK: - Core Data Saving support
-
+    
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
@@ -144,6 +162,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
+    
 }
 

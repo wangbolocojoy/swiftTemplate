@@ -71,7 +71,7 @@ class FancesInfoViewController: BaseViewController {
     }
     func getpost(json:String){
         MyMoyaManager.AllRequest(controller: self, NetworkService.getuserposts(k:json )) { (data) in
-            log.info("getuserposts \(data.postlist?.toJSONString() ?? "")")
+            log.verbose("getuserposts \(data.postlist?.toJSONString() ?? "")")
             if self.type == 1 {
                 self.list = data.postlist
             }else{
@@ -109,14 +109,14 @@ extension FancesInfoViewController:UICollectionViewDelegate,UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
-            log.info("")
+            log.verbose("")
         case 1:
              let vc = self.getVcByName(vc: .我的帖子) as! BTMMyPostViewController
                    vc.vcname = list?[indexPath.item].author?.nickName ?? ""
                    vc.userid = list?[indexPath.item].author?.id ?? 0
                    self.navigationController?.pushViewController(vc, animated: true)
         default:
-            log.debug("")
+            log.verbose("")
         }
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

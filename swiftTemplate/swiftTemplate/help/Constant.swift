@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-
+import SwiftyBeaver
 enum MyController{
     case 注册
     case 个人中心
@@ -32,6 +32,8 @@ enum MyController{
     case 我的隐私协议
     case 关于
     case 关于我们
+    case 意见反馈
+    case 意见反馈列表
 }
 
 enum PictureType{
@@ -61,7 +63,7 @@ extension UIViewController{
     func getVcByName(vc:MyController) -> UIViewController{
         let sb = UIStoryboard.init(name: "Main", bundle: nil)
         let otsb = UIStoryboard.init(name: "Other", bundle: nil)
-        log.info(" -----  \(vc.self)")
+        log.verbose(" -----  \(vc.self)")
         switch vc {
         case .注册:
             let vc = UIStoryboard.init(name: "NewLogin", bundle: nil).instantiateViewController(withIdentifier: "REGISTERVC") as! RegisterViewController
@@ -132,6 +134,14 @@ extension UIViewController{
             let vc = otsb.instantiateViewController(withIdentifier: "KTDEVELOPERVC") as!
             KtAboutDeveloperViewController
             return vc
+        case .意见反馈:
+            let vc = otsb.instantiateViewController(withIdentifier: "KTSENDFEEKBACKVC") as!
+            KtSendFeekBackViewController
+            return vc
+        case .意见反馈列表:
+            let vc = otsb.instantiateViewController(withIdentifier: "KTFEEKBACKLISTVC") as!
+            KtFeekBackListViewController
+            return vc
         }
     }
 }
@@ -144,10 +154,13 @@ struct Constant {
     static let 密码:String = "PASSWORD"
     static let 账号:String = "PHONE"
     //    let infoDictionary = Bundle.main.infoDictionary
+    let logfile = FileDestination()
     
     let majorVersion  = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0.1"//主程序版本号
     
-    
+    func deleteCace(){
+        logfile.deleteLogFile()
+    }
     
     
     

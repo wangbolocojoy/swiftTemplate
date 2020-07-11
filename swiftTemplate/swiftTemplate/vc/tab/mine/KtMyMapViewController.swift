@@ -101,7 +101,7 @@ class KtMyMapViewController: BaseViewController {
             }
             
             if let reGeocode = reGeocode{
-                log.info("\(reGeocode)")
+                log.verbose("\(reGeocode)")
                 let request = AMapPOIKeywordsSearchRequest()
                 if location != nil {
                     request.location = AMapGeoPoint.location(withLatitude: CGFloat(location!.coordinate.latitude), longitude: CGFloat(location!.coordinate.longitude))
@@ -131,14 +131,14 @@ class KtMyMapViewController: BaseViewController {
 extension KtMyMapViewController:UISearchResultsUpdating{
     func updateSearchResults(for searchController: UISearchController) {
         if searchController.searchBar.text == nil || (searchController.searchBar.text?.count ?? 0) < 2  || searchController.searchBar.text == ""{
-            log.info("搜查的内容---  \(searchController.searchBar.text ?? "")")
+            log.verbose("搜查的内容---  \(searchController.searchBar.text ?? "")")
             return
         }else{
             let request = AMapPOIKeywordsSearchRequest()
             if self.userlocation != nil {
                 request.location = AMapGeoPoint.location(withLatitude: CGFloat(self.userlocation!.coordinate.latitude), longitude: CGFloat(self.userlocation!.coordinate.longitude))
             }
-            log.info("搜索关键词\(searchController.searchBar.text ?? "")")
+            log.verbose("搜索关键词\(searchController.searchBar.text ?? "")")
             request.keywords = searchController.searchBar.text ?? ""
             request.cityLimit = true
             request.types = keyword1
@@ -200,18 +200,18 @@ extension KtMyMapViewController :MAMapViewDelegate{
 }
 extension KtMyMapViewController:AMapSearchDelegate{
     func onPOISearchDone(_ request: AMapPOISearchBaseRequest!, response: AMapPOISearchResponse!) {
-        log.info("搜索结果数量----\(response.pois.count)")
+        log.verbose("搜索结果数量----\(response.pois.count)")
         if response.count == 0 || response.pois.count == 0{
             return
         }
         if let listf = response.pois{
-            log.info("tableview添加数据\(listf)")
+            log.verbose("tableview添加数据\(listf)")
             infoList = listf
             self.tableview.reloadData()
         }
         
         for (_,item) in response!.pois.enumerated() {
-                 log.info("地图添加标记\(item)")
+                 log.verbose("地图添加标记\(item)")
                 let pointAnnotation = MAPointAnnotation()
                 pointAnnotation.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(item.location.latitude), longitude: CLLocationDegrees(item.location.longitude))
                 pointAnnotation.title = item.name
@@ -232,7 +232,7 @@ extension KtMyMapViewController:AMapLocationManagerDelegate{
     }
     func amapLocationManager(_ manager: AMapLocationManager!, didUpdate location: CLLocation!, reGeocode: AMapLocationReGeocode?) {
         if let reGeocode = reGeocode {
-            log.info("\(reGeocode)")
+            log.verbose("\(reGeocode)")
             let request = AMapPOIKeywordsSearchRequest()
             if location != nil {
                 request.location = AMapGeoPoint.location(withLatitude: CGFloat(location!.coordinate.latitude), longitude: CGFloat(location!.coordinate.longitude))
@@ -265,7 +265,7 @@ extension KtMyMapViewController:UITableViewDelegate,UITableViewDataSource{
                 self.ShowTipsClose(tite: data.msg ?? "更新成功")
             }
         }else if MyMapViewType == 2 {
-            log.info("返回发帖")
+            log.verbose("返回发帖")
             if callBack != nil {
                 callBack!(infoList?[indexPath.item])
                 self.navigationController?.popViewController(animated: true)

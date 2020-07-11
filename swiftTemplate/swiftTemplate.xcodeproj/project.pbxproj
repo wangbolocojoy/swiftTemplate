@@ -44,6 +44,10 @@
 		C41CD30D24B8A697000A6613 /* KtAboutMineInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C41CD30B24B8A697000A6613 /* KtAboutMineInfoCell.xib */; };
 		C41CD31024B8AB8C000A6613 /* KtAboutDeveloperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CD30F24B8AB8C000A6613 /* KtAboutDeveloperViewController.swift */; };
 		C41CD31224B8B390000A6613 /* CanCopyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CD31124B8B390000A6613 /* CanCopyLabel.swift */; };
+		C41CD31424B99EF9000A6613 /* KtSendFeekBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CD31324B99EF9000A6613 /* KtSendFeekBackViewController.swift */; };
+		C41CD31624B99F0E000A6613 /* KtFeekBackListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CD31524B99F0E000A6613 /* KtFeekBackListViewController.swift */; };
+		C41CD31924B9E5BA000A6613 /* KtFeekBackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CD31724B9E5BA000A6613 /* KtFeekBackCell.swift */; };
+		C41CD31A24B9E5BA000A6613 /* KtFeekBackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C41CD31824B9E5BA000A6613 /* KtFeekBackCell.xib */; };
 		C4206F24248FFC2900F4537C /* FanceORFollowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4206F22248FFC2900F4537C /* FanceORFollowCell.swift */; };
 		C4206F25248FFC2900F4537C /* FanceORFollowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4206F23248FFC2900F4537C /* FanceORFollowCell.xib */; };
 		C422FB3C24ADBD1F006AC5CA /* KtSexPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C422FB3B24ADBD1F006AC5CA /* KtSexPickerViewController.swift */; };
@@ -167,6 +171,10 @@
 		C41CD30B24B8A697000A6613 /* KtAboutMineInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KtAboutMineInfoCell.xib; sourceTree = "<group>"; };
 		C41CD30F24B8AB8C000A6613 /* KtAboutDeveloperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtAboutDeveloperViewController.swift; sourceTree = "<group>"; };
 		C41CD31124B8B390000A6613 /* CanCopyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanCopyLabel.swift; sourceTree = "<group>"; };
+		C41CD31324B99EF9000A6613 /* KtSendFeekBackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtSendFeekBackViewController.swift; sourceTree = "<group>"; };
+		C41CD31524B99F0E000A6613 /* KtFeekBackListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtFeekBackListViewController.swift; sourceTree = "<group>"; };
+		C41CD31724B9E5BA000A6613 /* KtFeekBackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtFeekBackCell.swift; sourceTree = "<group>"; };
+		C41CD31824B9E5BA000A6613 /* KtFeekBackCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KtFeekBackCell.xib; sourceTree = "<group>"; };
 		C4206F22248FFC2900F4537C /* FanceORFollowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FanceORFollowCell.swift; sourceTree = "<group>"; };
 		C4206F23248FFC2900F4537C /* FanceORFollowCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FanceORFollowCell.xib; sourceTree = "<group>"; };
 		C422FB3B24ADBD1F006AC5CA /* KtSexPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtSexPickerViewController.swift; sourceTree = "<group>"; };
@@ -442,6 +450,8 @@
 				C41CD30324B8A274000A6613 /* KtAboutItemCell.xib */,
 				C41CD30A24B8A697000A6613 /* KtAboutMineInfoCell.swift */,
 				C41CD30B24B8A697000A6613 /* KtAboutMineInfoCell.xib */,
+				C41CD31724B9E5BA000A6613 /* KtFeekBackCell.swift */,
+				C41CD31824B9E5BA000A6613 /* KtFeekBackCell.xib */,
 			);
 			path = about;
 			sourceTree = "<group>";
@@ -450,6 +460,8 @@
 			isa = PBXGroup;
 			children = (
 				C41CD30F24B8AB8C000A6613 /* KtAboutDeveloperViewController.swift */,
+				C41CD31324B99EF9000A6613 /* KtSendFeekBackViewController.swift */,
+				C41CD31524B99F0E000A6613 /* KtFeekBackListViewController.swift */,
 			);
 			path = about;
 			sourceTree = "<group>";
@@ -724,6 +736,7 @@
 				C4070A9A24A6F624000819BD /* KtInputView.xib in Resources */,
 				C44E81C624A367D3000BD888 /* FanceInfoHeaderCell.xib in Resources */,
 				C4AEFCEA248CAA310080904E /* BTMUserIconCell.xib in Resources */,
+				C41CD31A24B9E5BA000A6613 /* KtFeekBackCell.xib in Resources */,
 				C4D2874524A8ADFD0065F497 /* KtMyCollectCell.xib in Resources */,
 				C40240332480193E00F715DC /* LaunchScreen.storyboard in Resources */,
 				C41CD30124B7196C000A6613 /* KtAboutHeaderCell.xib in Resources */,
@@ -870,10 +883,12 @@
 				C4070AA824A73871000819BD /* NoTextViewInputBar.swift in Sources */,
 				C41CD30024B7196C000A6613 /* KtAboutHeaderCell.swift in Sources */,
 				C4FDACBE249FB5610095F1E3 /* DynamicCollectionViewCell.swift in Sources */,
+				C41CD31924B9E5BA000A6613 /* KtFeekBackCell.swift in Sources */,
 				C40240242480193B00F715DC /* AppDelegate.swift in Sources */,
 				C43FDF7B248E88C30023E3F2 /* TabFriendsViewController.swift in Sources */,
 				C422FB4624B0822D006AC5CA /* KtMyPuctureCollectionViewCell.swift in Sources */,
 				C43157D3248399FE0034A74E /* BaseViewController.swift in Sources */,
+				C41CD31624B99F0E000A6613 /* KtFeekBackListViewController.swift in Sources */,
 				C4AEFCFA248E4B330080904E /* BTMMyFanceFollowViewController.swift in Sources */,
 				C402403F248381BE00F715DC /* Constant.swift in Sources */,
 				C402403C248164E300F715DC /* CoreDataManager.swift in Sources */,
@@ -881,6 +896,7 @@
 				C43157DD24839C670034A74E /* TabMineViewController.swift in Sources */,
 				C41CD31224B8B390000A6613 /* CanCopyLabel.swift in Sources */,
 				C4AEFCD9248BF09E0080904E /* MineItemViewCell.swift in Sources */,
+				C41CD31424B99EF9000A6613 /* KtSendFeekBackViewController.swift in Sources */,
 				C43157EA2483AF570034A74E /* TextUntils.swift in Sources */,
 				C4AEFCE3248C92F50080904E /* BTMMinePostController.swift in Sources */,
 				C4206F24248FFC2900F4537C /* FanceORFollowCell.swift in Sources */,

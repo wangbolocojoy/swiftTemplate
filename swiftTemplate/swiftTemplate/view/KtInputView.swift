@@ -32,7 +32,7 @@ import UIKit
     }
     
     @objc func sendmessage(){
-        log.info("框架分开分开分开分开")
+        log.verbose("框架分开分开分开分开")
     }
     //初始化时将xib中的view添加进来
     required init?(coder aDecoder: NSCoder) {
@@ -76,6 +76,6 @@ import UIKit
 }
 extension KtInputView:UITextFieldDelegate{
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        log.info("uytu")
+        log.verbose("uytu")
     }
 }

@@ -24,6 +24,7 @@ class BaseResponse: Mappable {
     var postmsg:PostMessage?
     var mypictures:[PostImages]?
     var developer:DeveloperInfo?
+    var feekbacklist:[FeekBackInfo]?
     required init?(map: Map) {
     }
     func mapping(map: Map) {
@@ -42,7 +43,29 @@ class BaseResponse: Mappable {
         postmsg <- map["data"]
         mypictures <- map["data"]
         developer <- map["data"]
+        feekbacklist <- map["data"]
     }
+    
+}
+class FeekBackInfo: Mappable {
+    var id:Int?
+    var userId:Int?
+    var userMsg:String?
+    var backTime:String?
+    var userNickName:String?
+    var userIcon:String?
+    required init?(map: Map) {
+    }
+    
+    func mapping(map: Map) {
+        id <- map["id"]
+        userId <- map["userId"]
+        userMsg <- map["userMsg"]
+        backTime <- map["backTime"]
+        userNickName <- map["userNickName"]
+        userIcon <- map["userIcon"]
+    }
+    
     
 }
 class DeveloperInfo:Mappable{

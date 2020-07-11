@@ -149,7 +149,7 @@ class MainPostCell: UITableViewCell {
     /// - Parameter gesture:
     @objc func postStart(gesture:UITapGestureRecognizer){
         if postinfo?.isStart ?? false {
-            log.info("已经点过赞了 只显示动画")
+            log.verbose("已经点过赞了 只显示动画")
             self.postanimation()
         }else{
             start()
@@ -162,7 +162,7 @@ class MainPostCell: UITableViewCell {
         body.userId = user?.id ?? 0
         body.postId = postinfo?.id
         MyMoyaManager.AllRequestNospinner(controller: self.parentViewController()!, NetworkService.collection(K: body.toJSONString() ?? "")) { (data) in
-            log.info("收藏\(data)")
+            log.verbose("收藏\(data)")
             self.postinfo?.isCollection = true
             
             self.updateStartOrCollection()
@@ -174,7 +174,7 @@ class MainPostCell: UITableViewCell {
         body.userId = user?.id ?? 0
         body.postId = postinfo?.id
         MyMoyaManager.AllRequestNospinner(controller: self.parentViewController()!, NetworkService.cancelcollection(K: body.toJSONString() ?? "")) { (data) in
-            log.info("取消收藏\(data)")
+            log.verbose("取消收藏\(data)")
             self.postinfo?.isCollection = false
             self.updateStartOrCollection()
         }
@@ -185,7 +185,7 @@ class MainPostCell: UITableViewCell {
         body.userId = user?.id ?? 0
         body.postId = postinfo?.id
         MyMoyaManager.AllRequestNospinner(controller: self.parentViewController()!, NetworkService.poststart(K: body.toJSONString() ?? "")) { (data) in
-            log.info("点赞\(data)")
+            log.verbose("点赞\(data)")
             self.postinfo?.isStart = true
             self.postinfo?.postStarts = (self.postinfo?.postStarts ?? 0) + 1
             self.postanimation()
@@ -197,7 +197,7 @@ class MainPostCell: UITableViewCell {
         body.userId = user?.id ?? 0
         body.postId = postinfo?.id
         MyMoyaManager.AllRequestNospinner(controller: self.parentViewController()!, NetworkService.postunstart(K: body.toJSONString() ?? "")) { (data) in
-            log.info("取消点赞\(data)")
+            log.verbose("取消点赞\(data)")
             self.postinfo?.isStart = false
             self.postinfo?.postStarts = (self.postinfo?.postStarts ?? 1) - 1
             self.updateStartOrCollection()
@@ -321,7 +321,7 @@ extension MainPostCell:FSPagerViewDelegate,FSPagerViewDataSource{
     }
     func pagerView(_ pagerView: FSPagerView, willDisplay cell: FSPagerViewCell, forItemAt index: Int) {
         //        pagecontrol.currentPage = index
-        //               log.info("index\(index)")
+        //               log.verbose("index\(index)")
     }
     func pagerViewWillEndDragging(_ pagerView: FSPagerView, targetIndex: Int) {
         pagecontrol.currentPage = targetIndex

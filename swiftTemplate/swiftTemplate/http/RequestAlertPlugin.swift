@@ -56,8 +56,8 @@ final class RequestAlertPlugin: PluginType {
         
         //弹出并显示错误信息
         var message = error.failureReason ?? "未知错误"
-        log.debug(error.errorCode)
-
+        log.error(error.failureReason ?? "")
+        log.error(error.localizedDescription)
         switch error.errorCode {
         case 6:
             message = "该次请求超时...\n请您稍后再试"
@@ -65,7 +65,7 @@ final class RequestAlertPlugin: PluginType {
             message = "远程服务异常"
         }
         let alertViewController = UIAlertController(title: "请求失败",
-                                                        message: "\(message)",
+                                                    message: "\(message)",
             preferredStyle: .alert)
         alertViewController.addAction(UIAlertAction(title: "确定", style: .default,
                                                     handler: nil))

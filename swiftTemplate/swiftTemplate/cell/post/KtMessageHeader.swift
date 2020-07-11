@@ -116,7 +116,7 @@ class KtMessageHeader: UITableViewHeaderFooterView {
         body.userId = user?.id ?? 0
         body.msgId = model?.id
         MyMoyaManager.AllRequest(controller: self.parentViewController()!, NetworkService.msgstart(k: body.toJSONString() ?? "")) { (data) in
-            log.info("点赞\(data)")
+            log.verbose("点赞\(data)")
             self.model?.isStart = true
             self.model?.messageStart = (self.model?.messageStart ?? 0) + 1
             self.startMsganimation()
@@ -128,7 +128,7 @@ class KtMessageHeader: UITableViewHeaderFooterView {
         body.userId = user?.id ?? 0
         body.msgId = model?.id
         MyMoyaManager.AllRequest(controller: self.parentViewController()!, NetworkService.msgunstart(k: body.toJSONString() ?? "")) { (data) in
-            log.info("取消点赞\(data)")
+            log.verbose("取消点赞\(data)")
             self.model?.isStart = false
             self.model?.messageStart = (self.model?.messageStart ?? 0) - 1
             self.unstartMsganimation()

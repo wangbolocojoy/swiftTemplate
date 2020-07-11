@@ -16,6 +16,7 @@ class RequestBody: Mappable {
     var followId:Int?
     var msgId:Int?
     var icon:String?
+    var feedMsg:String?
     var password:String?
     var phone:String?
     var msgcode:String?
@@ -50,6 +51,7 @@ class RequestBody: Mappable {
     func mapping(map: Map) {
         postId <- map["postId"]
          msgId <- map["msgId"]
+        feedMsg <- map["feedMsg"]
         postMsgId <- map["postMsgId"]
         phone <- map["phone"]
         password <- map["password"]

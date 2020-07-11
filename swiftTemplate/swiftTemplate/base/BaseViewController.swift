@@ -27,21 +27,14 @@ class BaseViewController: UIViewController ,UIGestureRecognizerDelegate{
     }
     func BaseinitView(){
           if #available(iOS 13.0, *) {
-                    log.debug("13.0")
                     let backgroundColor = UIColor { (trainCollection) -> UIColor in
                         
                         switch trainCollection.userInterfaceStyle {
                         case .dark:
-                            log.debug("dark")
                             return Constant.DarkBackGround
                         case .light:
-                            log.debug("light")
-                            
-
                             return Constant.BackGround
                         default:
-                            log.debug("default")
-
                             return Constant.BackGround
                         }
                     }
@@ -60,7 +53,6 @@ class BaseViewController: UIViewController ,UIGestureRecognizerDelegate{
               if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
                   switch previousTraitCollection?.userInterfaceStyle {
                   case .dark:
-                      log.debug("dark")
                       self.navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(color: Constant.BackGround), for: .default)
                       self.navigationController?.navigationBar.shadowImage = UIImage.imageWithColor(color: .clear)
                       self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
@@ -69,7 +61,6 @@ class BaseViewController: UIViewController ,UIGestureRecognizerDelegate{
                       self.navigationController?.navigationBar.tintColor = .black
                       
                   case .light:
-                      log.debug("light")
                       self.navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(color: Constant.DarkBackGround), for: .default)
                       self.navigationController?.navigationBar.shadowImage = UIImage.imageWithColor(color: .clear)
                       self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white,
@@ -78,7 +69,7 @@ class BaseViewController: UIViewController ,UIGestureRecognizerDelegate{
                       self.navigationController?.navigationBar.tintColor = .white
                       
                   default:
-                      log.debug("default")
+
                       self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
                       self.navigationController?.navigationBar.shadowImage = UIImage.imageWithColor(color: .clear)
                       self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black,

@@ -108,24 +108,11 @@ extension UIImageView{
         }
         let url = URL(string: string ?? "")
         
+        if url == nil {
+            image.image = proimage
+            return
+        }
         let imageResource = ImageResource(downloadURL: url!, cacheKey: string)
-        let cache = ImageCache.default
-        // Limit memory cache size to 300 MB.
-        cache.memoryStorage.config.totalCostLimit = 300 * 1024 * 1024
-
-        // Limit memory cache to hold 150 images at most.
-        cache.memoryStorage.config.countLimit = 150
-        // Limit disk cache size to 1 GB.
-        cache.diskStorage.config.sizeLimit =   1000 * 1024 * 1024
-        // Memory image expires after 10 minutes.
-        cache.memoryStorage.config.expiration = .seconds(600)
-
-        // Disk image never expires.
-        cache.diskStorage.config.expiration = .never
-        // Check memory clean up every 30 seconds.
-//        cache.memoryStorage.config.cleanInterval = 30
-        image.kf.indicatorType = .activity
-        
         image.kf.setImage(
             with: imageResource,
             placeholder: #imageLiteral(resourceName: "IMG_2507"),
@@ -136,6 +123,7 @@ extension UIImageView{
                 .cacheOriginalImage,
                 .diskCacheExpiration(.days(10)),
                 .diskCacheAccessExtendingExpiration(.cacheTime)
+                
             ]
             
         )
@@ -269,7 +257,7 @@ extension UIImage{
         func compressImageMid(maxLength: Int) -> Data? {
            var compression: CGFloat = 1
             var data = self.jpegData(compressionQuality: 1)!
-            log.info( "压缩前:---- \( Double((data.count)/1024))kb")
+            log.verbose( "压缩前:---- \( Double((data.count)/1024))kb")
            if data.count < maxLength {
                return data
            }
@@ -288,10 +276,10 @@ extension UIImage{
            }
             var _: UIImage = UIImage(data: data)!
            if data.count < maxLength {
-            log.info( "压缩后： \( Double((data.count)/1024))kb")
+            log.verbose( "压缩后： \( Double((data.count)/1024))kb")
                return data
            }
-             log.info( "压缩后: \( Double((data.count)/1024))kb")
+             log.verbose( "压缩后: \( Double((data.count)/1024))kb")
             return data
     }
 }

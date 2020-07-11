@@ -42,7 +42,7 @@ class KtFabulousViewController: BaseViewController {
     func getUsers(body:String){
         MyMoyaManager.AllRequestNospinner(controller: self, NetworkService.getpoststartlist(K: body)) { (data) in
                   if self.type == 1 {
-                    log.info(data.userlist?.toJSONString() ?? "")
+                    log.verbose(data.userlist?.toJSONString() ?? "")
                     self.list = data.userlist
                   }else{
                       self.list! += data.userlist ?? []

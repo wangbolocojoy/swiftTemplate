@@ -184,12 +184,12 @@ extension LoginViewController:ASAuthorizationControllerDelegate, ASAuthorization
             
             let identityToken = appleIDCredential.identityToken?.base64EncodedString()
             let authCode = appleIDCredential.authorizationCode?.base64EncodedString()
-            log.info("userIdentifier  \(userIdentifier)")
-            log.info("fullName  \(String(describing: fullName?.familyName) )\(String(describing: fullName?.givenName))")
-             log.info("email  \(email ?? "")")
-            log.info("realUserStatus  \(realUserStatus.rawValue )")
-             log.info("identityToken  \(identityToken ?? "")")
-             log.info("authCode  \(authCode ?? "")")
+            log.verbose("userIdentifier  \(userIdentifier)")
+            log.verbose("fullName  \(String(describing: fullName?.familyName) )\(String(describing: fullName?.givenName))")
+             log.verbose("email  \(email ?? "")")
+            log.verbose("realUserStatus  \(realUserStatus.rawValue )")
+             log.verbose("identityToken  \(identityToken ?? "")")
+             log.verbose("authCode  \(authCode ?? "")")
             // For the purpose of this demo app, store the `userIdentifier` in the keychain.
             _ = KeychainManager.User.SaveByIdentifier(data: userIdentifier, forKey: .currentUserIdentifier)
             

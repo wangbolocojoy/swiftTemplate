@@ -169,10 +169,123 @@
             </objects>
             <point key="canvasLocation" x="2484" y="251"/>
         </scene>
-        <!--Kt About Developer View Controller-->
+        <!--用户反馈列表-->
+        <scene sceneID="dEi-cE-AuU">
+            <objects>
+                <viewController storyboardIdentifier="KTFEEKBACKLISTVC" title="用户反馈列表" id="bf2-x2-Uzw" customClass="KtFeekBackListViewController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="X23-Ym-hpy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VDI-r8-vLz">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="VDI-r8-vLz" firstAttribute="top" secondItem="vA9-1W-4TC" secondAttribute="top" id="Khs-0L-4qX"/>
+                            <constraint firstItem="vA9-1W-4TC" firstAttribute="bottom" secondItem="VDI-r8-vLz" secondAttribute="bottom" id="R81-Mi-eNf"/>
+                            <constraint firstItem="VDI-r8-vLz" firstAttribute="leading" secondItem="vA9-1W-4TC" secondAttribute="leading" id="aw3-se-knx"/>
+                            <constraint firstItem="vA9-1W-4TC" firstAttribute="trailing" secondItem="VDI-r8-vLz" secondAttribute="trailing" id="vrx-lJ-bGF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vA9-1W-4TC"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableview" destination="VDI-r8-vLz" id="UFF-CJ-JlH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ilN-Fl-lec" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1686" y="1030"/>
+        </scene>
+        <!--建议反馈-->
+        <scene sceneID="jfP-Ds-gP8">
+            <objects>
+                <viewController storyboardIdentifier="KTSENDFEEKBACKVC" title="建议反馈" id="h5P-FO-mT0" customClass="KtSendFeekBackViewController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="chh-Ki-JdV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oJU-iA-9sV">
+                                <rect key="frame" x="0.0" y="54" width="414" height="200"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3uz-pe-nHI">
+                                        <rect key="frame" x="15" y="0.0" width="384" height="170"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="300字以内" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N8D-4A-KhM">
+                                        <rect key="frame" x="15" y="183" width="69" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="FQQ-5y-DU5"/>
+                                    <constraint firstItem="N8D-4A-KhM" firstAttribute="leading" secondItem="oJU-iA-9sV" secondAttribute="leading" constant="15" id="GXa-Bx-2PI"/>
+                                    <constraint firstAttribute="bottom" secondItem="N8D-4A-KhM" secondAttribute="bottom" id="Rr6-Ci-WMe"/>
+                                    <constraint firstAttribute="trailing" secondItem="3uz-pe-nHI" secondAttribute="trailing" constant="15" id="RvK-tE-zMz"/>
+                                    <constraint firstItem="3uz-pe-nHI" firstAttribute="leading" secondItem="oJU-iA-9sV" secondAttribute="leading" constant="15" id="XS3-vE-0WQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="3uz-pe-nHI" secondAttribute="bottom" constant="30" id="j6x-zB-GHL"/>
+                                    <constraint firstItem="3uz-pe-nHI" firstAttribute="top" secondItem="oJU-iA-9sV" secondAttribute="top" id="rcd-Yb-qOK"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pX0-1T-aQo">
+                                <rect key="frame" x="30" y="802" width="354" height="50"/>
+                                <color key="backgroundColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Igt-X1-UGk"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <state key="normal" title="提交反馈"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="sendfeekback:" destination="h5P-FO-mT0" eventType="touchUpInside" id="Odt-JY-tt7"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="oJU-iA-9sV" firstAttribute="leading" secondItem="E1S-7z-l19" secondAttribute="leading" id="7fK-qI-m8r"/>
+                            <constraint firstItem="E1S-7z-l19" firstAttribute="bottom" secondItem="pX0-1T-aQo" secondAttribute="bottom" constant="10" id="EML-Hk-cxR"/>
+                            <constraint firstItem="pX0-1T-aQo" firstAttribute="leading" secondItem="E1S-7z-l19" secondAttribute="leading" constant="30" id="S8g-Oe-7G7"/>
+                            <constraint firstItem="E1S-7z-l19" firstAttribute="trailing" secondItem="oJU-iA-9sV" secondAttribute="trailing" id="Xxe-gW-vqA"/>
+                            <constraint firstItem="oJU-iA-9sV" firstAttribute="top" secondItem="E1S-7z-l19" secondAttribute="top" constant="10" id="rgj-7B-cA3"/>
+                            <constraint firstItem="E1S-7z-l19" firstAttribute="trailing" secondItem="pX0-1T-aQo" secondAttribute="trailing" constant="30" id="xju-Vx-dpa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="E1S-7z-l19"/>
+                    </view>
+                    <toolbarItems/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="allview" destination="oJU-iA-9sV" id="0wy-PG-L5P"/>
+                        <outlet property="ev_feekback" destination="3uz-pe-nHI" id="VbV-Vo-CvH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oHV-Dx-BLD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-694" y="1061"/>
+        </scene>
+        <!--关于我们-->
         <scene sceneID="DyR-hl-1ga">
             <objects>
-                <viewController storyboardIdentifier="KTDEVELOPERVC" id="miZ-J7-v79" customClass="KtAboutDeveloperViewController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="KTDEVELOPERVC" title="关于我们" id="miZ-J7-v79" customClass="KtAboutDeveloperViewController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dpo-8z-JGK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -199,10 +312,10 @@
             </objects>
             <point key="canvasLocation" x="286" y="1068"/>
         </scene>
-        <!--Kt About Mine View Controller-->
+        <!--关于-->
         <scene sceneID="uN9-c1-8bt">
             <objects>
-                <viewController storyboardIdentifier="KTABOUTMINEVC" hidesBottomBarWhenPushed="YES" id="NwN-fO-6sW" customClass="KtAboutMineViewController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="KTABOUTMINEVC" title="关于" hidesBottomBarWhenPushed="YES" id="NwN-fO-6sW" customClass="KtAboutMineViewController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ej3-h1-4L4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

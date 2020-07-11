@@ -10,6 +10,7 @@ import UIKit
 
 class KtAboutMineViewController: BaseViewController {
     lazy var list = ["去评分","版本更新","意见反馈","关于我们"]
+    lazy var list1 = ["去评分","版本更新","意见反馈","关于我们","反馈列表"]
     @IBOutlet weak var tableview: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,12 @@ extension KtAboutMineViewController:UITableViewDelegate,UITableViewDataSource{
         case 0:
             return 1
         case 1:
-            return list.count
+            if UserInfoHelper.instance.user?.phone ?? "0" == "13550247642"{
+                return list1.count
+            }else{
+                return list.count
+            }
+            
         default:
             return 0
         }
@@ -49,17 +55,20 @@ extension KtAboutMineViewController:UITableViewDelegate,UITableViewDataSource{
         switch indexPath.section {
         case 1:
             switch indexPath.item {
-            case 0,1,2:
-                 log.info("")
+            case 0,1:
+                log.verbose("")
+            case 2:
+                let vc = getVcByName(vc: .意见反馈) as! KtSendFeekBackViewController
+                self.navigationController?.pushViewController(vc, animated: true)
             case 3:
                 let vc = getVcByName(vc: .关于我们) as! KtAboutDeveloperViewController
                 self.navigationController?.pushViewController(vc, animated: true)
-          
             default:
-                 log.info("")
+                let vc = getVcByName(vc: .意见反馈列表) as! KtFeekBackListViewController
+                self.navigationController?.pushViewController(vc, animated: true)
             }
         default:
-             log.info("")
+            log.verbose("")
         }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -69,7 +78,12 @@ extension KtAboutMineViewController:UITableViewDelegate,UITableViewDataSource{
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: KtAboutItemCell.reuseID, for: indexPath) as! KtAboutItemCell
-            cell.setItemName(name: list[indexPath.item])
+            if UserInfoHelper.instance.user?.phone ?? "0" == "13550247642"{
+                cell.setItemName(name: list1[indexPath.item])
+            }else{
+                cell.setItemName(name: list[indexPath.item])
+            }
+            
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: KtAboutItemCell.reuseID, for: indexPath) as! KtAboutItemCell

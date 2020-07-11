@@ -8,6 +8,7 @@
 // MARK: - 我的
 import UIKit
 import MJRefresh
+import SwiftyBeaver
 class TabMineViewController: BaseTabViewController {
     let time = 0.2
     var list = ["我的图片","我的地址","我的收藏","我的评论","关于","清除缓存","退出登录"]
@@ -17,8 +18,6 @@ class TabMineViewController: BaseTabViewController {
     @IBOutlet weak var tableview: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -65,9 +64,12 @@ class TabMineViewController: BaseTabViewController {
         })
     }
     func deleteCoreNovel(){
-        CoreDataManager.default.deleteStartList {
-            self.ShowTip(Title: "删除缓存成功")
+        if FileDestination().deleteLogFile(){
+              self.ShowTip(Title: "删除日志成功")
         }
+//        CoreDataManager.default.deleteStartList {
+//            self.ShowTip(Title: "删除缓存成功")
+//        }
         
     }
     
@@ -77,7 +79,7 @@ extension TabMineViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
-            log.info("哈哈哈")
+            log.verbose("哈哈哈")
         default:
             switch indexPath.item {
             case 0:

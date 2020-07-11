@@ -41,7 +41,7 @@ static let reuseID =  "BTMUserItemCell"
         case "性别":
             item_value.text = (user?.userSex ?? false ) ? "女":"男"
         default:
-            log.info("")
+            log.verbose("")
         }
     }
     

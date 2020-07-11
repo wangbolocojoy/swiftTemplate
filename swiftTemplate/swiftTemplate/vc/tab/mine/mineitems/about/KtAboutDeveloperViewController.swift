@@ -20,6 +20,7 @@ class KtAboutDeveloperViewController: BaseViewController {
         tableview.dataSource = self
         tableview.separatorStyle = .none
         tableview.register(UINib(nibName: KtAboutMineInfoCell.reuseID, bundle: nil), forCellReuseIdentifier: KtAboutMineInfoCell.reuseID)
+        getDeveloperInfo()
     }
     func getDeveloperInfo(){
         MyMoyaManager.AllRequestNospinner(controller: self, NetworkService.developerinfo) { (data) in

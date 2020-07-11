@@ -58,10 +58,10 @@ class KtTestViewController: BaseViewController {
         
     }
     @objc func showheart(){
-        log.info("单机")
+        log.verbose("单机")
     }
     @objc func towheart(){
-         log.info("双击")
+         log.verbose("双击")
         self.viewheart.isHidden = false
       
         UIView.animate(withDuration: 0.3, animations: {

@@ -630,11 +630,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ivJ-d5-AIr"/>
                     </view>
-                    <navigationItem key="navigationItem" title="发现" id="sft-xX-5H1">
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="acS-ua-3Cd">
-                            <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="发现" id="sft-xX-5H1"/>
                     <connections>
                         <outlet property="collectionview" destination="akX-Xe-hM5" id="Y02-MO-tWQ"/>
                     </connections>

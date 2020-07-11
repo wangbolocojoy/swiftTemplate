@@ -55,7 +55,7 @@ class KtMessageCell: UITableViewCell {
           body.userId = user?.id ?? 0
           body.msgId = msgModel?.id
           MyMoyaManager.AllRequest(controller: self.parentViewController()!, NetworkService.msgstart(k: body.toJSONString() ?? "")) { (data) in
-              log.info("点赞\(data)")
+              log.verbose("点赞\(data)")
               self.msgModel?.isStart = true
               self.msgModel?.messageStart = (self.msgModel?.messageStart ?? 0) + 1
               self.startMsganimation()
@@ -67,7 +67,7 @@ class KtMessageCell: UITableViewCell {
           body.userId = user?.id ?? 0
           body.msgId = msgModel?.id
           MyMoyaManager.AllRequest(controller: self.parentViewController()!, NetworkService.msgunstart(k: body.toJSONString() ?? "")) { (data) in
-              log.info("取消点赞\(data)")
+              log.verbose("取消点赞\(data)")
               self.msgModel?.isStart = false
               self.msgModel?.messageStart = (self.msgModel?.messageStart ?? 0) - 1
               self.unstartMsganimation()
@@ -119,13 +119,13 @@ class KtMessageCell: UITableViewCell {
     func setModel(info:PostMessage?,pinf:PostInfo?){
         msgModel = info
         postinfo = pinf
-        log.info(msgModel?.toJSONString() ?? "")
+        log.verbose(msgModel?.toJSONString() ?? "")
         updateCell()
     }
     
     func setModel(info:PostMessage?,type:Int){
         msgModel = info
-        log.info(msgModel?.toJSONString() ?? "")
+        log.verbose(msgModel?.toJSONString() ?? "")
         updateCell(type:type)
     }
     func updateCell(){

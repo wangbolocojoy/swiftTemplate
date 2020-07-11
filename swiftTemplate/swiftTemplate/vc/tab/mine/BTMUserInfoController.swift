@@ -58,7 +58,7 @@ class BTMUserInfoController: BaseViewController{
     
     func refresh(){
         user = UserInfoHelper.instance.user
-        log.info(user?.toJSONString())
+        log.verbose(user?.toJSONString())
         tableview.reloadData()
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -92,7 +92,7 @@ extension BTMUserInfoController:UITableViewDelegate,UITableViewDataSource{
                 vc.type = list[indexPath.item]
                 self.navigationController?.pushViewController(vc, animated: true)
             case 3:
-                log.info("性别")
+                log.verbose("性别")
                 let vc = getVcByName(vc: .性别选择) as! KtSexPickerViewController
                   vc.view.backgroundColor = .clear
                 vc.callBackBlock { (UserInfo) in
@@ -110,7 +110,7 @@ extension BTMUserInfoController:UITableViewDelegate,UITableViewDataSource{
                 self.present(vc, animated: true, completion: nil)
                               
             default:
-                log.info("\(list[indexPath.item])")
+                log.verbose("\(list[indexPath.item])")
             }
         case 2:
             switch indexPath.item {
@@ -123,10 +123,10 @@ extension BTMUserInfoController:UITableViewDelegate,UITableViewDataSource{
                 vc.MyMapViewType = 1
                 self.navigationController?.pushViewController(vc, animated: true)
             default:
-                log.info("\(list1[indexPath.item])")
+                log.verbose("\(list1[indexPath.item])")
             }
         default:
-            log.info("")
+            log.verbose("")
             
         }
         

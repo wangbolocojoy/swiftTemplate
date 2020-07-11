@@ -58,7 +58,7 @@ extension KtSexPickerViewController:UIPickerViewDelegate,UIPickerViewDataSource{
         return sexlist.count
     }
     override func didChangeValue(forKey key: String) {
-        log.info(key)
+        log.verbose(key)
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return sexlist[row]
