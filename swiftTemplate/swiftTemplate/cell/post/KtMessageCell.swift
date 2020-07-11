@@ -29,12 +29,83 @@ class KtMessageCell: UITableViewCell {
     @IBOutlet weak var message: UILabel!
     @IBOutlet weak var auther: UILabel!
     var postinfo : PostInfo? = nil
+    let user = UserInfoHelper.instance.user
     override func awakeFromNib() {
         super.awakeFromNib()
         let tap = UITapGestureRecognizer(target: self, action: #selector(edComment))
         btn_sendmsg.isUserInteractionEnabled = true
         btn_sendmsg.addGestureRecognizer(tap)
+        let starttap = UITapGestureRecognizer(target: self, action: #selector(msgStart(gesture: )))
+              starttap.numberOfTapsRequired = 2
+              btn_heart.isUserInteractionEnabled = true
+              btn_heart.addGestureRecognizer(starttap)
     }
+    
+    @objc func msgStart(gesture:UITapGestureRecognizer){
+          if msgModel?.isStart ?? false {
+              self.unStartRequest()
+          }else{
+              self.startRequest()
+          }
+      }
+      
+      /// 点赞
+      func startRequest(){
+          let body = RequestBody()
+          body.userId = user?.id ?? 0
+          body.msgId = msgModel?.id
+          MyMoyaManager.AllRequest(controller: self.parentViewController()!, NetworkService.msgstart(k: body.toJSONString() ?? "")) { (data) in
+              log.info("点赞\(data)")
+              self.msgModel?.isStart = true
+              self.msgModel?.messageStart = (self.msgModel?.messageStart ?? 0) + 1
+              self.startMsganimation()
+          }
+      }
+      
+      func unStartRequest(){
+          let body = RequestBody()
+          body.userId = user?.id ?? 0
+          body.msgId = msgModel?.id
+          MyMoyaManager.AllRequest(controller: self.parentViewController()!, NetworkService.msgunstart(k: body.toJSONString() ?? "")) { (data) in
+              log.info("取消点赞\(data)")
+              self.msgModel?.isStart = false
+              self.msgModel?.messageStart = (self.msgModel?.messageStart ?? 0) - 1
+              self.unstartMsganimation()
+          }
+      }
+      func startMsganimation(){
+            UIView.animate(withDuration: 0.3, animations: {
+                self.btn_heart.tintColor = .red
+                self.btn_heart.image = UIImage(systemName: "heart.fill")
+                self.btn_heart.transform = CGAffineTransform.identity
+                    .scaledBy(x: 1.5, y: 1.5)
+            }) { (Bool) in
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.btn_heart.transform = CGAffineTransform.identity
+                        .scaledBy(x: 1, y: 1)
+                }) { (Bool) in
+                    self.btn_heart.transform = CGAffineTransform.identity
+                }
+            }
+            updateCell()
+        }
+        func unstartMsganimation(){
+            UIView.animate(withDuration: 0.3, animations: {
+                self.btn_heart.tintColor = .label
+                self.btn_heart.image = UIImage(systemName: "heart")
+                self.btn_heart.transform = CGAffineTransform.identity
+                    .scaledBy(x: 1.5, y: 1.5)
+            }) { (Bool) in
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.btn_heart.transform = CGAffineTransform.identity
+                        .scaledBy(x: 1, y: 1)
+                }) { (Bool) in
+                    self.btn_heart.transform = CGAffineTransform.identity
+                    
+                }
+            }
+             updateCell()
+        }
     @objc func edComment(){
         if callBack != nil {
             callBack!(msgModel)
@@ -69,6 +140,13 @@ class KtMessageCell: UITableViewCell {
         }else{
             rely_show.isHidden = true
             message.isHidden = false
+        }
+        if msgModel?.isStart ?? false {
+                   btn_heart.image = UIImage(systemName: "heart.fill")
+                   btn_heart.tintColor = .red
+        }else{
+                   btn_heart.image = UIImage(systemName: "heart")
+                   btn_heart.tintColor = .label
         }
         rely_nickname.text = msgModel?.replyNickName ?? ""
         relu_massage.text = msgModel?.message ?? ""

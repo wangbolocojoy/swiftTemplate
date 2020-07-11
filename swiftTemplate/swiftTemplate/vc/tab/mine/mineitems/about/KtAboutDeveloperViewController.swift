@@ -11,6 +11,7 @@ import UIKit
 class KtAboutDeveloperViewController: BaseViewController {
 
     @IBOutlet weak var tableview: UITableView!
+    lazy var developer : DeveloperInfo? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -19,6 +20,12 @@ class KtAboutDeveloperViewController: BaseViewController {
         tableview.dataSource = self
         tableview.separatorStyle = .none
         tableview.register(UINib(nibName: KtAboutMineInfoCell.reuseID, bundle: nil), forCellReuseIdentifier: KtAboutMineInfoCell.reuseID)
+    }
+    func getDeveloperInfo(){
+        MyMoyaManager.AllRequestNospinner(controller: self, NetworkService.developerinfo) { (data) in
+            self.developer = data.developer
+            self.tableview.reloadData()
+        }
     }
     
 }
@@ -32,6 +39,7 @@ extension KtAboutDeveloperViewController :UITableViewDelegate,UITableViewDataSou
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: KtAboutMineInfoCell.reuseID, for: indexPath) as! KtAboutMineInfoCell
+        cell.setModel(developer: self.developer)
         return cell
     }
     

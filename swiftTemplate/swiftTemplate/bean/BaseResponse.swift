@@ -23,6 +23,7 @@ class BaseResponse: Mappable {
     var postmsgs:[PostMessage]?
     var postmsg:PostMessage?
     var mypictures:[PostImages]?
+    var developer:DeveloperInfo?
     required init?(map: Map) {
     }
     func mapping(map: Map) {
@@ -40,7 +41,30 @@ class BaseResponse: Mappable {
         postmsgs <- map["data"]
         postmsg <- map["data"]
         mypictures <- map["data"]
+        developer <- map["data"]
     }
+    
+}
+class DeveloperInfo:Mappable{
+    var id: Int?
+    var developerName: String?
+    var developerQQ_: String?
+    var developerWechat_: String?
+    var developerEmail_: String?
+    var developerIcon_: String?
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        id <- map["id"]
+        developerName <- map["developerName"]
+        developerQQ_ <- map["developerQQ_"]
+        developerWechat_ <- map["developerWechat_"]
+        developerEmail_ <- map["developerEmail_"]
+        developerIcon_ <- map["developerIcon_"]
+    }
+    
     
 }
 class PostMessage: Mappable {

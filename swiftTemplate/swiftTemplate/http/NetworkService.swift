@@ -74,6 +74,16 @@ public enum NetworkService{
     case getallimasges(k:String)
     //我的所有评论
     case getusermsgs(k:String)
+    //点赞评论
+    case msgstart(k:String)
+    //取消点赞评论
+    case msgunstart(k:String)
+    //获取开发者信息
+    case developerinfo
+    //意见反馈
+    case sendfeekback(k:String)
+    //获取意见反馈列表
+    case getfeekbacklist(k:String)
     
 }
 extension NetworkService:Moya.TargetType{
@@ -149,6 +159,16 @@ extension NetworkService:Moya.TargetType{
             return "swiftTemplate/Message/getUserMessages"
         case .respsd:
            return "swiftTemplate/User/updatePassWord"
+        case .msgstart:
+             return "swiftTemplate/Message/startMassage"
+        case .msgunstart:
+             return "swiftTemplate/Message/unStartMassage"
+        case .developerinfo:
+             return "swiftTemplate/User/getDeveloperInfo"
+        case .sendfeekback:
+             return "swiftTemplate/User/sendFeedBack"
+        case .getfeekbacklist:
+            return "swiftTemplate/User/getFeedBack"
         }
         
     }
@@ -163,7 +183,7 @@ extension NetworkService:Moya.TargetType{
     //MARK: - 请求参数
     public var task: Moya.Task {
         switch self {
-        case .login(let data),.register(let data),.getmsg(let data),.tabhome(let data),.searchnovel(let data),.updateuserinfo(let data),.followuser(let data),.unfollowuser(let data),.getfancelist(let data),.getfollowlist(let data),.finduser(let data),.findrecommendlist(let data),.sendpost(let data),.getposts(let data),.getuserposts(let data),.deletspost(let data),.getuserinfo(let data),.poststart(let data),.postunstart(let data),.getpoststartlist(let data),.collection(let data),.cancelcollection(let data),.getcollectionlist(let data),.getuserstartlist(let data),.sendcomment(let data),.commentlist(let data),.deletecomment(let data),.getallimasges(let data),.getusermsgs(let data),.respsd(let data):
+        case .login(let data),.register(let data),.getmsg(let data),.tabhome(let data),.searchnovel(let data),.updateuserinfo(let data),.followuser(let data),.unfollowuser(let data),.getfancelist(let data),.getfollowlist(let data),.finduser(let data),.findrecommendlist(let data),.sendpost(let data),.getposts(let data),.getuserposts(let data),.deletspost(let data),.getuserinfo(let data),.poststart(let data),.postunstart(let data),.getpoststartlist(let data),.collection(let data),.cancelcollection(let data),.getcollectionlist(let data),.getuserstartlist(let data),.sendcomment(let data),.commentlist(let data),.deletecomment(let data),.getallimasges(let data),.getusermsgs(let data),.respsd(let data),.msgstart(let data),.msgunstart(let data),.sendfeekback(let data),.getfeekbacklist(let data):
             return  .requestData(data.utf8Encoded)
             
         case .uodateusericon(let param, let uploadImages):
@@ -200,8 +220,11 @@ extension NetworkService:Moya.TargetType{
                 formDataAry.add(formData)
             })
             return .uploadMultipart(formDataAry as! [MultipartFormData])
+        case .developerinfo:
+            return .requestPlain
             
         }
+        
         
     }
     
