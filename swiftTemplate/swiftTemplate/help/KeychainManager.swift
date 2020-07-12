@@ -100,6 +100,7 @@ extension UserDefaults{
             case userid
             case 验证码时间
             case currentUserIdentifier
+            case MAXPostId
         }
     }
 }

@@ -25,14 +25,30 @@ class TabHomeViewController: BaseTabViewController {
     
     func checkPosts(){
         if CoreDataManager.default.postlist?.count == 0 {
-            type = 1
-            pagebody.page = 0
-            pagebody.pageSize = 5
-            pagebody.userId = UserInfoHelper.instance.user?.id ?? 0
-            getPosts(body: pagebody)
+            
+            
+           getpost()
         } else {
+            checkIsHavNew()
             tableview.reloadData()
         }
+    }
+    func getpost(){
+        type = 1
+        pagebody.page = 0
+        pagebody.pageSize = 5
+        pagebody.userId = UserInfoHelper.instance.user?.id ?? 0
+        getPosts(body: pagebody)
+    }
+    func checkIsHavNew(){
+        let json = RequestBody()
+        json.postId = UserDefaults.User.getvalue(forKey: .MAXPostId) as? Int ?? 0
+        MyMoyaManager.AllRequestNospinner(controller: self, NetworkService.getisnewpost(k: json.toJSONString() ?? "")) { (data) in
+            self.ShowTip(Title: "有新的帖子")
+            self.getpost()
+        }
+        
+        
     }
     @IBAction func btnsendpost(_ sender: Any) {
         self.navigationController?.pushViewController(self.getVcByName(vc: .发帖), animated: true)

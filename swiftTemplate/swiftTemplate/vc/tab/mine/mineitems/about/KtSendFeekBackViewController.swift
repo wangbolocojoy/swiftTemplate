@@ -87,7 +87,7 @@ class KtSendFeekBackViewController: BaseViewController {
                 self.show(controller!, sender: nil)
             }
         }else{
-            ShowTip(Title: "本设备不能发生邮件")
+            ShowTip(Title: "本设备不能发送邮件")
         }
     }
    

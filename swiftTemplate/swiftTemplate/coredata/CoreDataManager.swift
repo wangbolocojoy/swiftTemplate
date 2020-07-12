@@ -180,6 +180,16 @@ class CoreDataManager {
                     list?.append(postModel)
                 }
                 DispatchQueue.main.async {
+                    var maxpostid =  UserDefaults.User.getvalue(forKey: .MAXPostId) as? Int ?? 0
+                    
+                    list?.sort(by: { (po1
+                        , po2) -> Bool in
+                        let bo = (po1.id ?? 0 > po2.id ?? 0)
+                        maxpostid = po1.id ?? 0
+                        return bo
+                    })
+                    UserDefaults.User.set(value: maxpostid , forKey: .MAXPostId)
+                                       
                     log.verbose("获取\(list?.count ?? 0) 条")
                     successCallback(list)
                 }
