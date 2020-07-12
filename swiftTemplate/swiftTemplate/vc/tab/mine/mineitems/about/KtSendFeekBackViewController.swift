@@ -73,6 +73,7 @@ class KtSendFeekBackViewController: BaseViewController {
             do {
                 file = try Data(contentsOf: URL(fileURLWithPath: filepath),options: .alwaysMapped)
             } catch  {
+                log.error("获取日志失败\(error.localizedDescription)")
             }
             if file == nil {
                 self.ShowTip(Title: "暂未产生错误日志")

@@ -101,7 +101,7 @@ class LoginViewController: BaseTabViewController {
         }
         let body = RequestBody()
         body.phone = phone
-        body.password = password
+        body.password = password?.md5()
         MyMoyaManager.AllRequest(controller: self, NetworkService.login(k: body.toJSONString()!)) { (data) in
             if KeychainManager.User.SaveByIdentifier(data: data.userinfo?.toJSONString() ?? "", forKey: .UserInfo) {
                 UserInfoHelper.instance.user = data.userinfo

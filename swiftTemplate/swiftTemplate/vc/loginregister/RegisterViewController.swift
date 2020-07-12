@@ -17,6 +17,7 @@ class RegisterViewController: BaseViewController {
     @IBOutlet weak var ev_msg: UITextField!
     @IBOutlet weak var ev_phone: UITextField!
     var time :Int? = nil
+     var password  = ""
     typealias swiftblockResult = (_ phone : String ,_ passwd:String) -> Void
     var callBack :swiftblockResult?
     func callBackBlock(block : @escaping swiftblockResult)  {
@@ -84,7 +85,7 @@ class RegisterViewController: BaseViewController {
     @IBAction func register(_ sender: Any) {
         let phone = ev_phone.text
         let msg = ev_msg.text
-        let password = ev_password.text
+        password = ev_password.text ?? ""
         if phone == nil || phone == "" || phone?.count ?? 0 != 11 {
             ShowTip(Title: "手机号码位数不对请重新输入")
             return
@@ -98,18 +99,18 @@ class RegisterViewController: BaseViewController {
             return
         }
         
-        if password == nil || password == "" || password?.count ?? 0 < 6{
+        if password == nil || password == "" || password.count < 6{
             ShowTip(Title: "密码位数能小于6位")
             return
         }
-        if !TextUntils.instance.isPasswordRuler(password: password ?? "") {
+        if !TextUntils.instance.isPasswordRuler(password: password ) {
             ShowTip(Title: "请输入大于6位字母和数字组合的密码")
             return
         }
         let body = RequestBody()
         body.phone = phone
         body.msgcode = msg
-        body.password = password
+        body.password = password.md5()
         if type == 0  {
             registerUser(body: body)
         }else{
@@ -120,7 +121,7 @@ class RegisterViewController: BaseViewController {
     func registerUser(body:RequestBody){
             MyMoyaManager.AllRequest(controller: self, NetworkService.register(k: body.toJSONString()!)) { (data) in
                 if self.callBack != nil {
-                    self.callBack!(body.phone ?? "",body.password ?? "")
+                    self.callBack!(body.phone ?? "",self.password )
                     self.ShowTipsClose(tite: "注册成功")
                 }
             }
@@ -128,7 +129,7 @@ class RegisterViewController: BaseViewController {
     func changePassword(body:RequestBody){
         MyMoyaManager.AllRequest(controller: self, NetworkService.respsd(k: body.toJSONString()!)) { (data) in
                               if self.callBack != nil {
-                                  self.callBack!(body.phone ?? "",body.password ?? "")
+                                  self.callBack!(body.phone ?? "",self.password )
                                   self.ShowTipsClose(tite: "修改密码成功")
                               }
                           }

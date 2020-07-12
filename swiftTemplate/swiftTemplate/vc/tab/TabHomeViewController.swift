@@ -22,15 +22,12 @@ class TabHomeViewController: BaseTabViewController {
         checkPosts()
     }
     
-    
     func checkPosts(){
+        list = CoreDataManager.default.postlist
         if CoreDataManager.default.postlist?.count == 0 {
-            
-            
            getpost()
         } else {
-            checkIsHavNew()
-            tableview.reloadData()
+           checkIsHavNew()
         }
     }
     func getpost(){
@@ -47,8 +44,6 @@ class TabHomeViewController: BaseTabViewController {
             self.ShowTip(Title: "有新的帖子")
             self.getpost()
         }
-        
-        
     }
     @IBAction func btnsendpost(_ sender: Any) {
         self.navigationController?.pushViewController(self.getVcByName(vc: .发帖), animated: true)
@@ -121,12 +116,12 @@ class TabHomeViewController: BaseTabViewController {
 }
 extension TabHomeViewController:UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CoreDataManager.default.postlist?.count ?? 0
+        return list?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MainPostCell.reuseID, for: indexPath) as! MainPostCell
-        cell.setModel(pinfo: CoreDataManager.default.postlist?[indexPath.item],ind: indexPath.item)
+        cell.setModel(pinfo: list?[indexPath.item],ind: indexPath.item)
         cell.callBackBlock { (type, poinfo,index) in
             switch type{
             case 2:
@@ -160,7 +155,7 @@ extension TabHomeViewController:UITableViewDataSource,UITableViewDelegate,UIScro
         let path = tableview.indexPathsForVisibleRows!  as [IndexPath]
         if ( path.count  > 0) {
             let lastPath = path[(path.count)-1]
-            if  lastPath.item == (CoreDataManager.default.postlist?.count ?? 0) - 1{
+            if  lastPath.item == (list?.count ?? 0) - 1{
                 self.getMore()
             }
         }
