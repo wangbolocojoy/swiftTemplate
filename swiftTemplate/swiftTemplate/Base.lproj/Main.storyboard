@@ -364,12 +364,12 @@
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="SEM-ea-IGg">
-                                                <rect key="frame" x="132.5" y="1.5" width="20" height="17.5"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SEM-ea-IGg">
+                                                <rect key="frame" x="132.5" y="2.5" width="15" height="15"/>
                                                 <color key="tintColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="20" id="c2j-49-cud"/>
-                                                    <constraint firstAttribute="height" constant="20" id="neQ-aq-3tz"/>
+                                                    <constraint firstAttribute="width" constant="15" id="c2j-49-cud"/>
+                                                    <constraint firstAttribute="height" constant="15" id="neQ-aq-3tz"/>
                                                 </constraints>
                                             </imageView>
                                         </subviews>
@@ -841,7 +841,6 @@
         <image name="circle.grid.hex.fill" catalog="system" width="128" height="112"/>
         <image name="house" catalog="system" width="128" height="110"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
-        <image name="person" catalog="system" width="128" height="117"/>
         <image name="person.2.square.stack" catalog="system" width="113" height="128"/>
         <image name="person.2.square.stack.fill" catalog="system" width="113" height="128"/>
         <image name="person.crop.circle" catalog="system" width="128" height="121"/>

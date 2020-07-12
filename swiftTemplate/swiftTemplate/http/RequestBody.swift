@@ -85,3 +85,43 @@ class RequestBody: Mappable {
     
     
 }
+class QrCodeBody: Mappable{
+      var phone:String?
+      var id:Int?
+      var nickName:String?
+      var account:String?
+      var icon:String?
+      var postNum:Int?
+      var likeStarts:Int?
+      var fances:Int?
+      var easyInfo:String?
+      var address:String?
+      var userSex:Bool?
+      var birthDay:String?
+      var creatTime:Date?
+      var province:String?
+      var city:String?
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+              phone <- map["phone"]
+              id <- map["id"]
+              nickName <- map["nickName"]
+              account <- map["account"]
+              icon <- map["icon"]
+              likeStarts <- map["likeStarts"]
+              fances <- map["fances"]
+              easyInfo <- map["easyInfo"]
+              address <- map["address"]
+              userSex <- map["userSex"]
+              postNum <- map["postNum"]
+              birthDay <- map["birthDay"]
+              creatTime <- map["creatTime"]
+              province <- map["province"]
+              city <- map["city"]
+    }
+    
+    
+}

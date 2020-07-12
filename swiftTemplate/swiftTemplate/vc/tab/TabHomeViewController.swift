@@ -19,6 +19,9 @@ class TabHomeViewController: BaseTabViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        list = CoreDataManager.default.postlist
+//        log.verbose(list?.count)
+        tableview.reloadData()
     }
     
     @IBAction func btnsendpost(_ sender: Any) {
@@ -26,6 +29,7 @@ class TabHomeViewController: BaseTabViewController {
     }
     func getNovel(body:RequestBody){
         MyMoyaManager.AllRequestNospinner(controller: self, NetworkService.getposts(k: body.toJSONString()!)) { (data) in
+            CoreDataManager.default.postlist = data.postlist
             if self.type == 1 {
                 self.list = data.postlist
             }else{
@@ -73,7 +77,7 @@ class TabHomeViewController: BaseTabViewController {
         pagebody.page = 0
         pagebody.pageSize = 5
         pagebody.userId = UserInfoHelper.instance.user?.id ?? 0
-        getNovel(body: pagebody)
+//        getNovel(body: pagebody)
         
     }
     func deletePost(pfo:PostInfo,index:Int){
@@ -82,6 +86,11 @@ class TabHomeViewController: BaseTabViewController {
         body.postId = pfo.id
         MyMoyaManager.AllRequest(controller: self, NetworkService.deletspost(K: body.toJSONString() ?? "")) { (data) in
             UserInfoHelper.instance.user?.postNum = (UserInfoHelper.instance.user?.postNum ?? 1) - 1
+            CoreDataManager.default.deletePost(id: body.postId ?? 0) {
+                CoreDataManager.default.getCoreDataPost { (pinl) in
+                    CoreDataManager.default.postlist = pinl
+                }
+            }
             self.list?.remove(at: index)
             self.tableview.reloadData()
         }
@@ -90,19 +99,17 @@ class TabHomeViewController: BaseTabViewController {
 }
 extension TabHomeViewController:UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list?.count ?? 0
+        return CoreDataManager.default.postlist?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MainPostCell.reuseID, for: indexPath) as! MainPostCell
-        
-        cell.setModel(pinfo: list?[indexPath.item],ind: indexPath.item)
+        cell.setModel(pinfo: CoreDataManager.default.postlist?[indexPath.item],ind: indexPath.item)
         cell.callBackBlock { (type, poinfo,index) in
             switch type{
             case 2:
                  self.deletePost(pfo: poinfo!, index: index)
                 break
-                
             default:
                 break
             }

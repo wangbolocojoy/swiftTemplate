@@ -9,15 +9,19 @@
 import UIKit
 import WebKit
 class KtMyWkWebViewController: BaseViewController {
-    
+    var url : URL? = nil
     @IBOutlet weak var webview: WKWebView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        webview.isOpaque = false
+        webview.backgroundColor = .clear
+        webview.scrollView.backgroundColor = .clear
+        url = URL(fileURLWithPath: Bundle.main.path(forResource: "用户隐私协议", ofType: ".html",inDirectory: "HTML")!)
         loadWebView()
-        
-        let url = URL(fileURLWithPath: Bundle.main.path(forResource: "APP隐私协议", ofType: ".html",inDirectory: "HTML")!)
-        let request = URLRequest(url:url)
+        let request = URLRequest(url:url!)
         webview.load(request)
+//        let colo = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
+        
         //                webview.configuration.userContentController.add(self, name: "ios_call")
         
     }

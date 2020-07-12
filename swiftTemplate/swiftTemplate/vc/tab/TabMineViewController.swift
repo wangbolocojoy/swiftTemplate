@@ -67,6 +67,9 @@ class TabMineViewController: BaseTabViewController {
         if FileDestination().deleteLogFile(){
               self.ShowTip(Title: "删除日志成功")
         }
+        CoreDataManager.default.deleteAllPost {
+            self.ShowTip(Title:"删除缓存成功")
+              }
 //        CoreDataManager.default.deleteStartList {
 //            self.ShowTip(Title: "删除缓存成功")
 //        }

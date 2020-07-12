@@ -1,41 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19F101" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
-    <entity name="NovelModelDO" representedClassName="NovelModelDO" syncable="YES" codeGenerationType="class">
-        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="novel_author" optional="YES" attributeType="String"/>
-        <attribute name="novel_easyinfo" optional="YES" attributeType="String"/>
-        <attribute name="novel_id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="novel_img" optional="YES" attributeType="String"/>
-        <attribute name="novel_name" optional="YES" attributeType="String"/>
-        <attribute name="novel_state" optional="YES" attributeType="String"/>
-        <attribute name="novel_type" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="novel_typename" optional="YES" attributeType="String"/>
-        <attribute name="novel_uptime" optional="YES" attributeType="String"/>
-    </entity>
-    <entity name="PostStartDO" representedClassName="PostStartDO" syncable="YES" codeGenerationType="class">
-        <attribute name="postId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-    </entity>
-    <entity name="UserDO" representedClassName="UserDO" syncable="YES" codeGenerationType="class">
+    <entity name="AuthorDO" representedClassName="AuthorDO" syncable="YES" codeGenerationType="class">
         <attribute name="address" optional="YES" attributeType="String"/>
-        <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="autograph" optional="YES" attributeType="String"/>
-        <attribute name="bridthday" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="gender" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="nation" optional="YES" attributeType="String"/>
-        <attribute name="openid" optional="YES" attributeType="String"/>
-        <attribute name="password" optional="YES" attributeType="String"/>
-        <attribute name="phone" optional="YES" attributeType="String"/>
-        <attribute name="qq" optional="YES" attributeType="String"/>
-        <attribute name="token" optional="YES" attributeType="String"/>
-        <attribute name="usericon" optional="YES" attributeType="String"/>
+        <attribute name="icon" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="nickName" optional="YES" attributeType="String"/>
+        <relationship name="postid" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PostModelDO" inverseName="author" inverseEntity="PostModelDO"/>
+    </entity>
+    <entity name="PostImagesDO" representedClassName="PostImagesDO" syncable="YES" codeGenerationType="class">
+        <attribute name="fileType" optional="YES" attributeType="String"/>
+        <attribute name="fileUrl" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="userId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="postid" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PostModelDO" inverseName="postImages" inverseEntity="PostModelDO"/>
+    </entity>
+    <entity name="PostModelDO" representedClassName="PostModelDO" syncable="YES" codeGenerationType="class">
+        <attribute name="creatTime" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="isCollection" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isStart" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="String"/>
+        <attribute name="longitude" optional="YES" attributeType="String"/>
+        <attribute name="msgNum" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="postAddress" optional="YES" attributeType="String"/>
+        <attribute name="postDetail" optional="YES" attributeType="String"/>
+        <attribute name="postMessageNum" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="postPublic" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="postStarts" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="userId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="author" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="AuthorDO" inverseName="postid" inverseEntity="AuthorDO"/>
+        <relationship name="postImages" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PostImagesDO" inverseName="postid" inverseEntity="PostImagesDO"/>
     </entity>
     <elements>
-        <element name="NovelModelDO" positionX="-63" positionY="99" width="128" height="193"/>
-        <element name="UserDO" positionX="-63" positionY="-18" width="128" height="283"/>
-        <element name="PostStartDO" positionX="-63" positionY="117" width="128" height="58"/>
+        <element name="AuthorDO" positionX="-26.16796875" positionY="-81.640625" width="128" height="118"/>
+        <element name="PostImagesDO" positionX="-177.33984375" positionY="485.6875" width="128" height="118"/>
+        <element name="PostModelDO" positionX="-409.93359375" positionY="71.09765625" width="128" height="268"/>
     </elements>
 </model>

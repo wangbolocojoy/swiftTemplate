@@ -148,12 +148,12 @@ class PostInfo: Mappable {
     var postTitle:String?
     var postDetail:String?
     var postAddress:String?
-    var postPublic:String?
+    var postPublic:Bool?
     var postStarts:Int?
     var author:PostAuthor?
     var postImages:[PostImages]?
     var postMessageNum:Int?
-    var creatTime:Date?
+    var creatTime:String?
     var latitude:String?
     var longitude:String?
     var isStart:Bool?
@@ -162,7 +162,9 @@ class PostInfo: Mappable {
     required init?(map: Map) {
         
     }
-    
+    init() {
+        
+    }
     func mapping(map: Map) {
         id <- map["id"]
         userId <- map["userId"]
@@ -188,14 +190,18 @@ class PostAuthor: Mappable {
     var id:Int?
     var nickName:String?
     var icon:String?
+    var address:String?
     required init?(map: Map) {
         
     }
-    
+    init() {
+        
+    }
     func mapping(map: Map) {
         id <- map["id"]
         nickName <- map["nickName"]
         icon <- map["icon"]
+        address <- map["address"]
     }
     
     
@@ -209,7 +215,9 @@ class PostImages: Mappable {
     required init?(map: Map) {
         
     }
-    
+    init() {
+        
+    }
     func mapping(map: Map) {
         id <- map["id"]
         userId <- map["userId"]

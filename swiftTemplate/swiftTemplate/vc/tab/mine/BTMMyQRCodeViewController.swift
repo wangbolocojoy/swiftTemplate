@@ -18,19 +18,18 @@ class BTMMyQRCodeViewController: BaseViewController {
     let user = UserInfoHelper.instance.user
     override func viewDidLoad() {
         super.viewDidLoad()
-
-    
     }
     override func initView() {
+        let userinfo = QrCodeBody(JSONString: user?.toJSONString() ?? "")
         if user?.userSex ?? false {
-            user_sex.tintColor = .systemPink
+            user_sex.image = #imageLiteral(resourceName: "女")
         }else{
-             user_sex.tintColor = .blue
+            user_sex.image = #imageLiteral(resourceName: "男")
         }
         user_name.text = user?.nickName ?? ""
         usre_address.text = "\(user?.province ?? "")\(user?.city ?? "")"
         user_icon.setImageUrl(image: user_icon, string: user?.icon, proimage: #imageLiteral(resourceName: "IMG_2507"))
-        qr_code.creatQrcode(imageView: qr_code,qrstring: user?.account, imagecenter: user_icon.image)
+        qr_code.creatQrcode(imageView: qr_code,qrstring: userinfo?.toJSONString() ?? "", imagecenter: user_icon.image)
     }
     
 

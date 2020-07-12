@@ -21,6 +21,10 @@ class TabDynamicViewController: BaseTabViewController{
     let user = UserInfoHelper.instance.user
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+        self.list = CoreDataManager.default.postlist
+        self.collectionview.reloadData()
+              
     }
     override func initView() {
 //        self.countrySearchController = ({
@@ -57,7 +61,7 @@ class TabDynamicViewController: BaseTabViewController{
         pagebody.pageSize = 20
         pagebody.page = 0
         pagebody.userId = UserInfoHelper.instance.user?.id ?? 0
-        getpost(json: pagebody.toJSONString() ?? "")
+//        getpost(json: pagebody.toJSONString() ?? "")
     }
     
     @objc func showUser(){
@@ -82,7 +86,7 @@ class TabDynamicViewController: BaseTabViewController{
     }
     func getpost(json:String){
         MyMoyaManager.AllRequest(controller: self, NetworkService.getposts(k:json )) { (data) in
-          
+            CoreDataManager.default.postlist = data.postlist
             if self.type == 1 {
                 self.list = data.postlist
             }else{
@@ -104,11 +108,11 @@ class TabDynamicViewController: BaseTabViewController{
 }
 extension TabDynamicViewController:UICollectionViewDelegate,UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return list?.count ?? 0
+        return  CoreDataManager.default.postlist?.count ?? 0
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DynamicCollectionViewCell.reuseID, for: indexPath) as! DynamicCollectionViewCell
-        cell.updateCell(list: list?[indexPath.item].postImages)
+        cell.updateCell(list:  CoreDataManager.default.postlist?[indexPath.item].postImages)
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

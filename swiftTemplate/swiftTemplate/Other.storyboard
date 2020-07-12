@@ -342,10 +342,10 @@
             </objects>
             <point key="canvasLocation" x="1326" y="1085"/>
         </scene>
-        <!--Kt My Wk Web View Controller-->
+        <!--用户隐私协议-->
         <scene sceneID="1vL-Yu-b9m">
             <objects>
-                <viewController storyboardIdentifier="KYMYWKWEBVIEWVC" id="vfm-ct-FJP" customClass="KtMyWkWebViewController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="KYMYWKWEBVIEWVC" title="用户隐私协议" id="vfm-ct-FJP" customClass="KtMyWkWebViewController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="66a-H4-Of0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

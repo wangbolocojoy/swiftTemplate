@@ -323,3 +323,13 @@ extension UITableViewHeaderFooterView{
            parentViewController()?.navigationController?.pushViewController(vc, animated: true)
        }
 }
+extension Int{
+    var int32:Int32{
+        return Int32(self) 
+    }
+}
+extension Int32{
+    var int32:Int{
+           return Int(self)
+    }
+}

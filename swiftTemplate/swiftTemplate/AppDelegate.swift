@@ -90,6 +90,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             log.addDestination(file)
         }
         log.verbose(ApiKey.default.版本环境)
+        log.verbose(CoreDataManager.default.postlist?.count ?? 0)
+      
     }
     /// 获取权限
     func choosePermiss(){

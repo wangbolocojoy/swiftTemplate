@@ -19,178 +19,201 @@ class CoreDataManager {
         return context
     }()
     // 更新数据
+    
+    var _postlist:[PostInfo]?
+    var postlist:[PostInfo]?{
+        get {
+            return _postlist
+        }
+        set{
+            saveandupdateNovel(list: newValue) {
+                self.getCoreDataPost(success: { (polist) in
+                    self._postlist = polist
+                })
+            }
+        }
+    }
+    init() {
+        getCoreDataPost(success: { (polist) in
+            self._postlist = polist
+        })
+    }
     private func saveContext() {
         do {
             try context.save()
         } catch {
             let nserror = error as NSError
+            log.error("数据库出错\(nserror.localizedFailureReason ?? "")")
             fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
         }
     }
     
-    //    // 查询手机号是否存在
-    //    func getUserbyphone(phone: String) -> [UserDO] {
-    //        let fetchRequest: NSFetchRequest = UserDO.fetchRequest()
-    //        fetchRequest.predicate = NSPredicate(format: "phone == %@", phone)
-    //        do {
-    //            let result: [UserDO] = try context.fetch(fetchRequest)
-    //            return result
-    //        } catch {
-    //            fatalError();
-    //        }
-    //    }
-    func saveStart(id:Int){
-        let fetchRequest: NSFetchRequest = PostStartDO.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "postId ==  %d", id)
-        do {
-            let result: [PostStartDO] = try context.fetch(fetchRequest)
-            if result.count == 0{
-                let p = NSEntityDescription.insertNewObject(forEntityName: "PostStartDO", into: context) as! PostStartDO
-                p.postId = Int32(id)
-                saveContext()
-            }
-        } catch {
-            fatalError();
-        }
-    }
-    func unStart(id:Int){
-        let fetchRequest: NSFetchRequest = PostStartDO.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "postId ==  %d", id)
-        do {
-            let result: [PostStartDO] = try context.fetch(fetchRequest)
-            if result.count != 0{
-                for value in result {
-                    context.delete(value)
-                }
-            }
-        } catch {
-            fatalError();
-        }
-        saveContext()
-    }
-    func updateStartList(list:[PostStart],success successCallback: @escaping () -> Void){
+    /// 缓存帖子
+    /// - Parameters: 参数
+    ///   - list: 帖子集合
+    ///   - savesuccessCallback: 返回状态
+    func saveandupdateNovel(list:[PostInfo]?,savesuccess savesuccessCallback: @escaping () -> Void){
+        let fetchRequest: NSFetchRequest  = PostModelDO.fetchRequest()
         DispatchQueue.global().async {
-                list.forEach { (pstr) in
-                    let p = NSEntityDescription.insertNewObject(forEntityName: "PostStartDO", into: self.context) as! PostStartDO
-                    p.postId = Int32(pstr.postId ?? 0)
-                    self.saveContext()
+            log.verbose("开始缓存帖子--->\(fetchRequest.fetchBatchSize) 条")
+            list?.forEach({ (item) in
+                //String 才用%@
+                //int类型用 %d
+                fetchRequest.predicate = NSPredicate(format: "id == %d ", item.id ?? 0)
+                do {
+                    let result = try self.context.fetch(fetchRequest)
+                    if result.count == 0 {
+                        let postModel = NSEntityDescription.insertNewObject(forEntityName: "PostModelDO", into: self.context) as! PostModelDO
+                        let authorModel = NSEntityDescription.insertNewObject(forEntityName: "AuthorDO", into: self.context) as! AuthorDO
+                        authorModel.id = item.author?.id?.int32 ?? 0
+                        authorModel.nickName = item.author?.nickName ?? ""
+                        authorModel.icon = item.author?.icon ?? ""
+                        authorModel.address = item.author?.address ?? ""
+                        postModel.id = item.id?.int32 ?? 0
+                        postModel.userId = item.userId?.int32 ?? 0
+                        postModel.postDetail = item.postDetail ?? ""
+                        postModel.postAddress = item.postAddress ?? ""
+                        postModel.postPublic = item.postPublic ?? false
+                        postModel.creatTime = item.creatTime ?? ""
+                        postModel.author = authorModel
+                        postModel.latitude = item.latitude ?? ""
+                        postModel.longitude = item.longitude ?? ""
+                        postModel.isStart = item.isStart ?? false
+                        postModel.isCollection = item.isCollection ?? false
+                        postModel.postMessageNum = item.postMessageNum?.int32 ?? 0
+                        postModel.msgNum = item.msgNum?.int32 ?? 0
+                        item.postImages?.forEach({ (PostImages) in
+                            let postimageModel = NSEntityDescription.insertNewObject(forEntityName: "PostImagesDO", into: self.context) as! PostImagesDO
+                            postimageModel.id = PostImages.id?.int32 ?? 0
+                            postimageModel.fileUrl = PostImages.fileUrl ?? ""
+                            postimageModel.fileType = PostImages.fileType ?? "image/jpeg"
+                            postimageModel.userId = PostImages.userId?.int32 ?? 0
+                            postModel.addToPostImages(postimageModel)
+                            self.saveContext()
+                        })
+                        self.saveContext()
+                    }else{
+                        result.forEach { (postModel) in
+                            log.verbose("更新--->   \(postModel.postDetail ?? "")")
+                            postModel.isStart = item.isStart ?? false
+                            postModel.isCollection = item.isCollection ?? false
+                            postModel.postMessageNum = item.postMessageNum?.int32 ?? 0
+                            postModel.msgNum = item.msgNum?.int32 ?? 0
+                            self.saveContext()
+                        }
+                    }
+                } catch  {
+                    log.error(error.localizedDescription)
+                    fatalError()
                 }
-            DispatchQueue.main.async {
-                successCallback()
-            }
-        }
-    }
-    func deleteStartList(success successCallback: @escaping () -> Void){
-        DispatchQueue.global().async {
-            let fetchRequest: NSFetchRequest = PostStartDO.fetchRequest()
-            do {
-                let result: [PostStartDO] = try self.context.fetch(fetchRequest)
-                result.forEach { (p) in
-                    self.context.delete(p)
-                }
-                self.saveContext()
                 
+                
+                
+            })
+            DispatchQueue.main.async {
+                savesuccessCallback()
+            }
+        }
+    }
+    
+    
+    func deletePost(id:Int,successCallback:  @escaping () -> Void){
+         let fetchRequest: NSFetchRequest  = PostModelDO.fetchRequest()
+         fetchRequest.predicate = NSPredicate(format: "id == %d ",id)
+        DispatchQueue.global().async {
+            do {
+                   let result = try self.context.fetch(fetchRequest)
+                if result.count != 0 {
+                    result.forEach { (PostModelDO) in
+                        self.context.delete(PostModelDO)
+                    }
+                }
+            } catch {
+                log.error(error.localizedDescription)
+                fatalError(error.localizedDescription)
+            }
+            
+        }
+    }
+    /// 获取缓存的帖子
+    /// - Parameter successCallback: 返回缓存的帖子集合
+    func getCoreDataPost(success successCallback:  @escaping ( [PostInfo]?) -> Void){
+        
+        let fetchRequest: NSFetchRequest  = PostModelDO.fetchRequest()
+        DispatchQueue.global().async {
+            do {
+                var list :[PostInfo]? = []
+                let result = try self.context.fetch(fetchRequest)
+                log.verbose("开始获取缓存--->  \(result.count) 条")
+                result.forEach { (item) in
+                    let postModel = PostInfo()
+                    let authorModel = PostAuthor()
+                    var images :[PostImages]? = []
+                    item.postImages?.forEach({ (obj) in
+                        let imgdo = obj as! PostImagesDO
+                        let img = PostImages()
+                        img.fileType = imgdo.fileType
+                        img.fileUrl = imgdo.fileUrl
+                        img.id = imgdo.id.int32
+                        images?.append(img)
+                    })
+                    authorModel.id = item.author?.id.int32 ?? 0
+                    authorModel.nickName = item.author?.nickName ?? ""
+                    authorModel.icon = item.author?.icon ?? ""
+                    authorModel.address = item.author?.address ?? ""
+                    postModel.id = item.id.int32
+                    postModel.userId = item.userId.int32
+                    postModel.postDetail = item.postDetail ?? ""
+                    postModel.postAddress = item.postAddress ?? ""
+                    postModel.postPublic = item.postPublic
+                    postModel.creatTime = item.creatTime ?? ""
+                    postModel.author = authorModel
+                    postModel.latitude = item.latitude ?? ""
+                    postModel.longitude = item.longitude ?? ""
+                    postModel.isStart = item.isStart
+                    postModel.isCollection = item.isCollection
+                    postModel.postMessageNum = item.postMessageNum.int32
+                    postModel.msgNum = item.msgNum.int32
+                    postModel.postImages = images
+                    list?.append(postModel)
+                }
+                DispatchQueue.main.async {
+                    log.verbose("获取\(list?.count ?? 0) 条")
+                    successCallback(list)
+                }
             } catch  {
+                log.error("获取缓存出错--->  \(error.localizedDescription)")
                 fatalError()
             }
-            DispatchQueue.main.async {
-                successCallback()
-            }
+            //
         }
     }
-    func getStartList()->[Int]{
-        let fetchRequest: NSFetchRequest = PostStartDO.fetchRequest()
-        var list:[Int] = []
-        do {
-            let result: [PostStartDO] = try context.fetch(fetchRequest)
-            result.forEach { (p) in
-                list.append(Int(p.postId))
-            }
-        } catch  {
-            fatalError()
-        }
-        return list
-    }
     
-    // 注册
-    //    func saveandupdateNovel(item:NovelInfo?){
-    //
-    ////        let fetchRequest: NSFetchRequest = NovelModelDO.fetchRequest()
-    //                    //String 才用%@
-    //                    //int类型用 %d
-    //        fetchRequest.predicate = NSPredicate(format: "novel_id ==  %d", item?.novel_id ?? 0)
-    //        //数据库没有这条数据。新增
-    //        if fetchRequest.fetchLimit == 0 || fetchRequest.fetchBatchSize == 0 {
-    //            let novel = NSEntityDescription.insertNewObject(forEntityName: "NovelModelDO", into: context) as! NovelModelDO
-    //            novel.id = Int16(item?.id ?? 0)
-    //            novel.novel_id = Int64(item?.novel_id ?? 0)
-    //            novel.novel_name = item?.novel_name ?? ""
-    //            novel.novel_easyinfo = item?.novel_easyinfo ?? ""
-    //            novel.novel_author = item?.novel_author ?? ""
-    //            novel.novel_img = item?.novel_img ?? ""
-    //            novel.novel_type = Int16(item?.novel_type ?? 0)
-    //            novel.novel_typename = item?.novel_typename
-    //            novel.novel_uptime = item?.novel_uptime ?? ""
-    //            novel.novel_state = item?.novel_state ?? ""
-    //            saveContext()
-    //        }else{
-    //            do {
-    //                // 拿到符合条件的所有数据 修改
-    //                let result = try context.fetch(fetchRequest)
-    //                if  result.count >= 1 {
-    //                    for novel in result {
-    //                        novel.id = Int16(item?.id ?? 0)
-    //                        novel.novel_id = Int64(item?.novel_id ?? 0)
-    //                        novel.novel_name = item?.novel_name ?? ""
-    //                        novel.novel_easyinfo = item?.novel_easyinfo ?? ""
-    //                        novel.novel_author = item?.novel_author ?? ""
-    //                        novel.novel_img = item?.novel_img ?? ""
-    //                        novel.novel_type = Int16(item?.novel_type ?? 0)
-    //                        novel.novel_typename = item?.novel_typename
-    //                        novel.novel_uptime = item?.novel_uptime ?? ""
-    //                        novel.novel_state = item?.novel_state ?? ""
-    //                    }
-    //
-    //                }
-    //
-    //            } catch {
-    //                fatalError();
-    //            }
-    //            saveContext()
-    //        }
-    //
-    //
-    //    }
-    
-    //    // 获取所有用户
-    //    func getAllUser() -> [UserDO] {
-    //        let fetchRequest: NSFetchRequest = UserDO.fetchRequest()
-    //        do {
-    //            let result = try context.fetch(fetchRequest)
-    //            return result
-    //        } catch {
-    //            fatalError();
-    //        }
-    //    }
-    
-    //
     
     // 删除所有数据
-    //    func deleteAllNovel(success successCallback: @escaping () -> Void) {
-    //        // 这里直接调用上面获取所有数据的方法
-    //        let result = getAlldeleteNovel()
-    //        // 循环删除所有数据
-    //        DispatchQueue.global().async {
-    //            for (_,d) in result.enumerated()  {
-    //                self.context.delete(d)
-    //            }
-    //            self.saveContext()
-    //            DispatchQueue.main.async {
-    //                  successCallback()
-    //            }
-    //
-    //        }
-    //
-    //
-    //    }
+    /// 删除所有数据
+    /// - Parameter successCallback: 返回删除缓存帖子状态
+    func deleteAllPost(success successCallback: @escaping () -> Void) {
+        // 这里直接调用上面获取所有数据的方法
+        let fetchRequest: NSFetchRequest  = PostModelDO.fetchRequest()
+        DispatchQueue.global().async {
+            do {
+                log.verbose("开始删除--->  \(fetchRequest.fetchBatchSize)条")
+                let result = try self.context.fetch(fetchRequest)
+                result.forEach { (PostModelDO) in
+                    self.context.delete(PostModelDO)
+                }
+            } catch  {
+                log.error("删除缓存出错\(error.localizedDescription)")
+                fatalError()
+            }
+            // 循环删除所有数据
+            self.saveContext()
+            DispatchQueue.main.async {
+                log.verbose("删除完成 --->  \(fetchRequest.fetchBatchSize)条")
+                successCallback()
+            }
+            
+        }
+    }
 }
