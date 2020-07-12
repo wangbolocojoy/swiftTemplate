@@ -19,15 +19,25 @@ class TabHomeViewController: BaseTabViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        list = CoreDataManager.default.postlist
-//        log.verbose(list?.count)
-        tableview.reloadData()
+        checkPosts()
     }
     
+    
+    func checkPosts(){
+        if CoreDataManager.default.postlist?.count == 0 {
+            type = 1
+            pagebody.page = 0
+            pagebody.pageSize = 5
+            pagebody.userId = UserInfoHelper.instance.user?.id ?? 0
+            getPosts(body: pagebody)
+        } else {
+            tableview.reloadData()
+        }
+    }
     @IBAction func btnsendpost(_ sender: Any) {
         self.navigationController?.pushViewController(self.getVcByName(vc: .发帖), animated: true)
     }
-    func getNovel(body:RequestBody){
+    func getPosts(body:RequestBody){
         MyMoyaManager.AllRequestNospinner(controller: self, NetworkService.getposts(k: body.toJSONString()!)) { (data) in
             CoreDataManager.default.postlist = data.postlist
             if self.type == 1 {
@@ -52,7 +62,7 @@ class TabHomeViewController: BaseTabViewController {
         pagebody.page = 0
         pagebody.pageSize = 5
         pagebody.userId = UserInfoHelper.instance.user?.id ?? 0
-        getNovel(body: pagebody)
+        getPosts(body: pagebody)
     }
     @objc func getMore(){
         if hasmore {
@@ -60,7 +70,7 @@ class TabHomeViewController: BaseTabViewController {
             pagebody.userId = UserInfoHelper.instance.user?.id ?? 0
             pagebody.page = (pagebody.page ?? 0) + 1
             pagebody.pageSize = 5
-            getNovel(body: pagebody)
+            getPosts(body: pagebody)
         }
         
     }
@@ -73,11 +83,7 @@ class TabHomeViewController: BaseTabViewController {
         tableview.mj_header = header
         footer.setRefreshingTarget(self, refreshingAction: #selector(getMore))
         tableview.mj_footer = footer
-        type = 1
-        pagebody.page = 0
-        pagebody.pageSize = 5
-        pagebody.userId = UserInfoHelper.instance.user?.id ?? 0
-//        getNovel(body: pagebody)
+        
         
     }
     func deletePost(pfo:PostInfo,index:Int){
@@ -108,7 +114,7 @@ extension TabHomeViewController:UITableViewDataSource,UITableViewDelegate,UIScro
         cell.callBackBlock { (type, poinfo,index) in
             switch type{
             case 2:
-                 self.deletePost(pfo: poinfo!, index: index)
+                self.deletePost(pfo: poinfo!, index: index)
                 break
             default:
                 break
@@ -138,7 +144,7 @@ extension TabHomeViewController:UITableViewDataSource,UITableViewDelegate,UIScro
         let path = tableview.indexPathsForVisibleRows!  as [IndexPath]
         if ( path.count  > 0) {
             let lastPath = path[(path.count)-1]
-            if  lastPath.item == (self.list?.count ?? 0) - 1{
+            if  lastPath.item == (CoreDataManager.default.postlist?.count ?? 0) - 1{
                 self.getMore()
             }
         }

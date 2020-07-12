@@ -77,6 +77,7 @@ class CoreDataManager {
                         postModel.creatTime = item.creatTime ?? ""
                         postModel.author = authorModel
                         postModel.latitude = item.latitude ?? ""
+                        postModel.postStarts = item.postStarts?.int32 ?? 0
                         postModel.longitude = item.longitude ?? ""
                         postModel.isStart = item.isStart ?? false
                         postModel.isCollection = item.isCollection ?? false
@@ -167,6 +168,7 @@ class CoreDataManager {
                     postModel.postAddress = item.postAddress ?? ""
                     postModel.postPublic = item.postPublic
                     postModel.creatTime = item.creatTime ?? ""
+                    postModel.postStarts = item.postStarts.int32
                     postModel.author = authorModel
                     postModel.latitude = item.latitude ?? ""
                     postModel.longitude = item.longitude ?? ""
