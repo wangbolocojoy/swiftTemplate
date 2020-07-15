@@ -35,6 +35,7 @@ class TabFriendsViewController: BaseTabViewController {
         tableview.dataSource = self
         tableview.separatorStyle = .none
         tableview.register(UINib(nibName: FanceORFollowCell.reuseID, bundle: nil), forCellReuseIdentifier: FanceORFollowCell.reuseID)
+        tableview.register(UINib(nibName: KtNoDataFooterView.reuseID, bundle: nil), forHeaderFooterViewReuseIdentifier: KtNoDataFooterView.reuseID)
         header.setTitle("下拉刷新", for: .idle)
         footer.setRefreshingTarget(self, refreshingAction: #selector(refremore))
         tableview.mj_footer = footer
@@ -127,6 +128,19 @@ extension TabFriendsViewController:UITableViewDelegate,UITableViewDataSource{
             }
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+       let footer = tableView.dequeueReusableHeaderFooterView(withIdentifier: KtNoDataFooterView.reuseID) as! KtNoDataFooterView
+        footer.toast_text.text = "没有更多推荐，请稍后再试"
+        return footer
+    }
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if list?.count == 0 {
+            return 250
+        }else{
+            return 0
+        }
     }
     
 }

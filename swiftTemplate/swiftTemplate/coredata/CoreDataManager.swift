@@ -139,7 +139,6 @@ class CoreDataManager {
     /// 获取缓存的帖子
     /// - Parameter successCallback: 返回缓存的帖子集合
     func getCoreDataPost(success successCallback:  @escaping ( [PostInfo]?) -> Void){
-        
         let fetchRequest: NSFetchRequest  = PostModelDO.fetchRequest()
         DispatchQueue.global().async {
             do {
@@ -180,17 +179,20 @@ class CoreDataManager {
                     list?.append(postModel)
                 }
                 DispatchQueue.main.async {
-                    var maxpostid =  UserDefaults.User.getvalue(forKey: .MAXPostId) as? Int ?? 0
-                    
                     list?.sort(by: { (po1
                         , po2) -> Bool in
                         let bo = (po1.id ?? 0 > po2.id ?? 0)
-                        maxpostid = po1.id ?? 0
                         return bo
                     })
-                    UserDefaults.User.set(value: maxpostid , forKey: .MAXPostId)
-                                       
-                    log.verbose("获取\(list?.count ?? 0) 条")
+                    if list?.count ?? 0 == 0 {
+                          UserDefaults.User.set(value: 0 , forKey: .MAXPostId)
+                         
+                    }else{
+                          UserDefaults.User.set(value: list?[0].id ?? 0 , forKey: .MAXPostId)
+                         log.verbose("获取\(list?.count ?? 0) 条。  最新的帖子id\( list?[0].id ?? 0)")
+                    }
+                  
+                   
                     successCallback(list)
                 }
             } catch  {

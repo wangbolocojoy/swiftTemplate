@@ -115,7 +115,7 @@ extension UIImageView{
         let imageResource = ImageResource(downloadURL: url!, cacheKey: string)
         image.kf.setImage(
             with: imageResource,
-            placeholder: #imageLiteral(resourceName: "IMG_2507"),
+            placeholder: #imageLiteral(resourceName: "背景色"),
             options: [
                 .backgroundDecode,
                 .scaleFactor(UIScreen.main.scale),

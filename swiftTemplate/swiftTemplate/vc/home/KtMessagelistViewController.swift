@@ -23,7 +23,7 @@ class KtMessagelistViewController: BaseDetailViewController {
     var type = 0
     var postmsg : PostMessage? = nil
     var hasmore :Bool = false
-    lazy var body = RequestBody()
+    
     func callBackBlock(block : @escaping swiftblock)  {
         callBack = block
     }
@@ -56,14 +56,19 @@ class KtMessagelistViewController: BaseDetailViewController {
         footer.setRefreshingTarget(self, refreshingAction: #selector(getMore))
         tableview.mj_footer = footer
         self.message_num.text = "\(postinfo?.postMessageNum ?? 0)条评论"
+        getmessage()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(hide(node:)), name:  UIResponder.keyboardDidHideNotification, object: nil)
+        
+    }
+    func getmessage(){
+        let body = RequestBody()
         type = 1
         body.page = 0
         body.pageSize = 20
         body.userId = UserInfoHelper.instance.user?.id ?? 0
         body.postId = postinfo?.id ?? 0
         commentlist(body: body.toJSONString() ?? "")
-        NotificationCenter.default.addObserver(self, selector: #selector(hide(node:)), name:  UIResponder.keyboardDidHideNotification, object: nil)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -83,16 +88,23 @@ class KtMessagelistViewController: BaseDetailViewController {
     }
     @objc func refresh(){
         footer.resetNoMoreData()
+        let body = RequestBody()
         type = 1
         body.page = 0
+        body.pageSize = 20
+        body.userId = UserInfoHelper.instance.user?.id ?? 0
+        body.postId = postinfo?.id ?? 0
         commentlist(body: body.toJSONString() ?? "")
     }
     
     @objc func getMore(){
         if hasmore {
+            let body = RequestBody()
             type = 2
-            body.userId = UserInfoHelper.instance.user?.id ?? 0
             body.page = (body.page ?? 0) + 1
+            body.pageSize = 20
+            body.postId = postinfo?.id ?? 0
+            body.userId = UserInfoHelper.instance.user?.id ?? 0
             commentlist(body: body.toJSONString() ?? "")
         }else{
             

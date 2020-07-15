@@ -21,7 +21,6 @@ class TabDynamicViewController: BaseTabViewController{
     let user = UserInfoHelper.instance.user
     override func viewDidLoad() {
         super.viewDidLoad()
-      
         self.list = CoreDataManager.default.postlist
         self.collectionview.reloadData()
               
@@ -108,11 +107,11 @@ class TabDynamicViewController: BaseTabViewController{
 }
 extension TabDynamicViewController:UICollectionViewDelegate,UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return  CoreDataManager.default.postlist?.count ?? 0
+        return  list?.count ?? 0
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DynamicCollectionViewCell.reuseID, for: indexPath) as! DynamicCollectionViewCell
-        cell.updateCell(list:  CoreDataManager.default.postlist?[indexPath.item].postImages)
+        cell.updateCell(list:  list?[indexPath.item].postImages)
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

@@ -15,7 +15,18 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_2466" translatesAutoresizingMaskIntoConstraints="NO" id="dDo-Jf-KZL">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="dDo-Jf-KZL" secondAttribute="trailing" id="ZD0-Q0-mKg"/>
+                            <constraint firstAttribute="bottom" secondItem="dDo-Jf-KZL" secondAttribute="bottom" id="dEF-9o-7bR"/>
+                            <constraint firstItem="dDo-Jf-KZL" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="tIF-DN-0eP"/>
+                            <constraint firstItem="dDo-Jf-KZL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zcS-o2-h4m"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -799,7 +810,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="LZS-Vx-4hr">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="99.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="largeTitleTextAttributes">
                             <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="24"/>
@@ -835,6 +846,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="IMG_2466" width="1242" height="2688"/>
         <image name="IMG_2506" width="512" height="512"/>
         <image name="IMG_2507" width="50" height="50"/>
         <image name="circle.grid.hex" catalog="system" width="128" height="112"/>

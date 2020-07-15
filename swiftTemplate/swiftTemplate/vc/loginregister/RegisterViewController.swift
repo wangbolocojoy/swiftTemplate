@@ -99,7 +99,7 @@ class RegisterViewController: BaseViewController {
             return
         }
         
-        if password == nil || password == "" || password.count < 6{
+        if password == "" || password.count < 6{
             ShowTip(Title: "密码位数能小于6位")
             return
         }

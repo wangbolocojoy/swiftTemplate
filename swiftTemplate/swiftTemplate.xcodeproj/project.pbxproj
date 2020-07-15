@@ -33,6 +33,8 @@
 		C4070AA824A73871000819BD /* NoTextViewInputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4070AA224A73871000819BD /* NoTextViewInputBar.swift */; };
 		C4070AA924A73871000819BD /* iMessageInputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4070AA324A73871000819BD /* iMessageInputBar.swift */; };
 		C4070AAB24A738A6000819BD /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4070AAA24A738A6000819BD /* ImageCell.swift */; };
+		C407BFD524BEF9A400A38AB7 /* KtNoDataFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C407BFD424BEF9A400A38AB7 /* KtNoDataFooterView.swift */; };
+		C407BFD724BEF9B100A38AB7 /* KtNoDataFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C407BFD624BEF9B100A38AB7 /* KtNoDataFooterView.xib */; };
 		C41CD2F824B712EA000A6613 /* KtMyWkWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CD2F724B712EA000A6613 /* KtMyWkWebViewController.swift */; };
 		C41CD2FA24B713BE000A6613 /* HTML in Resources */ = {isa = PBXBuildFile; fileRef = C41CD2F924B713BD000A6613 /* HTML */; };
 		C41CD2FC24B716F9000A6613 /* KtAboutMineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CD2FB24B716F9000A6613 /* KtAboutMineViewController.swift */; };
@@ -160,6 +162,8 @@
 		C4070AA224A73871000819BD /* NoTextViewInputBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoTextViewInputBar.swift; sourceTree = "<group>"; };
 		C4070AA324A73871000819BD /* iMessageInputBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iMessageInputBar.swift; sourceTree = "<group>"; };
 		C4070AAA24A738A6000819BD /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		C407BFD424BEF9A400A38AB7 /* KtNoDataFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtNoDataFooterView.swift; sourceTree = "<group>"; };
+		C407BFD624BEF9B100A38AB7 /* KtNoDataFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KtNoDataFooterView.xib; sourceTree = "<group>"; };
 		C41CD2F724B712EA000A6613 /* KtMyWkWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtMyWkWebViewController.swift; sourceTree = "<group>"; };
 		C41CD2F924B713BD000A6613 /* HTML */ = {isa = PBXFileReference; lastKnownFileType = folder; path = HTML; sourceTree = "<group>"; };
 		C41CD2FB24B716F9000A6613 /* KtAboutMineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtAboutMineViewController.swift; sourceTree = "<group>"; };
@@ -560,6 +564,8 @@
 				C4070A8F24A66B15000819BD /* KtMessageCell.xib */,
 				C422FB4824B1ABB7006AC5CA /* KtMessageHeader.swift */,
 				C422FB4A24B1ABC6006AC5CA /* KtMessageHeader.xib */,
+				C407BFD424BEF9A400A38AB7 /* KtNoDataFooterView.swift */,
+				C407BFD624BEF9B100A38AB7 /* KtNoDataFooterView.xib */,
 			);
 			path = post;
 			sourceTree = "<group>";
@@ -740,6 +746,7 @@
 				C4D2874524A8ADFD0065F497 /* KtMyCollectCell.xib in Resources */,
 				C40240332480193E00F715DC /* LaunchScreen.storyboard in Resources */,
 				C41CD30124B7196C000A6613 /* KtAboutHeaderCell.xib in Resources */,
+				C407BFD724BEF9B100A38AB7 /* KtNoDataFooterView.xib in Resources */,
 				C4FDACAB249EF1F60095F1E3 /* PostBannerImageCell.xib in Resources */,
 				C43157F42483DF5B0034A74E /* TabHomeNovelCell.xib in Resources */,
 				C422FB4B24B1ABC6006AC5CA /* KtMessageHeader.xib in Resources */,
@@ -840,6 +847,7 @@
 				C43157E024839C880034A74E /* LoginViewController.swift in Sources */,
 				C43157CF2483994F0034A74E /* CALayer+MyColor.m in Sources */,
 				C4AEFCED248CAB620080904E /* BTMUserItemCell.swift in Sources */,
+				C407BFD524BEF9A400A38AB7 /* KtNoDataFooterView.swift in Sources */,
 				C4070A8D24A64A80000819BD /* BaseDetailViewController.swift in Sources */,
 				C44F284224A9C7FF00E16123 /* KtDatePickerViewController.swift in Sources */,
 				C4FDACAA249EF1F60095F1E3 /* PostBannerImageCell.swift in Sources */,
@@ -996,7 +1004,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1050,7 +1058,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1070,13 +1078,16 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W7BB6FVMMB;
 				INFOPLIST_FILE = swiftTemplate/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.2;
+				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = com.90btm.myapplication.swiftTemplate;
 				PRODUCT_NAME = SwiftKt;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "swiftTemplate/extension/swiftTemplate-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1094,6 +1105,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W7BB6FVMMB;
 				INFOPLIST_FILE = swiftTemplate/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1101,6 +1113,7 @@
 				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.90btm.myapplication.swiftTemplate;
 				PRODUCT_NAME = SwiftKt;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "swiftTemplate/extension/swiftTemplate-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

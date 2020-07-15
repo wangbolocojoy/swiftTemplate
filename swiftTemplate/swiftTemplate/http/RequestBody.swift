@@ -104,7 +104,6 @@ class QrCodeBody: Mappable{
     required init?(map: Map) {
         
     }
-    
     func mapping(map: Map) {
               phone <- map["phone"]
               id <- map["id"]

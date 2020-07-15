@@ -104,7 +104,9 @@ extension MyCollectViewController:UITableViewDelegate,UITableViewDataSource,UISc
         let path = tableview.indexPathsForVisibleRows!  as [IndexPath]
         if ( path.count  > 0) {
             let lastPath = path[(path.count)-3]
-            if  lastPath.item == (self.list?.count ?? 0) - 3{
+            let count = self.list?.count ?? 0
+            let diffcount = count - 3
+            if  lastPath.item == diffcount{
                 self.getMore()
             }
         }

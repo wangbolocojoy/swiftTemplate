@@ -137,7 +137,9 @@ extension MyMessageViewController:UITableViewDataSource,UITableViewDelegate,UISc
         let path = tableview.indexPathsForVisibleRows!  as [IndexPath]
         if ( path.count  > 0) {
             let lastPath = path[(path.count)-1]
-            if  lastPath.item == (self.list?.count ?? 0) - 1{
+            let count = self.list?.count ?? 1
+            let diffcount = count - 1
+            if  lastPath.item == diffcount{
                 self.getMore()
             }
         }

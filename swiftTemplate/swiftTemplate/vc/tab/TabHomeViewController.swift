@@ -40,10 +40,12 @@ class TabHomeViewController: BaseTabViewController {
     func checkIsHavNew(){
         let json = RequestBody()
         json.postId = UserDefaults.User.getvalue(forKey: .MAXPostId) as? Int ?? 0
+        log.verbose("json.postId\(json.postId)")
         MyMoyaManager.AllRequestNospinner(controller: self, NetworkService.getisnewpost(k: json.toJSONString() ?? "")) { (data) in
             self.ShowTip(Title: "有新的帖子")
             self.getpost()
         }
+        
     }
     @IBAction func btnsendpost(_ sender: Any) {
         self.navigationController?.pushViewController(self.getVcByName(vc: .发帖), animated: true)

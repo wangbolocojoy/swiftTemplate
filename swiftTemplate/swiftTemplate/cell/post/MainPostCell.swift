@@ -44,6 +44,7 @@ class MainPostCell: UITableViewCell {
     @IBOutlet weak var poster_nickname: UILabel!
     
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         banner.dataSource = self
@@ -51,8 +52,8 @@ class MainPostCell: UITableViewCell {
         banner.isInfinite = false
         banner.transformer = FSPagerViewTransformer(type: .linear)
         pagecontrol.numberOfPages = postinfo?.postImages?.count ?? 0
-        pagecontrol.setStrokeColor(.label, for: .selected)
-        pagecontrol.setFillColor(.label, for: .selected)
+        pagecontrol.setStrokeColor(.gray, for: .selected)
+        pagecontrol.setFillColor(.gray, for: .selected)
         let tapstart = UITapGestureRecognizer(target: self, action: #selector(checkstart))
         btn_start.isUserInteractionEnabled = true
         btn_start.addGestureRecognizer(tapstart)
@@ -113,7 +114,9 @@ class MainPostCell: UITableViewCell {
     }
     func updateStartOrCollection(){
         if postinfo?.isStart ?? false {
+            
             btn_start.tintColor = .red
+            
             btn_start.image = UIImage(systemName: "heart.fill")
         }else{
             btn_start.tintColor = .label
@@ -286,6 +289,7 @@ class MainPostCell: UITableViewCell {
                     self.actionheart.transform = CGAffineTransform.identity
                     self.actionheart.isHidden = true
                     self.btn_start.tintColor = .red
+                    
                     self.btn_start.image = UIImage(systemName: "heart.fill")
                     self.lab_startnum.text = "\(self.postinfo?.postStarts ?? 0)"
                     UIView.animate(withDuration: 0.3, animations: {
@@ -314,7 +318,7 @@ extension MainPostCell:FSPagerViewDelegate,FSPagerViewDataSource{
     
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
-        cell.imageView?.setImageUrl(image: cell.imageView!,string: postinfo?.postImages?[index].fileUrl , proimage:#imageLiteral(resourceName: "IMG_2507") )
+        cell.imageView?.setImageUrl(image: cell.imageView!,string: postinfo?.postImages?[index].fileUrl , proimage:#imageLiteral(resourceName: "loadingimg") )
         cell.isHighlighted = false
         let tap = UITapGestureRecognizer(target: self, action: #selector(postStart(gesture: )))
         cell.isUserInteractionEnabled = true

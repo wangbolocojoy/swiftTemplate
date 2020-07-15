@@ -16,7 +16,7 @@ class SendPostViewController: BaseViewController {
     @IBOutlet weak var btn_address: UIView!
     @IBOutlet weak var ev_detail: UITextView!
     lazy var picker = YPImagePicker()
-    var list:[UIImage] = [#imageLiteral(resourceName: "添加图片")]
+    var list:[UIImage] = [#imageLiteral(resourceName: "addimage")]
     let  user = UserInfoHelper.instance.user
     var amappoi:AMapPOI? = nil
     override func viewDidLoad() {
@@ -48,14 +48,14 @@ class SendPostViewController: BaseViewController {
         
     }
     @objc func sendPost(){
-        if list[0] == #imageLiteral(resourceName: "添加图片") {
+        if list[0] == #imageLiteral(resourceName: "addimage") {
             ShowTip(Title: "请至少选择一张图片")
             return
         }
-        if ev_detail.text.count < 10 {
-            ShowTip(Title: "请至少输入10个字的内容")
-            return
-        }
+//        if ev_detail.text.count < 10 {
+//            ShowTip(Title: "请至少输入10个字的内容")
+//            return
+//        }
         var address = ""
         if lab_address.text == "请选择地址" {
             address = ""
@@ -63,9 +63,9 @@ class SendPostViewController: BaseViewController {
             address = lab_address.text ?? ""
         }
         
-        let detail = ev_detail.text
+        let detail = ev_detail.text ?? ""
         
-        let param = ["postDetail": detail ?? "" ,"postAddress": address,"latitude":"\(amappoi?.location.latitude ?? 0.0)","longitude":"\(amappoi?.location.longitude ?? 0.0)" ,"uploadType":"image","userId":"\(UserInfoHelper.instance.user?.id ?? 0)"]
+        let param = ["postDetail": detail  ,"postAddress": address,"latitude":"\(amappoi?.location.latitude ?? 0.0)","longitude":"\(amappoi?.location.longitude ?? 0.0)" ,"uploadType":"image","userId":"\(UserInfoHelper.instance.user?.id ?? 0)"]
             MyMoyaManager.AllRequest(controller: self, NetworkService.upLoadFiles(K: param, dataAry: self.list as NSArray)) { (data) in
                 self.user?.postNum =  (self.user?.postNum ?? 0) + 1
                 UserInfoHelper.instance.user = self.user

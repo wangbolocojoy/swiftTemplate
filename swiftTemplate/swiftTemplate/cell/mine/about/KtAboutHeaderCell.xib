@@ -19,7 +19,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="scf-oE-Vhc">
                         <rect key="frame" x="0.0" y="0.0" width="599" height="273"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_2506" translatesAutoresizingMaskIntoConstraints="NO" id="oKm-gP-5ec">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WechatIMG54" translatesAutoresizingMaskIntoConstraints="NO" id="oKm-gP-5ec">
                                 <rect key="frame" x="249.5" y="50" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="13N-Fe-l4O"/>
@@ -72,6 +72,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="IMG_2506" width="512" height="512"/>
+        <image name="WechatIMG54" width="512" height="512"/>
     </resources>
 </document>
