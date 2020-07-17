@@ -47,7 +47,7 @@
                                     <constraint firstAttribute="height" constant="0.5" id="skV-Bw-zkR"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kSS-hF-2np">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="kSS-hF-2np">
                                 <rect key="frame" x="25" y="370" width="364" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="qWx-oY-e8P"/>
@@ -55,7 +55,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="password"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C60-MT-N4b">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="C60-MT-N4b">
                                 <rect key="frame" x="25" y="314.5" width="364" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="qhd-NN-Kgc"/>
@@ -195,7 +195,7 @@
                                     <action selector="register:" destination="6Tv-tq-HwL" eventType="touchUpInside" id="0VG-oy-cW4"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pxx-3I-h1s">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="pxx-3I-h1s">
                                 <rect key="frame" x="25" y="357.5" width="364" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="6tH-nf-ISu"/>
@@ -217,7 +217,7 @@
                                     <constraint firstAttribute="height" constant="0.5" id="71V-08-uno"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EHe-7s-cyu">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入验证码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="EHe-7s-cyu">
                                 <rect key="frame" x="25" y="302" width="284" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Qr6-Ca-8dz"/>
@@ -232,7 +232,7 @@
                                     <constraint firstAttribute="height" constant="0.5" id="pX6-3g-oBn"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wI8-A5-Nqm">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="wI8-A5-Nqm">
                                 <rect key="frame" x="25" y="246.5" width="364" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="W9r-iA-54M"/>

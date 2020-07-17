@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "lunchimage12.png",
+      "filename" : "启动页.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "lunchimage12@2x.png",
+      "filename" : "启动页@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "lunchimage12@3x.png",
+      "filename" : "启动页@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

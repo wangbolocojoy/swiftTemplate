@@ -251,8 +251,9 @@ class MainPostCell: UITableViewCell {
     @objc func shareInfo(){
         var items : [Any] = []
         items.append("\(postinfo?.postDetail ?? "")")
-        items.append(self.banner.cellForItem(at: 0)?.imageView?.image!)
-        items.append(URL(string: "https://apps.apple.com/cn/app/%E5%BE%AE%E4%BF%A1/id414478124")!)
+        let image = self.banner.cellForItem(at: 0)?.imageView?.image ?? #imageLiteral(resourceName: "WechatIMG54")
+        items.append(image)
+        items.append(URL(string: "https://apps.apple.com/cn/app/SwiftKt/id1524082231")!)
         let activityVC = UIActivityViewController(activityItems:items , applicationActivities: nil)
         activityVC.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
             // 如果錯誤存在，跳出錯誤視窗並顯示給使用者。

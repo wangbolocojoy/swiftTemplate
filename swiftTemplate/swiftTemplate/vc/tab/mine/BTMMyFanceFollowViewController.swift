@@ -79,6 +79,12 @@ extension BTMMyFanceFollowViewController:UITableViewDelegate,UITableViewDataSour
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = getVcByName(vc: .粉丝详情) as! FancesInfoViewController
+        vc.userinfo = list?[indexPath.item]
+        vc.userId = list?[indexPath.item].id
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: FanceORFollowCell.reuseID, for: indexPath) as! FanceORFollowCell
         cell.updateCell(i:indexPath.item,u: list?[indexPath.item],type:type)

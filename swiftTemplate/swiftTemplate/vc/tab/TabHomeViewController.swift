@@ -14,7 +14,7 @@ class TabHomeViewController: BaseTabViewController {
     lazy var listpost :[PostStart]? = nil
     var pagebody = RequestBody()
     var type = 1
-    var hasmore :Bool = false
+    var hasmore :Bool = true
     @IBOutlet weak var tableview: UITableView!
     
     override func viewDidLoad() {
@@ -40,7 +40,6 @@ class TabHomeViewController: BaseTabViewController {
     func checkIsHavNew(){
         let json = RequestBody()
         json.postId = UserDefaults.User.getvalue(forKey: .MAXPostId) as? Int ?? 0
-        log.verbose("json.postId\(json.postId)")
         MyMoyaManager.AllRequestNospinner(controller: self, NetworkService.getisnewpost(k: json.toJSONString() ?? "")) { (data) in
             self.ShowTip(Title: "有新的帖子")
             self.getpost()

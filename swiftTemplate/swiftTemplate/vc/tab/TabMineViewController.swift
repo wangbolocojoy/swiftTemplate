@@ -53,32 +53,57 @@ class TabMineViewController: BaseTabViewController {
         header.endRefreshing()
     }
     func logout(){
-        KeychainManager.User.DeleteByIdentifier(forKey: .UserInfo)
-        UserInfoHelper.instance._setuser = nil
-        UIView.animate(withDuration: time, animations:{ }, completion: { (true) in
-            let tranststion =  CATransition()
-            tranststion.duration = self.time
-            tranststion.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
-            UIApplication.shared.windows[0].layer.add(tranststion, forKey: "animation")
-            UIApplication.shared.windows[0].rootViewController = self.getloginVc()
-        })
+       ShowLoginoutTip(Title: "是否需要退出登录")
     }
     func deleteCoreNovel(){
-        if FileDestination().deleteLogFile(){
-              self.ShowTip(Title: "删除日志成功")
-        }
-        CoreDataManager.default.deleteAllPost {
-            self.ShowTip(Title:"删除缓存成功")
-              }
-//        CoreDataManager.default.deleteStartList {
-//            self.ShowTip(Title: "删除缓存成功")
-//        }
+        ShowScanTip(Title: "是否需要清理缓存")
+        
+    }
+    
+    /// 清除缓存
+       /// - Parameter Title: 提示信息
+       func ShowLoginoutTip(Title:String)  {
+           let TipsActionSheet : UIAlertController = UIAlertController(title: "温馨提示", message: Title, preferredStyle: UIAlertController.Style.alert)
+           TipsActionSheet.addAction(UIAlertAction(title: "取消", style: .cancel, handler: { (UIAlertAction) in
+               TipsActionSheet.dismiss(animated: true, completion: nil)
+               
+           }))
+           TipsActionSheet.addAction(UIAlertAction(title: "确认", style: .destructive, handler: { (UIAlertAction) in
+              KeychainManager.User.DeleteByIdentifier(forKey: .UserInfo)
+                     UserInfoHelper.instance._setuser = nil
+            UIView.animate(withDuration: self.time, animations:{ }, completion: { (true) in
+                         let tranststion =  CATransition()
+                         tranststion.duration = self.time
+                         tranststion.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
+                         UIApplication.shared.windows[0].layer.add(tranststion, forKey: "animation")
+                         UIApplication.shared.windows[0].rootViewController = self.getloginVc()
+                     })
+           }))
+           self.present(TipsActionSheet, animated: true, completion: nil)
+           
+       }
+    /// 清除缓存
+    /// - Parameter Title: 提示信息
+    func ShowScanTip(Title:String)  {
+        let TipsActionSheet : UIAlertController = UIAlertController(title: "温馨提示", message: Title, preferredStyle: UIAlertController.Style.alert)
+        TipsActionSheet.addAction(UIAlertAction(title: "取消", style: .cancel, handler: { (UIAlertAction) in
+            TipsActionSheet.dismiss(animated: true, completion: nil)
+            
+        }))
+        TipsActionSheet.addAction(UIAlertAction(title: "确认", style: .destructive, handler: { (UIAlertAction) in
+            if FileDestination().deleteLogFile(){
+                self.ShowTip(Title: "删除日志成功")
+            }
+            CoreDataManager.default.deleteAllPost {
+                self.ShowTip(Title:"删除缓存成功")
+            }
+        }))
+        self.present(TipsActionSheet, animated: true, completion: nil)
         
     }
     
 }
 extension TabMineViewController:UITableViewDelegate,UITableViewDataSource{
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
@@ -100,7 +125,7 @@ extension TabMineViewController:UITableViewDelegate,UITableViewDataSource{
             case 6:
                 logout()
             default:
-                 debugPrint()
+                debugPrint()
             }
         }
     }

@@ -15,7 +15,7 @@ class TabDynamicViewController: BaseTabViewController{
     lazy var list :[PostInfo]? = nil
     var pagebody = RequestBody()
     var type = 1
-    var hasmore :Bool = false
+    var hasmore :Bool = true
     lazy var  countrySearchController:UISearchController? = UISearchController()
     @IBOutlet weak var collectionview: UICollectionView!
     let user = UserInfoHelper.instance.user

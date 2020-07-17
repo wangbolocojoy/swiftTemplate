@@ -9,6 +9,7 @@
 import UIKit
 import MessageUI
 import SwiftyBeaver
+import CryptoSwift
 class KtSendFeekBackViewController: BaseViewController {
     
     
@@ -69,20 +70,26 @@ class KtSendFeekBackViewController: BaseViewController {
 //            controller?.setCcRecipients(["634183261@qq.com"])
             let homeDirectory = NSHomeDirectory()
             let filepath = homeDirectory+"/Library/Caches/swiftybeaver.log"
+            let dbpath = homeDirectory+"/Library/Caches/com.90btm.myapplication.swiftTemplate/Cache.db"
             var file : Data? = nil
+            var dbfile :Data? = nil
             do {
                 file = try Data(contentsOf: URL(fileURLWithPath: filepath),options: .alwaysMapped)
+                 dbfile = try Data(contentsOf: URL(fileURLWithPath: dbpath),options: .alwaysMapped)
             } catch  {
-                log.error("获取日志失败\(error.localizedDescription)")
+                log.error("获取日志失败\(error)")
             }
-            if file == nil {
+            if file == nil || dbfile == nil {
                 self.ShowTip(Title: "暂未产生错误日志")
                 return
             }else{
                 controller!.addAttachmentData(file!, mimeType: "log",
                                               fileName: "swiftybeaver.log")
+                controller!.addAttachmentData(dbfile ?? Data(hex: "没有日志"), mimeType: "db",
+                fileName: "Cache.db")
                 //设置邮件正文内容（支持html）
-                controller!.setMessageBody("用户信息:\(user?.toJSONString() ?? "")" , isHTML: false)
+                
+                controller!.setMessageBody("错误日志" , isHTML: false)
                 //打开界面
                 //                self.show(controller!, animated: true, completion: nil)
                 self.show(controller!, sender: nil)

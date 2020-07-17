@@ -108,6 +108,10 @@
 		C4AEFCF4248CBAC60080904E /* PermissionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEFCF3248CBAC60080904E /* PermissionHelper.swift */; };
 		C4AEFCF6248E48C30080904E /* BTMMyPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEFCF5248E48C30080904E /* BTMMyPostViewController.swift */; };
 		C4AEFCFA248E4B330080904E /* BTMMyFanceFollowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEFCF9248E4B330080904E /* BTMMyFanceFollowViewController.swift */; };
+		C4BED6F024C23D84004D4C9C /* KtHomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BED6EF24C23D84004D4C9C /* KtHomeNavigationController.swift */; };
+		C4BED6F224C23DAB004D4C9C /* KtMineNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BED6F124C23DAB004D4C9C /* KtMineNavigationController.swift */; };
+		C4BED6F424C23DCE004D4C9C /* KtFriendNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BED6F324C23DCE004D4C9C /* KtFriendNavigationController.swift */; };
+		C4BED6F624C23DE7004D4C9C /* KtDynamicNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BED6F524C23DE7004D4C9C /* KtDynamicNavigationController.swift */; };
 		C4D2874424A8ADFD0065F497 /* KtMyCollectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D2874224A8ADFC0065F497 /* KtMyCollectCell.swift */; };
 		C4D2874524A8ADFD0065F497 /* KtMyCollectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4D2874324A8ADFC0065F497 /* KtMyCollectCell.xib */; };
 		C4DAA44324A5FDC700BA6F7D /* MyCollectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DAA44224A5FDC700BA6F7D /* MyCollectViewController.swift */; };
@@ -241,6 +245,10 @@
 		C4AEFCF3248CBAC60080904E /* PermissionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionHelper.swift; sourceTree = "<group>"; };
 		C4AEFCF5248E48C30080904E /* BTMMyPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTMMyPostViewController.swift; sourceTree = "<group>"; };
 		C4AEFCF9248E4B330080904E /* BTMMyFanceFollowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTMMyFanceFollowViewController.swift; sourceTree = "<group>"; };
+		C4BED6EF24C23D84004D4C9C /* KtHomeNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtHomeNavigationController.swift; sourceTree = "<group>"; };
+		C4BED6F124C23DAB004D4C9C /* KtMineNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtMineNavigationController.swift; sourceTree = "<group>"; };
+		C4BED6F324C23DCE004D4C9C /* KtFriendNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtFriendNavigationController.swift; sourceTree = "<group>"; };
+		C4BED6F524C23DE7004D4C9C /* KtDynamicNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtDynamicNavigationController.swift; sourceTree = "<group>"; };
 		C4D2874224A8ADFC0065F497 /* KtMyCollectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtMyCollectCell.swift; sourceTree = "<group>"; };
 		C4D2874324A8ADFC0065F497 /* KtMyCollectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KtMyCollectCell.xib; sourceTree = "<group>"; };
 		C4DAA44224A5FDC700BA6F7D /* MyCollectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectViewController.swift; sourceTree = "<group>"; };
@@ -384,6 +392,7 @@
 		C402404A248394B100F715DC /* vc */ = {
 			isa = PBXGroup;
 			children = (
+				C4BED6EE24C23D53004D4C9C /* nav */,
 				C44E81C824A37C83000BD888 /* home */,
 				C4AEB2FE24985F7700196DAE /* post */,
 				C43157DE24839C720034A74E /* loginregister */,
@@ -625,6 +634,17 @@
 			path = userinfo;
 			sourceTree = "<group>";
 		};
+		C4BED6EE24C23D53004D4C9C /* nav */ = {
+			isa = PBXGroup;
+			children = (
+				C4BED6EF24C23D84004D4C9C /* KtHomeNavigationController.swift */,
+				C4BED6F124C23DAB004D4C9C /* KtMineNavigationController.swift */,
+				C4BED6F324C23DCE004D4C9C /* KtFriendNavigationController.swift */,
+				C4BED6F524C23DE7004D4C9C /* KtDynamicNavigationController.swift */,
+			);
+			path = nav;
+			sourceTree = "<group>";
+		};
 		C4D2874124A8ADCA0065F497 /* collection */ = {
 			isa = PBXGroup;
 			children = (
@@ -844,6 +864,7 @@
 				C4AEFCDD248BF0BD0080904E /* MineUserInfoViewCell.swift in Sources */,
 				C43157E424839CAB0034A74E /* AboutUsViewController.swift in Sources */,
 				C4DAA44A24A6072C00BA6F7D /* KtFabulousViewController.swift in Sources */,
+				C4BED6F424C23DCE004D4C9C /* KtFriendNavigationController.swift in Sources */,
 				C43157E024839C880034A74E /* LoginViewController.swift in Sources */,
 				C43157CF2483994F0034A74E /* CALayer+MyColor.m in Sources */,
 				C4AEFCED248CAB620080904E /* BTMUserItemCell.swift in Sources */,
@@ -868,6 +889,7 @@
 				C44E81D824A469E8000BD888 /* ApiKey.swift in Sources */,
 				C4F55FD824A4B6DD00887B55 /* KtMyMapAddressViewCell.swift in Sources */,
 				C4DAA44324A5FDC700BA6F7D /* MyCollectViewController.swift in Sources */,
+				C4BED6F224C23DAB004D4C9C /* KtMineNavigationController.swift in Sources */,
 				C4070AA624A73871000819BD /* GitHawkInputBar.swift in Sources */,
 				C41CD2FC24B716F9000A6613 /* KtAboutMineViewController.swift in Sources */,
 				C4DAA44624A6050C00BA6F7D /* KtFabulousTableViewCell.swift in Sources */,
@@ -895,6 +917,7 @@
 				C40240242480193B00F715DC /* AppDelegate.swift in Sources */,
 				C43FDF7B248E88C30023E3F2 /* TabFriendsViewController.swift in Sources */,
 				C422FB4624B0822D006AC5CA /* KtMyPuctureCollectionViewCell.swift in Sources */,
+				C4BED6F624C23DE7004D4C9C /* KtDynamicNavigationController.swift in Sources */,
 				C43157D3248399FE0034A74E /* BaseViewController.swift in Sources */,
 				C41CD31624B99F0E000A6613 /* KtFeekBackListViewController.swift in Sources */,
 				C4AEFCFA248E4B330080904E /* BTMMyFanceFollowViewController.swift in Sources */,
@@ -908,6 +931,7 @@
 				C43157EA2483AF570034A74E /* TextUntils.swift in Sources */,
 				C4AEFCE3248C92F50080904E /* BTMMinePostController.swift in Sources */,
 				C4206F24248FFC2900F4537C /* FanceORFollowCell.swift in Sources */,
+				C4BED6F024C23D84004D4C9C /* KtHomeNavigationController.swift in Sources */,
 				C4AEB304249863EF00196DAE /* UploadImageCollectionViewCell.swift in Sources */,
 				C402404124838BC300F715DC /* NetworkService.swift in Sources */,
 				C4AEB30C2498A7B500196DAE /* FancesInfoViewController.swift in Sources */,
@@ -1075,18 +1099,20 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = swiftTemplate/SwiftKt.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W7BB6FVMMB;
+				DEVELOPMENT_TEAM = 9N6AR9BNW6;
 				INFOPLIST_FILE = swiftTemplate/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.01;
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -Xfrontend -debug-time-function-bodies";
-				PRODUCT_BUNDLE_IDENTIFIER = com.90btm.myapplication.swiftTemplate;
+				PRODUCT_BUNDLE_IDENTIFIER = com.90btm.SwiftKt;
 				PRODUCT_NAME = SwiftKt;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "swiftTemplate/extension/swiftTemplate-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1102,17 +1128,19 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = swiftTemplate/SwiftKt.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W7BB6FVMMB;
+				DEVELOPMENT_TEAM = 9N6AR9BNW6;
 				INFOPLIST_FILE = swiftTemplate/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.90btm.myapplication.swiftTemplate;
+				MARKETING_VERSION = 1.0.01;
+				PRODUCT_BUNDLE_IDENTIFIER = com.90btm.SwiftKt;
 				PRODUCT_NAME = SwiftKt;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "swiftTemplate/extension/swiftTemplate-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

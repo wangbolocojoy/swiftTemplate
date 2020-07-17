@@ -34,6 +34,14 @@ enum MyController{
     case 关于我们
     case 意见反馈
     case 意见反馈列表
+    
+}
+enum NavVc {
+    case 首页nav
+    case 发现nav
+    case 推荐nav
+    case 我的nav
+    case 登录nav
 }
 
 enum PictureType{
@@ -58,6 +66,28 @@ extension UIViewController{
         let sb = UIStoryboard.init(name: "NewLogin", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "LOGINNAVVC") as! LoginNavViewController
         return vc
+    }
+    func getNavc(vc:NavVc)->UINavigationController{
+        let sb = UIStoryboard.init(name: "Main", bundle: nil)
+        switch vc {
+        case .首页nav:
+            let nvc = sb.instantiateViewController(withIdentifier: "KTHOMENVC") as! KtHomeNavigationController
+            return nvc
+            
+        case.发现nav:
+            let nvc = sb.instantiateViewController(withIdentifier: "KYDYNAMICNVC") as! KtDynamicNavigationController
+                       return nvc
+        case .推荐nav:
+            let nvc = sb.instantiateViewController(withIdentifier: "KTFRIENDNVC") as! KtFriendNavigationController
+                       return nvc
+        case .我的nav:
+            let nvc = sb.instantiateViewController(withIdentifier: "KTMINENVC") as! KtMineNavigationController
+                       return nvc
+        case .登录nav:
+             let osb = UIStoryboard.init(name: "NewLogin", bundle: nil)
+            let vc = osb.instantiateViewController(withIdentifier: "LOGINNAVVC") as! LoginNavViewController
+                   return vc
+        }
     }
     
     func getVcByName(vc:MyController) -> UIViewController{

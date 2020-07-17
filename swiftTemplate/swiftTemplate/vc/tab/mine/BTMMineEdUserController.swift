@@ -11,11 +11,17 @@ import UIKit
 class BTMMineEdUserController: BaseViewController {
     var type :String? = nil
     @IBOutlet weak var lab_test: UITextField!
+    @IBOutlet weak var ev_background: UIView!
     lazy var user = UserInfoHelper.instance.user
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(showedv))
+        ev_background.isUserInteractionEnabled = true
+        ev_background.addGestureRecognizer(tap)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "保存", style: .done, target: self, action: #selector(save))
+    }
+    @objc func showedv(){
+        lab_test.becomeFirstResponder()
     }
     override func initView() {
         switch type ?? "" {

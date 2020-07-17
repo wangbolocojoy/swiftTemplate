@@ -25,7 +25,7 @@
                             <constraint firstAttribute="trailing" secondItem="dDo-Jf-KZL" secondAttribute="trailing" id="ZD0-Q0-mKg"/>
                             <constraint firstAttribute="bottom" secondItem="dDo-Jf-KZL" secondAttribute="bottom" id="dEF-9o-7bR"/>
                             <constraint firstItem="dDo-Jf-KZL" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="tIF-DN-0eP"/>
-                            <constraint firstItem="dDo-Jf-KZL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zcS-o2-h4m"/>
+                            <constraint firstItem="dDo-Jf-KZL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zcS-o2-h4m"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -290,7 +290,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VYv-FA-D3b">
-                                <rect key="frame" x="8" y="59" width="398" height="50"/>
+                                <rect key="frame" x="8" y="59" width="398" height="100"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="接口上的" placeholder="请输入内容" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZEF-Ua-m6L">
                                         <rect key="frame" x="5" y="5" width="388" height="19"/>
@@ -303,7 +303,7 @@
                                     <constraint firstAttribute="trailing" secondItem="ZEF-Ua-m6L" secondAttribute="trailing" constant="5" id="Ihx-6c-2dl"/>
                                     <constraint firstItem="ZEF-Ua-m6L" firstAttribute="top" secondItem="VYv-FA-D3b" secondAttribute="top" constant="5" id="LvS-57-AgV"/>
                                     <constraint firstItem="ZEF-Ua-m6L" firstAttribute="leading" secondItem="VYv-FA-D3b" secondAttribute="leading" constant="5" id="NfO-pO-kN7"/>
-                                    <constraint firstAttribute="height" constant="50" id="VWG-j8-Jxf"/>
+                                    <constraint firstAttribute="height" constant="100" id="VWG-j8-Jxf"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
@@ -322,6 +322,7 @@
                         <viewLayoutGuide key="safeArea" id="vO6-di-GRl"/>
                     </view>
                     <connections>
+                        <outlet property="ev_background" destination="VYv-FA-D3b" id="2qN-3e-HgG"/>
                         <outlet property="lab_test" destination="ZEF-Ua-m6L" id="Uo9-eK-uRn"/>
                     </connections>
                 </viewController>
@@ -554,14 +555,15 @@
         <scene sceneID="FWH-Zq-0cC">
             <objects>
                 <tabBarController storyboardIdentifier="MAINTABVC" title="发现" id="njt-NS-v5s" customClass="MainTabController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" alpha="0.69999999999999996" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5cN-Nc-bV9">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5cN-Nc-bV9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="selectedImageTintColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="selectedImageTintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                     </tabBar>
                     <connections>
+                        <outlet property="tablebar" destination="5cN-Nc-bV9" id="JRA-cf-ciP"/>
                         <segue destination="Sze-28-tAD" kind="relationship" relationship="viewControllers" id="Bpw-zT-nVc"/>
                         <segue destination="mHn-QZ-sto" kind="relationship" relationship="viewControllers" id="Ndz-FP-Mxy"/>
                         <segue destination="gq2-I2-fUk" kind="relationship" relationship="viewControllers" id="aoV-2d-Ei1"/>
@@ -653,7 +655,7 @@
         <!--首页-->
         <scene sceneID="rvg-LK-Pe0">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Sze-28-tAD" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="KTHOMENVC" automaticallyAdjustsScrollViewInsets="NO" id="Sze-28-tAD" customClass="KtHomeNavigationController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="首页" image="house.fill" catalog="system" landscapeImage="house" id="flP-4W-ICX">
                         <color key="badgeColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
@@ -678,7 +680,7 @@
         <!--我的-->
         <scene sceneID="hnc-QS-FiV">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Phe-bY-Wb5" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="KTMINENVC" automaticallyAdjustsScrollViewInsets="NO" id="Phe-bY-Wb5" customClass="KtMineNavigationController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="我的" image="person.crop.circle.fill" catalog="system" landscapeImage="person.crop.circle" id="qKM-f9-fKT"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hhq-bd-52n">
@@ -804,13 +806,13 @@
         <!--发现-->
         <scene sceneID="Uls-qU-yrH">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mHn-QZ-sto" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="KYDYNAMICNVC" automaticallyAdjustsScrollViewInsets="NO" id="mHn-QZ-sto" customClass="KtDynamicNavigationController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="发现" image="circle.grid.hex.fill" catalog="system" landscapeImage="circle.grid.hex" id="PYT-t3-5LG">
                         <color key="badgeColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="LZS-Vx-4hr">
-                        <rect key="frame" x="0.0" y="44" width="414" height="99.5"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="largeTitleTextAttributes">
                             <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="24"/>
@@ -828,7 +830,7 @@
         <!--推荐-->
         <scene sceneID="qOm-LL-UzX">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gq2-I2-fUk" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="KTFRIENDNVC" automaticallyAdjustsScrollViewInsets="NO" id="gq2-I2-fUk" customClass="KtFriendNavigationController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="推荐" image="person.2.square.stack.fill" catalog="system" landscapeImage="person.2.square.stack" id="Rvr-qP-x6T"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="a3p-mA-cYT">
