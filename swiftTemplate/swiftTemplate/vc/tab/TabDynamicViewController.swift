@@ -38,8 +38,6 @@ class TabDynamicViewController: BaseTabViewController{
 //            return controller
 //        })()
         let imageview = UIImageView(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
-        
-        
         imageview.setImageUrl(image: imageview, string: user?.icon, proimage: #imageLiteral(resourceName: "IMG_2507"))
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
         view.layer.masksToBounds = true

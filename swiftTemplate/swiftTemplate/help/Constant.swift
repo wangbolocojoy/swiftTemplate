@@ -183,6 +183,7 @@ struct Constant {
     static let DarkBackGround = #colorLiteral(red: 0.07843137255, green: 0.07843137255, blue: 0.07843137255, alpha: 1)
     static let 密码:String = "PASSWORD"
     static let 账号:String = "PHONE"
+    static let IBUGAPIKEY = "718e25e42a"
     //    let infoDictionary = Bundle.main.infoDictionary
     let logfile = FileDestination()
     

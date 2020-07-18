@@ -15,7 +15,7 @@ class LoginViewController: BaseTabViewController {
     
     @IBOutlet weak var btn_agreement: UILabel!
     
-    var authorizationButton :ASAuthorizationAppleIDButton? = nil
+//    var authorizationButton :ASAuthorizationAppleIDButton? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
         setupProviderLoginView()
@@ -27,44 +27,44 @@ class LoginViewController: BaseTabViewController {
     @IBOutlet weak var loginProviderStackView: UIStackView!
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection){
-            switch previousTraitCollection?.userInterfaceStyle {
-            case .dark:
-                authorizationButton = ASAuthorizationAppleIDButton(authorizationButtonType: .signIn, authorizationButtonStyle: .white)
-            case .light:
-                authorizationButton = ASAuthorizationAppleIDButton(authorizationButtonType: .signIn, authorizationButtonStyle: .black)
-            case .none:
-                authorizationButton = ASAuthorizationAppleIDButton(authorizationButtonType: .signIn, authorizationButtonStyle: .white)
-            default:
-                authorizationButton = ASAuthorizationAppleIDButton(authorizationButtonType: .signIn, authorizationButtonStyle: .white)
-            }
-        }
+//        if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection){
+//            switch previousTraitCollection?.userInterfaceStyle {
+//            case .dark:
+//                authorizationButton = ASAuthorizationAppleIDButton(authorizationButtonType: .signIn, authorizationButtonStyle: .white)
+//            case .light:
+//                authorizationButton = ASAuthorizationAppleIDButton(authorizationButtonType: .signIn, authorizationButtonStyle: .black)
+//            case .none:
+//                authorizationButton = ASAuthorizationAppleIDButton(authorizationButtonType: .signIn, authorizationButtonStyle: .white)
+//            default:
+//                authorizationButton = ASAuthorizationAppleIDButton(authorizationButtonType: .signIn, authorizationButtonStyle: .white)
+//            }
+//        }
     }
     func setupProviderLoginView() {
-        
-        if self.view.backgroundColor == Constant.BackGround  {
-            authorizationButton = ASAuthorizationAppleIDButton(authorizationButtonType: .signIn, authorizationButtonStyle: .white)
-        }else{
-            authorizationButton = ASAuthorizationAppleIDButton(authorizationButtonType: .signIn, authorizationButtonStyle: .black)
-        }
-        
-        
-        authorizationButton?.addTarget(self, action: #selector(handleAuthorizationAppleIDButtonPress), for: .touchUpInside)
-        
-        loginProviderStackView.addArrangedSubview(authorizationButton ?? UIView())
+//
+//        if self.view.backgroundColor == Constant.BackGround  {
+//            authorizationButton = ASAuthorizationAppleIDButton(authorizationButtonType: .signIn, authorizationButtonStyle: .white)
+//        }else{
+//            authorizationButton = ASAuthorizationAppleIDButton(authorizationButtonType: .signIn, authorizationButtonStyle: .black)
+//        }
+//
+//
+//        authorizationButton?.addTarget(self, action: #selector(handleAuthorizationAppleIDButtonPress), for: .touchUpInside)
+//
+//        loginProviderStackView.addArrangedSubview(authorizationButton ?? UIView())
     }
     
     
     
     // Configure request, setup delegates and perform authorization request
     @objc func handleAuthorizationAppleIDButtonPress() {
-        let appleIDProvider = ASAuthorizationAppleIDProvider()
-        let request = appleIDProvider.createRequest()
-        request.requestedScopes = [.fullName, .email]
-        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
-        authorizationController.delegate = self
-        authorizationController.presentationContextProvider = self
-        authorizationController.performRequests()
+//        let appleIDProvider = ASAuthorizationAppleIDProvider()
+//        let request = appleIDProvider.createRequest()
+//        request.requestedScopes = [.fullName, .email]
+//        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+//        authorizationController.delegate = self
+//        authorizationController.presentationContextProvider = self
+//        authorizationController.performRequests()
     }
     override func initView(){
         title = "登录"
@@ -167,53 +167,53 @@ extension LoginViewController:UITextFieldDelegate{
         
     }
 }
-extension LoginViewController:ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding{
-    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
-        return self.view.window!
-    }
-    /// MARK: ASAuthorizationControllerDelegate
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-        switch authorization.credential {
-        case let appleIDCredential as ASAuthorizationAppleIDCredential:
-            
-            // Create an account in your system.
-            let userIdentifier = appleIDCredential.user
-            let fullName = appleIDCredential.fullName
-            let email = appleIDCredential.email
-            let realUserStatus = appleIDCredential.realUserStatus
-            
-            let identityToken = appleIDCredential.identityToken?.base64EncodedString()
-            let authCode = appleIDCredential.authorizationCode?.base64EncodedString()
-            log.verbose("userIdentifier  \(userIdentifier)")
-            log.verbose("fullName  \(String(describing: fullName?.familyName) )\(String(describing: fullName?.givenName))")
-             log.verbose("email  \(email ?? "")")
-            log.verbose("realUserStatus  \(realUserStatus.rawValue )")
-             log.verbose("identityToken  \(identityToken ?? "")")
-             log.verbose("authCode  \(authCode ?? "")")
-            // For the purpose of this demo app, store the `userIdentifier` in the keychain.
-            _ = KeychainManager.User.SaveByIdentifier(data: userIdentifier, forKey: .currentUserIdentifier)
-            
-        // For the purpose of this demo app, show the Apple ID credential information in the `ResultViewController`.
-        case let passwordCredential as ASPasswordCredential:
-            
-            // Sign in using an existing iCloud Keychain credential.
-            _ = passwordCredential.user
-            _ = passwordCredential.password
-            
-            // For the purpose of this demo app, show the password credential as an alert.
-            DispatchQueue.main.async {
-                //                self.showPasswordCredentialAlert(username: username, password: password)
-            }
-            
-        default:
-            break
-        }
-    }
-    
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-        // Handle error.
-    }
-    
-    
-    
-}
+//extension LoginViewController:ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding{
+//    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+//        return self.view.window!
+//    }
+//    /// MARK: ASAuthorizationControllerDelegate
+//    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+//        switch authorization.credential {
+//        case let appleIDCredential as ASAuthorizationAppleIDCredential:
+//
+//            // Create an account in your system.
+//            let userIdentifier = appleIDCredential.user
+//            let fullName = appleIDCredential.fullName
+//            let email = appleIDCredential.email
+//            let realUserStatus = appleIDCredential.realUserStatus
+//
+//            let identityToken = appleIDCredential.identityToken?.base64EncodedString()
+//            let authCode = appleIDCredential.authorizationCode?.base64EncodedString()
+//            log.verbose("userIdentifier  \(userIdentifier)")
+//            log.verbose("fullName  \(String(describing: fullName?.familyName) )\(String(describing: fullName?.givenName))")
+//             log.verbose("email  \(email ?? "")")
+//            log.verbose("realUserStatus  \(realUserStatus.rawValue )")
+//             log.verbose("identityToken  \(identityToken ?? "")")
+//             log.verbose("authCode  \(authCode ?? "")")
+//            // For the purpose of this demo app, store the `userIdentifier` in the keychain.
+//            _ = KeychainManager.User.SaveByIdentifier(data: userIdentifier, forKey: .currentUserIdentifier)
+//
+//        // For the purpose of this demo app, show the Apple ID credential information in the `ResultViewController`.
+//        case let passwordCredential as ASPasswordCredential:
+//
+//            // Sign in using an existing iCloud Keychain credential.
+//            _ = passwordCredential.user
+//            _ = passwordCredential.password
+//
+//            // For the purpose of this demo app, show the password credential as an alert.
+//            DispatchQueue.main.async {
+//                //                self.showPasswordCredentialAlert(username: username, password: password)
+//            }
+//
+//        default:
+//            break
+//        }
+//    }
+//
+//    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+//        // Handle error.
+//    }
+//
+//
+//
+//}

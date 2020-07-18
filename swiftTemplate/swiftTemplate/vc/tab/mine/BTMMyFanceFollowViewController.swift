@@ -11,7 +11,7 @@ import UIKit
 
 class BTMMyFanceFollowViewController: BaseViewController {
     var type:Int? = nil
-    var list:[UserInfo]? = nil
+    var list:[UserInfo]? = []
       let userid = UserInfoHelper.instance.user?.id ?? 0
     @IBOutlet weak var tableview: UITableView!
     override func viewDidLoad() {
@@ -24,6 +24,7 @@ class BTMMyFanceFollowViewController: BaseViewController {
         tableview.dataSource = self
         tableview.separatorStyle = .none
         tableview.register(UINib(nibName: FanceORFollowCell.reuseID, bundle: nil), forCellReuseIdentifier: FanceORFollowCell.reuseID)
+         tableview.register(UINib(nibName: KtNoDataFooterView.reuseID, bundle: nil), forHeaderFooterViewReuseIdentifier: KtNoDataFooterView.reuseID)
         getFanceOrFollow()
     }
     
@@ -37,13 +38,13 @@ class BTMMyFanceFollowViewController: BaseViewController {
         }
     }
     func getFanceList(body:String){
-        MyMoyaManager.AllRequest(controller: self, NetworkService.getfancelist(k: body)) { (data) in
+        MyMoyaManager.AllRequestNospinner(controller: self, NetworkService.getfancelist(k: body)) { (data) in
             self.list = data.fancefollowlist
             self.tableview.reloadData()
         }
     }
     func getFollowList(body:String){
-        MyMoyaManager.AllRequest(controller: self, NetworkService.getfollowlist(k:body)) { (data) in
+        MyMoyaManager.AllRequestNospinner(controller: self, NetworkService.getfollowlist(k:body)) { (data) in
             self.list = data.fancefollowlist
             self.tableview.reloadData()
         }
@@ -78,6 +79,23 @@ extension BTMMyFanceFollowViewController:UITableViewDelegate,UITableViewDataSour
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90
+    }
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footer = tableView.dequeueReusableHeaderFooterView(withIdentifier: KtNoDataFooterView.reuseID) as! KtNoDataFooterView
+        if type == 1{
+            footer.toast_text.text = "暂时没有粉丝，继续努力💪吧"
+        }else{
+             footer.toast_text.text = "先去关注你喜欢的朋友吧🥰"
+        }
+        return footer
+        
+    }
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if list?.count == 0 || list == nil{
+            return 250
+        }else{
+            return 0
+        }
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = getVcByName(vc: .粉丝详情) as! FancesInfoViewController

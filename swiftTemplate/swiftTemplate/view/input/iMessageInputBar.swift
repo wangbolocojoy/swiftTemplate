@@ -21,7 +21,11 @@ class iMessageInputBar: InputBarAccessoryView {
     }
     
     func configure() {
-        inputTextView.backgroundColor = .systemBackground
+        if #available(iOS 13.0, *) {
+            inputTextView.backgroundColor = .systemBackground
+        } else {
+            inputTextView.backgroundColor = .white
+        }
         inputTextView.placeholderTextColor = UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
         inputTextView.textContainerInset = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 36)
         inputTextView.placeholderLabelInsets = UIEdgeInsets(top: 8, left: 20, bottom: 8, right: 36)
@@ -29,7 +33,11 @@ class iMessageInputBar: InputBarAccessoryView {
         inputTextView.layer.borderWidth = 1.0
         inputTextView.layer.cornerRadius = 16.0
         inputTextView.layer.masksToBounds = true
-        inputTextView.textColor = .label
+        if #available(iOS 13.0, *) {
+            inputTextView.textColor = .label
+        } else {
+            inputTextView.textColor = .black
+        }
         inputTextView.scrollIndicatorInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
         setRightStackViewWidthConstant(to: 38, animated: false)
         setStackViewItems([sendButton, InputBarButtonItem.fixedSpace(2)], forStack: .right, animated: false)

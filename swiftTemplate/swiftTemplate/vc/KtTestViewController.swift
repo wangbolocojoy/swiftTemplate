@@ -81,7 +81,11 @@ class KtTestViewController: BaseViewController {
                         
                 }) { (Bool) in
                     self.imageheart.tintColor = .red
-                    self.imageheart.image = UIImage(systemName: "suit.heart.fill")
+                    if #available(iOS 13.0, *) {
+                        self.imageheart.image = UIImage(systemName: "suit.heart.fill")
+                    } else {
+                        self.imageheart.image = UIImage(named: "heart.fill")
+                    }
                      self.viewheart.transform = CGAffineTransform.identity
                     self.viewheart.isHidden = true
                 }

@@ -26,6 +26,9 @@ class CoreDataManager {
             return _postlist
         }
         set{
+            if newValue == nil || newValue?.count ?? 0 == 0 {
+                return
+            }
             saveandupdateNovel(list: newValue) {
                 self.getCoreDataPost(success: { (polist) in
                     self._postlist = polist
@@ -56,13 +59,19 @@ class CoreDataManager {
         let fetchRequest: NSFetchRequest  = PostModelDO.fetchRequest()
         DispatchQueue.global().async {
             log.verbose("开始缓存帖子--->\(fetchRequest.fetchBatchSize) 条")
+            var a = 0
             list?.forEach({ (item) in
                 //String 才用%@
                 //int类型用 %d
+                a += 1
+                log.verbose("循环帖子----\(a) 次")
                 fetchRequest.predicate = NSPredicate(format: "id == %d ", item.id ?? 0)
                 do {
+                  
                     let result = try self.context.fetch(fetchRequest)
+                    
                     if result.count == 0 {
+                        
                         let postModel = NSEntityDescription.insertNewObject(forEntityName: "PostModelDO", into: self.context) as! PostModelDO
                         let authorModel = NSEntityDescription.insertNewObject(forEntityName: "AuthorDO", into: self.context) as! AuthorDO
                         authorModel.id = item.author?.id?.int32 ?? 0
@@ -90,8 +99,9 @@ class CoreDataManager {
                             postimageModel.fileType = PostImages.fileType ?? "image/jpeg"
                             postimageModel.userId = PostImages.userId?.int32 ?? 0
                             postModel.addToPostImages(postimageModel)
-                            self.saveContext()
+                            
                         })
+                        log.verbose("新增帖子")
                         self.saveContext()
                     }else{
                         result.forEach { (postModel) in
@@ -100,6 +110,7 @@ class CoreDataManager {
                             postModel.isCollection = item.isCollection ?? false
                             postModel.postMessageNum = item.postMessageNum?.int32 ?? 0
                             postModel.msgNum = item.msgNum?.int32 ?? 0
+                            postModel.postStarts = item.postStarts?.int32 ?? 0
                             self.saveContext()
                         }
                     }

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -79,8 +80,8 @@
                                     <constraint firstAttribute="height" constant="350" id="7MR-C0-elY"/>
                                 </constraints>
                             </view>
-                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="qHC-3C-HUt">
-                                <rect key="frame" x="401" y="196.5" width="60" height="57.5"/>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hearts" translatesAutoresizingMaskIntoConstraints="NO" id="qHC-3C-HUt">
+                                <rect key="frame" x="401" y="195" width="60" height="60"/>
                                 <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="3mw-Il-T1V"/>
@@ -318,6 +319,7 @@
         <image name="bookmark.fill" catalog="system" width="112" height="128"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <image name="hearts" width="50" height="50"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <image name="square.and.arrow.up.fill" catalog="system" width="115" height="128"/>
         <image name="text.bubble" catalog="system" width="128" height="110"/>

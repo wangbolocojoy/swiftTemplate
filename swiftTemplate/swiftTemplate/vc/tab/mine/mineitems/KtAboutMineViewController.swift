@@ -7,11 +7,12 @@
 //
 
 import UIKit
-
+//import SafariServices
 class KtAboutMineViewController: BaseViewController {
     lazy var list = ["去评分","版本更新","意见反馈","关于我们"]
     lazy var list1 = ["去评分","版本更新","意见反馈","关于我们","反馈列表"]
     @IBOutlet weak var tableview: UITableView!
+    lazy var user = UserInfoHelper.instance.user
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -22,6 +23,16 @@ class KtAboutMineViewController: BaseViewController {
         tableview.register(UINib(nibName: KtAboutHeaderCell.reuseID, bundle: nil), forCellReuseIdentifier: KtAboutHeaderCell.reuseID)
         tableview.register(UINib(nibName: KtAboutItemCell.reuseID, bundle: nil), forCellReuseIdentifier: KtAboutItemCell.reuseID)
     }
+    func showSafariVC(for url: String){
+        guard let url = URL(string: url) else {
+            return
+        }
+        UIApplication.shared.open(url, options: [:]) { (Bool) in
+            log.verbose("好了哇")
+        }
+    }
+
+  
 }
 extension KtAboutMineViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -29,7 +40,7 @@ extension KtAboutMineViewController:UITableViewDelegate,UITableViewDataSource{
         case 0:
             return 1
         case 1:
-            if UserInfoHelper.instance.user?.phone ?? "0" == "13550247642"{
+            if user?.phone ?? "0" == "13550247642"{
                 return list1.count
             }else{
                 return list.count
@@ -55,8 +66,10 @@ extension KtAboutMineViewController:UITableViewDelegate,UITableViewDataSource{
         switch indexPath.section {
         case 1:
             switch indexPath.item {
-            case 0,1:
-                log.verbose("")
+            case 0:
+                showSafariVC(for: "itms-apps://itunes.apple.com/app/id15240822319")
+            case 1:
+                showSafariVC(for: "itms-apps://itunes.apple.com/app/id15240822319?action=write-review")
             case 2:
                 let vc = getVcByName(vc: .意见反馈) as! KtSendFeekBackViewController
                 self.navigationController?.pushViewController(vc, animated: true)
@@ -78,7 +91,7 @@ extension KtAboutMineViewController:UITableViewDelegate,UITableViewDataSource{
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: KtAboutItemCell.reuseID, for: indexPath) as! KtAboutItemCell
-            if UserInfoHelper.instance.user?.phone ?? "0" == "13550247642"{
+            if user?.phone ?? "0" == "13550247642"{
                 cell.setItemName(name: list1[indexPath.item])
             }else{
                 cell.setItemName(name: list[indexPath.item])

@@ -25,7 +25,11 @@ final class ClearRequestAlertPlugin: PluginType {
     init(viewController: UIViewController) {
         self.viewController = viewController
         //初始化活动状态指示器
-        self.spinner = UIActivityIndicatorView(style:  .medium)
+        if #available(iOS 13.0, *) {
+            self.spinner = UIActivityIndicatorView(style:  .medium)
+        } else {
+            self.spinner = UIActivityIndicatorView(style:  .gray)
+        }
         self.spinner.color = .clear
         
     }

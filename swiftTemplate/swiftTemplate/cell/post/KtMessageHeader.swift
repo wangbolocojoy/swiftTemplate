@@ -56,11 +56,21 @@ class KtMessageHeader: UITableViewHeaderFooterView {
             isatuher.isHidden = true
         }
         if model?.isStart ?? false {
-            start.image = UIImage(systemName: "heart.fill")
+            if #available(iOS 13.0, *) {
+                start.image = UIImage(systemName: "heart.fill")
+            } else {
+                start.image = #imageLiteral(resourceName: "hearts")
+            }
             start.tintColor = .red
         }else{
-            start.image = UIImage(systemName: "heart")
-            start.tintColor = .label
+            if #available(iOS 13.0, *) {
+                start.image = UIImage(systemName: "heart")
+                start.tintColor = .label
+            } else {
+                start.image = #imageLiteral(resourceName: "heart")
+//                start.tintColor = .black
+            }
+            
         }
         startnum.text = "\(model?.messageStart ?? 0)"
         datetime.text = model?.postMsgCreatTime?.string2DateMMdd
@@ -72,7 +82,11 @@ class KtMessageHeader: UITableViewHeaderFooterView {
     func startMsganimation(){
         UIView.animate(withDuration: 0.3, animations: {
             self.start.tintColor = .red
-            self.start.image = UIImage(systemName: "heart.fill")
+            if #available(iOS 13.0, *) {
+                self.start.image = UIImage(systemName: "heart.fill")
+            } else {
+               self.start.image = #imageLiteral(resourceName: "hearts")
+            }
             self.start.transform = CGAffineTransform.identity
                 .scaledBy(x: 1.5, y: 1.5)
         }) { (Bool) in
@@ -87,8 +101,14 @@ class KtMessageHeader: UITableViewHeaderFooterView {
     }
     func unstartMsganimation(){
         UIView.animate(withDuration: 0.3, animations: {
-            self.start.tintColor = .label
-            self.start.image = UIImage(systemName: "heart")
+            if #available(iOS 13.0, *) {
+                self.start.tintColor = .label
+                 self.start.image = UIImage(systemName: "heart")
+            } else {
+               self.start.tintColor = .black
+                self.start.image = #imageLiteral(resourceName: "heart")
+            }
+           
             self.start.transform = CGAffineTransform.identity
                 .scaledBy(x: 1.5, y: 1.5)
         }) { (Bool) in

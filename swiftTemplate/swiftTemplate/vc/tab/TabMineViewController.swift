@@ -12,12 +12,17 @@ import SwiftyBeaver
 class TabMineViewController: BaseTabViewController {
     let time = 0.2
     var list = ["我的图片","我的地址","我的收藏","我的评论","关于","清除缓存","退出登录"]
-    var imagelist = [UIImage(systemName: "photo.on.rectangle"),UIImage(systemName: "mappin.circle"),UIImage(systemName: "person.2"),UIImage(systemName: "ellipses.bubble"),UIImage(systemName: "info.circle"),UIImage(systemName: "xmark.icloud"),UIImage(systemName: "power")]
+    
+    @available(iOS 13.0, *)
+    lazy var imagelist = [UIImage(systemName: "photo.on.rectangle"),UIImage(systemName: "mappin.circle"),UIImage(systemName: "person.2"),UIImage(systemName: "ellipses.bubble"),UIImage(systemName: "info.circle"),UIImage(systemName: "xmark.icloud"),UIImage(systemName: "power")]
+    lazy var imagelist1  = [#imageLiteral(resourceName: "图片"),#imageLiteral(resourceName: "地址"),#imageLiteral(resourceName: "bookmark"),#imageLiteral(resourceName: "评论"),#imageLiteral(resourceName: "关于"),#imageLiteral(resourceName: "清除缓存"),#imageLiteral(resourceName: "退出登录")]
+    
     var user : UserInfo? = nil
     let header = MJRefreshNormalHeader()
     @IBOutlet weak var tableview: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+       
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -33,7 +38,11 @@ class TabMineViewController: BaseTabViewController {
         tableview.delegate = self
         tableview.dataSource = self
         tableview.separatorStyle = .none
-        tableview.contentInsetAdjustmentBehavior = .never
+        if #available(iOS 11.0, *) {
+            tableview.contentInsetAdjustmentBehavior = .never
+        } else {
+            // Fallback on earlier versions
+        }
         tableview.register(UINib(nibName: MineUserInfoViewCell.reuseID, bundle: nil), forCellReuseIdentifier: MineUserInfoViewCell.reuseID)
         tableview.register(UINib(nibName: MineItemViewCell.reuseID, bundle: nil), forCellReuseIdentifier: MineItemViewCell.reuseID)
         tableview.register(UINib(nibName: BTMCleanHeader.reuseID, bundle: nil), forHeaderFooterViewReuseIdentifier: BTMCleanHeader.reuseID)
@@ -71,6 +80,8 @@ class TabMineViewController: BaseTabViewController {
            TipsActionSheet.addAction(UIAlertAction(title: "确认", style: .destructive, handler: { (UIAlertAction) in
               KeychainManager.User.DeleteByIdentifier(forKey: .UserInfo)
                      UserInfoHelper.instance._setuser = nil
+          
+            
             UIView.animate(withDuration: self.time, animations:{ }, completion: { (true) in
                          let tranststion =  CATransition()
                          tranststion.duration = self.time
@@ -96,6 +107,7 @@ class TabMineViewController: BaseTabViewController {
             }
             CoreDataManager.default.deleteAllPost {
                 self.ShowTip(Title:"删除缓存成功")
+                  UserDefaults.User.set(value: 0, forKey: .MAXPostId)
             }
         }))
         self.present(TipsActionSheet, animated: true, completion: nil)
@@ -169,7 +181,11 @@ extension TabMineViewController:UITableViewDelegate,UITableViewDataSource{
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: MineItemViewCell.reuseID, for: indexPath) as! MineItemViewCell
-            cell.updetaCell(image: imagelist[indexPath.item], lname: list[indexPath.item], rname: nil)
+            if #available(iOS 13.0, *) {
+                cell.updetaCell(image: imagelist[indexPath.item], lname: list[indexPath.item], rname: nil)
+            } else {
+                cell.updetaCell(image: imagelist1[indexPath.item], lname: list[indexPath.item], rname: nil)
+            }
             return cell
         }
     }

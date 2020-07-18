@@ -14,6 +14,7 @@ import IQKeyboardManagerSwift
 import AVKit
 import Photos
 import AuthenticationServices
+import Bugly
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -26,20 +27,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     /// 初始化配置
     private func initConfigure(){
-        let appleIDProvider = ASAuthorizationAppleIDProvider()
-        appleIDProvider.getCredentialState(forUserID: KeychainManager.User.ReadDataByIdentifier(forKey: .currentUserIdentifier) as? String ?? "") { (credentialState, error) in
-            switch credentialState {
-            case .authorized:
-            break // The Apple ID credential is valid.
-            case .revoked, .notFound:
-                // The Apple ID credential is either revoked or was not found, so show the sign-in UI.
-                DispatchQueue.main.async {
-                    self.window?.rootViewController?.getloginVc()
-                }
-            default:
-                break
-            }
-        }
+//        let appleIDProvider = ASAuthorizationAppleIDProvider()
+//        appleIDProvider.getCredentialState(forUserID: KeychainManager.User.ReadDataByIdentifier(forKey: .currentUserIdentifier) as? String ?? "") { (credentialState, error) in
+//            switch credentialState {
+//            case .authorized:
+//            break // The Apple ID credential is valid.
+//            case .revoked, .notFound:
+//                // The Apple ID credential is either revoked or was not found, so show the sign-in UI.
+//                DispatchQueue.main.async {
+//                    self.window?.rootViewController?.getloginVc()
+//                }
+//            default:
+//                break
+//            }
+//            
+//        }
+        let config = BuglyConfig()
+        config.debugMode = true
+        config.delegate = self
+        Bugly.start(withAppId: "2d8574fc-8229-4f01-b2f0-bda9d8c03039", developmentDevice: true, config: config)
         AMapServices.shared().apiKey = ApiKey.default.AMapkey
         IQKeyboardManager.shared.enable = true
         if #available(iOS 13.0, *) {
@@ -69,7 +75,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         file.levelColor.error    = "🍄🍄  "
         file.levelColor.info     = "♻️♻️  "
         file.levelColor.warning   = "⚠️⚠️  "
-         file.levelColor.verbose   = "🍀🍀  "
+        file.levelColor.verbose   = "🍀🍀  "
         file.minLevel = .warning
         let console = ConsoleDestination()
         console.format = "$DHH:mm:ss.SSS$d $C$L$c $N.$F:$l - $M"
@@ -122,37 +128,59 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     // MARK: - Core Data stack
     
-    lazy var persistentContainer: NSPersistentCloudKitContainer = {
-        /*
-         The persistent container for the application. This implementation
-         creates and returns a container, having loaded the store for the
-         application to it. This property is optional since there are legitimate
-         error conditions that could cause the creation of the store to fail.
-         */
-        let container = NSPersistentCloudKitContainer(name: "swiftTemplate")
+   
+    @available(iOS 13.0, *)
+    func getpersistentContainer()->NSPersistentCloudKitContainer{
+       
+        let persistentContainer: NSPersistentCloudKitContainer = {
+                /*
+                 The persistent container for the application. This implementation
+                 creates and returns a container, having loaded the store for the
+                 application to it. This property is optional since there are legitimate
+                 error conditions that could cause the creation of the store to fail.
+                 */
+                let container = NSPersistentCloudKitContainer(name: "swiftTemplate")
+                container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+                    if let error = error as NSError? {
+                        // Replace this implementation with code to handle the error appropriately.
+                        // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                        
+                        /*
+                         Typical reasons for an error here include:
+                         * The parent directory does not exist, cannot be created, or disallows writing.
+                         * The persistent store is not accessible, due to permissions or data protection when the device is locked.
+                         * The device is out of space.
+                         * The store could not be migrated to the current model version.
+                         Check the error message to determine what the actual problem was.
+                         */
+                        fatalError("Unresolved error \(error), \(error.userInfo)")
+                    }
+                })
+                return container
+            }()
+       
+        return persistentContainer
+    }
+   
+    
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "swiftTemplate")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                
-                /*
-                 Typical reasons for an error here include:
-                 * The parent directory does not exist, cannot be created, or disallows writing.
-                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
-                 * The device is out of space.
-                 * The store could not be migrated to the current model version.
-                 Check the error message to determine what the actual problem was.
-                 */
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
         return container
     }()
-    
     // MARK: - Core Data Saving support
     
     func saveContext () {
-        let context = persistentContainer.viewContext
+        var  context : NSManagedObjectContext
+        if #available(iOS 13.0, *) {
+            context = getpersistentContainer().viewContext
+        } else {
+            context = persistentContainer.viewContext
+        }
         if context.hasChanges {
             do {
                 try context.save()
@@ -160,10 +188,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                 let nserror = error as NSError
+                 log.error("CoreData--Error----->>>  \(nserror.localizedFailureReason ?? "")")
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+               
+                
             }
         }
     }
     
 }
 
+extension AppDelegate:BuglyDelegate{
+    func attachment(for exception: NSException?) -> String? {
+         log.error("App---崩溃原因----->>>  \(exception?.reason ?? "")")
+        return exception?.reason
+    }
+    
+}

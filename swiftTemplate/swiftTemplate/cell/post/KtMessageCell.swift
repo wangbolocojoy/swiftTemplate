@@ -76,7 +76,12 @@ class KtMessageCell: UITableViewCell {
       func startMsganimation(){
             UIView.animate(withDuration: 0.3, animations: {
                 self.btn_heart.tintColor = .red
-                self.btn_heart.image = UIImage(systemName: "heart.fill")
+                if #available(iOS 13.0, *) {
+                    self.btn_heart.image = UIImage(systemName: "heart.fill")
+                } else {
+                    // Fallback on earlier versions
+                     self.btn_heart.image = #imageLiteral(resourceName: "hearts")
+                }
                 self.btn_heart.transform = CGAffineTransform.identity
                     .scaledBy(x: 1.5, y: 1.5)
             }) { (Bool) in
@@ -91,8 +96,14 @@ class KtMessageCell: UITableViewCell {
         }
         func unstartMsganimation(){
             UIView.animate(withDuration: 0.3, animations: {
-                self.btn_heart.tintColor = .label
-                self.btn_heart.image = UIImage(systemName: "heart")
+                if #available(iOS 13.0, *) {
+                    self.btn_heart.tintColor = .label
+                     self.btn_heart.image = UIImage(systemName: "heart")
+                } else {
+                  self.btn_heart.tintColor = .black
+                                        self.btn_heart.image = #imageLiteral(resourceName: "heart")
+                }
+               
                 self.btn_heart.transform = CGAffineTransform.identity
                     .scaledBy(x: 1.5, y: 1.5)
             }) { (Bool) in
@@ -142,11 +153,22 @@ class KtMessageCell: UITableViewCell {
             message.isHidden = false
         }
         if msgModel?.isStart ?? false {
-                   btn_heart.image = UIImage(systemName: "heart.fill")
+            if #available(iOS 13.0, *) {
+                btn_heart.image = UIImage(systemName: "heart.fill")
+            } else {
+                // Fallback on earlier versions
+                 btn_heart.image = #imageLiteral(resourceName: "hearts")
+            }
                    btn_heart.tintColor = .red
         }else{
-                   btn_heart.image = UIImage(systemName: "heart")
-                   btn_heart.tintColor = .label
+            if #available(iOS 13.0, *) {
+                btn_heart.image = UIImage(systemName: "heart")
+                 btn_heart.tintColor = .label
+            } else {
+                btn_heart.image = #imageLiteral(resourceName: "heart")
+                btn_heart.tintColor = .black
+            }
+                  
         }
         rely_nickname.text = msgModel?.replyNickName ?? ""
         relu_massage.text = msgModel?.message ?? ""

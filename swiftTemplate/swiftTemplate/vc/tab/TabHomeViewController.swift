@@ -19,12 +19,15 @@ class TabHomeViewController: BaseTabViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        CoreDataManager.default.getCoreDataPost(success: { (PostInfolist) in
+            self.list = PostInfolist
+            self.tableview.reloadData()
+        })
         checkPosts()
     }
     
     func checkPosts(){
-        list = CoreDataManager.default.postlist
-        if CoreDataManager.default.postlist?.count == 0 {
+        if list?.count == 0 {
            getpost()
         } else {
            checkIsHavNew()

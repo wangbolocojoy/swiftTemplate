@@ -117,15 +117,35 @@ class MainPostCell: UITableViewCell {
             
             btn_start.tintColor = .red
             
-            btn_start.image = UIImage(systemName: "heart.fill")
+            if #available(iOS 13.0, *) {
+                btn_start.image = UIImage(systemName: "heart.fill")
+            } else {
+                btn_start.image = #imageLiteral(resourceName: "hearts")
+            }
         }else{
-            btn_start.tintColor = .label
-            btn_start.image = UIImage(systemName: "heart")
+            if #available(iOS 13.0, *) {
+                btn_start.tintColor = .label
+                 btn_start.image = UIImage(systemName: "heart")
+            } else {
+                 btn_start.tintColor = .black
+                btn_start.image = #imageLiteral(resourceName: "heart")
+            }
+           
         }
         if postinfo?.isCollection ?? false {
-            btn_collection.image = UIImage(systemName: "bookmark.fill")
+            if #available(iOS 13.0, *) {
+//                btn_collection.image = UIImage(systemName: "bookmark.fill")
+                 btn_collection.image = #imageLiteral(resourceName: "bookmarkfill")
+            } else {
+                btn_collection.image = #imageLiteral(resourceName: "bookmarkfill")
+            }
         }else{
-            btn_collection.image = UIImage(systemName: "bookmark")
+            if #available(iOS 13.0, *) {
+//                btn_collection.image = UIImage(systemName: "bookmark")
+                 btn_collection.image = #imageLiteral(resourceName: "bookmark")
+            } else {
+               btn_collection.image = #imageLiteral(resourceName: "bookmark")
+            }
         }
         lab_startnum.text = "\(postinfo?.postStarts ?? 0)"
         lab_postnum.text = "\(postinfo?.msgNum ?? 0)"
@@ -291,7 +311,11 @@ class MainPostCell: UITableViewCell {
                     self.actionheart.isHidden = true
                     self.btn_start.tintColor = .red
                     
-                    self.btn_start.image = UIImage(systemName: "heart.fill")
+                    if #available(iOS 13.0, *) {
+                        self.btn_start.image = UIImage(systemName: "heart.fill")
+                    } else {
+                        self.btn_start.image = #imageLiteral(resourceName: "hearts")
+                    }
                     self.lab_startnum.text = "\(self.postinfo?.postStarts ?? 0)"
                     UIView.animate(withDuration: 0.3, animations: {
                         self.btn_start.transform = CGAffineTransform.identity

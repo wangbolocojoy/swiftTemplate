@@ -24,8 +24,14 @@ final class RequestAlertPlugin: PluginType {
     init(viewController: UIViewController) {
         self.viewController = viewController
         //初始化活动状态指示器
-        self.spinner = UIActivityIndicatorView(style:  .medium)
-        self.spinner.color = .label
+        if #available(iOS 13.0, *) {
+            self.spinner = UIActivityIndicatorView(style:  .medium)
+             self.spinner.color = .label
+        } else {
+            self.spinner = UIActivityIndicatorView(style:  .gray)
+            self.spinner.color = .darkGray
+        }
+       
         
         self.vcBank = UIView(frame: CGRect(x: 0, y: 0, width: viewController.view.bounds.width, height: viewController.view.bounds.height))
         self.vcBank.backgroundColor = .clear

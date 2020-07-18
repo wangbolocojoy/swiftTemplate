@@ -43,6 +43,11 @@ class MineUserInfoViewCell: UITableViewCell {
         let tapqrcode = UITapGestureRecognizer(target: self, action: #selector(toMyQrcode))
          btn_qrcode.isUserInteractionEnabled = true
         btn_qrcode.addGestureRecognizer(tapqrcode)
+        if #available(iOS 13.0, *) {
+            btn_qrcode.image = UIImage(systemName: "qrcode")
+        } else {
+            btn_qrcode.image = #imageLiteral(resourceName: "二维码")
+        }
     }
     
     @objc func toMyQrcode() {
