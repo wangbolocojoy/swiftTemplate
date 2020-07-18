@@ -33,18 +33,16 @@ private let requestClosure = { (endpoint: Endpoint, done: MoyaProvider.RequestRe
     }
 }
 //不验证CA证书
-private func moyaManager ()-> Manager{
-    let manager: Manager = MoyaProvider<MultiTarget>.defaultAlamofireManager()
-    manager.delegate.sessionDidReceiveChallenge = {
-        session,challenge in
-        return    (URLSession.AuthChallengeDisposition.useCredential,URLCredential(trust:challenge.protectionSpace.serverTrust!))
-    }
-    return manager
-}
+//private func moyaManager ()-> Manager{
+//    let manager: Manager = MoyaProvider<MultiTarget>.defaultAlamofireManager()
+//    manager.delegate.sessionDidReceiveChallenge = {
+//        session,challenge in
+//        return    (URLSession.AuthChallengeDisposition.useCredential,URLCredential(trust:challenge.protectionSpace.serverTrust!))
+//    }
+//    return manager
+//}
 private func moyascratyManager() -> Manager?{
-  
     var manager :Manager
-    
     if ApiKey.default.版本环境 == "测试版本" {
         manager = MoyaProvider<MultiTarget>.defaultAlamofireManager()
         manager.delegate.sessionDidReceiveChallenge = {
@@ -55,15 +53,16 @@ private func moyascratyManager() -> Manager?{
         let configuration = URLSessionConfiguration.default
           configuration.httpAdditionalHeaders = Manager.defaultHTTPHeaders
           //    let path: String = Bundle.main.path(forResource: "apphttps", ofType: "cer") ?? ""
-          let path:String = Bundle.main.path(forResource: "apphttps", ofType: ".cer") ?? ""
+          let path:String = Bundle.main.path(forResource: "90btm", ofType: ".cer") ?? ""
           guard  let certificationData = try? Data(contentsOf: URL(fileURLWithPath: path)) as CFData else {
               return nil
           }
           guard let certificate = SecCertificateCreateWithData(nil, certificationData) else { return nil }
           let certificates: [SecCertificate] = [certificate]
           
-          let policies : [String:ServerTrustPolicy] = ["90btm": ServerTrustPolicy.pinCertificates(certificates: certificates, validateCertificateChain: true, validateHost: true)]
+    let policies : [String:ServerTrustPolicy] = ["90btm": ServerTrustPolicy.pinCertificates(certificates: certificates, validateCertificateChain: true, validateHost: true )]
             manager = Manager(configuration: configuration, serverTrustPolicyManager: ServerTrustPolicyManager(policies: policies))
+    
     }
     return manager
 }

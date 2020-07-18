@@ -118,6 +118,7 @@
 		C4DAA44624A6050C00BA6F7D /* KtFabulousTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DAA44424A6050C00BA6F7D /* KtFabulousTableViewCell.swift */; };
 		C4DAA44724A6050C00BA6F7D /* KtFabulousTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4DAA44524A6050C00BA6F7D /* KtFabulousTableViewCell.xib */; };
 		C4DAA44A24A6072C00BA6F7D /* KtFabulousViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DAA44924A6072C00BA6F7D /* KtFabulousViewController.swift */; };
+		C4F393A924C3011A007FE828 /* 90btm.cer in Resources */ = {isa = PBXBuildFile; fileRef = C4F393A824C3011A007FE828 /* 90btm.cer */; };
 		C4F55FD824A4B6DD00887B55 /* KtMyMapAddressViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F55FD624A4B6DC00887B55 /* KtMyMapAddressViewCell.swift */; };
 		C4F55FD924A4B6DD00887B55 /* KtMyMapAddressViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4F55FD724A4B6DD00887B55 /* KtMyMapAddressViewCell.xib */; };
 		C4F55FDB24A59EB600887B55 /* KtTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F55FDA24A59EB600887B55 /* KtTestViewController.swift */; };
@@ -255,6 +256,7 @@
 		C4DAA44424A6050C00BA6F7D /* KtFabulousTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtFabulousTableViewCell.swift; sourceTree = "<group>"; };
 		C4DAA44524A6050C00BA6F7D /* KtFabulousTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KtFabulousTableViewCell.xib; sourceTree = "<group>"; };
 		C4DAA44924A6072C00BA6F7D /* KtFabulousViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtFabulousViewController.swift; sourceTree = "<group>"; };
+		C4F393A824C3011A007FE828 /* 90btm.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = 90btm.cer; sourceTree = "<group>"; };
 		C4F55FD624A4B6DC00887B55 /* KtMyMapAddressViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtMyMapAddressViewCell.swift; sourceTree = "<group>"; };
 		C4F55FD724A4B6DD00887B55 /* KtMyMapAddressViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KtMyMapAddressViewCell.xib; sourceTree = "<group>"; };
 		C4F55FDA24A59EB600887B55 /* KtTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtTestViewController.swift; sourceTree = "<group>"; };
@@ -342,6 +344,7 @@
 				C402402F2480193E00F715DC /* Assets.xcassets */,
 				C40240312480193E00F715DC /* LaunchScreen.storyboard */,
 				C40240342480193E00F715DC /* Info.plist */,
+				C4F393A824C3011A007FE828 /* 90btm.cer */,
 				C44F283F24A9B21400E16123 /* apphttps.cer */,
 				C402402C2480193B00F715DC /* swiftTemplate.xcdatamodeld */,
 			);
@@ -764,6 +767,7 @@
 				C44E81C624A367D3000BD888 /* FanceInfoHeaderCell.xib in Resources */,
 				C4AEFCEA248CAA310080904E /* BTMUserIconCell.xib in Resources */,
 				C41CD31A24B9E5BA000A6613 /* KtFeekBackCell.xib in Resources */,
+				C4F393A924C3011A007FE828 /* 90btm.cer in Resources */,
 				C4D2874524A8ADFD0065F497 /* KtMyCollectCell.xib in Resources */,
 				C40240332480193E00F715DC /* LaunchScreen.storyboard in Resources */,
 				C41CD30124B7196C000A6613 /* KtAboutHeaderCell.xib in Resources */,
@@ -1046,7 +1050,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1100,7 +1104,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1119,15 +1123,15 @@
 				CODE_SIGN_ENTITLEMENTS = swiftTemplate/SwiftKt.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.01;
+				CURRENT_PROJECT_VERSION = 1.0.02;
 				DEVELOPMENT_TEAM = 9N6AR9BNW6;
 				INFOPLIST_FILE = swiftTemplate/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.01;
+				MARKETING_VERSION = 1.0.03;
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = com.90btm.SwiftKt;
 				PRODUCT_NAME = SwiftKt;
@@ -1149,15 +1153,15 @@
 				CODE_SIGN_ENTITLEMENTS = swiftTemplate/SwiftKt.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.01;
+				CURRENT_PROJECT_VERSION = 1.0.02;
 				DEVELOPMENT_TEAM = 9N6AR9BNW6;
 				INFOPLIST_FILE = swiftTemplate/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.01;
+				MARKETING_VERSION = 1.0.03;
 				PRODUCT_BUNDLE_IDENTIFIER = com.90btm.SwiftKt;
 				PRODUCT_NAME = SwiftKt;
 				PROVISIONING_PROFILE_SPECIFIER = "";

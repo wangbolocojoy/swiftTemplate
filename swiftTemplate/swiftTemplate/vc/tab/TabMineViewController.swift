@@ -17,7 +17,7 @@ class TabMineViewController: BaseTabViewController {
     lazy var imagelist = [UIImage(systemName: "photo.on.rectangle"),UIImage(systemName: "mappin.circle"),UIImage(systemName: "person.2"),UIImage(systemName: "ellipses.bubble"),UIImage(systemName: "info.circle"),UIImage(systemName: "xmark.icloud"),UIImage(systemName: "power")]
     lazy var imagelist1  = [#imageLiteral(resourceName: "图片"),#imageLiteral(resourceName: "地址"),#imageLiteral(resourceName: "bookmark"),#imageLiteral(resourceName: "评论"),#imageLiteral(resourceName: "关于"),#imageLiteral(resourceName: "清除缓存"),#imageLiteral(resourceName: "退出登录")]
     
-    var user : UserInfo? = nil
+    var user  = UserInfoHelper.instance.user
     let header = MJRefreshNormalHeader()
     @IBOutlet weak var tableview: UITableView!
     override func viewDidLoad() {
@@ -131,7 +131,9 @@ extension TabMineViewController:UITableViewDelegate,UITableViewDataSource{
             case 3:
                 self.navigationController?.pushViewController(getVcByName(vc: .我的评论), animated: true)
             case 4:
-                self.navigationController?.pushViewController(getVcByName(vc: .关于), animated: true)
+                let vc = getVcByName(vc: .关于) as! KtAboutMineViewController
+                vc.user = user
+                self.navigationController?.pushViewController(vc, animated: true)
             case 5:
                 deleteCoreNovel()
             case 6:

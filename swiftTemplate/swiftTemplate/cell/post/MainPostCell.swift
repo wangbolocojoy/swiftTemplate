@@ -31,6 +31,7 @@ class MainPostCell: UITableViewCell {
     @IBOutlet weak var post_auther_address: UILabel!
     @IBOutlet weak var pagecontrol: FSPageControl!
     
+    @IBOutlet weak var message_image: UIImageView!
     @IBOutlet weak var btn_message: UIView!
     @IBOutlet weak var lab_postnum: UILabel!
     @IBOutlet weak var lab_startnum: UILabel!
@@ -62,11 +63,21 @@ class MainPostCell: UITableViewCell {
         btn_collection.addGestureRecognizer(tapcollec)
         let tapgoststartvc = UITapGestureRecognizer(target: self, action: #selector(toStartUser))
         let tapmessage = UITapGestureRecognizer(target: self, action: #selector(showMessageVC))
+        message_image.isUserInteractionEnabled = true
         btn_message.isUserInteractionEnabled = true
         btn_message.addGestureRecognizer(tapmessage)
+        message_image.addGestureRecognizer(tapmessage)
         btn_gotostart.isUserInteractionEnabled = true
         btn_gotostart.addGestureRecognizer(tapgoststartvc)
         let tapsharpost = UITapGestureRecognizer(target: self, action: #selector(shareInfo))
+        if #available(iOS 13.0, *) {
+            btn_share.image = UIImage(systemName: "square.and.arrow.up")
+            message_image.image = UIImage(systemName: "text.bubble")
+        } else {
+            btn_share.image = #imageLiteral(resourceName: "分享")
+             message_image.image = #imageLiteral(resourceName: "message")
+        }
+       
         btn_share.isUserInteractionEnabled = true
         btn_share.addGestureRecognizer(tapsharpost)
         let tappostmore = UITapGestureRecognizer(target: self, action: #selector(showActions))

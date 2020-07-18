@@ -7,12 +7,12 @@
 //
 
 import UIKit
-//import SafariServices
+import SafariServices
 class KtAboutMineViewController: BaseViewController {
     lazy var list = ["去评分","版本更新","意见反馈","关于我们"]
     lazy var list1 = ["去评分","版本更新","意见反馈","关于我们","反馈列表"]
     @IBOutlet weak var tableview: UITableView!
-    lazy var user = UserInfoHelper.instance.user
+    lazy var user : UserInfo? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -31,8 +31,8 @@ class KtAboutMineViewController: BaseViewController {
             log.verbose("好了哇")
         }
     }
-
-  
+    
+    
 }
 extension KtAboutMineViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -41,10 +41,15 @@ extension KtAboutMineViewController:UITableViewDelegate,UITableViewDataSource{
             return 1
         case 1:
             if user?.phone ?? "0" == "13550247642"{
-                return list1.count
+                if user?.phone ?? "0" == "13550247642"{
+                    return list1.count
+                }else{
+                    return list.count
+                }
             }else{
                 return list.count
             }
+            
             
         default:
             return 0
@@ -91,11 +96,16 @@ extension KtAboutMineViewController:UITableViewDelegate,UITableViewDataSource{
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: KtAboutItemCell.reuseID, for: indexPath) as! KtAboutItemCell
-            if user?.phone ?? "0" == "13550247642"{
-                cell.setItemName(name: list1[indexPath.item])
-            }else{
+            if #available(iOS 13.0, *) {
+                if user?.phone ?? "0" == "13550247642"{
+                    cell.setItemName(name: list1[indexPath.item])
+                }else{
+                    cell.setItemName(name: list[indexPath.item])
+                }
+            } else {
                 cell.setItemName(name: list[indexPath.item])
             }
+            
             
             return cell
         default:

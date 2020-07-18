@@ -16,7 +16,7 @@ class SendPostViewController: BaseViewController {
     @IBOutlet weak var btn_address: UIView!
     @IBOutlet weak var ev_detail: UITextView!
     lazy var picker = YPImagePicker()
-    var list:[UIImage] = [#imageLiteral(resourceName: "addimage")]
+    var list:[UIImage] = [#imageLiteral(resourceName: "addimages")]
     let  user = UserInfoHelper.instance.user
     var amappoi:AMapPOI? = nil
     override func viewDidLoad() {
@@ -48,7 +48,7 @@ class SendPostViewController: BaseViewController {
         
     }
     @objc func sendPost(){
-        if list[0] == #imageLiteral(resourceName: "addimage") {
+        if list[0] == #imageLiteral(resourceName: "addimages") {
             ShowTip(Title: "请至少选择一张图片")
             return
         }

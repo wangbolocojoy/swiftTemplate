@@ -302,6 +302,7 @@
                 <outlet property="btn_start" destination="UGP-RO-jTc" id="G7x-5P-DEk"/>
                 <outlet property="lab_postnum" destination="fLK-vb-wMK" id="D9s-2H-Z6J"/>
                 <outlet property="lab_startnum" destination="Fnd-W7-EAV" id="fSG-yO-LBy"/>
+                <outlet property="message_image" destination="RJi-GI-pag" id="6d0-Ce-iuL"/>
                 <outlet property="pagecontrol" destination="Hih-bt-GBk" id="aPr-mA-DHl"/>
                 <outlet property="post_auther_address" destination="wxl-od-fr3" id="sw5-LB-i9I"/>
                 <outlet property="post_auther_nickname" destination="RmF-fF-eVj" id="hAa-n0-Api"/>
