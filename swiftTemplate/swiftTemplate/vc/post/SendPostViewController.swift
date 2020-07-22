@@ -70,6 +70,7 @@ class SendPostViewController: BaseViewController {
                 self.user?.postNum =  (self.user?.postNum ?? 0) + 1
                 UserInfoHelper.instance.user = self.user
                 self.ShowTipsClose(tite: data.msg ?? "发布成功")
+                
             }
         
     }

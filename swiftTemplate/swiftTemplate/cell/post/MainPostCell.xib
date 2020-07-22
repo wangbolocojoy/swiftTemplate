@@ -20,6 +20,16 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pUz-Zr-fkM">
                         <rect key="frame" x="0.0" y="0.0" width="862" height="793"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="审核中" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1QD-zL-pKS">
+                                <rect key="frame" x="0.0" y="50" width="862" height="50"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="vcD-tt-ULF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bo7-R8-Yi7">
                                 <rect key="frame" x="0.0" y="0.0" width="862" height="50"/>
                                 <subviews>
@@ -70,6 +80,32 @@
                                     <constraint firstItem="HPB-W8-7Zf" firstAttribute="leading" secondItem="wxl-od-fr3" secondAttribute="trailing" constant="15" id="o7O-hx-POR"/>
                                     <constraint firstItem="Fqz-BR-OD0" firstAttribute="centerY" secondItem="bo7-R8-Yi7" secondAttribute="centerY" constant="-10" id="uBo-eB-Fbg"/>
                                     <constraint firstItem="hze-1T-JQ8" firstAttribute="leading" secondItem="bo7-R8-Yi7" secondAttribute="leading" constant="15" id="vsk-i6-NOR"/>
+                                </constraints>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AGf-o1-Ffb">
+                                <rect key="frame" x="712" y="325" width="150" height="70"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="是否公开" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wDg-YO-tr3">
+                                        <rect key="frame" x="1.5" y="24.5" width="69.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q9a-55-U1e">
+                                        <rect key="frame" x="76" y="19.5" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="ispublick:" destination="KGk-i7-Jjw" eventType="valueChanged" id="VZG-3y-wcA"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="q9a-55-U1e" firstAttribute="leading" secondItem="wDg-YO-tr3" secondAttribute="trailing" constant="5" id="7RJ-QK-Rbw"/>
+                                    <constraint firstItem="wDg-YO-tr3" firstAttribute="centerY" secondItem="AGf-o1-Ffb" secondAttribute="centerY" id="KRD-NC-Gv1"/>
+                                    <constraint firstAttribute="height" constant="70" id="Xmo-kd-QbH"/>
+                                    <constraint firstAttribute="trailing" secondItem="q9a-55-U1e" secondAttribute="trailing" constant="25" id="ifs-6o-8vb"/>
+                                    <constraint firstItem="q9a-55-U1e" firstAttribute="centerY" secondItem="AGf-o1-Ffb" secondAttribute="centerY" id="q2s-Be-gFy"/>
+                                    <constraint firstAttribute="width" constant="150" id="uz2-Zv-ge3"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sAE-zu-wlv" customClass="FSPagerView" customModule="FSPagerView">
@@ -269,11 +305,16 @@
                             <constraint firstItem="cGX-fX-8gn" firstAttribute="leading" secondItem="pUz-Zr-fkM" secondAttribute="leading" id="8OO-Fr-hDP"/>
                             <constraint firstItem="Anl-5f-Qps" firstAttribute="top" secondItem="cGX-fX-8gn" secondAttribute="bottom" id="AjA-Jc-uJZ"/>
                             <constraint firstItem="cGX-fX-8gn" firstAttribute="top" secondItem="sAE-zu-wlv" secondAttribute="bottom" constant="5" id="CGf-mv-acH"/>
+                            <constraint firstAttribute="trailing" secondItem="1QD-zL-pKS" secondAttribute="trailing" id="HGF-D5-gBv"/>
+                            <constraint firstItem="1QD-zL-pKS" firstAttribute="top" secondItem="bo7-R8-Yi7" secondAttribute="bottom" id="LcP-Ci-qR2"/>
                             <constraint firstItem="qHC-3C-HUt" firstAttribute="centerX" secondItem="sAE-zu-wlv" secondAttribute="centerX" id="Opg-pd-oP4"/>
                             <constraint firstItem="qHC-3C-HUt" firstAttribute="centerY" secondItem="sAE-zu-wlv" secondAttribute="centerY" id="UaZ-bn-PA9"/>
+                            <constraint firstItem="1QD-zL-pKS" firstAttribute="leading" secondItem="pUz-Zr-fkM" secondAttribute="leading" id="Vr8-rc-JAH"/>
                             <constraint firstItem="bo7-R8-Yi7" firstAttribute="top" secondItem="pUz-Zr-fkM" secondAttribute="top" id="ZLe-PY-8zC"/>
                             <constraint firstItem="Anl-5f-Qps" firstAttribute="leading" secondItem="pUz-Zr-fkM" secondAttribute="leading" id="a8i-e2-wiM"/>
+                            <constraint firstAttribute="trailing" secondItem="AGf-o1-Ffb" secondAttribute="trailing" id="bLC-hd-0BI"/>
                             <constraint firstAttribute="trailing" secondItem="bo7-R8-Yi7" secondAttribute="trailing" id="bzg-hS-67d"/>
+                            <constraint firstItem="cGX-fX-8gn" firstAttribute="top" secondItem="AGf-o1-Ffb" secondAttribute="bottom" constant="10" id="es3-Qa-1ep"/>
                             <constraint firstAttribute="trailing" secondItem="Anl-5f-Qps" secondAttribute="trailing" id="nyg-8L-WWK"/>
                             <constraint firstAttribute="trailing" secondItem="sAE-zu-wlv" secondAttribute="trailing" id="p84-AA-tWC"/>
                             <constraint firstItem="sAE-zu-wlv" firstAttribute="top" secondItem="bo7-R8-Yi7" secondAttribute="bottom" id="sBq-d6-N1p"/>
@@ -307,9 +348,11 @@
                 <outlet property="post_auther_address" destination="wxl-od-fr3" id="sw5-LB-i9I"/>
                 <outlet property="post_auther_nickname" destination="RmF-fF-eVj" id="hAa-n0-Api"/>
                 <outlet property="post_detail" destination="JAg-g0-y6b" id="P7R-XI-vyT"/>
+                <outlet property="post_status" destination="1QD-zL-pKS" id="ABj-8V-6HC"/>
                 <outlet property="postauther_icon" destination="hze-1T-JQ8" id="ECS-xY-VDv"/>
                 <outlet property="poster_more" destination="HPB-W8-7Zf" id="OxV-Az-mfJ"/>
                 <outlet property="poster_nickname" destination="Fqz-BR-OD0" id="fEc-jK-caI"/>
+                <outlet property="settingpublicview" destination="AGf-o1-Ffb" id="1kO-cw-JW1"/>
             </connections>
             <point key="canvasLocation" x="-144.92753623188406" y="208.59375"/>
         </tableViewCell>

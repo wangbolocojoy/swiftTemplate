@@ -159,6 +159,8 @@ class PostInfo: Mappable {
     var isStart:Bool?
     var isCollection:Bool?
     var msgNum:Int?
+    var postState:Int?
+    var postReport:Int? 
     required init?(map: Map) {
         
     }
@@ -182,6 +184,8 @@ class PostInfo: Mappable {
         isStart <- map["isStart"]
         isCollection <- map["isCollection"]
         msgNum <- map["msgNum"]
+        postState <- map["postState"]
+        postReport <- map["postReport"]
     }
     
     
@@ -280,6 +284,8 @@ class UserInfo: Mappable {
     var creatTime:Date?
     var province:String?
     var city:String?
+    var isItBanned:Bool?
+       var isAdministrators:Bool?
     required init?(map: Map) {
     }
     func mapping(map: Map) {

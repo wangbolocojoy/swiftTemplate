@@ -11,6 +11,7 @@ import FSPagerView
 class MainPostCell: UITableViewCell {
     static let reuseID =  "MainPostCell"
     
+    @IBOutlet weak var post_status: UILabel!
     @IBOutlet weak var actionheart: UIImageView!
     @IBOutlet weak var poster_more: UIButton!
     
@@ -26,6 +27,7 @@ class MainPostCell: UITableViewCell {
     typealias swiftblock = (_ type:Int,_ btntag : PostInfo? ,_ index:Int) -> Void
     @IBOutlet weak var btn_gotostart: UIView!
     
+    @IBOutlet weak var settingpublicview: UIView!
     @IBOutlet weak var post_detail: UILabel!
     @IBOutlet weak var post_auther_nickname: UILabel!
     @IBOutlet weak var post_auther_address: UILabel!
@@ -45,7 +47,13 @@ class MainPostCell: UITableViewCell {
     @IBOutlet weak var poster_nickname: UILabel!
     
     
+    /// 是否公开帖子
+    /// - Parameter sender:
+    @IBAction func ispublick(_ sender: Any) {
+        
+    }
     
+    /// 初始化cell
     override func awakeFromNib() {
         super.awakeFromNib()
         banner.dataSource = self
@@ -97,11 +105,16 @@ class MainPostCell: UITableViewCell {
         vc.postinfo = postinfo
         self.pushVC(vc: vc)
     }
+    /// 设置model
+    /// - Parameters:
+    ///   - pinfo: model
+    ///   - ind: 下标
     func setModel(pinfo:PostInfo?,ind:Int){
         index = ind
         postinfo = pinfo
         updateCell()
     }
+    /// 更新cell
     func updateCell(){
         banner.reloadData()
         updateStartOrCollection()
@@ -112,8 +125,24 @@ class MainPostCell: UITableViewCell {
         postauther_icon.setImageUrl(image: postauther_icon,string: postinfo?.author?.icon, proimage: #imageLiteral(resourceName: "IMG_2507"))
         post_auther_address.text = postinfo?.postAddress ?? ""
         lab_postnum.text = "\(postinfo?.postMessageNum ?? 0)"
+        switch postinfo?.postState ?? 1 {
+        case 0:
+             post_status.isHidden = false
+             btn_share.isHidden = true
+        case 1:
+             post_status.isHidden = true
+             btn_share.isHidden = false
+        case 2:
+             post_status.isHidden = false
+             btn_share.isHidden = true
+        default:
+             post_status.isHidden = false
+             btn_share.isHidden = true
+        }
+       
     }
     
+    /// 弹出评论页面
     @objc func showMessageVC(){
         let vc = self.parentViewController()?.getVcByName(vc: .消息列表) as! KtMessagelistViewController
         vc.postinfo = postinfo
@@ -123,6 +152,8 @@ class MainPostCell: UITableViewCell {
         vc.view.backgroundColor = .clear
         self.parentViewController()?.present(vc, animated: true, completion: nil)
     }
+    
+    /// 更新点赞状态
     func updateStartOrCollection(){
         if postinfo?.isStart ?? false {
             

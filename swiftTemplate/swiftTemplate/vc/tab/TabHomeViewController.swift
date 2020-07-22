@@ -97,10 +97,7 @@ class TabHomeViewController: BaseTabViewController {
         tableview.separatorStyle = .none
         tableview.register(UINib(nibName: MainPostCell.reuseID, bundle: nil), forCellReuseIdentifier: MainPostCell.reuseID)
         header.setRefreshingTarget(self, refreshingAction: #selector(refresh))
-        
-        
         tableview.mj_header = header
-        
         footer.setRefreshingTarget(self, refreshingAction: #selector(getMore))
         tableview.mj_footer = footer
         
