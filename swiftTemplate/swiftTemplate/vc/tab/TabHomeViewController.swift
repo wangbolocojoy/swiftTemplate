@@ -16,21 +16,23 @@ class TabHomeViewController: BaseTabViewController {
     var type = 1
     var hasmore :Bool = true
     @IBOutlet weak var tableview: UITableView!
-    
+     
     override func viewDidLoad() {
         super.viewDidLoad()
+         
         CoreDataManager.default.getCoreDataPost(success: { (PostInfolist) in
             self.list = PostInfolist
             self.tableview.reloadData()
         })
         checkPosts()
+        
     }
     
     func checkPosts(){
         if list?.count == 0 {
-           getpost()
+            getpost()
         } else {
-           checkIsHavNew()
+            checkIsHavNew()
         }
     }
     func getpost(){
@@ -95,7 +97,10 @@ class TabHomeViewController: BaseTabViewController {
         tableview.separatorStyle = .none
         tableview.register(UINib(nibName: MainPostCell.reuseID, bundle: nil), forCellReuseIdentifier: MainPostCell.reuseID)
         header.setRefreshingTarget(self, refreshingAction: #selector(refresh))
+        
+        
         tableview.mj_header = header
+        
         footer.setRefreshingTarget(self, refreshingAction: #selector(getMore))
         tableview.mj_footer = footer
         
@@ -141,6 +146,7 @@ extension TabHomeViewController:UITableViewDataSource,UITableViewDelegate,UIScro
         return 560
     }
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        
         if(!decelerate){
             self.scrollLoadData()
         }else{
@@ -164,6 +170,28 @@ extension TabHomeViewController:UITableViewDataSource,UITableViewDelegate,UIScro
             }
         }
     }
+    
+    //    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    //        log.verbose("滑动")
+    //
+    //    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        let minAlphaOffset:CGFloat = 64.0;
+        let maxAlphaOffset:CGFloat = 200.0;
+        let offset = scrollView.contentOffset.y;
+        let alpha = (offset - minAlphaOffset) / (maxAlphaOffset - minAlphaOffset);
+        
+//        self.navigationController?.navigationBar.subviews.first?.alpha = alpha
+        
+
+        
+        
+//        self.navigationController
+        
+    }
+    
+    
 }
 extension TabHomeViewController:UISearchResultsUpdating{
     func updateSearchResults(for searchController: UISearchController) {

@@ -207,7 +207,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="w12-wS-HSq" firstAttribute="bottom" secondItem="JOJ-Yi-SyP" secondAttribute="bottom" id="XQw-oV-mvY"/>
+                            <constraint firstAttribute="bottom" secondItem="JOJ-Yi-SyP" secondAttribute="bottom" constant="34" id="XQw-oV-mvY"/>
                             <constraint firstItem="w12-wS-HSq" firstAttribute="trailing" secondItem="JOJ-Yi-SyP" secondAttribute="trailing" id="agG-2R-mbO"/>
                             <constraint firstItem="JOJ-Yi-SyP" firstAttribute="top" secondItem="w12-wS-HSq" secondAttribute="top" id="iox-MV-oeW"/>
                             <constraint firstItem="JOJ-Yi-SyP" firstAttribute="leading" secondItem="w12-wS-HSq" secondAttribute="leading" id="omQ-cG-aAM"/>
@@ -524,15 +524,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ews-R8-dVu">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="fWs-78-Wqt" firstAttribute="bottom" secondItem="ews-R8-dVu" secondAttribute="bottom" id="UmM-76-8qf"/>
+                            <constraint firstAttribute="bottom" secondItem="ews-R8-dVu" secondAttribute="bottom" id="UmM-76-8qf"/>
                             <constraint firstItem="fWs-78-Wqt" firstAttribute="trailing" secondItem="ews-R8-dVu" secondAttribute="trailing" id="jKy-ee-RUY"/>
-                            <constraint firstItem="ews-R8-dVu" firstAttribute="top" secondItem="fWs-78-Wqt" secondAttribute="top" id="xvF-tt-sbK"/>
+                            <constraint firstItem="ews-R8-dVu" firstAttribute="top" secondItem="T8H-Nv-c2s" secondAttribute="top" id="xvF-tt-sbK"/>
                             <constraint firstItem="ews-R8-dVu" firstAttribute="leading" secondItem="fWs-78-Wqt" secondAttribute="leading" id="ziv-kX-QIR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fWs-78-Wqt"/>
@@ -559,8 +559,6 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5cN-Nc-bV9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="selectedImageTintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                     </tabBar>
                     <connections>
@@ -584,7 +582,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L8y-WT-QsE">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -592,8 +590,8 @@
                         <constraints>
                             <constraint firstItem="jRL-7G-vm2" firstAttribute="trailing" secondItem="L8y-WT-QsE" secondAttribute="trailing" id="4dU-dY-bDm"/>
                             <constraint firstItem="L8y-WT-QsE" firstAttribute="leading" secondItem="jRL-7G-vm2" secondAttribute="leading" id="PD3-7D-usb"/>
-                            <constraint firstItem="jRL-7G-vm2" firstAttribute="bottom" secondItem="L8y-WT-QsE" secondAttribute="bottom" id="f7K-a0-gG6"/>
-                            <constraint firstItem="L8y-WT-QsE" firstAttribute="top" secondItem="jRL-7G-vm2" secondAttribute="top" id="ru7-z3-v8m"/>
+                            <constraint firstAttribute="bottom" secondItem="L8y-WT-QsE" secondAttribute="bottom" id="f7K-a0-gG6"/>
+                            <constraint firstItem="L8y-WT-QsE" firstAttribute="top" secondItem="His-lN-kut" secondAttribute="top" id="ru7-z3-v8m"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jRL-7G-vm2"/>
                     </view>
@@ -615,7 +613,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="akX-Xe-hM5">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6fn-AK-91T">
                                     <size key="itemSize" width="128" height="128"/>
@@ -637,10 +635,10 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="akX-Xe-hM5" firstAttribute="top" secondItem="ivJ-d5-AIr" secondAttribute="top" id="7bZ-6r-9fy"/>
+                            <constraint firstItem="akX-Xe-hM5" firstAttribute="top" secondItem="1mj-ON-BY7" secondAttribute="top" id="7bZ-6r-9fy"/>
                             <constraint firstItem="ivJ-d5-AIr" firstAttribute="trailing" secondItem="akX-Xe-hM5" secondAttribute="trailing" id="VHb-Cr-6P7"/>
                             <constraint firstItem="akX-Xe-hM5" firstAttribute="leading" secondItem="1mj-ON-BY7" secondAttribute="leading" id="XJc-eK-zXY"/>
-                            <constraint firstItem="ivJ-d5-AIr" firstAttribute="bottom" secondItem="akX-Xe-hM5" secondAttribute="bottom" id="tNS-NT-G9Q"/>
+                            <constraint firstAttribute="bottom" secondItem="akX-Xe-hM5" secondAttribute="bottom" id="tNS-NT-G9Q"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ivJ-d5-AIr"/>
                     </view>
@@ -664,7 +662,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6tP-6k-84e">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="28"/>
                         </textAttributes>

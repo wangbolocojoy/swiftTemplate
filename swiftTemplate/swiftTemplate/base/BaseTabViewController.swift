@@ -23,7 +23,7 @@ class BaseTabViewController: UIViewController {
             let backgroundColor = UIColor { (trainCollection) -> UIColor in
                 switch trainCollection.userInterfaceStyle {
                 case .dark:
-                    self.navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(color: Constant.DarkBackGround), for: .default)
+//                    self.navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(color: Constant.DarkBackGround), for: .default)
                                       self.navigationController?.navigationBar.shadowImage = UIImage.imageWithColor(color: .clear)
                                       self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white,
                                                                                                       NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18)]
@@ -32,7 +32,7 @@ class BaseTabViewController: UIViewController {
                     return Constant.DarkBackGround
                     
                 case .light:
-                    self.navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(color: Constant.BackGround), for: .default)
+//                    self.navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(color: Constant.BackGround), for: .default)
                     self.navigationController?.navigationBar.shadowImage = UIImage.imageWithColor(color: .clear)
                     self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
                                                                                     NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18)]
@@ -40,7 +40,7 @@ class BaseTabViewController: UIViewController {
                     self.navigationController?.navigationBar.tintColor = .black
                     return Constant.BackGround
                 default:
-                    self.navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(color: Constant.BackGround), for: .default)
+//                    self.navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(color: Constant.BackGround), for: .default)
                     self.navigationController?.navigationBar.shadowImage = UIImage.imageWithColor(color: .clear)
                     self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
                                                                                     NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18)]
@@ -53,7 +53,7 @@ class BaseTabViewController: UIViewController {
             self.view.backgroundColor = backgroundColor
             
         } else {
-            self.navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(color: Constant.BackGround), for: .default)
+//            self.navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(color: Constant.BackGround), for: .default)
             self.navigationController?.navigationBar.shadowImage = UIImage.imageWithColor(color: .clear)
             self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
                                                                             NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18)]
@@ -68,7 +68,7 @@ class BaseTabViewController: UIViewController {
             if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
                 switch previousTraitCollection?.userInterfaceStyle {
                 case .dark:
-                    self.navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(color: Constant.BackGround), for: .default)
+//                    self.navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(color: Constant.BackGround), for: .default)
                     self.navigationController?.navigationBar.shadowImage = UIImage.imageWithColor(color: .clear)
                     self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
                                                                                     NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18)]
@@ -76,7 +76,7 @@ class BaseTabViewController: UIViewController {
                     self.navigationController?.navigationBar.tintColor = .black
                     
                 case .light:
-                    self.navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(color: Constant.DarkBackGround), for: .default)
+//                    self.navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(color: Constant.DarkBackGround), for: .default)
                     self.navigationController?.navigationBar.shadowImage = UIImage.imageWithColor(color: .clear)
                     self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white,
                                                                                     NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18)]
@@ -84,7 +84,7 @@ class BaseTabViewController: UIViewController {
                     self.navigationController?.navigationBar.tintColor = .white
                     
                 default:
-                    self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+//                    self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
                     self.navigationController?.navigationBar.shadowImage = UIImage.imageWithColor(color: .clear)
                     self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
                                                                                     NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18)]
@@ -94,7 +94,7 @@ class BaseTabViewController: UIViewController {
                 }
             }
         } else {
-            self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+//            self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
             self.navigationController?.navigationBar.shadowImage = UIImage.imageWithColor(color: .clear)
             self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black,NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18)]
             self.navigationController?.navigationBar.tintColor = .black

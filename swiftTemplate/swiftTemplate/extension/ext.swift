@@ -236,6 +236,7 @@ extension UIImage{
         UIRectFill(rect)
         let image : UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
+        
         return image
     }
     func downloadWith(urlStr: String, complete: ((UIImage?) -> ())? = nil) {

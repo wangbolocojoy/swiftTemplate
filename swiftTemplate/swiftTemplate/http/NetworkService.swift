@@ -38,6 +38,16 @@ public enum NetworkService{
     case getfancelist(k:String)
     //查找用户
     case finduser(k:String)
+    //我的所有帖子
+    case getmyallposts(k:String)
+    //管理员或用户批量更新帖子状态
+    case updateposts(k:String)
+    //举报帖子
+    case reportpostbypostd(k:String)
+    //获取被举报的帖子列表
+    case getreportlist(k:String)
+    //管理员获取待审核中的所有帖子
+    case getexamineList(k:String)
     //发帖
     case sendpost(k:String)
     //获取用户的所有帖子
@@ -86,13 +96,22 @@ public enum NetworkService{
     case getfeekbacklist(k:String)
     //获取是否有最新的数据
     case getisnewpost(k:String)
+        
+    case checkimages(K:Any,dataAry:NSArray)
     
 }
 extension NetworkService:Moya.TargetType{
     //MARK: - APISERVICE
     public var baseURL: URL {
-        let api = ApiKey.default.BaseApi
-        return URL(string: api )!
+        switch self {
+        case .checkimages:
+            let api = ApiKey.default.TXAiApi
+                   return URL(string: api )!
+        default:
+            let api = ApiKey.default.BaseApi
+                              return URL(string: api )!
+        }
+       
     }
     //MARK: - 请求地址
     public var path: String {
@@ -173,6 +192,18 @@ extension NetworkService:Moya.TargetType{
             return "swiftTemplate/User/getFeedBack"
         case .getisnewpost:
             return "swiftTemplate/Post/isHaveNewPost"
+        case .checkimages:
+            return "fcgi-bin/vision/vision_porn"
+        case .getmyallposts:
+             return "swiftTemplate/Post/getMyPosts"
+        case .updateposts:
+             return "swiftTemplate/Post/updatePosts"
+        case .reportpostbypostd:
+             return "swiftTemplate/Post/reportPostByPostId"
+        case .getreportlist:
+             return "swiftTemplate/Post/getReportList"
+        case .getexamineList:
+             return "swiftTemplate/Post/getExamineList"
         }
         
     }
@@ -187,7 +218,7 @@ extension NetworkService:Moya.TargetType{
     //MARK: - 请求参数
     public var task: Moya.Task {
         switch self {
-        case .login(let data),.register(let data),.getmsg(let data),.tabhome(let data),.searchnovel(let data),.updateuserinfo(let data),.followuser(let data),.unfollowuser(let data),.getfancelist(let data),.getfollowlist(let data),.finduser(let data),.findrecommendlist(let data),.sendpost(let data),.getposts(let data),.getuserposts(let data),.deletspost(let data),.getuserinfo(let data),.poststart(let data),.postunstart(let data),.getpoststartlist(let data),.collection(let data),.cancelcollection(let data),.getcollectionlist(let data),.getuserstartlist(let data),.sendcomment(let data),.commentlist(let data),.deletecomment(let data),.getallimasges(let data),.getusermsgs(let data),.respsd(let data),.msgstart(let data),.msgunstart(let data),.sendfeekback(let data),.getfeekbacklist(let data),.getisnewpost(let data):
+        case .login(let data),.register(let data),.getmsg(let data),.tabhome(let data),.searchnovel(let data),.updateuserinfo(let data),.followuser(let data),.unfollowuser(let data),.getfancelist(let data),.getfollowlist(let data),.finduser(let data),.findrecommendlist(let data),.sendpost(let data),.getposts(let data),.getuserposts(let data),.deletspost(let data),.getuserinfo(let data),.poststart(let data),.postunstart(let data),.getpoststartlist(let data),.collection(let data),.cancelcollection(let data),.getcollectionlist(let data),.getuserstartlist(let data),.sendcomment(let data),.commentlist(let data),.deletecomment(let data),.getallimasges(let data),.getusermsgs(let data),.respsd(let data),.msgstart(let data),.msgunstart(let data),.sendfeekback(let data),.getfeekbacklist(let data),.getisnewpost(let data),.getmyallposts(let data),.updateposts(let data),.reportpostbypostd(let data),.getreportlist(let data),.getexamineList(let data):
             return  .requestData(data.utf8Encoded)
             
         case .uodateusericon(let param, let uploadImages):
@@ -224,6 +255,26 @@ extension NetworkService:Moya.TargetType{
                 formDataAry.add(formData)
             })
             return .uploadMultipart(formDataAry as! [MultipartFormData])
+        case .checkimages(let param, let uploadImages):
+            let formDataAry:NSMutableArray = NSMutableArray()
+                       for (index,image) in uploadImages.enumerated() {
+                           let data:Data = (image as! UIImage).compressImageMid(maxLength: 1024) ?? Data()
+                           let date:Date = Date()
+                           let formatter = DateFormatter()
+                           formatter.dateFormat = "yyyy-MM-dd-HH:mm:ss"
+                           var dateStr:String = formatter.string(from: date as Date)
+                           dateStr = dateStr.appendingFormat("-%i.png", index)
+                           let formData = MultipartFormData(provider: .data(data), name: "uploadFiles", fileName: dateStr, mimeType: "image/jpeg")
+                           formDataAry.add(formData)
+                       }
+                       let p1 = param as? [String:String]
+                       p1?.forEach({ (arg0) in
+                           let (key, value) = arg0
+                           let strData = value.data(using: .utf8)
+                           let formData = MultipartFormData(provider:.data(strData!), name: key)
+                           formDataAry.add(formData)
+                       })
+                       return .uploadMultipart(formDataAry as! [MultipartFormData])
         case .developerinfo:
             return .requestPlain
             
