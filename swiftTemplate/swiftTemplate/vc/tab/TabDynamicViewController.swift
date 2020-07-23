@@ -10,8 +10,7 @@ import UIKit
 import MJRefresh
 class TabDynamicViewController: BaseTabViewController{
     
-    let footer = MJRefreshBackFooter()
-    let header = MJRefreshNormalHeader()
+    
     lazy var list :[PostInfo]? = nil
     var pagebody = RequestBody()
     var type = 1
@@ -45,8 +44,6 @@ class TabDynamicViewController: BaseTabViewController{
         view.addSubview(imageview)
         let item = UIBarButtonItem(customView: view)
         self.navigationItem.leftBarButtonItem = item
-//        self.navigationItem.searchController = self.countrySearchController
-//        self.navigationItem.hidesSearchBarWhenScrolling = true
         collectionview.delegate = self
         collectionview.dataSource = self
         collectionview.collectionViewLayout = CollectionViewLeftFlowLayout()

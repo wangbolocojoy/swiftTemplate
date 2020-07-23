@@ -20,16 +20,6 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pUz-Zr-fkM">
                         <rect key="frame" x="0.0" y="0.0" width="862" height="793"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="审核中" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1QD-zL-pKS">
-                                <rect key="frame" x="0.0" y="50" width="862" height="50"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="vcD-tt-ULF"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bo7-R8-Yi7">
                                 <rect key="frame" x="0.0" y="0.0" width="862" height="50"/>
                                 <subviews>
@@ -116,6 +106,16 @@
                                     <constraint firstAttribute="height" constant="350" id="7MR-C0-elY"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="审核中" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1QD-zL-pKS">
+                                <rect key="frame" x="0.0" y="50" width="862" height="50"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="vcD-tt-ULF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hearts" translatesAutoresizingMaskIntoConstraints="NO" id="qHC-3C-HUt">
                                 <rect key="frame" x="401" y="195" width="60" height="60"/>
                                 <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

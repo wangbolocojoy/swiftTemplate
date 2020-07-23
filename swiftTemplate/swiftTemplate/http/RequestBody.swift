@@ -22,6 +22,7 @@ class RequestBody: Mappable {
     var msgcode:String?
     var page:Int?
     var pageSize:Int?
+    var postState:Int?
     var type:Int?
     var nickName:String?
     var likeStarts:Int?
@@ -58,6 +59,7 @@ class RequestBody: Mappable {
         msgcode <- map["msgcode"]
         page <- map["page"]
         pageSize <- map["pageSize"]
+        postState <- map["postState"]
         type <- map["type"]
         id <- map["id"]
         icon <- map["icon"]
@@ -122,5 +124,37 @@ class QrCodeBody: Mappable{
               city <- map["city"]
     }
     
+    
+}
+class updatePos: Mappable{
+      var userId:Int?
+      var postList:[pstInfo]?
+    required init?(map: Map) {
+        
+    }
+    init() {
+           
+       }
+    func mapping(map: Map) {
+              userId <- map["userId"]
+              postList <- map["postList"]
+    }
+    
+}
+class pstInfo: Mappable{
+    var postId: Int?
+    var postState: Int?
+    var postPublic:Bool?
+    init() {
+           
+       }
+    required init?(map: Map) {
+    }
+    func mapping(map: Map) {
+              postId <- map["postId"]
+              postPublic <- map["postPublic"]
+              postState <- map["postState"]
+              
+    }
     
 }

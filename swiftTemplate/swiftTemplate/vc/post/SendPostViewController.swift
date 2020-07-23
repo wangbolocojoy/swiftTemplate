@@ -11,6 +11,7 @@ import YPImagePicker
 import AMapSearchKit
 class SendPostViewController: BaseViewController {
     
+    @IBOutlet weak var postispublic: UISwitch!
     @IBOutlet weak var collectionview: UICollectionView!
     @IBOutlet weak var lab_address: UILabel!
     @IBOutlet weak var btn_address: UIView!
@@ -32,6 +33,11 @@ class SendPostViewController: BaseViewController {
         collectionview.register(UINib(nibName: UploadImageCollectionViewCell.reuseID, bundle: nil), forCellWithReuseIdentifier: UploadImageCollectionViewCell.reuseID)
         collectionview.collectionViewLayout = CollectionViewLeftFlowLayout()
         
+    }
+    
+   
+    @IBAction func switchpostpublic(_ sender: UISwitch) {
+        postispublic.isOn = sender.isOn
     }
     @objc func toAddress(){
         let vc =  getVcByName(vc: .我的地图) as! KtMyMapViewController
@@ -65,7 +71,8 @@ class SendPostViewController: BaseViewController {
         
         let detail = ev_detail.text ?? ""
         
-        let param = ["postDetail": detail  ,"postAddress": address,"latitude":"\(amappoi?.location.latitude ?? 0.0)","longitude":"\(amappoi?.location.longitude ?? 0.0)" ,"uploadType":"image","userId":"\(UserInfoHelper.instance.user?.id ?? 0)"]
+        let param = ["postDetail": detail  ,"postAddress": address,"latitude":"\(amappoi?.location.latitude ?? 0.0)","longitude":"\(amappoi?.location.longitude ?? 0.0)","postPublic":"\(postispublic.isOn)"
+            ,"uploadType":"image","userId":"\(UserInfoHelper.instance.user?.id ?? 0)"]
             MyMoyaManager.AllRequest(controller: self, NetworkService.upLoadFiles(K: param, dataAry: self.list as NSArray)) { (data) in
                 self.user?.postNum =  (self.user?.postNum ?? 0) + 1
                 UserInfoHelper.instance.user = self.user

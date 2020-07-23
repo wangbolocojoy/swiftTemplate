@@ -18,7 +18,7 @@ class TabMineViewController: BaseTabViewController {
     lazy var imagelist1  = [#imageLiteral(resourceName: "图片"),#imageLiteral(resourceName: "地址"),#imageLiteral(resourceName: "bookmark"),#imageLiteral(resourceName: "评论"),#imageLiteral(resourceName: "关于"),#imageLiteral(resourceName: "清除缓存"),#imageLiteral(resourceName: "退出登录")]
     
     var user  = UserInfoHelper.instance.user
-    let header = MJRefreshNormalHeader()
+    
     @IBOutlet weak var tableview: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +48,7 @@ class TabMineViewController: BaseTabViewController {
         tableview.register(UINib(nibName: BTMCleanHeader.reuseID, bundle: nil), forHeaderFooterViewReuseIdentifier: BTMCleanHeader.reuseID)
         header.setRefreshingTarget(self, refreshingAction: #selector(refresh))
         tableview.mj_header = header
-        
+    
     }
     @objc func refresh(){
         let body = RequestBody()

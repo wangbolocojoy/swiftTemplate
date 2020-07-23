@@ -128,6 +128,8 @@ class MainPostCell: UITableViewCell {
         switch postinfo?.postState ?? 1 {
         case 0:
              post_status.isHidden = false
+//             post_status.text = "正在审核中"
+//             post_status.textColor = .red
              btn_share.isHidden = true
         case 1:
              post_status.isHidden = true
@@ -293,9 +295,9 @@ class MainPostCell: UITableViewCell {
         iconActionSheet.addAction(UIAlertAction(title: "分享", style: UIAlertAction.Style.default, handler: { (UIAlertAction) in
             self.shareInfo()
         }))
-        //        iconActionSheet.addAction(UIAlertAction(title: "移除", style: UIAlertAction.Style.default, handler: { (UIAlertAction) in
-        //
-        //        }))
+        iconActionSheet.addAction(UIAlertAction(title: "举报", style: UIAlertAction.Style.default, handler: { (UIAlertAction) in
+                    self.reportPost()
+                }))
         
         if postinfo?.author?.id == UserInfoHelper.instance.user?.id{
             iconActionSheet.addAction(UIAlertAction(title: "删除帖子", style: UIAlertAction.Style.destructive, handler: { (UIAlertAction) in
@@ -309,6 +311,11 @@ class MainPostCell: UITableViewCell {
         self.parentViewController()?.present(iconActionSheet, animated: true, completion: nil)
     }
     
+    @objc func reportPost(){
+        let vc = self.parentViewController()?.getVcByName(vc: .举报原因) as! KtChoiceReportViewController
+        vc.postId = postinfo?.id
+        self.parentViewController()?.navigationController?.pushViewController(vc, animated: true)
+    }
     /// 分享post
     @objc func shareInfo(){
         var items : [Any] = []

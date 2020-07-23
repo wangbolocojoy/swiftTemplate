@@ -34,6 +34,10 @@ enum MyController{
     case 关于我们
     case 意见反馈
     case 意见反馈列表
+    case 帖子审核管理
+    case 账号封禁管理
+    case 举报原因
+    case 填写举报信息
     
 }
 enum NavVc {
@@ -171,6 +175,18 @@ extension UIViewController{
         case .意见反馈列表:
             let vc = otsb.instantiateViewController(withIdentifier: "KTFEEKBACKLISTVC") as!
             KtFeekBackListViewController
+            return vc
+        case .帖子审核管理:
+            let vc = otsb.instantiateViewController(withIdentifier: "KTEXAMINEPOSTVC") as! KtExaminePostViewController
+            return vc
+        case .账号封禁管理:
+            let vc = otsb.instantiateViewController(withIdentifier: "KTACCOUNTBLOCKVC") as! KtAccountBlockViewController
+            return vc
+        case .举报原因:
+            let vc = otsb.instantiateViewController(withIdentifier: "KTCHOICEREPORTVC") as! KtChoiceReportViewController
+            return vc
+        case .填写举报信息:
+            let vc = otsb.instantiateViewController(withIdentifier: "KTEDREPORTVC") as! KtEdReportViewController
             return vc
         }
     }

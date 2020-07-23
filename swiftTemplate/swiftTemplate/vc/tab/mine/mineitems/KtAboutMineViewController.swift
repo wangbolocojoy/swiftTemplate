@@ -10,7 +10,7 @@ import UIKit
 import SafariServices
 class KtAboutMineViewController: BaseViewController {
     lazy var list = ["去评分","版本更新","意见反馈","关于我们"]
-    lazy var list1 = ["去评分","版本更新","意见反馈","关于我们","反馈列表"]
+    lazy var list1 = ["去评分","版本更新","意见反馈","关于我们","反馈列表","帖子审核","账号封禁"]
     @IBOutlet weak var tableview: UITableView!
     lazy var user : UserInfo? = nil
     override func viewDidLoad() {
@@ -40,12 +40,8 @@ extension KtAboutMineViewController:UITableViewDelegate,UITableViewDataSource{
         case 0:
             return 1
         case 1:
-            if user?.phone ?? "0" == "13550247642"{
-                if user?.phone ?? "0" == "13550247642"{
-                    return list1.count
-                }else{
-                    return list.count
-                }
+            if user?.phone ?? "0" == "13550247642" || user?.isAdministrators ?? false{
+                return list1.count
             }else{
                 return list.count
             }
@@ -80,6 +76,15 @@ extension KtAboutMineViewController:UITableViewDelegate,UITableViewDataSource{
                 self.navigationController?.pushViewController(vc, animated: true)
             case 3:
                 let vc = getVcByName(vc: .关于我们) as! KtAboutDeveloperViewController
+                self.navigationController?.pushViewController(vc, animated: true)
+            case 4:
+                let vc = getVcByName(vc: .意见反馈列表) as! KtFeekBackListViewController
+                self.navigationController?.pushViewController(vc, animated: true)
+            case 5:
+                let vc = getVcByName(vc: .帖子审核管理) as! KtExaminePostViewController
+                self.navigationController?.pushViewController(vc, animated: true)
+            case 6:
+                let vc = getVcByName(vc: .账号封禁管理) as! KtAccountBlockViewController
                 self.navigationController?.pushViewController(vc, animated: true)
             default:
                 let vc = getVcByName(vc: .意见反馈列表) as! KtFeekBackListViewController

@@ -9,8 +9,7 @@
 import UIKit
 import MJRefresh
 class TabFriendsViewController: BaseTabViewController {
-    let footer = MJRefreshBackFooter()
-    let header = MJRefreshNormalHeader()
+    
     var list:[UserInfo]? = nil
     var page = 0
     let userid = UserInfoHelper.instance.user?.id ?? 0

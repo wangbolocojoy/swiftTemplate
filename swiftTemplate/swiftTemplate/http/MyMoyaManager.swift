@@ -128,7 +128,9 @@ struct MyMoyaManager{
                         }else if u.status ?? 0 == 500{
                                                          
                              log.warning(u.toJSONString() ?? "")
-                        }else{
+                        }else if u.status ?? 0 == 434{
+                            
+                            
                               log.warning(u.toJSONString() ?? "")
                         }
                     }else{

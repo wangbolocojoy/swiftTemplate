@@ -63,7 +63,7 @@ class BTMMyPostViewController: BaseViewController {
         
     }
     func getpost(json:String){
-        MyMoyaManager.AllRequest(controller: self, NetworkService.getuserposts(k:json )) { (data) in
+        MyMoyaManager.AllRequest(controller: self, NetworkService.getmyallposts(k:json )) { (data) in
             if self.type == 1 {
                 self.list = data.postlist
             }else{

@@ -8,8 +8,7 @@
 import UIKit
 import MJRefresh
 class TabHomeViewController: BaseTabViewController {
-    let footer = MJRefreshBackFooter()
-    let header = MJRefreshNormalHeader()
+   
     lazy var list :[PostInfo]? = nil
     lazy var listpost :[PostStart]? = nil
     var pagebody = RequestBody()
