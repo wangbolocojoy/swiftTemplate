@@ -38,6 +38,7 @@ enum MyController{
     case 账号封禁管理
     case 举报原因
     case 填写举报信息
+    case 实名认证
     
 }
 enum NavVc {
@@ -187,6 +188,9 @@ extension UIViewController{
             return vc
         case .填写举报信息:
             let vc = otsb.instantiateViewController(withIdentifier: "KTEDREPORTVC") as! KtEdReportViewController
+            return vc
+        case .实名认证:
+            let vc = otsb.instantiateViewController(withIdentifier: "KTEDAUTHENTICATIONVC") as! KtEdAuthenticationViewController
             return vc
         }
     }

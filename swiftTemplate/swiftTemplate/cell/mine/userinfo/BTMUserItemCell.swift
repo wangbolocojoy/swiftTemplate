@@ -9,7 +9,7 @@
 import UIKit
 
 class BTMUserItemCell: UITableViewCell {
-static let reuseID =  "BTMUserItemCell"
+    static let reuseID =  "BTMUserItemCell"
     
     @IBOutlet weak var item_value: UILabel!
     
@@ -18,7 +18,7 @@ static let reuseID =  "BTMUserItemCell"
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         selectionStyle = .none
@@ -31,11 +31,18 @@ static let reuseID =  "BTMUserItemCell"
         case "昵称":
             item_value.text = user?.nickName ?? ""
         case "真实姓名":
-              item_value.text = user?.realName ?? ""
+            item_value.text = user?.realName ?? ""
+        case "实名认证":
+            if user?.isAuthentication ?? false{
+                item_value.text = "已认证"
+            }else{
+                item_value.text = "未认证"
+            }
+            
         case "个人简介":
             item_value.text = user?.easyInfo ?? ""
         case "地区":
-             item_value.text = user?.address ?? ""
+            item_value.text = user?.address ?? ""
         case "生日":
             item_value.text = "\(user?.birthDay ?? "")--\( user?.constellation ?? "")"
         case "性别":

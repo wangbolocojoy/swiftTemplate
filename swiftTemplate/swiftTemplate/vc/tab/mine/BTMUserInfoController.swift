@@ -9,7 +9,7 @@
 import UIKit
 
 class BTMUserInfoController: BaseViewController{
-    let list = ["账号","昵称","真实姓名","性别","生日"]
+    let list = ["账号","昵称","真实姓名","实名认证","性别","生日"]
     //     let list = ["账号","昵称","真实姓名","个人简介","地区"]
     let list1 = ["个人简介","地区"]
     @IBOutlet weak var tableview: UITableView!
@@ -92,16 +92,17 @@ extension BTMUserInfoController:UITableViewDelegate,UITableViewDataSource{
                 vc.type = list[indexPath.item]
                 self.navigationController?.pushViewController(vc, animated: true)
             case 3:
+                let vc = getVcByName(vc: .实名认证) as! KtEdAuthenticationViewController
+                self.navigationController?.pushViewController(vc, animated: true)
+            case 4:
                 log.verbose("性别")
                 let vc = getVcByName(vc: .性别选择) as! KtSexPickerViewController
                   vc.view.backgroundColor = .clear
                 vc.callBackBlock { (UserInfo) in
                     self.refresh()
                 }
-              
                 self.present(vc, animated: true, completion: nil)
-                
-            case 4:
+            case 5:
                 let vc = getVcByName(vc: .日期选择) as! KtDatePickerViewController
                 vc.view.backgroundColor = .clear
                 vc.callBackBlock { (UserInfo) in

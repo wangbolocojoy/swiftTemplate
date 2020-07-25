@@ -70,23 +70,25 @@ class BaseViewController: UIViewController ,UIGestureRecognizerDelegate{
             if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
                 switch previousTraitCollection?.userInterfaceStyle {
                 case .dark:
+                    log.verbose("Dark")
                     self.navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(color: Constant.BackGround), for: .default)
-                    self.navigationController?.navigationBar.shadowImage = UIImage.imageWithColor(color: .clear)
-                    self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white,
-                                                                                    NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18)]
-                    self.view.backgroundColor = Constant.BackGround
-                    self.navigationController?.navigationBar.tintColor = .white
-                    
-                case .light:
-                    self.navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(color: Constant.DarkBackGround), for: .default)
                     self.navigationController?.navigationBar.shadowImage = UIImage.imageWithColor(color: .clear)
                     self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
                                                                                     NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18)]
-                    self.view.backgroundColor = Constant.DarkBackGround
+                    self.view.backgroundColor = Constant.BackGround
                     self.navigationController?.navigationBar.tintColor = .black
                     
-                default:
+                case .light:
+                       log.verbose("light")
+                    self.navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(color: Constant.DarkBackGround), for: .default)
+                    self.navigationController?.navigationBar.shadowImage = UIImage.imageWithColor(color: .clear)
+                    self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white,
+                                                                                    NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18)]
+                    self.view.backgroundColor = Constant.DarkBackGround
+                    self.navigationController?.navigationBar.tintColor = .white
                     
+                default:
+                     log.verbose("default")
                     self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
                     self.navigationController?.navigationBar.shadowImage = UIImage.imageWithColor(color: .clear)
                     self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
@@ -97,6 +99,7 @@ class BaseViewController: UIViewController ,UIGestureRecognizerDelegate{
                 }
             }
         } else {
+            log.verbose("else")
             self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
             self.navigationController?.navigationBar.shadowImage = UIImage.imageWithColor(color: .clear)
             self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black,NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18)]

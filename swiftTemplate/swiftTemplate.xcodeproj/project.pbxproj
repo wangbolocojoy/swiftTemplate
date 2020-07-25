@@ -118,6 +118,7 @@
 		C4BB74FD24C99C47003FFB01 /* KtAccountBlockCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4BB74FB24C99C47003FFB01 /* KtAccountBlockCell.xib */; };
 		C4BB74FF24C9B138003FFB01 /* KtChoiceReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BB74FE24C9B138003FFB01 /* KtChoiceReportViewController.swift */; };
 		C4BB750124C9B6AA003FFB01 /* KtEdReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BB750024C9B6AA003FFB01 /* KtEdReportViewController.swift */; };
+		C4BB750324CA6E7E003FFB01 /* KtEdAuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BB750224CA6E7E003FFB01 /* KtEdAuthenticationViewController.swift */; };
 		C4BED6F024C23D84004D4C9C /* KtHomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BED6EF24C23D84004D4C9C /* KtHomeNavigationController.swift */; };
 		C4BED6F224C23DAB004D4C9C /* KtMineNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BED6F124C23DAB004D4C9C /* KtMineNavigationController.swift */; };
 		C4BED6F424C23DCE004D4C9C /* KtFriendNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BED6F324C23DCE004D4C9C /* KtFriendNavigationController.swift */; };
@@ -266,6 +267,7 @@
 		C4BB74FB24C99C47003FFB01 /* KtAccountBlockCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KtAccountBlockCell.xib; sourceTree = "<group>"; };
 		C4BB74FE24C9B138003FFB01 /* KtChoiceReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtChoiceReportViewController.swift; sourceTree = "<group>"; };
 		C4BB750024C9B6AA003FFB01 /* KtEdReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtEdReportViewController.swift; sourceTree = "<group>"; };
+		C4BB750224CA6E7E003FFB01 /* KtEdAuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtEdAuthenticationViewController.swift; sourceTree = "<group>"; };
 		C4BED6EF24C23D84004D4C9C /* KtHomeNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtHomeNavigationController.swift; sourceTree = "<group>"; };
 		C4BED6F124C23DAB004D4C9C /* KtMineNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtMineNavigationController.swift; sourceTree = "<group>"; };
 		C4BED6F324C23DCE004D4C9C /* KtFriendNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtFriendNavigationController.swift; sourceTree = "<group>"; };
@@ -716,6 +718,7 @@
 				C4DAA44224A5FDC700BA6F7D /* MyCollectViewController.swift */,
 				C422FB3B24ADBD1F006AC5CA /* KtSexPickerViewController.swift */,
 				C41CD2FB24B716F9000A6613 /* KtAboutMineViewController.swift */,
+				C4BB750224CA6E7E003FFB01 /* KtEdAuthenticationViewController.swift */,
 			);
 			path = mineitems;
 			sourceTree = "<group>";
@@ -993,6 +996,7 @@
 				C4BED6F024C23D84004D4C9C /* KtHomeNavigationController.swift in Sources */,
 				C4AEB304249863EF00196DAE /* UploadImageCollectionViewCell.swift in Sources */,
 				C402404124838BC300F715DC /* NetworkService.swift in Sources */,
+				C4BB750324CA6E7E003FFB01 /* KtEdAuthenticationViewController.swift in Sources */,
 				C4AEB30C2498A7B500196DAE /* FancesInfoViewController.swift in Sources */,
 				C4AEFCF6248E48C30080904E /* BTMMyPostViewController.swift in Sources */,
 				C44E81C524A367D3000BD888 /* FanceInfoHeaderCell.swift in Sources */,

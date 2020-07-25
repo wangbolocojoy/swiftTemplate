@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     /// 初始化配置
     private func initConfigure(){
+        
 //        let appleIDProvider = ASAuthorizationAppleIDProvider()
 //        appleIDProvider.getCredentialState(forUserID: KeychainManager.User.ReadDataByIdentifier(forKey: .currentUserIdentifier) as? String ?? "") { (credentialState, error) in
 //            switch credentialState {

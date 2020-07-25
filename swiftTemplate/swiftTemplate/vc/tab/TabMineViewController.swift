@@ -80,8 +80,6 @@ class TabMineViewController: BaseTabViewController {
            TipsActionSheet.addAction(UIAlertAction(title: "确认", style: .destructive, handler: { (UIAlertAction) in
               KeychainManager.User.DeleteByIdentifier(forKey: .UserInfo)
                      UserInfoHelper.instance._setuser = nil
-          
-            
             UIView.animate(withDuration: self.time, animations:{ }, completion: { (true) in
                          let tranststion =  CATransition()
                          tranststion.duration = self.time

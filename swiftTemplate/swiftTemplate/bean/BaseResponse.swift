@@ -288,6 +288,7 @@ class UserInfo: Mappable {
     var city:String?
     var isItBanned:Bool?
     var isAdministrators:Bool?
+    var isAuthentication:Bool?
     var isselectid:Bool?
     required init?(map: Map) {
     }
@@ -315,6 +316,7 @@ class UserInfo: Mappable {
         city <- map["city"]
         isItBanned <- map["isItBanned"]
         isAdministrators <- map["isAdministrators"]
+        isAuthentication <- map["isAuthentication"]
         isselectid <- map["isselectid"]
     }
     
