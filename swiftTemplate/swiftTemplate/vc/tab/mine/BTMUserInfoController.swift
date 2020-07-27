@@ -253,14 +253,20 @@ extension BTMUserInfoController: UIImagePickerControllerDelegate ,UINavigationCo
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let img = info[UIImagePickerController.InfoKey.editedImage] as! UIImage
-        let imglist :NSArray = [img]
-        let param = ["id":"\(UserInfoHelper.instance.user?.id ?? 0)","uploadtype":"image"]
-        MyMoyaManager.AllRequest(controller: self, NetworkService.uodateusericon(k: param, dataAry: imglist)) { (data) in
-            UserInfoHelper.instance.user = data.userinfo
-            self.refresh()
-            self.ShowTip(Title: data.msg)
-            
+        
+        let imgdata = img.compressImageMid(maxLength: 900)?.base64EncodedString()
+        
+        MyMoyaManager.AllRequest(controller: self, NetworkService.checkimages(K: imgdata ?? "adadsasd")) { (data) in
+            log.verbose(data.txdata?.toJSONString())
         }
+//        let imglist :NSArray = [img]
+//        let param = ["id":"\(UserInfoHelper.instance.user?.id ?? 0)","uploadtype":"image"]
+//        MyMoyaManager.AllRequest(controller: self, NetworkService.uodateusericon(k: param, dataAry: imglist)) { (data) in
+//            UserInfoHelper.instance.user = data.userinfo
+//            self.refresh()
+//            self.ShowTip(Title: data.msg)
+//
+//        }
         //            MoyaManager.updateusericon(controller: self, NetworkService.updateusericon(dataAry: imglist, USER_ID: String(describing: UserInfoHelper.instance.getUserId()), USER_TYPE: "USER_MEMBER", UP_TYPE: "MEMBER_HEAD_UPLOAD")) { (result) in
         //                if let date = result{
         //

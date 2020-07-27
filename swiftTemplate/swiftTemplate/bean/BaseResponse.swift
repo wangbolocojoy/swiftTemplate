@@ -25,6 +25,8 @@ class BaseResponse: Mappable {
     var mypictures:[PostImages]?
     var developer:DeveloperInfo?
     var feekbacklist:[FeekBackInfo]?
+    var ret:Int?
+    var txdata:TxData?
     required init?(map: Map) {
     }
     func mapping(map: Map) {
@@ -44,9 +46,39 @@ class BaseResponse: Mappable {
         mypictures <- map["data"]
         developer <- map["data"]
         feekbacklist <- map["data"]
+        ret <- map["ret"]
+        txdata <- map["data"]
     }
     
 }
+class TxData: Mappable {
+    var tag_list :[TxTagInfo]?
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        tag_list <- map["tag_list"]
+    }
+    
+    
+}
+class TxTagInfo: Mappable {
+    var tag_confidence :Int?
+    var tag_confidence_f:Float?
+    var tag_name:String?
+    required init?(map: Map) {
+        
+    }
+    func mapping(map: Map) {
+        tag_confidence <- map["tag_confidence"]
+        tag_confidence_f <- map["tag_confidence_f"]
+        tag_name <- map["tag_name"]
+    }
+    
+    
+}
+
 class FeekBackInfo: Mappable {
     var id:Int?
     var userId:Int?

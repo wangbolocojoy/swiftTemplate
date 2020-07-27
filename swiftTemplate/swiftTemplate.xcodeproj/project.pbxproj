@@ -74,6 +74,7 @@
 		C43157EE2483DA810034A74E /* UserInfoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43157ED2483DA810034A74E /* UserInfoHelper.swift */; };
 		C43157F32483DF5B0034A74E /* TabHomeNovelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43157F12483DF5B0034A74E /* TabHomeNovelCell.swift */; };
 		C43157F42483DF5B0034A74E /* TabHomeNovelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C43157F22483DF5B0034A74E /* TabHomeNovelCell.xib */; };
+		C439A0FE24CF17C5003C0F03 /* KtUploadIdCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C439A0FD24CF17C5003C0F03 /* KtUploadIdCardViewController.swift */; };
 		C43FDF7B248E88C30023E3F2 /* TabFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43FDF7A248E88C30023E3F2 /* TabFriendsViewController.swift */; };
 		C43FDF7D248E89170023E3F2 /* TabDynamicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43FDF7C248E89170023E3F2 /* TabDynamicViewController.swift */; };
 		C44E81BE24A33AE9000BD888 /* BTMMyQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44E81BD24A33AE9000BD888 /* BTMMyQRCodeViewController.swift */; };
@@ -223,6 +224,7 @@
 		C43157ED2483DA810034A74E /* UserInfoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoHelper.swift; sourceTree = "<group>"; };
 		C43157F12483DF5B0034A74E /* TabHomeNovelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabHomeNovelCell.swift; sourceTree = "<group>"; };
 		C43157F22483DF5B0034A74E /* TabHomeNovelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabHomeNovelCell.xib; sourceTree = "<group>"; };
+		C439A0FD24CF17C5003C0F03 /* KtUploadIdCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtUploadIdCardViewController.swift; sourceTree = "<group>"; };
 		C43FDF7A248E88C30023E3F2 /* TabFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabFriendsViewController.swift; sourceTree = "<group>"; };
 		C43FDF7C248E89170023E3F2 /* TabDynamicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabDynamicViewController.swift; sourceTree = "<group>"; };
 		C44E81BD24A33AE9000BD888 /* BTMMyQRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTMMyQRCodeViewController.swift; sourceTree = "<group>"; };
@@ -508,6 +510,7 @@
 				C4BB74F024C91FAE003FFB01 /* KtAccountBlockViewController.swift */,
 				C4BB74FE24C9B138003FFB01 /* KtChoiceReportViewController.swift */,
 				C4BB750024C9B6AA003FFB01 /* KtEdReportViewController.swift */,
+				C439A0FD24CF17C5003C0F03 /* KtUploadIdCardViewController.swift */,
 			);
 			path = about;
 			sourceTree = "<group>";
@@ -955,6 +958,7 @@
 				C4DAA44624A6050C00BA6F7D /* KtFabulousTableViewCell.swift in Sources */,
 				C4070AA424A73871000819BD /* FacebookInputBar.swift in Sources */,
 				C4070A9C24A6F8A5000819BD /* KtInputView.swift in Sources */,
+				C439A0FE24CF17C5003C0F03 /* KtUploadIdCardViewController.swift in Sources */,
 				C402404E248394E200F715DC /* ext.swift in Sources */,
 				C43157EE2483DA810034A74E /* UserInfoHelper.swift in Sources */,
 				C4FDACB6249F4A9F0095F1E3 /* MySettingViewController.swift in Sources */,

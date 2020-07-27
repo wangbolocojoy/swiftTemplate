@@ -97,7 +97,7 @@ public enum NetworkService{
     //获取是否有最新的数据
     case getisnewpost(k:String)
         
-    case checkimages(K:Any,dataAry:NSArray)
+    case checkimages(K:String)
     //
     case getallusers(k:String)
     
@@ -259,26 +259,21 @@ extension NetworkService:Moya.TargetType{
                 formDataAry.add(formData)
             })
             return .uploadMultipart(formDataAry as! [MultipartFormData])
-        case .checkimages(let param, let uploadImages):
-            let formDataAry:NSMutableArray = NSMutableArray()
-                       for (index,image) in uploadImages.enumerated() {
-                           let data:Data = (image as! UIImage).compressImageMid(maxLength: 1024) ?? Data()
-                           let date:Date = Date()
-                           let formatter = DateFormatter()
-                           formatter.dateFormat = "yyyy-MM-dd-HH:mm:ss"
-                           var dateStr:String = formatter.string(from: date as Date)
-                           dateStr = dateStr.appendingFormat("-%i.png", index)
-                           let formData = MultipartFormData(provider: .data(data), name: "uploadFiles", fileName: dateStr, mimeType: "image/jpeg")
-                           formDataAry.add(formData)
-                       }
-                       let p1 = param as? [String:String]
-                       p1?.forEach({ (arg0) in
-                           let (key, value) = arg0
-                           let strData = value.data(using: .utf8)
-                           let formData = MultipartFormData(provider:.data(strData!), name: key)
-                           formDataAry.add(formData)
-                       })
-                       return .uploadMultipart(formDataAry as! [MultipartFormData])
+        case .checkimages(let image):
+            var params :[String:String]? = [:]
+            //应用标识（AppId）
+            params? ["app_id"] = ApiKey.default.TXAIAppid
+            //请求时间戳（秒级）
+            params? ["time_stamp"] = Date().timeStamp
+            //随机字符串
+            params? ["nonce_str"] = String.randomStr(len: 17)
+            //待识别图片
+            params? ["image"] = image
+            let sign = getReqSign(param: params ?? [:], appkey: ApiKey.default.TXAIAppKey)
+            //签名
+            params?["sign"] = sign
+            return .requestParameters(parameters: params ?? [:], encoding: URLEncoding.default)
+
         case .developerinfo:
             return .requestPlain
             
@@ -298,9 +293,38 @@ extension NetworkService:Moya.TargetType{
             return ["Content-type":"application/json","token":UserInfoHelper.instance.user?.token   ?? ""]
         }
     }
-    
+    func getReqSign(param:Dictionary<String, String>,appkey:String)->String{
+           let sortedKeys = Array(param.keys).sorted()
+           var str = ""
+           sortedKeys.forEach { (key) in
+             log.verbose("原始value\( param[key])")
+            log.verbose("转大写value\( param[key]?.uppercased())")
+            let value = param[key]?.uppercased() ?? ""
+            str = "\(key)=\(String(describing: value) ?? "")&"
+            log.verbose("\(key)=\(String(describing: value) ?? "")")
+           }
+           str = "\(str)app_key=\(appkey )"
+          log.verbose("str->  \(str)")
+           str = str.md5().uppercased()
+           log.verbose("腾讯接口签名->  \(str)")
+           return str
+       }
 }
 public extension Date{
+        /// 获取当前 秒级 时间戳 - 10位
+        var timeStamp : String {
+            let timeInterval: TimeInterval = self.timeIntervalSince1970
+            let timeStamp = Int(timeInterval)
+            return "\(timeStamp)"
+        }
+
+        /// 获取当前 毫秒级 时间戳 - 13位
+        var milliStamp : String {
+            let timeInterval: TimeInterval = self.timeIntervalSince1970
+            let millisecond = CLongLong(round(timeInterval*1000))
+            return "\(millisecond)"
+        }
+ 
     var date2String: String {
         let dateFormat:String = "yyyy-MM-dd HH:mm:ss"
         let formatter = DateFormatter()
@@ -372,6 +396,16 @@ public extension Date{
 public extension String {
     //日期 -> 字符串
     //字符串 -> 日期
+     static let random_str_characters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        static func randomStr(len : Int) -> String{
+            var ranStr = ""
+            for _ in 0..<len {
+                let index = Int(arc4random_uniform(UInt32(random_str_characters.count)))
+                ranStr.append(random_str_characters[random_str_characters.index(random_str_characters.startIndex, offsetBy: index)])
+            }
+            return ranStr
+        }
+   
     var string2DateString : String {
         let formatter1 = DateFormatter()
         formatter1.locale = Locale.init(identifier: "en_US")
@@ -417,4 +451,5 @@ extension String {
     
    
 }
+
 

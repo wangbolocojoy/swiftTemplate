@@ -21,7 +21,39 @@ class KtEdAuthenticationViewController: BaseViewController {
         tv_cardname.delegate = self
         
     }
-
+    
     @IBAction func saveusercard(_ sender: Any) {
+        
     }
+    
+    func checkAuthentica(json:String){
+        MyMoyaManager.AllRequest(controller: self, NetworkService.respsd(k: json)) { (data) in
+            
+        }
+    }
+}
+extension KtEdAuthenticationViewController:UITextFieldDelegate{
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+           switch textField {
+           case tv_cardid:
+               let maxLength = 18
+               let currentString: NSString = textField.text! as NSString
+               let newString: NSString =
+                   currentString.replacingCharacters(in: range, with: string) as NSString
+               return newString.length <= maxLength
+           case tv_cardname:
+               let maxLength = 8
+               let currentString: NSString = textField.text! as NSString
+               let newString: NSString =
+                   currentString.replacingCharacters(in: range, with: string) as NSString
+               return newString.length <= maxLength
+           default:
+               let maxLength = 1
+               let currentString: NSString = textField.text! as NSString
+               let newString: NSString =
+                   currentString.replacingCharacters(in: range, with: string) as NSString
+               return newString.length <= maxLength
+           }
+           
+       }
 }

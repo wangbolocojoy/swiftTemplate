@@ -39,6 +39,7 @@ enum MyController{
     case 举报原因
     case 填写举报信息
     case 实名认证
+    case 身份证上传
     
 }
 enum NavVc {
@@ -192,6 +193,10 @@ extension UIViewController{
         case .实名认证:
             let vc = otsb.instantiateViewController(withIdentifier: "KTEDAUTHENTICATIONVC") as! KtEdAuthenticationViewController
             return vc
+        case .身份证上传:
+            let vc = otsb.instantiateViewController(withIdentifier: "KYUPLOADIDCARDVC") as! KtUploadIdCardViewController
+            return vc
+            
         }
     }
 }
