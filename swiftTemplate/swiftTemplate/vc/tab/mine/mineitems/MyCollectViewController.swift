@@ -7,11 +7,8 @@
 //
 // MARK: - 我的收藏
 import UIKit
-import MJRefresh
 class MyCollectViewController: BaseViewController {
     lazy var list :[PostInfo]? = nil
-    let footer = MJRefreshBackFooter()
-    let header = MJRefreshNormalHeader()
     var type = 0
     var hasmore :Bool = false
     lazy var body = RequestBody()

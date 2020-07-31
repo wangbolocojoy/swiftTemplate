@@ -7,10 +7,7 @@
 //
 
 import UIKit
-import MJRefresh
 class KtFeekBackListViewController: BaseViewController {
-    let footer = MJRefreshBackFooter()
-    let header = MJRefreshNormalHeader()
     var type = 0
     lazy var body = RequestBody()
     lazy var list :[FeekBackInfo]? = nil

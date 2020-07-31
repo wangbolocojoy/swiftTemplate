@@ -11,8 +11,6 @@ import MJRefresh
 class KtAccountBlockViewController: BaseViewController {
     
     lazy var list : [UserInfo]? = []
-    let footer = MJRefreshBackFooter()
-    let header = MJRefreshNormalHeader()
     var pagebody = RequestBody()
     var type = 1
     var hasmore :Bool = true

@@ -11,8 +11,7 @@ import UIKit
 class CollectionViewLeftFlowLayout:  UICollectionViewFlowLayout {
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         guard let attrsArry = super.layoutAttributesForElements(in: rect) else {
-            return nil
-        }
+            return nil }
         for i in 0..<attrsArry.count {
             if i != attrsArry.count-1 {
                 let curAttr = attrsArry[i] //当前attr

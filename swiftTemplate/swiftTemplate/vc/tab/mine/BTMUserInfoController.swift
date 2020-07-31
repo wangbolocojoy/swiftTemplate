@@ -92,12 +92,12 @@ extension BTMUserInfoController:UITableViewDelegate,UITableViewDataSource{
                 vc.type = list[indexPath.item]
                 self.navigationController?.pushViewController(vc, animated: true)
             case 3:
-                let vc = getVcByName(vc: .实名认证) as! KtEdAuthenticationViewController
+                let vc = getVcByName(vc: .身份证上传) as! KtUploadIdCardViewController
                 self.navigationController?.pushViewController(vc, animated: true)
             case 4:
                 log.verbose("性别")
                 let vc = getVcByName(vc: .性别选择) as! KtSexPickerViewController
-                  vc.view.backgroundColor = .clear
+                vc.view.backgroundColor = .clear
                 vc.callBackBlock { (UserInfo) in
                     self.refresh()
                 }
@@ -109,7 +109,7 @@ extension BTMUserInfoController:UITableViewDelegate,UITableViewDataSource{
                     self.refresh()
                 }
                 self.present(vc, animated: true, completion: nil)
-                              
+                
             default:
                 log.verbose("\(list[indexPath.item])")
             }
@@ -253,35 +253,51 @@ extension BTMUserInfoController: UIImagePickerControllerDelegate ,UINavigationCo
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let img = info[UIImagePickerController.InfoKey.editedImage] as! UIImage
-        
-        let imgdata = img.compressImageMid(maxLength: 900)?.base64EncodedString()
-        
-        MyMoyaManager.AllRequest(controller: self, NetworkService.checkimages(K: imgdata ?? "adadsasd")) { (data) in
-            log.verbose(data.txdata?.toJSONString())
-        }
-//        let imglist :NSArray = [img]
-//        let param = ["id":"\(UserInfoHelper.instance.user?.id ?? 0)","uploadtype":"image"]
-//        MyMoyaManager.AllRequest(controller: self, NetworkService.uodateusericon(k: param, dataAry: imglist)) { (data) in
-//            UserInfoHelper.instance.user = data.userinfo
-//            self.refresh()
-//            self.ShowTip(Title: data.msg)
-//
-//        }
-        //            MoyaManager.updateusericon(controller: self, NetworkService.updateusericon(dataAry: imglist, USER_ID: String(describing: UserInfoHelper.instance.getUserId()), USER_TYPE: "USER_MEMBER", UP_TYPE: "MEMBER_HEAD_UPLOAD")) { (result) in
-        //                if let date = result{
         //
-        //                    self.imgmembericon.image = img
-        //                    UserInfoHelper.instance.Userdata?.memberAvatar = date.url
-        //                    self.imgurl = date.url
-        //                    self.Showalert(Title: "上传头像成功")
-        //                }
-        //            }
+        //        let imgdata = imageToBase64String(image: UIImage(data: img.compressImageMid(maxLength: 800)!)!   , headerSign:true )
+        //        let strurl = URL(string: "https://myiosandroidkotlinapplication.oss-cn-chengdu.aliyuncs.com/home/picture/1/2020-07-18-17%3A18%3A13-0.png")
+        //
+        //
+        //        MyMoyaManager.AllRequest(controller: self, NetworkService.checkimages(K: strurl?.absoluteString ?? "")) { (data) in
+        //            log.verbose(data.txdata?.toJSONString())
+        //        }
+        let imglist :NSArray = [img]
+        let param = ["id":"\(UserInfoHelper.instance.user?.id ?? 0)","uploadtype":"image"]
+        MyMoyaManager.AllRequest(controller: self, NetworkService.updateusericon(k: param, dataAry: imglist)) { (data) in
+            UserInfoHelper.instance.user = data.userinfo
+            self.refresh()
+            self.ShowTip(Title: data.msg)
+            
+        }
+        //                    MoyaManager.updateusericon(controller: self, NetworkService.updateusericon(dataAry: imglist, USER_ID: String(describing: UserInfoHelper.instance.getUserId()), USER_TYPE: "USER_MEMBER", UP_TYPE: "MEMBER_HEAD_UPLOAD")) { (result) in
+        //                        if let date = result{
+        //
+        //                            self.imgmembericon.image = img
+        //                            UserInfoHelper.instance.Userdata?.memberAvatar = date.url
+        //                            self.imgurl = date.url
+        //                            self.Showalert(Title: "上传头像成功")
+        //                        }
+        //                    }
         self.pickVC.dismiss(animated: true, completion: nil)
         
         
     }
     
-    
+    func imageToBase64String(image:UIImage,headerSign:Bool = false)->String?{
+        
+        ///根据图片得到对应的二进制编码
+        guard let imageData = image.pngData() else {
+            return nil
+        }
+        ///根据二进制编码得到对应的base64字符串
+        var base64String = imageData.base64EncodedString()
+        ///判断是否带有头部base64标识信息
+        if headerSign {
+            ///根据格式拼接数据头 添加header信息，扩展名信息
+            base64String = "data:image/png;base64," + base64String
+        }
+        return base64String
+    }
     
 }
 

@@ -13,8 +13,6 @@ class KtFabulousViewController: BaseViewController {
     var postinfo :PostInfo? = nil
     @IBOutlet weak var tableview: UITableView!
     lazy var body = RequestBody()
-    let footer = MJRefreshBackFooter()
-    let header = MJRefreshNormalHeader()
     var type = 0
     var hasmore :Bool = false
     override func viewDidLoad() {

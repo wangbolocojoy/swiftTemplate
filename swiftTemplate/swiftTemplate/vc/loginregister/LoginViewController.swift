@@ -104,10 +104,10 @@ class LoginViewController: BaseTabViewController {
         body.password = password?.md5()
         MyMoyaManager.AllRequest(controller: self, NetworkService.login(k: body.toJSONString()!)) { (data) in
             if KeychainManager.User.SaveByIdentifier(data: data.userinfo?.toJSONString() ?? "", forKey: .UserInfo) {
-                if data.userinfo?.isItBanned ?? false  == true  || data.userinfo == nil{
+                 UserInfoHelper.instance.user = data.userinfo
+                if data.userinfo?.isbanned ?? false  == true  || data.userinfo == nil{
                                    self.ShowTip(Title: data.msg ?? "该账号已被封禁")
                                }else{
-                                   UserInfoHelper.instance.user = data.userinfo
                                    self.gotoMainVC()
                                }
             }

@@ -99,7 +99,7 @@ class CoreDataManager {
                             postimageModel.fileType = PostImages.fileType ?? "image/jpeg"
                             postimageModel.userId = PostImages.userId?.int32 ?? 0
                             postModel.addToPostImages(postimageModel)
-                            
+                             
                         })
                         log.verbose("新增帖子")
                         self.saveContext()

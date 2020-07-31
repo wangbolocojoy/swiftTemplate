@@ -27,6 +27,7 @@ class BaseResponse: Mappable {
     var feekbacklist:[FeekBackInfo]?
     var ret:Int?
     var txdata:TxData?
+    var useridcard:UserIdCard?
     required init?(map: Map) {
     }
     func mapping(map: Map) {
@@ -48,7 +49,47 @@ class BaseResponse: Mappable {
         feekbacklist <- map["data"]
         ret <- map["ret"]
         txdata <- map["data"]
+        useridcard <- map["data"]
     }
+    
+}
+class UserIdCard: Mappable {
+    var id: Int?
+    var userId: Int?
+    var name:String?  //姓名（人像面）
+    var sex:String?  //性别（人像面）
+    var nation:String? //    民族（人像面）
+    var birth:String?  //出生日期（人像面）
+    var address:String?  //地址（人像面）
+    var idNum:String? //身份证号（人像面）
+    var authority:String?  //发证机关（国徽面）
+    var startDate:String?  //证件有效期（国徽面）
+    var endDate:String?  //证件有效期（国徽面）
+    var frontIdCard:String? //身份证正面
+    var nationalIdCard:String? //身份证反面
+    var authentication :Bool?
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        id <- map["id"]
+        userId <- map["userId"]
+        name <- map["name"]
+        sex <- map["sex"]
+        nation <- map["nation"]
+        birth <- map["birth"]
+        address <- map["address"]
+        idNum <- map["idNum"]
+        authority <- map["authority"]
+        startDate <- map["startDate"]
+        endDate <- map["endDate"]
+        frontIdCard <- map["frontIdCard"]
+        nationalIdCard <- map["nationalIdCard"]
+        authentication <- map["authentication"]
+        
+    }
+    
     
 }
 class TxData: Mappable {
@@ -318,9 +359,9 @@ class UserInfo: Mappable {
     var creatTime:Date?
     var province:String?
     var city:String?
-    var isItBanned:Bool?
-    var isAdministrators:Bool?
-    var isAuthentication:Bool?
+    var isbanned:Bool?
+    var administrators:Bool?
+    var authentication:Bool?
     var isselectid:Bool?
     required init?(map: Map) {
     }
@@ -346,9 +387,9 @@ class UserInfo: Mappable {
         creatTime <- map["creatTime"]
         province <- map["province"]
         city <- map["city"]
-        isItBanned <- map["isItBanned"]
-        isAdministrators <- map["isAdministrators"]
-        isAuthentication <- map["isAuthentication"]
+        isbanned <- map["isbanned"]
+        administrators <- map["administrators"]
+        authentication <- map["authentication"]
         isselectid <- map["isselectid"]
     }
     

@@ -7,11 +7,14 @@
 //
 // MARK: - Vc基类
 import UIKit
-
+import MJRefresh
 class BaseViewController: UIViewController ,UIGestureRecognizerDelegate{
-    
+    let footer = MJRefreshBackFooter()
+    let header = MJRefreshNormalHeader()
     override func viewDidLoad() {
         super.viewDidLoad()
+        header.lastUpdatedTimeLabel?.isHidden = false
+        header.stateLabel?.isHidden = false
         BaseinitView()
         
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self

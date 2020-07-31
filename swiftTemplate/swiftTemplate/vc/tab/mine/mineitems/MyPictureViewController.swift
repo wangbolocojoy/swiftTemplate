@@ -7,10 +7,7 @@
 //
 // MARK: - 我的图片
 import UIKit
-import MJRefresh
 class MyPictureViewController: BaseViewController {
-    let footer = MJRefreshBackFooter()
-    let header = MJRefreshNormalHeader()
     lazy var list :[PostImages]? = nil
     var pagebody = RequestBody()
     var type = 1
@@ -26,8 +23,8 @@ class MyPictureViewController: BaseViewController {
         collectionview.dataSource = self
         collectionview.collectionViewLayout = CollectionViewLeftFlowLayout()
         collectionview.register(UINib(nibName: KtMyPuctureCollectionViewCell.reuseID, bundle: nil), forCellWithReuseIdentifier: KtMyPuctureCollectionViewCell.reuseID)
-        header.setRefreshingTarget(self, refreshingAction: #selector(refresh))
-        collectionview.mj_header = header
+        self.header.setRefreshingTarget(self, refreshingAction: #selector(refresh))
+        collectionview.mj_header = self.header
         footer.setRefreshingTarget(self, refreshingAction: #selector(getMore))
         collectionview.mj_footer = footer
         pagebody.pageSize = 20

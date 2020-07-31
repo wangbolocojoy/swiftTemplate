@@ -10,8 +10,6 @@ import UIKit
 import MJRefresh
 class KtExaminePostViewController: BaseViewController {
     lazy var list :[PostInfo]? = []
-    let footer = MJRefreshBackFooter()
-    let header = MJRefreshNormalHeader()
     var pagebody = RequestBody()
     var type = 1
     var hasmore :Bool = true

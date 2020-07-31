@@ -114,6 +114,7 @@ extension KeychainManager{
                case 私钥
                case token
                case userid
+               case IDCARD
             case currentUserIdentifier
            }
        }

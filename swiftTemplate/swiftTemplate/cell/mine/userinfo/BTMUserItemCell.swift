@@ -33,7 +33,7 @@ class BTMUserItemCell: UITableViewCell {
         case "真实姓名":
             item_value.text = user?.realName ?? ""
         case "实名认证":
-            if user?.isAuthentication ?? false{
+            if user?.authentication ?? false{
                 item_value.text = "已认证"
             }else{
                 item_value.text = "未认证"

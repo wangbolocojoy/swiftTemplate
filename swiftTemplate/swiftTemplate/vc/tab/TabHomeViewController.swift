@@ -15,7 +15,7 @@ class TabHomeViewController: BaseTabViewController {
     var type = 1
     var hasmore :Bool = true
     @IBOutlet weak var tableview: UITableView!
-     
+   
     override func viewDidLoad() {
         super.viewDidLoad()
          
@@ -51,7 +51,12 @@ class TabHomeViewController: BaseTabViewController {
         
     }
     @IBAction func btnsendpost(_ sender: Any) {
-        self.navigationController?.pushViewController(self.getVcByName(vc: .发帖), animated: true)
+        if UserInfoHelper.instance.user?.authentication ?? false {
+             self.navigationController?.pushViewController(self.getVcByName(vc: .发帖), animated: true)
+        }else{
+            self.navigationController?.pushViewController(self.getVcByName(vc: .身份证上传), animated: true)
+        }
+       
     }
     func getPosts(body:RequestBody){
         MyMoyaManager.AllRequestNospinner(controller: self, NetworkService.getposts(k: body.toJSONString()!)) { (data) in

@@ -10,8 +10,7 @@ import UIKit
 import MJRefresh
 
 class BTMMyPostViewController: BaseViewController {
-    let footer = MJRefreshBackFooter()
-    let header = MJRefreshNormalHeader()
+   
     var pagebody = RequestBody()
     lazy var list:[PostInfo]? = nil
     var vcname = "我的主页"

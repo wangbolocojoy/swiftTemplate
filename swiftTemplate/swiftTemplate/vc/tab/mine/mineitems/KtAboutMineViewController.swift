@@ -40,7 +40,7 @@ extension KtAboutMineViewController:UITableViewDelegate,UITableViewDataSource{
         case 0:
             return 1
         case 1:
-            if user?.phone ?? "0" == "13550247642" || user?.isAdministrators ?? false{
+            if user?.phone ?? "0" == "13550247642" || user?.administrators ?? false{
                 return list1.count
             }else{
                 return list.count

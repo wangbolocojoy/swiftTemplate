@@ -23,7 +23,7 @@ public enum NetworkService{
     //搜索小说
     case searchnovel(k:String)
     //更新用户头像
-    case uodateusericon(k:Any,dataAry:NSArray)
+    case updateusericon(k:Any,dataAry:NSArray)
     //更新用户信息
     case updateuserinfo(k:String)
     //获取用户信息
@@ -96,10 +96,11 @@ public enum NetworkService{
     case getfeekbacklist(k:String)
     //获取是否有最新的数据
     case getisnewpost(k:String)
-        
+    
     case checkimages(K:String)
     //
     case getallusers(k:String)
+    case uploadidcard(k:Any,dataAry:NSArray)
     
 }
 extension NetworkService:Moya.TargetType{
@@ -108,12 +109,12 @@ extension NetworkService:Moya.TargetType{
         switch self {
         case .checkimages:
             let api = ApiKey.default.TXAiApi
-                   return URL(string: api )!
+            return URL(string: api )!
         default:
             let api = ApiKey.default.BaseApi
-                              return URL(string: api )!
+            return URL(string: api )!
         }
-       
+        
     }
     //MARK: - 请求地址
     public var path: String {
@@ -128,7 +129,7 @@ extension NetworkService:Moya.TargetType{
             return "myApplication/cas/getPageNovelList"
         case .searchnovel:
             return "myApplication/cas/searchNovel"
-        case .uodateusericon:
+        case .updateusericon:
             return "swiftTemplate/User/uploadusericon"
         case .updateuserinfo:
             return "swiftTemplate/User/updateUser"
@@ -181,15 +182,15 @@ extension NetworkService:Moya.TargetType{
         case .getusermsgs:
             return "swiftTemplate/Message/getUserMessages"
         case .respsd:
-           return "swiftTemplate/User/updatePassWord"
+            return "swiftTemplate/User/updatePassWord"
         case .msgstart:
-             return "swiftTemplate/Message/startMassage"
+            return "swiftTemplate/Message/startMassage"
         case .msgunstart:
-             return "swiftTemplate/Message/unStartMassage"
+            return "swiftTemplate/Message/unStartMassage"
         case .developerinfo:
-             return "swiftTemplate/User/getDeveloperInfo"
+            return "swiftTemplate/User/getDeveloperInfo"
         case .sendfeekback:
-             return "swiftTemplate/User/sendFeedBack"
+            return "swiftTemplate/User/sendFeedBack"
         case .getfeekbacklist:
             return "swiftTemplate/User/getFeedBack"
         case .getisnewpost:
@@ -197,17 +198,19 @@ extension NetworkService:Moya.TargetType{
         case .checkimages:
             return "fcgi-bin/vision/vision_porn"
         case .getmyallposts:
-             return "swiftTemplate/Post/getMyPosts"
+            return "swiftTemplate/Post/getMyPosts"
         case .updateposts:
-             return "swiftTemplate/Post/updatePosts"
+            return "swiftTemplate/Post/updatePosts"
         case .reportpostbypostd:
-             return "swiftTemplate/Post/reportPostByPostId"
+            return "swiftTemplate/Post/reportPostByPostId"
         case .getreportlist:
-             return "swiftTemplate/Post/getReportList"
+            return "swiftTemplate/Post/getReportList"
         case .getexamineList:
-             return "swiftTemplate/Post/getExamineList"
+            return "swiftTemplate/Post/getExamineList"
         case .getallusers:
             return "swiftTemplate/User/getAllUser"
+        case .uploadidcard:
+            return "swiftTemplate/User/uploadIdCard"
         }
         
     }
@@ -225,7 +228,7 @@ extension NetworkService:Moya.TargetType{
         case .login(let data),.register(let data),.getmsg(let data),.tabhome(let data),.searchnovel(let data),.updateuserinfo(let data),.followuser(let data),.unfollowuser(let data),.getfancelist(let data),.getfollowlist(let data),.finduser(let data),.findrecommendlist(let data),.sendpost(let data),.getposts(let data),.getuserposts(let data),.deletspost(let data),.getuserinfo(let data),.poststart(let data),.postunstart(let data),.getpoststartlist(let data),.collection(let data),.cancelcollection(let data),.getcollectionlist(let data),.getuserstartlist(let data),.sendcomment(let data),.commentlist(let data),.deletecomment(let data),.getallimasges(let data),.getusermsgs(let data),.respsd(let data),.msgstart(let data),.msgunstart(let data),.sendfeekback(let data),.getfeekbacklist(let data),.getisnewpost(let data),.getmyallposts(let data),.updateposts(let data),.reportpostbypostd(let data),.getreportlist(let data),.getexamineList(let data),.getallusers(let data):
             return  .requestData(data.utf8Encoded)
             
-        case .uodateusericon(let param, let uploadImages):
+        case .updateusericon(let param, let uploadImages),.uploadidcard(let param, let uploadImages):
             let formDataAry:NSMutableArray = NSMutableArray()
             for (index,image) in uploadImages.enumerated() {
                 let data:Data = (image as! UIImage).compressImageMid(maxLength: 2048) ?? Data()
@@ -268,12 +271,13 @@ extension NetworkService:Moya.TargetType{
             //随机字符串
             params? ["nonce_str"] = String.randomStr(len: 17)
             //待识别图片
-            params? ["image"] = image
+            params? ["image_url"] = image
             let sign = getReqSign(param: params ?? [:], appkey: ApiKey.default.TXAIAppKey)
             //签名
+            
             params?["sign"] = sign
             return .requestParameters(parameters: params ?? [:], encoding: URLEncoding.default)
-
+            
         case .developerinfo:
             return .requestPlain
             
@@ -285,7 +289,7 @@ extension NetworkService:Moya.TargetType{
     // MARK: - 请求HEADER
     public var headers: [String : String]? {
         switch self {
-        case .upLoadFiles,.uodateusericon:
+        case .upLoadFiles,.updateusericon,.uploadidcard:
             let boundary = String(format: "boundary.%08x%08x", arc4random(), arc4random())
             let contentType = String(format: "multipart/form-data;boundary=%@", boundary)
             return ["Content-type":contentType,"token":UserInfoHelper.instance.user?.token  ?? ""]
@@ -294,37 +298,37 @@ extension NetworkService:Moya.TargetType{
         }
     }
     func getReqSign(param:Dictionary<String, String>,appkey:String)->String{
-           let sortedKeys = Array(param.keys).sorted()
-           var str = ""
-           sortedKeys.forEach { (key) in
-             log.verbose("原始value\( param[key])")
-            log.verbose("转大写value\( param[key]?.uppercased())")
+        log.verbose("param.keys\(param.keys)")
+        let sortedKeys = Array(param.keys).sorted()
+        log.verbose("sortedKeys\(sortedKeys)")
+        var str = ""
+        sortedKeys.forEach { (key) in
             let value = param[key]?.uppercased() ?? ""
             str = "\(key)=\(String(describing: value) ?? "")&"
             log.verbose("\(key)=\(String(describing: value) ?? "")")
-           }
-           str = "\(str)app_key=\(appkey )"
-          log.verbose("str->  \(str)")
-           str = str.md5().uppercased()
-           log.verbose("腾讯接口签名->  \(str)")
-           return str
-       }
+        }
+        str = "\(str)app_key=\(appkey )"
+        log.verbose("str->  \(str)")
+        str = str.md5().uppercased()
+        log.verbose("腾讯接口签名->  \(str)")
+        return str
+    }
 }
 public extension Date{
-        /// 获取当前 秒级 时间戳 - 10位
-        var timeStamp : String {
-            let timeInterval: TimeInterval = self.timeIntervalSince1970
-            let timeStamp = Int(timeInterval)
-            return "\(timeStamp)"
-        }
-
-        /// 获取当前 毫秒级 时间戳 - 13位
-        var milliStamp : String {
-            let timeInterval: TimeInterval = self.timeIntervalSince1970
-            let millisecond = CLongLong(round(timeInterval*1000))
-            return "\(millisecond)"
-        }
- 
+    /// 获取当前 秒级 时间戳 - 10位
+    var timeStamp : String {
+        let timeInterval: TimeInterval = self.timeIntervalSince1970
+        let timeStamp = Int(timeInterval)
+        return "\(timeStamp)"
+    }
+    
+    /// 获取当前 毫秒级 时间戳 - 13位
+    var milliStamp : String {
+        let timeInterval: TimeInterval = self.timeIntervalSince1970
+        let millisecond = CLongLong(round(timeInterval*1000))
+        return "\(millisecond)"
+    }
+    
     var date2String: String {
         let dateFormat:String = "yyyy-MM-dd HH:mm:ss"
         let formatter = DateFormatter()
@@ -396,16 +400,16 @@ public extension Date{
 public extension String {
     //日期 -> 字符串
     //字符串 -> 日期
-     static let random_str_characters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        static func randomStr(len : Int) -> String{
-            var ranStr = ""
-            for _ in 0..<len {
-                let index = Int(arc4random_uniform(UInt32(random_str_characters.count)))
-                ranStr.append(random_str_characters[random_str_characters.index(random_str_characters.startIndex, offsetBy: index)])
-            }
-            return ranStr
+    static let random_str_characters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    static func randomStr(len : Int) -> String{
+        var ranStr = ""
+        for _ in 0..<len {
+            let index = Int(arc4random_uniform(UInt32(random_str_characters.count)))
+            ranStr.append(random_str_characters[random_str_characters.index(random_str_characters.startIndex, offsetBy: index)])
         }
-   
+        return ranStr
+    }
+    
     var string2DateString : String {
         let formatter1 = DateFormatter()
         formatter1.locale = Locale.init(identifier: "en_US")
@@ -417,15 +421,15 @@ public extension String {
         return formatter.string(from: date)
     }
     var string2DateMMdd : String {
-           let formatter1 = DateFormatter()
-           formatter1.locale = Locale.init(identifier: "en_US")
-           formatter1.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSz"
-           let date = formatter1.date(from: self) ?? Date()
-           let formatter = DateFormatter()
-           formatter.locale = Locale.init(identifier: "zh_CN")
-           formatter.dateFormat = "MM-dd HH:mm:ss"
-           return formatter.string(from: date)
-       }
+        let formatter1 = DateFormatter()
+        formatter1.locale = Locale.init(identifier: "en_US")
+        formatter1.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSz"
+        let date = formatter1.date(from: self) ?? Date()
+        let formatter = DateFormatter()
+        formatter.locale = Locale.init(identifier: "zh_CN")
+        formatter.dateFormat = "MM-dd HH:mm:ss"
+        return formatter.string(from: date)
+    }
     var urlEscaped: String {
         return addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
     }
@@ -448,8 +452,6 @@ extension String {
         free(result)
         return String(format: hash as String)
     }
-    
-   
 }
 
 

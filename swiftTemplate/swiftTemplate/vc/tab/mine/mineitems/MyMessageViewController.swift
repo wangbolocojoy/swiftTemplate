@@ -7,10 +7,8 @@
 //
 // MARK: - 我的评论
 import UIKit
-import MJRefresh
+
 class MyMessageViewController: BaseViewController {
-    let footer = MJRefreshBackFooter()
-    let header = MJRefreshNormalHeader()
     lazy var list :[PostMessage]? = nil
     var pagebody = RequestBody()
     var type = 1

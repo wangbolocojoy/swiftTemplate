@@ -13,8 +13,6 @@ class FancesInfoViewController: BaseViewController {
     var userId :Int? = nil
     var otherId :Int? = 0
     var userinfo :UserInfo? = nil
-    let footer = MJRefreshBackFooter()
-    let header = MJRefreshNormalHeader()
     lazy var list :[PostInfo]? = nil
     var pagebody = RequestBody()
     var type = 1

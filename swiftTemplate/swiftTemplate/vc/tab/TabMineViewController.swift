@@ -54,8 +54,17 @@ class TabMineViewController: BaseTabViewController {
         let body = RequestBody()
         body.id = user?.id ?? 0
         MyMoyaManager.AllRequest(controller: self, NetworkService.getuserinfo(k: body.toJSONString() ?? "")) { (data) in
-            
             UserInfoHelper.instance.user = data.userinfo
+            if  data.userinfo?.isbanned ?? false {
+                self.ShowTip(Title: "该账号已被封禁")
+                UIView.animate(withDuration: self.time, animations:{ }, completion: { (true) in
+                                        let tranststion =  CATransition()
+                                        tranststion.duration = self.time
+                                        tranststion.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
+                                        UIApplication.shared.windows[0].layer.add(tranststion, forKey: "animation")
+                                        UIApplication.shared.windows[0].rootViewController = self.getloginVc()
+                                    })
+            }
             
             self.tableview.reloadData()
         }

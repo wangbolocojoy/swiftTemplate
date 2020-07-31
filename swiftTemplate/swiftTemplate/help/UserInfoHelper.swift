@@ -26,5 +26,24 @@ class UserInfoHelper {
        
         
     }
+    
+    
   
+}
+class IDCardHelper {
+    static let `default` = IDCardHelper()
+    var _IDCardDTO:UserIdCard?
+    var IDCardDTO:UserIdCard? {
+           get{
+               return _IDCardDTO
+           }
+           set{
+               _IDCardDTO = newValue
+              let _ = KeychainManager.User.UpdataByIdentifier(data: _IDCardDTO?.toJSONString() ?? "", forKey: .IDCARD)
+           }
+       }
+    private init() {
+           let str = KeychainManager.User.ReadDataByIdentifier(forKey: .IDCARD) as? String
+               _IDCardDTO =  UserIdCard(JSONString: str ?? "")
+       }
 }

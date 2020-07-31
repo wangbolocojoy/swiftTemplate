@@ -13,7 +13,6 @@ import Alamofire
 
 private func endpointMapping<Target: TargetType>(target: Target) -> Endpoint {
     log.verbose("Moya请求连接：____   \(target.baseURL)/\(target.path)   ___________   \(target.method)")
-    
     return MoyaProvider.defaultEndpointMapping(for: target)
 }
 private let requestClosure = { (endpoint: Endpoint, done: MoyaProvider.RequestResultClosure) in
@@ -62,7 +61,6 @@ private func moyascratyManager() -> Manager?{
           
     let policies : [String:ServerTrustPolicy] = ["90btm": ServerTrustPolicy.pinCertificates(certificates: certificates, validateCertificateChain: true, validateHost: true )]
             manager = Manager(configuration: configuration, serverTrustPolicyManager: ServerTrustPolicyManager(policies: policies))
-    
     }
     return manager
 }
@@ -84,10 +82,18 @@ struct MyMoyaManager{
                         log.verbose(u)
                         if u.status ?? 0 == 200{
                             successCallback(u)
-                            
                         }else if u.status ?? 0 == 500{
                             controller.ShowTip(Title: u.message ?? u.msg ?? "请求失败")
                             log.warning(u.toJSONString() ?? "")
+                        }else if u.status ?? 0 == 434 || u.status ?? 0 == 454{
+                            controller.ShowTip(Title: u.msg ?? u.message ?? "token验证失败")
+                            UIView.animate(withDuration: 0.2, animations:{ }, completion: { (true) in
+                                let tranststion =  CATransition()
+                                tranststion.duration = 0.2
+                                tranststion.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
+                                UIApplication.shared.windows[0].layer.add(tranststion, forKey: "animation")
+                                UIApplication.shared.windows[0].rootViewController = controller.getloginVc()
+                            })
                         }else{
                             controller.ShowTip(Title: u.msg ?? "请求失败")
                              log.warning(u.toJSONString() ?? "")
@@ -121,17 +127,23 @@ struct MyMoyaManager{
                 do {
                     let data = try response.mapJSON() as! [String:Any]
                     if let u = BaseResponse(JSON: data){
-                        
                         if u.status ?? 0 == 200{
                             successCallback(u)
-                            
                         }else if u.status ?? 0 == 500{
-                                                         
                              log.warning(u.toJSONString() ?? "")
-                        }else if u.status ?? 0 == 434{
+                        }else if u.status ?? 0 == 434 || u.status ?? 0 == 454{
+                            controller.ShowTip(Title: u.msg ?? u.message ?? "token验证失败")
+                            UIView.animate(withDuration: 0.2, animations:{ }, completion: { (true) in
+                                                           let tranststion =  CATransition()
+                                                           tranststion.duration = 0.2
+                                                           tranststion.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
+                                                           UIApplication.shared.windows[0].layer.add(tranststion, forKey: "animation")
+                                                           UIApplication.shared.windows[0].rootViewController = controller.getloginVc()
+                                                       })
+                            log.error(u.toJSONString() ?? "")
+                        }else  {
                             
-                            
-                              log.warning(u.toJSONString() ?? "")
+                                                        log.warning(u.toJSONString() ?? "")
                         }
                     }else{
                         log.warning(data.debugDescription )
