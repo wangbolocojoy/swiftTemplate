@@ -184,6 +184,12 @@
                                     <constraint firstAttribute="width" constant="200" id="31Z-Wa-RoB"/>
                                     <constraint firstAttribute="height" constant="100" id="eEN-96-2hz"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="身份证背面 (1)" translatesAutoresizingMaskIntoConstraints="NO" id="Ffg-4N-7GK">
                                 <rect key="frame" x="107" y="236" width="200" height="100"/>
@@ -191,6 +197,12 @@
                                     <constraint firstAttribute="width" constant="200" id="Opu-tA-bs3"/>
                                     <constraint firstAttribute="height" constant="100" id="sT2-EQ-M5v"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="身份证正面：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCc-JN-VW5">
                                 <rect key="frame" x="15" y="59" width="61.5" height="12"/>

@@ -161,7 +161,7 @@ extension KtUploadIdCardViewController: UIImagePickerControllerDelegate ,UINavig
         }
         let param = ["userId":"\(UserInfoHelper.instance.user?.id ?? 0)","uploadType":imagetype]
         MyMoyaManager.AllRequest(controller: self, NetworkService.uploadidcard(k: param, dataAry: imglist)) { (data) in
-            IDCardHelper.default.IDCardDTO = data.useridcard
+           let _ = KeychainManager.User.SaveByIdentifier(data: data.useridcard?.toJSONString() ?? nil ?? "", forKey: .IDCARD)
             if data.useridcard?.authentication ?? false {
                 self.user?.authentication = data.useridcard?.authentication
                 UserInfoHelper.instance.user = self.user
