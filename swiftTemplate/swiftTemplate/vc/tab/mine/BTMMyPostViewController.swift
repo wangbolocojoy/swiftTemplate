@@ -23,7 +23,6 @@ class BTMMyPostViewController: BaseViewController {
     }
     override func initView() {
         title = vcname
-        
         tableview.delegate = self
         tableview.dataSource = self
         tableview.separatorStyle = .none
@@ -31,7 +30,6 @@ class BTMMyPostViewController: BaseViewController {
         if vcname == "我的主页" {
             self.navigationItem.setRightBarButton(UIBarButtonItem(title: "发帖", style: .done, target: self, action: #selector(toSendPost)), animated: true)
         }
-        
         header.setRefreshingTarget(self, refreshingAction: #selector(refresh))
         header.setTitle("下拉刷新", for: .idle)
         tableview.mj_header = header
@@ -41,7 +39,12 @@ class BTMMyPostViewController: BaseViewController {
         getpost(json: pagebody.toJSONString() ?? "")
     }
     @objc func toSendPost(){
-        self.navigationController?.pushViewController(getVcByName(vc: .发帖), animated: true)
+        if UserInfoHelper.instance.user?.authentication ?? false {
+             self.navigationController?.pushViewController(getVcByName(vc: .发帖), animated: true)
+        }else{
+            self.navigationController?.pushViewController(getVcByName(vc: .身份证上传), animated: true)
+        }
+       
     }
     
     @objc func refresh(){
