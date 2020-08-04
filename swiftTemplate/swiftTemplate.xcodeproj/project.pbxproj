@@ -59,6 +59,8 @@
 		C422FB4724B0822D006AC5CA /* KtMyPuctureCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C422FB4524B0822D006AC5CA /* KtMyPuctureCollectionViewCell.xib */; };
 		C422FB4924B1ABB7006AC5CA /* KtMessageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C422FB4824B1ABB7006AC5CA /* KtMessageHeader.swift */; };
 		C422FB4B24B1ABC6006AC5CA /* KtMessageHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = C422FB4A24B1ABC6006AC5CA /* KtMessageHeader.xib */; };
+		C430AA9024D44A6D0008D5C9 /* RainbowRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C430AA8F24D44A6D0008D5C9 /* RainbowRing.swift */; };
+		C430AA9224D44B5D0008D5C9 /* RainbowRing.xib in Resources */ = {isa = PBXBuildFile; fileRef = C430AA9124D44B5D0008D5C9 /* RainbowRing.xib */; };
 		C43157CF2483994F0034A74E /* CALayer+MyColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C43157CE2483994F0034A74E /* CALayer+MyColor.m */; };
 		C43157D3248399FE0034A74E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43157D2248399FE0034A74E /* BaseViewController.swift */; };
 		C43157D524839AC30034A74E /* BaseTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43157D424839AC30034A74E /* BaseTabViewController.swift */; };
@@ -90,6 +92,7 @@
 		C44E81DC24A47097000BD888 /* KtMyMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44E81DB24A47097000BD888 /* KtMyMapViewController.swift */; };
 		C44F284024A9B21500E16123 /* apphttps.cer in Resources */ = {isa = PBXBuildFile; fileRef = C44F283F24A9B21400E16123 /* apphttps.cer */; };
 		C44F284224A9C7FF00E16123 /* KtDatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44F284124A9C7FF00E16123 /* KtDatePickerViewController.swift */; };
+		C481B1F624D9720C00B91162 /* KtMySettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C481B1F524D9720C00B91162 /* KtMySettingViewController.swift */; };
 		C4AEB30024985F9D00196DAE /* SendPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEB2FF24985F9D00196DAE /* SendPostViewController.swift */; };
 		C4AEB304249863EF00196DAE /* UploadImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEB302249863EF00196DAE /* UploadImageCollectionViewCell.swift */; };
 		C4AEB305249863EF00196DAE /* UploadImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4AEB303249863EF00196DAE /* UploadImageCollectionViewCell.xib */; };
@@ -126,6 +129,8 @@
 		C4BED6F224C23DAB004D4C9C /* KtMineNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BED6F124C23DAB004D4C9C /* KtMineNavigationController.swift */; };
 		C4BED6F424C23DCE004D4C9C /* KtFriendNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BED6F324C23DCE004D4C9C /* KtFriendNavigationController.swift */; };
 		C4BED6F624C23DE7004D4C9C /* KtDynamicNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BED6F524C23DE7004D4C9C /* KtDynamicNavigationController.swift */; };
+		C4CC127024D79B4F0079204C /* KtNeedLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CC126F24D79B4F0079204C /* KtNeedLoginView.swift */; };
+		C4CC127224D79B5A0079204C /* KtNeedLoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4CC127124D79B5A0079204C /* KtNeedLoginView.xib */; };
 		C4D2874424A8ADFD0065F497 /* KtMyCollectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D2874224A8ADFC0065F497 /* KtMyCollectCell.swift */; };
 		C4D2874524A8ADFD0065F497 /* KtMyCollectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4D2874324A8ADFC0065F497 /* KtMyCollectCell.xib */; };
 		C4DAA44324A5FDC700BA6F7D /* MyCollectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DAA44224A5FDC700BA6F7D /* MyCollectViewController.swift */; };
@@ -209,6 +214,8 @@
 		C422FB4524B0822D006AC5CA /* KtMyPuctureCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KtMyPuctureCollectionViewCell.xib; sourceTree = "<group>"; };
 		C422FB4824B1ABB7006AC5CA /* KtMessageHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtMessageHeader.swift; sourceTree = "<group>"; };
 		C422FB4A24B1ABC6006AC5CA /* KtMessageHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KtMessageHeader.xib; sourceTree = "<group>"; };
+		C430AA8F24D44A6D0008D5C9 /* RainbowRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowRing.swift; sourceTree = "<group>"; };
+		C430AA9124D44B5D0008D5C9 /* RainbowRing.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RainbowRing.xib; sourceTree = "<group>"; };
 		C43157CC2483991E0034A74E /* swiftTemplate-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "swiftTemplate-Bridging-Header.h"; sourceTree = "<group>"; };
 		C43157CE2483994F0034A74E /* CALayer+MyColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CALayer+MyColor.m"; sourceTree = "<group>"; };
 		C43157D0248399690034A74E /* CALayer+MyColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CALayer+MyColor.h"; sourceTree = "<group>"; };
@@ -242,6 +249,7 @@
 		C44E81DB24A47097000BD888 /* KtMyMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtMyMapViewController.swift; sourceTree = "<group>"; };
 		C44F283F24A9B21400E16123 /* apphttps.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = apphttps.cer; sourceTree = "<group>"; };
 		C44F284124A9C7FF00E16123 /* KtDatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtDatePickerViewController.swift; sourceTree = "<group>"; };
+		C481B1F524D9720C00B91162 /* KtMySettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtMySettingViewController.swift; sourceTree = "<group>"; };
 		C4AEB2FF24985F9D00196DAE /* SendPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendPostViewController.swift; sourceTree = "<group>"; };
 		C4AEB302249863EF00196DAE /* UploadImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		C4AEB303249863EF00196DAE /* UploadImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UploadImageCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -278,6 +286,8 @@
 		C4BED6F124C23DAB004D4C9C /* KtMineNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtMineNavigationController.swift; sourceTree = "<group>"; };
 		C4BED6F324C23DCE004D4C9C /* KtFriendNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtFriendNavigationController.swift; sourceTree = "<group>"; };
 		C4BED6F524C23DE7004D4C9C /* KtDynamicNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtDynamicNavigationController.swift; sourceTree = "<group>"; };
+		C4CC126F24D79B4F0079204C /* KtNeedLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtNeedLoginView.swift; sourceTree = "<group>"; };
+		C4CC127124D79B5A0079204C /* KtNeedLoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KtNeedLoginView.xib; sourceTree = "<group>"; };
 		C4D2874224A8ADFC0065F497 /* KtMyCollectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtMyCollectCell.swift; sourceTree = "<group>"; };
 		C4D2874324A8ADFC0065F497 /* KtMyCollectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KtMyCollectCell.xib; sourceTree = "<group>"; };
 		C4DAA44224A5FDC700BA6F7D /* MyCollectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectViewController.swift; sourceTree = "<group>"; };
@@ -471,6 +481,8 @@
 				C41CD31124B8B390000A6613 /* CanCopyLabel.swift */,
 				C4BB74F624C9379C003FFB01 /* KtCheckBox.swift */,
 				C4BB74F824C937AE003FFB01 /* KtCheckBox.xib */,
+				C430AA8F24D44A6D0008D5C9 /* RainbowRing.swift */,
+				C430AA9124D44B5D0008D5C9 /* RainbowRing.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -647,6 +659,8 @@
 				C4AEFCF1248CAD070080904E /* BTMCleanHeader.xib */,
 				C4F55FD624A4B6DC00887B55 /* KtMyMapAddressViewCell.swift */,
 				C4F55FD724A4B6DD00887B55 /* KtMyMapAddressViewCell.xib */,
+				C4CC126F24D79B4F0079204C /* KtNeedLoginView.swift */,
+				C4CC127124D79B5A0079204C /* KtNeedLoginView.xib */,
 			);
 			path = mine;
 			sourceTree = "<group>";
@@ -663,6 +677,7 @@
 				C44E81BD24A33AE9000BD888 /* BTMMyQRCodeViewController.swift */,
 				C44E81DB24A47097000BD888 /* KtMyMapViewController.swift */,
 				C41CD2F724B712EA000A6613 /* KtMyWkWebViewController.swift */,
+				C481B1F524D9720C00B91162 /* KtMySettingViewController.swift */,
 			);
 			path = mine;
 			sourceTree = "<group>";
@@ -831,6 +846,8 @@
 				C4BB74F924C937AE003FFB01 /* KtCheckBox.xib in Resources */,
 				C44E81D224A38A29000BD888 /* NewLogin.storyboard in Resources */,
 				C44E81DA24A46ED9000BD888 /* Other.storyboard in Resources */,
+				C430AA9224D44B5D0008D5C9 /* RainbowRing.xib in Resources */,
+				C4CC127224D79B5A0079204C /* KtNeedLoginView.xib in Resources */,
 				C4206F25248FFC2900F4537C /* FanceORFollowCell.xib in Resources */,
 				C4FDACA6249E2B7A0095F1E3 /* MainPostCell.xib in Resources */,
 				C41CD30524B8A274000A6613 /* KtAboutItemCell.xib in Resources */,
@@ -978,6 +995,7 @@
 				C41CD30424B8A274000A6613 /* KtAboutItemCell.swift in Sources */,
 				C41CD31024B8AB8C000A6613 /* KtAboutDeveloperViewController.swift in Sources */,
 				C4070AAB24A738A6000819BD /* ImageCell.swift in Sources */,
+				C4CC127024D79B4F0079204C /* KtNeedLoginView.swift in Sources */,
 				C44E81DC24A47097000BD888 /* KtMyMapViewController.swift in Sources */,
 				C4BB74FC24C99C47003FFB01 /* KtAccountBlockCell.swift in Sources */,
 				C43157EC2483B16B0034A74E /* RequestBody.swift in Sources */,
@@ -985,6 +1003,7 @@
 				C4070AA824A73871000819BD /* NoTextViewInputBar.swift in Sources */,
 				C41CD30024B7196C000A6613 /* KtAboutHeaderCell.swift in Sources */,
 				C4FDACBE249FB5610095F1E3 /* DynamicCollectionViewCell.swift in Sources */,
+				C430AA9024D44A6D0008D5C9 /* RainbowRing.swift in Sources */,
 				C41CD31924B9E5BA000A6613 /* KtFeekBackCell.swift in Sources */,
 				C40240242480193B00F715DC /* AppDelegate.swift in Sources */,
 				C43FDF7B248E88C30023E3F2 /* TabFriendsViewController.swift in Sources */,
@@ -1003,6 +1022,7 @@
 				C41CD31424B99EF9000A6613 /* KtSendFeekBackViewController.swift in Sources */,
 				C43157EA2483AF570034A74E /* TextUntils.swift in Sources */,
 				C4AEFCE3248C92F50080904E /* BTMMinePostController.swift in Sources */,
+				C481B1F624D9720C00B91162 /* KtMySettingViewController.swift in Sources */,
 				C402969924D3C43100582226 /* TotpUntil.swift in Sources */,
 				C4206F24248FFC2900F4537C /* FanceORFollowCell.swift in Sources */,
 				C4BED6F024C23D84004D4C9C /* KtHomeNavigationController.swift in Sources */,
@@ -1179,7 +1199,7 @@
 				CODE_SIGN_ENTITLEMENTS = swiftTemplate/SwiftKt.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.03;
+				CURRENT_PROJECT_VERSION = 1.0.04;
 				DEVELOPMENT_TEAM = 9N6AR9BNW6;
 				INFOPLIST_FILE = swiftTemplate/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1187,7 +1207,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.04;
+				MARKETING_VERSION = 1.0.05;
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = com.90btm.SwiftKt;
 				PRODUCT_NAME = SwiftKt;
@@ -1209,7 +1229,7 @@
 				CODE_SIGN_ENTITLEMENTS = swiftTemplate/SwiftKt.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.03;
+				CURRENT_PROJECT_VERSION = 1.0.04;
 				DEVELOPMENT_TEAM = 9N6AR9BNW6;
 				INFOPLIST_FILE = swiftTemplate/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1217,7 +1237,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.04;
+				MARKETING_VERSION = 1.0.05;
 				PRODUCT_BUNDLE_IDENTIFIER = com.90btm.SwiftKt;
 				PRODUCT_NAME = SwiftKt;
 				PROVISIONING_PROFILE_SPECIFIER = "";

@@ -27,37 +27,13 @@ class FlashScreenViewController: BaseViewController {
         }
     }
     func checkRootVc(){
-        let user = UserInfoHelper.instance.user
-        if user?.isbanned ?? false {
-            ShowTip(Title: "该账号已被封禁")
             UIView.animate(withDuration: time1, animations:{ }, completion: { (true) in
-                                     let tranststion =  CATransition()
-                                     tranststion.duration = self.time1
-                                     tranststion.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
-                                     UIApplication.shared.windows[0].layer.add(tranststion, forKey: "animation")
-                                     UIApplication.shared.windows[0].rootViewController = self.getloginVc()
-                                 })
-        }else{
-            if user?.phone != nil && user?.token != nil {
-                       UIView.animate(withDuration: time1, animations:{ }, completion: { (true) in
                            let tranststion =  CATransition()
                            tranststion.duration = self.time1
                            tranststion.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
                            UIApplication.shared.windows[0].layer.add(tranststion, forKey: "animation")
                            UIApplication.shared.windows[0].rootViewController = self.getMainVc()
                        })
-                   }else{
-                       UIView.animate(withDuration: time1, animations:{ }, completion: { (true) in
-                           let tranststion =  CATransition()
-                           tranststion.duration = self.time1
-                           tranststion.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
-                           UIApplication.shared.windows[0].layer.add(tranststion, forKey: "animation")
-                           UIApplication.shared.windows[0].rootViewController = self.getloginVc()
-                       })
-                   }
-        }
-        
-        
         
     }
     

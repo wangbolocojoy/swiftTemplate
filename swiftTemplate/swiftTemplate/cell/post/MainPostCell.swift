@@ -298,7 +298,10 @@ class MainPostCell: UITableViewCell {
         iconActionSheet.addAction(UIAlertAction(title: "举报", style: UIAlertAction.Style.default, handler: { (UIAlertAction) in
                     self.reportPost()
                 }))
-        
+        iconActionSheet.addAction(UIAlertAction(title: "把该用户加入黑名单", style: UIAlertAction.Style.default, handler: { (UIAlertAction) in
+                           self.reportPost()
+                       }))
+               
         if postinfo?.author?.id == UserInfoHelper.instance.user?.id{
             iconActionSheet.addAction(UIAlertAction(title: "删除帖子", style: UIAlertAction.Style.destructive, handler: { (UIAlertAction) in
                 if self.callBack != nil{
@@ -315,6 +318,9 @@ class MainPostCell: UITableViewCell {
         let vc = self.parentViewController()?.getVcByName(vc: .举报原因) as! KtChoiceReportViewController
         vc.postId = postinfo?.id
         self.parentViewController()?.navigationController?.pushViewController(vc, animated: true)
+    }
+    @objc func addbacklist(){
+        
     }
     /// 分享post
     @objc func shareInfo(){

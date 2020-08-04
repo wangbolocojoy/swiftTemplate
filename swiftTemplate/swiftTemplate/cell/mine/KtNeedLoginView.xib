@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KtNeedLoginView" customModule="SwiftKt" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RLW-4H-owM">
+                    <rect key="frame" x="157" y="468" width="100" height="45"/>
+                    <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="EZ0-Xa-cGj"/>
+                        <constraint firstAttribute="width" constant="100" id="UjW-c2-SX0"/>
+                    </constraints>
+                    <state key="normal" title="去登录">
+                        <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="面性河道" translatesAutoresizingMaskIntoConstraints="NO" id="1xh-20-ETF">
+                    <rect key="frame" x="0.0" y="248" width="414" height="200"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="6AU-Jf-Kdm"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="1xh-20-ETF" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="HqO-JT-ycm"/>
+                <constraint firstItem="1xh-20-ETF" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-100" id="N89-MT-ZWx"/>
+                <constraint firstItem="1xh-20-ETF" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="XcC-n0-MwE"/>
+                <constraint firstItem="RLW-4H-owM" firstAttribute="top" secondItem="1xh-20-ETF" secondAttribute="bottom" constant="20" id="d6N-O6-RBm"/>
+                <constraint firstItem="RLW-4H-owM" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="t28-Ok-RZg"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="1xh-20-ETF" secondAttribute="trailing" id="zmR-Rr-4NV"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="139" y="121"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="面性河道" width="375" height="228"/>
+    </resources>
+</document>

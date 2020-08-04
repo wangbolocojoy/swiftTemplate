@@ -11,6 +11,7 @@ import UIKit
 import SwiftyBeaver
 enum MyController{
     case 注册
+    case 登录
     case 个人中心
     case 修改信息
     case 我的帖子
@@ -40,6 +41,7 @@ enum MyController{
     case 填写举报信息
     case 实名认证
     case 身份证上传
+    case 设置
     
 }
 enum NavVc {
@@ -82,17 +84,17 @@ extension UIViewController{
             
         case.发现nav:
             let nvc = sb.instantiateViewController(withIdentifier: "KYDYNAMICNVC") as! KtDynamicNavigationController
-                       return nvc
+            return nvc
         case .推荐nav:
             let nvc = sb.instantiateViewController(withIdentifier: "KTFRIENDNVC") as! KtFriendNavigationController
-                       return nvc
+            return nvc
         case .我的nav:
             let nvc = sb.instantiateViewController(withIdentifier: "KTMINENVC") as! KtMineNavigationController
-                       return nvc
+            return nvc
         case .登录nav:
-             let osb = UIStoryboard.init(name: "NewLogin", bundle: nil)
+            let osb = UIStoryboard.init(name: "NewLogin", bundle: nil)
             let vc = osb.instantiateViewController(withIdentifier: "LOGINNAVVC") as! LoginNavViewController
-                   return vc
+            return vc
         }
     }
     
@@ -103,6 +105,9 @@ extension UIViewController{
         switch vc {
         case .注册:
             let vc = UIStoryboard.init(name: "NewLogin", bundle: nil).instantiateViewController(withIdentifier: "REGISTERVC") as! RegisterViewController
+            return vc
+        case .登录:
+            let vc = UIStoryboard.init(name: "NewLogin", bundle: nil).instantiateViewController(withIdentifier: "LOGINVIEWVC") as! LoginViewController
             return vc
         case .个人中心:
             let vc = sb.instantiateViewController(withIdentifier: "BTMUSERINFOVC") as! BTMUserInfoController
@@ -196,7 +201,9 @@ extension UIViewController{
         case .身份证上传:
             let vc = otsb.instantiateViewController(withIdentifier: "KYUPLOADIDCARDVC") as! KtUploadIdCardViewController
             return vc
-            
+        case .设置:
+            let vc = otsb.instantiateViewController(withIdentifier: "KTMYSEETINGVC") as! KtMySettingViewController
+            return vc
         }
     }
 }

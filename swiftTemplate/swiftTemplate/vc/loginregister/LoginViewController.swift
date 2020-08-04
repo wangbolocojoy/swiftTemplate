@@ -8,7 +8,7 @@
 // MARK: - 登录
 import UIKit
 import AuthenticationServices
-class LoginViewController: BaseTabViewController {
+class LoginViewController: BaseViewController {
     let time = 0.2
     @IBOutlet weak var ev_password: UITextField!
     @IBOutlet weak var ev_phone: UITextField!
@@ -116,14 +116,15 @@ class LoginViewController: BaseTabViewController {
         
     }
     func gotoMainVC(){
-        UIView.animate(withDuration: time, animations:{
-            let tranststion =  CATransition()
-            tranststion.duration = self.time
-            tranststion.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
-            UIApplication.shared.windows[0].layer.add(tranststion, forKey: "animation")
-        }, completion: { (true) in
-            UIApplication.shared.windows[0].rootViewController = self.getMainVc()
-        })
+        self.ShowTipsClose(tite: "登录成功")
+//        UIView.animate(withDuration: time, animations:{
+//            let tranststion =  CATransition()
+//            tranststion.duration = self.time
+//            tranststion.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
+//            UIApplication.shared.windows[0].layer.add(tranststion, forKey: "animation")
+//        }, completion: { (true) in
+//            UIApplication.shared.windows[0].rootViewController = self.getMainVc()
+//        })
     }
     
     @IBAction func frogetpass(_ sender: Any) {

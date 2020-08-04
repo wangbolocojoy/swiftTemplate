@@ -96,12 +96,19 @@ public enum NetworkService{
     case getfeekbacklist(k:String)
     //获取是否有最新的数据
     case getisnewpost(k:String)
-    
+    //检测图片内容是否安全
     case checkimages(K:String)
     //
     case getallusers(k:String)
     case uploadidcard(k:Any,dataAry:NSArray)
-    
+    //获取认证信息
+    case getidcardinfo(k:String)
+    //加入黑名单
+    case addbacklist(k:String)
+    //移除黑名单
+    case removebacklist(k:String)
+    //获取黑名单列表
+    case getbacklist(k:String)
 }
 extension NetworkService:Moya.TargetType{
     //MARK: - APISERVICE
@@ -211,6 +218,14 @@ extension NetworkService:Moya.TargetType{
             return "swiftTemplate/User/getAllUser"
         case .uploadidcard:
             return "swiftTemplate/User/uploadIdCard"
+        case .getidcardinfo:
+            return "swiftTemplate/User/getIdCardInfo"
+        case .addbacklist:
+            return "swiftTemplate/User/addBackInfoPlist"
+        case .removebacklist:
+            return "swiftTemplate/User/removeBackInfoPlist"
+        case .getbacklist:
+            return "swiftTemplate/User/getBackList"
         }
         
     }
@@ -225,7 +240,7 @@ extension NetworkService:Moya.TargetType{
     //MARK: - 请求参数
     public var task: Moya.Task {
         switch self {
-        case .login(let data),.register(let data),.getmsg(let data),.tabhome(let data),.searchnovel(let data),.updateuserinfo(let data),.followuser(let data),.unfollowuser(let data),.getfancelist(let data),.getfollowlist(let data),.finduser(let data),.findrecommendlist(let data),.sendpost(let data),.getposts(let data),.getuserposts(let data),.deletspost(let data),.getuserinfo(let data),.poststart(let data),.postunstart(let data),.getpoststartlist(let data),.collection(let data),.cancelcollection(let data),.getcollectionlist(let data),.getuserstartlist(let data),.sendcomment(let data),.commentlist(let data),.deletecomment(let data),.getallimasges(let data),.getusermsgs(let data),.respsd(let data),.msgstart(let data),.msgunstart(let data),.sendfeekback(let data),.getfeekbacklist(let data),.getisnewpost(let data),.getmyallposts(let data),.updateposts(let data),.reportpostbypostd(let data),.getreportlist(let data),.getexamineList(let data),.getallusers(let data):
+        case .login(let data),.register(let data),.getmsg(let data),.tabhome(let data),.searchnovel(let data),.updateuserinfo(let data),.followuser(let data),.unfollowuser(let data),.getfancelist(let data),.getfollowlist(let data),.finduser(let data),.findrecommendlist(let data),.sendpost(let data),.getposts(let data),.getuserposts(let data),.deletspost(let data),.getuserinfo(let data),.poststart(let data),.postunstart(let data),.getpoststartlist(let data),.collection(let data),.cancelcollection(let data),.getcollectionlist(let data),.getuserstartlist(let data),.sendcomment(let data),.commentlist(let data),.deletecomment(let data),.getallimasges(let data),.getusermsgs(let data),.respsd(let data),.msgstart(let data),.msgunstart(let data),.sendfeekback(let data),.getfeekbacklist(let data),.getisnewpost(let data),.getmyallposts(let data),.updateposts(let data),.reportpostbypostd(let data),.getreportlist(let data),.getexamineList(let data),.getallusers(let data),.getidcardinfo(let data),.addbacklist(let data),.removebacklist(let data),.getbacklist(let data):
             return  .requestData(data.utf8Encoded)
             
         case .updateusericon(let param, let uploadImages),.uploadidcard(let param, let uploadImages):
@@ -304,8 +319,8 @@ extension NetworkService:Moya.TargetType{
         var str = ""
         sortedKeys.forEach { (key) in
             let value = param[key]?.uppercased() ?? ""
-            str = "\(key)=\(String(describing: value) ?? "")&"
-            log.verbose("\(key)=\(String(describing: value) ?? "")")
+            str = "\(key)=\(String(describing: value ) )&"
+            log.verbose("\(key)=\(String(describing: value ))")
         }
         str = "\(str)app_key=\(appkey )"
         log.verbose("str->  \(str)")

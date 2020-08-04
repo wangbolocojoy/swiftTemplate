@@ -50,17 +50,17 @@ private func moyascratyManager() -> Manager?{
         }
     }else{
         let configuration = URLSessionConfiguration.default
-          configuration.httpAdditionalHeaders = Manager.defaultHTTPHeaders
-          //    let path: String = Bundle.main.path(forResource: "apphttps", ofType: "cer") ?? ""
-          let path:String = Bundle.main.path(forResource: "90btm", ofType: ".cer") ?? ""
-          guard  let certificationData = try? Data(contentsOf: URL(fileURLWithPath: path)) as CFData else {
-              return nil
-          }
-          guard let certificate = SecCertificateCreateWithData(nil, certificationData) else { return nil }
-          let certificates: [SecCertificate] = [certificate]
-          
-    let policies : [String:ServerTrustPolicy] = ["90btm": ServerTrustPolicy.pinCertificates(certificates: certificates, validateCertificateChain: true, validateHost: true )]
-            manager = Manager(configuration: configuration, serverTrustPolicyManager: ServerTrustPolicyManager(policies: policies))
+        configuration.httpAdditionalHeaders = Manager.defaultHTTPHeaders
+        //    let path: String = Bundle.main.path(forResource: "apphttps", ofType: "cer") ?? ""
+        let path:String = Bundle.main.path(forResource: "90btm", ofType: ".cer") ?? ""
+        guard  let certificationData = try? Data(contentsOf: URL(fileURLWithPath: path)) as CFData else {
+            return nil
+        }
+        guard let certificate = SecCertificateCreateWithData(nil, certificationData) else { return nil }
+        let certificates: [SecCertificate] = [certificate]
+        
+        let policies : [String:ServerTrustPolicy] = ["90btm": ServerTrustPolicy.pinCertificates(certificates: certificates, validateCertificateChain: true, validateHost: true )]
+        manager = Manager(configuration: configuration, serverTrustPolicyManager: ServerTrustPolicyManager(policies: policies))
     }
     return manager
 }
@@ -86,17 +86,23 @@ struct MyMoyaManager{
                             controller.ShowTip(Title: u.message ?? u.msg ?? "请求失败")
                             log.warning(u.toJSONString() ?? "")
                         }else if u.status ?? 0 == 434 || u.status ?? 0 == 454{
-                            controller.ShowTip(Title: u.msg ?? u.message ?? "token验证失败")
-                            UIView.animate(withDuration: 0.2, animations:{ }, completion: { (true) in
-                                let tranststion =  CATransition()
-                                tranststion.duration = 0.2
-                                tranststion.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
-                                UIApplication.shared.windows[0].layer.add(tranststion, forKey: "animation")
-                                UIApplication.shared.windows[0].rootViewController = controller.getloginVc()
-                            })
+//                            controller.ShowTip(Title: u.msg ?? u.message ?? "token验证失败")
+                            //                            UIView.animate(withDuration: 0.2, animations:{ }, completion: { (true) in
+                            //                                let tranststion =  CATransition()
+                            //                                tranststion.duration = 0.2
+                            //                                tranststion.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
+                            //                                UIApplication.shared.windows[0].layer.add(tranststion, forKey: "animation")
+                            //                                UIApplication.shared.windows[0].rootViewController = controller.getloginVc()
+                            //
+                            //                            })
+                            let vc = UIStoryboard.init(name: "NewLogin", bundle: nil).instantiateViewController(withIdentifier: "LOGINVIEWVC") as! LoginViewController
+//                            controller.present(vc, animated: true) {
+//
+//                                                       }
+                            controller.navigationController?.pushViewController(vc, animated:   true)
                         }else{
                             controller.ShowTip(Title: u.msg ?? "请求失败")
-                             log.warning(u.toJSONString() ?? "")
+                            log.warning(u.toJSONString() ?? "")
                         }
                     }else{
                         log.warning(data.debugDescription)
@@ -130,20 +136,26 @@ struct MyMoyaManager{
                         if u.status ?? 0 == 200{
                             successCallback(u)
                         }else if u.status ?? 0 == 500{
-                             log.warning(u.toJSONString() ?? "")
+                            log.warning(u.toJSONString() ?? "")
                         }else if u.status ?? 0 == 434 || u.status ?? 0 == 454{
-                            controller.ShowTip(Title: u.msg ?? u.message ?? "token验证失败")
-                            UIView.animate(withDuration: 0.2, animations:{ }, completion: { (true) in
-                                                           let tranststion =  CATransition()
-                                                           tranststion.duration = 0.2
-                                                           tranststion.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
-                                                           UIApplication.shared.windows[0].layer.add(tranststion, forKey: "animation")
-                                                           UIApplication.shared.windows[0].rootViewController = controller.getloginVc()
-                                                       })
+//                            controller.ShowTip(Title: u.msg ?? u.message ?? "token验证失败")
+                            //                            UIView.animate(withDuration: 0.2, animations:{ }, completion: { (true) in
+                            //                                let tranststion =  CATransition()
+                            //                                tranststion.duration = 0.2
+                            //                                tranststion.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
+                            //                                UIApplication.shared.windows[0].layer.add(tranststion, forKey: "animation")
+                            //                                UIApplication.shared.windows[0].rootViewController = controller.getloginVc()
+                            //
+                            //                            })
+                            let vc = UIStoryboard.init(name: "NewLogin", bundle: nil).instantiateViewController(withIdentifier: "LOGINVIEWVC") as! LoginViewController
+                             controller.navigationController?.pushViewController(vc, animated:   true)
+//                            controller.present(vc, animated: true) {
+//
+//                            }
                             log.error(u.toJSONString() ?? "")
                         }else  {
                             
-                                                        log.warning(u.toJSONString() ?? "")
+                            log.warning(u.toJSONString() ?? "")
                         }
                     }else{
                         log.warning(data.debugDescription )

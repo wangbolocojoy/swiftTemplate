@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RainbowRing" customModule="SwiftKt" customModuleProvider="target">
+            <connections>
+                <outlet property="imageview" destination="rbF-pC-sXG" id="Atw-AK-Rxx"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_2506" translatesAutoresizingMaskIntoConstraints="NO" id="rbF-pC-sXG">
+                    <rect key="frame" x="3" y="3" width="394" height="394"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="rbF-pC-sXG" secondAttribute="bottom" constant="3" id="3FO-nM-7lq"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="rbF-pC-sXG" secondAttribute="trailing" constant="3" id="5P9-Qq-r97"/>
+                <constraint firstItem="rbF-pC-sXG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="3" id="Dz9-kf-oVO"/>
+                <constraint firstItem="rbF-pC-sXG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="3" id="FOF-7O-HE4"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="139" y="153"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="IMG_2506" width="512" height="512"/>
+    </resources>
+</document>

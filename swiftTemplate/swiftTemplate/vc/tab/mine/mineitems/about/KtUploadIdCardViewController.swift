@@ -19,6 +19,7 @@ class KtUploadIdCardViewController: BaseViewController {
     var idcardmodel :UserIdCard?
     var uploadtype = 0
     var user = UserInfoHelper.instance.user
+    var IDModel = IDCardHelper.default.IDCardDTO
     private lazy var pickVC: UIImagePickerController = {
         let pickVC = UIImagePickerController()
         pickVC.allowsEditing = true
@@ -28,9 +29,12 @@ class KtUploadIdCardViewController: BaseViewController {
         super.viewDidLoad()
     }
     override func initView() {
-        
         if user?.authentication ?? false {
-//            refresh()
+            if IDModel != nil && IDModel?.name != nil{
+                refresh()
+            }else{
+               getIDCARDInfo()
+            }
         }else{
             let tap1 = UITapGestureRecognizer(target: self, action: #selector(tapface))
             img_idname.isUserInteractionEnabled = true
@@ -39,8 +43,17 @@ class KtUploadIdCardViewController: BaseViewController {
             img_idcounter.isUserInteractionEnabled = true
             img_idcounter.addGestureRecognizer(tap2)
         }
-         refresh()
         
+        
+    }
+    func getIDCARDInfo(){
+        let request = RequestBody()
+        request.userId = UserInfoHelper.instance.user?.id ?? 0
+        MyMoyaManager.AllRequestNospinner(controller: self, NetworkService.getidcardinfo(k: request.toJSONString() ?? "" )) { (data) in
+           let _ = KeychainManager.User.SaveByIdentifier(data: data.useridcard?.toJSONString() ?? nil ?? "", forKey: .IDCARD)
+            IDCardHelper.default.IDCardDTO = data.useridcard
+            self.refresh()
+        }
     }
     @IBAction func upload(_ sender: Any) {
         
@@ -119,6 +132,7 @@ class KtUploadIdCardViewController: BaseViewController {
     }
     func refresh(){
         let model = IDCardHelper.default.IDCardDTO
+        
         log.verbose(model?.toJSONString() ?? "")
         if model?.name != nil || model?.authority != nil {
             if #available(iOS 13.0, *) {
@@ -162,6 +176,7 @@ extension KtUploadIdCardViewController: UIImagePickerControllerDelegate ,UINavig
         let param = ["userId":"\(UserInfoHelper.instance.user?.id ?? 0)","uploadType":imagetype]
         MyMoyaManager.AllRequest(controller: self, NetworkService.uploadidcard(k: param, dataAry: imglist)) { (data) in
            let _ = KeychainManager.User.SaveByIdentifier(data: data.useridcard?.toJSONString() ?? nil ?? "", forKey: .IDCARD)
+            IDCardHelper.default.IDCardDTO = data.useridcard
             if data.useridcard?.authentication ?? false {
                 self.user?.authentication = data.useridcard?.authentication
                 UserInfoHelper.instance.user = self.user

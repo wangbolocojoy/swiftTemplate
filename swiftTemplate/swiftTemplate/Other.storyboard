@@ -107,6 +107,14 @@
                                     <constraint firstAttribute="width" constant="30" id="OY1-TF-eVL"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dRJ-4x-FYW" customClass="RainbowRing" customModule="SwiftKt" customModuleProvider="target">
+                                <rect key="frame" x="107" y="64" width="200" height="200"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Hut-ap-cKT"/>
+                                    <constraint firstAttribute="height" constant="200" id="ZQI-Zh-nbq"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -114,12 +122,14 @@
                             <constraint firstItem="Nlw-IM-v5L" firstAttribute="bottom" secondItem="euy-Jq-SFf" secondAttribute="bottom" id="E6c-Ub-xUh"/>
                             <constraint firstItem="OBv-La-RZw" firstAttribute="trailing" secondItem="euy-Jq-SFf" secondAttribute="trailing" id="I7a-YS-YWI"/>
                             <constraint firstItem="FiQ-ce-huk" firstAttribute="leading" secondItem="OBv-La-RZw" secondAttribute="leading" constant="20" id="K3E-5q-iCD"/>
+                            <constraint firstItem="dRJ-4x-FYW" firstAttribute="centerX" secondItem="2W9-4T-6Oc" secondAttribute="centerX" id="R8P-5I-La0"/>
                             <constraint firstItem="OBv-La-RZw" firstAttribute="trailing" secondItem="Nlw-IM-v5L" secondAttribute="trailing" id="TTv-8a-UFa"/>
                             <constraint firstItem="euy-Jq-SFf" firstAttribute="leading" secondItem="OBv-La-RZw" secondAttribute="leading" id="Wtk-g6-FYt"/>
                             <constraint firstItem="ZX3-Ib-nId" firstAttribute="top" secondItem="euy-Jq-SFf" secondAttribute="bottom" constant="50" id="YRb-pL-Q4D"/>
                             <constraint firstItem="gOT-E7-RLY" firstAttribute="centerX" secondItem="euy-Jq-SFf" secondAttribute="centerX" id="YUS-b3-onq"/>
                             <constraint firstItem="Nlw-IM-v5L" firstAttribute="leading" secondItem="OBv-La-RZw" secondAttribute="leading" id="aC4-u5-vuN"/>
                             <constraint firstItem="Pt5-PS-hu8" firstAttribute="top" secondItem="euy-Jq-SFf" secondAttribute="bottom" constant="20" id="nae-EN-yxY"/>
+                            <constraint firstItem="dRJ-4x-FYW" firstAttribute="top" secondItem="OBv-La-RZw" secondAttribute="top" constant="20" id="uHw-yp-qPe"/>
                             <constraint firstItem="OBv-La-RZw" firstAttribute="trailing" secondItem="Pt5-PS-hu8" secondAttribute="trailing" constant="20" id="wQg-30-aLy"/>
                             <constraint firstItem="FiQ-ce-huk" firstAttribute="top" secondItem="euy-Jq-SFf" secondAttribute="bottom" constant="20" id="xa5-el-0Ue"/>
                             <constraint firstItem="ZX3-Ib-nId" firstAttribute="centerX" secondItem="2W9-4T-6Oc" secondAttribute="centerX" id="z1Y-mo-LSL"/>
@@ -356,6 +366,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SBL-ej-zdw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-4632" y="1248"/>
+        </scene>
+        <!--设置-->
+        <scene sceneID="tGe-wI-xqs">
+            <objects>
+                <viewController storyboardIdentifier="KTMYSEETINGVC" title="设置" hidesBottomBarWhenPushed="YES" id="6NU-9W-CJp" customClass="KtMySettingViewController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="t0l-MG-20L">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="OrV-S8-Wux"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZSg-48-fgN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3117" y="488"/>
         </scene>
         <!--实名认证-->
         <scene sceneID="S5Z-mC-vYL">

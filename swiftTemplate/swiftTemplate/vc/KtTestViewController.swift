@@ -21,6 +21,9 @@ class KtTestViewController: BaseViewController {
         
     }
     override func initView() {
+//        let frame = CGRect(x:50, y:80, width:160, height:160)
+//                     let rainbowRing = RainbowRing(frame:frame)
+//                     self.view.addSubview(rainbowRing)
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(showheart))
         let moreTap = UITapGestureRecognizer(target: self, action: #selector(towheart))
         //触发响应的点击次数

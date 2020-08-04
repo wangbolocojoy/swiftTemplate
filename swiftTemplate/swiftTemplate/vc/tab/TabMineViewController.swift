@@ -11,10 +11,10 @@ import MJRefresh
 import SwiftyBeaver
 class TabMineViewController: BaseTabViewController {
     let time = 0.2
-    var list = ["我的图片","我的地址","我的收藏","我的评论","关于","清除缓存","退出登录"]
+    var list = ["我的图片","我的地址","我的收藏","我的评论","关于","清除缓存","设置"]
     
     @available(iOS 13.0, *)
-    lazy var imagelist = [UIImage(systemName: "photo.on.rectangle"),UIImage(systemName: "mappin.circle"),UIImage(systemName: "person.2"),UIImage(systemName: "ellipses.bubble"),UIImage(systemName: "info.circle"),UIImage(systemName: "xmark.icloud"),UIImage(systemName: "power")]
+    lazy var imagelist = [UIImage(systemName: "photo.on.rectangle"),UIImage(systemName: "mappin.circle"),UIImage(systemName: "person.2"),UIImage(systemName: "ellipses.bubble"),UIImage(systemName: "info.circle"),UIImage(systemName: "xmark.icloud"),UIImage(systemName: "gear")]
     lazy var imagelist1  = [#imageLiteral(resourceName: "图片"),#imageLiteral(resourceName: "地址"),#imageLiteral(resourceName: "bookmark"),#imageLiteral(resourceName: "评论"),#imageLiteral(resourceName: "关于"),#imageLiteral(resourceName: "清除缓存"),#imageLiteral(resourceName: "退出登录")]
     
     var user  = UserInfoHelper.instance.user
@@ -88,14 +88,9 @@ class TabMineViewController: BaseTabViewController {
            }))
            TipsActionSheet.addAction(UIAlertAction(title: "确认", style: .destructive, handler: { (UIAlertAction) in
               KeychainManager.User.DeleteByIdentifier(forKey: .UserInfo)
-                     UserInfoHelper.instance._setuser = nil
-            UIView.animate(withDuration: self.time, animations:{ }, completion: { (true) in
-                         let tranststion =  CATransition()
-                         tranststion.duration = self.time
-                         tranststion.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
-                         UIApplication.shared.windows[0].layer.add(tranststion, forKey: "animation")
-                         UIApplication.shared.windows[0].rootViewController = self.getloginVc()
-                     })
+              KeychainManager.User.DeleteByIdentifier(forKey: .IDCARD)
+                     UserInfoHelper.instance.user = nil
+                self.viewWillAppear(true)
            }))
            self.present(TipsActionSheet, animated: true, completion: nil)
            
@@ -144,7 +139,7 @@ extension TabMineViewController:UITableViewDelegate,UITableViewDataSource{
             case 5:
                 deleteCoreNovel()
             case 6:
-                logout()
+                self.navigationController?.pushViewController(getVcByName(vc: .设置), animated: true)
             default:
                 debugPrint()
             }

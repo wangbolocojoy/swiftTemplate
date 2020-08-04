@@ -92,8 +92,13 @@ extension BTMUserInfoController:UITableViewDelegate,UITableViewDataSource{
                 vc.type = list[indexPath.item]
                 self.navigationController?.pushViewController(vc, animated: true)
             case 3:
-                let vc = getVcByName(vc: .身份证上传) as! KtUploadIdCardViewController
-                self.navigationController?.pushViewController(vc, animated: true)
+                if UserInfoHelper.instance.user?.authentication ?? false{
+                    
+                }else{
+                    let vc = getVcByName(vc: .身份证上传) as! KtUploadIdCardViewController
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+              
             case 4:
                 log.verbose("性别")
                 let vc = getVcByName(vc: .性别选择) as! KtSexPickerViewController

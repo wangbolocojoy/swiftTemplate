@@ -57,8 +57,8 @@ class KtMyMapViewController: BaseViewController {
         mymap.userTrackingMode = .follow
         search?.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-        locationManager.locationTimeout = 2
-        locationManager.reGeocodeTimeout = 2
+        locationManager.locationTimeout = 30
+        locationManager.reGeocodeTimeout = 30
         startLoc()
     }
     

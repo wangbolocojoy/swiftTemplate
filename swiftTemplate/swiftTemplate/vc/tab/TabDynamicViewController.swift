@@ -20,8 +20,8 @@ class TabDynamicViewController: BaseTabViewController{
     let user = UserInfoHelper.instance.user
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.list = CoreDataManager.default.postlist
-        self.collectionview.reloadData()
+      
+       
               
     }
     override func initView() {
@@ -37,7 +37,7 @@ class TabDynamicViewController: BaseTabViewController{
 //            return controller
 //        })()
         let imageview = UIImageView(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
-        imageview.setImageUrl(image: imageview, string: user?.icon, proimage: #imageLiteral(resourceName: "IMG_2507"))
+        imageview.setImageUrl(image: imageview, string: user?.icon, proimage: #imageLiteral(resourceName: "IMG_2506"))
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
         view.layer.masksToBounds = true
         view.layer.cornerRadius = 18
@@ -55,7 +55,14 @@ class TabDynamicViewController: BaseTabViewController{
         pagebody.pageSize = 20
         pagebody.page = 0
         pagebody.userId = UserInfoHelper.instance.user?.id ?? 0
-//        getpost(json: pagebody.toJSONString() ?? "")
+        if  CoreDataManager.default.postlist?.count != 0 {
+                  self.list =  CoreDataManager.default.postlist
+                  self.collectionview.reloadData()
+              }else{
+                    getpost(json: pagebody.toJSONString() ?? "")
+              }
+
+      
     }
     
     @objc func showUser(){

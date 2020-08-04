@@ -19,11 +19,6 @@ class TabHomeViewController: BaseTabViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
          
-        CoreDataManager.default.getCoreDataPost(success: { (PostInfolist) in
-            self.list = PostInfolist
-            self.tableview.reloadData()
-        })
-        checkPosts()
         
     }
     
@@ -105,6 +100,15 @@ class TabHomeViewController: BaseTabViewController {
         footer.setRefreshingTarget(self, refreshingAction: #selector(getMore))
         tableview.mj_footer = footer
         
+        CoreDataManager.default.getCoreDataPost(success: { (PostInfolist) in
+            if PostInfolist == nil {
+                self.checkPosts()
+            }else{
+                self.list = PostInfolist
+                self.tableview.reloadData()
+            }
+          
+        })
         
     }
     func deletePost(pfo:PostInfo,index:Int){

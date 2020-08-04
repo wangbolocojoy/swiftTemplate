@@ -123,6 +123,7 @@ class RegisterViewController: BaseViewController {
                 if self.callBack != nil {
                     self.callBack!(body.phone ?? "",self.password )
                     self.ShowTipsClose(tite: "注册成功")
+                   
                 }
             }
     }
@@ -131,6 +132,7 @@ class RegisterViewController: BaseViewController {
                               if self.callBack != nil {
                                   self.callBack!(body.phone ?? "",self.password )
                                   self.ShowTipsClose(tite: "修改密码成功")
+                              
                               }
                           }
     }
