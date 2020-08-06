@@ -25,7 +25,7 @@ static let reuseID =  "BTMUserIconCell"
       
     }
     func updateCell(user:UserInfo?){
-        usericon.setImageUrl(image: usericon ,string: user?.icon, proimage: #imageLiteral(resourceName: "IMG_2506"))
+        usericon.setImageUrl(image: usericon ,string: user?.icon, proimage: #imageLiteral(resourceName: "背景色"))
     }
     
 }

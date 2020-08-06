@@ -15,11 +15,13 @@ class CoreDataManager {
     
     // 拿到AppDelegate中创建好了的NSManagedObjectContext
     lazy var context: NSManagedObjectContext = {
-        let context = AppDelegate.init().persistentContainer.viewContext
+        let context = AppDelegate.init().getcontext()
         return context
     }()
-    // 更新数据
-    
+    let moc = NSManagedObjectContext(concurrencyType:.mainQueueConcurrencyType)
+    let privateMOC = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+   
+ 
     var _postlist:[PostInfo]?
     var postlist:[PostInfo]?{
         get {
@@ -42,13 +44,19 @@ class CoreDataManager {
         })
     }
     private func saveContext() {
-        do {
-            try context.save()
-        } catch {
-            let nserror = error as NSError
-            log.error("数据库出错\(nserror.localizedFailureReason ?? "")")
-            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-        }
+       if context.hasChanges {
+                   do {
+                       try context.save()
+                   } catch {
+                       // Replace this implementation with code to handle the error appropriately.
+                       // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                       let nserror = error as NSError
+                        log.error("CoreData--Error----->>>  \(nserror.localizedFailureReason ?? "")")
+                       fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                      
+                       
+                   }
+               }
     }
     
     /// 缓存帖子
@@ -57,8 +65,8 @@ class CoreDataManager {
     ///   - savesuccessCallback: 返回状态
     func saveandupdateNovel(list:[PostInfo]?,savesuccess savesuccessCallback: @escaping () -> Void){
         let fetchRequest: NSFetchRequest  = PostModelDO.fetchRequest()
-        DispatchQueue.global().async {
-            log.verbose("开始缓存帖子--->\(fetchRequest.fetchBatchSize) 条")
+         DispatchQueue.init(label: "CoreData.queue").async{
+            log.verbose("数据库--->\(fetchRequest.fetchBatchSize) 条","新增-->\(list?.count ?? 0)条")
             var a = 0
             list?.forEach({ (item) in
                 //String 才用%@
@@ -67,7 +75,7 @@ class CoreDataManager {
                 log.verbose("循环帖子----\(a) 次")
                 fetchRequest.predicate = NSPredicate(format: "id == %d ", item.id ?? 0)
                 do {
-                  
+                    
                     let result = try self.context.fetch(fetchRequest)
                     
                     if result.count == 0 {
@@ -99,7 +107,7 @@ class CoreDataManager {
                             postimageModel.fileType = PostImages.fileType ?? "image/jpeg"
                             postimageModel.userId = PostImages.userId?.int32 ?? 0
                             postModel.addToPostImages(postimageModel)
-                             
+                            
                         })
                         log.verbose("新增帖子")
                         self.saveContext()
@@ -130,11 +138,11 @@ class CoreDataManager {
     
     
     func deletePost(id:Int,successCallback:  @escaping () -> Void){
-         let fetchRequest: NSFetchRequest  = PostModelDO.fetchRequest()
-         fetchRequest.predicate = NSPredicate(format: "id == %d ",id)
-        DispatchQueue.global().async {
+        let fetchRequest: NSFetchRequest  = PostModelDO.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id == %d ",id)
+          DispatchQueue.init(label: "CoreData.queue").async{
             do {
-                   let result = try self.context.fetch(fetchRequest)
+                let result = try self.context.fetch(fetchRequest)
                 if result.count != 0 {
                     result.forEach { (PostModelDO) in
                         self.context.delete(PostModelDO)
@@ -151,7 +159,7 @@ class CoreDataManager {
     /// - Parameter successCallback: 返回缓存的帖子集合
     func getCoreDataPost(success successCallback:  @escaping ( [PostInfo]?) -> Void){
         let fetchRequest: NSFetchRequest  = PostModelDO.fetchRequest()
-        DispatchQueue.global().async {
+        DispatchQueue.init(label: "CoreData.queue") .async{
             do {
                 var list :[PostInfo]? = []
                 let result = try self.context.fetch(fetchRequest)
@@ -189,21 +197,19 @@ class CoreDataManager {
                     postModel.postImages = images
                     list?.append(postModel)
                 }
+                list?.sort(by: { (po1
+                    , po2) -> Bool in
+                    let bo = (po1.id ?? 0 > po2.id ?? 0)
+                    return bo
+                })
+                if list?.count ?? 0 == 0 {
+                    UserDefaults.User.set(value: 0 , forKey: .MAXPostId)
+                    
+                }else{
+                    UserDefaults.User.set(value: list?[0].id ?? 0 , forKey: .MAXPostId)
+                    log.verbose("获取\(list?.count ?? 0) 条。  最新的帖子id\( list?[0].id ?? 0)")
+                }
                 DispatchQueue.main.async {
-                    list?.sort(by: { (po1
-                        , po2) -> Bool in
-                        let bo = (po1.id ?? 0 > po2.id ?? 0)
-                        return bo
-                    })
-                    if list?.count ?? 0 == 0 {
-                          UserDefaults.User.set(value: 0 , forKey: .MAXPostId)
-                         
-                    }else{
-                          UserDefaults.User.set(value: list?[0].id ?? 0 , forKey: .MAXPostId)
-                         log.verbose("获取\(list?.count ?? 0) 条。  最新的帖子id\( list?[0].id ?? 0)")
-                    }
-                  
-                   
                     successCallback(list)
                 }
             } catch  {
@@ -221,19 +227,19 @@ class CoreDataManager {
     func deleteAllPost(success successCallback: @escaping () -> Void) {
         // 这里直接调用上面获取所有数据的方法
         let fetchRequest: NSFetchRequest  = PostModelDO.fetchRequest()
-        DispatchQueue.global().async {
+         DispatchQueue.init(label: "CoreData.queue").async {
             do {
-                log.verbose("开始删除--->  \(fetchRequest.fetchBatchSize)条")
                 let result = try self.context.fetch(fetchRequest)
                 result.forEach { (PostModelDO) in
                     self.context.delete(PostModelDO)
                 }
+                self.saveContext()
             } catch  {
                 log.error("删除缓存出错\(error.localizedDescription)")
                 fatalError()
             }
             // 循环删除所有数据
-            self.saveContext()
+            
             DispatchQueue.main.async {
                 log.verbose("删除完成 --->  \(fetchRequest.fetchBatchSize)条")
                 successCallback()

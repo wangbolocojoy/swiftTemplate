@@ -76,7 +76,7 @@ class KtMessageHeader: UITableViewHeaderFooterView {
         datetime.text = model?.postMsgCreatTime?.string2DateMMdd
         auther.text = model?.userNickName
         messagedetail.text = model?.message
-        image.setImageUrl(image: image, string: model?.userIcon, proimage: #imageLiteral(resourceName: "IMG_2507"))
+        image.setImageUrl(image: image, string: model?.userIcon, proimage: #imageLiteral(resourceName: "背景色"))
     }
     
     func startMsganimation(){

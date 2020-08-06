@@ -11,6 +11,7 @@ import ObjectMapper
 class RequestBody: Mappable {
     var id:Int?
     var postId:Int?
+    var backId: Int?
     var postMsgId:Int?
     var userId:Int?
     var followId:Int?
@@ -51,7 +52,8 @@ class RequestBody: Mappable {
     
     func mapping(map: Map) {
         postId <- map["postId"]
-         msgId <- map["msgId"]
+        msgId <- map["msgId"]
+        backId <- map["backId"]
         feedMsg <- map["feedMsg"]
         postMsgId <- map["postMsgId"]
         phone <- map["phone"]

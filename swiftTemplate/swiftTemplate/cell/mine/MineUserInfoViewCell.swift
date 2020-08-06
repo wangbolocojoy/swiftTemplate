@@ -21,7 +21,7 @@ class MineUserInfoViewCell: UITableViewCell {
     @IBOutlet weak var versionname: UILabel!
     @IBOutlet weak var btn_post: UIView!
     @IBOutlet weak var btn_guanzhu: UIView!
-    lazy var user = UserInfoHelper.instance.user
+    
     @IBOutlet weak var btn_fance: UIView!
     
     @IBOutlet weak var btn_qrcode: UIImageView!
@@ -52,8 +52,10 @@ class MineUserInfoViewCell: UITableViewCell {
     }
     
     @objc func toMyQrcode() {
-        if user?.id ?? 0 == 0 {
-             self.pushVC(vc: (self.parentViewController()?.getVcByName(vc: .登录))!)
+        if UserInfoHelper.instance.user?.id ?? 0 == 0 {
+             let vc = self.parentViewController()?.getVcByName(vc: .登录) as! LoginViewController
+                       vc.modalPresentationStyle = .fullScreen
+                         self.preshVC(vc: vc)
         }else{
             let vc = self.parentViewController()?.getVcByName(vc: .我的二维码) as! BTMMyQRCodeViewController
             self.pushVC(vc: vc)
@@ -63,8 +65,10 @@ class MineUserInfoViewCell: UITableViewCell {
     }
     
     @objc func toMyFance(){
-        if user?.id ?? 0 == 0 {
-              self.pushVC(vc: (self.parentViewController()?.getVcByName(vc: .登录))!)
+        if UserInfoHelper.instance.user?.id ?? 0 == 0 {
+            let vc = self.parentViewController()?.getVcByName(vc: .登录) as! LoginViewController
+            vc.modalPresentationStyle = .fullScreen
+              self.preshVC(vc: vc)
         }else{
             let vc = self.parentViewController()?.getVcByName(vc: .我的粉丝关注) as! BTMMyFanceFollowViewController
             vc.type = 1
@@ -73,8 +77,10 @@ class MineUserInfoViewCell: UITableViewCell {
         
     }
     @objc func toMyFollow(){
-        if user?.id ?? 0 == 0 {
-             self.pushVC(vc: (self.parentViewController()?.getVcByName(vc: .登录))!)
+        if UserInfoHelper.instance.user?.id ?? 0 == 0 {
+              let vc = self.parentViewController()?.getVcByName(vc: .登录) as! LoginViewController
+                       vc.modalPresentationStyle = .fullScreen
+                         self.preshVC(vc: vc)
         }else{
             let vc = self.parentViewController()?.getVcByName(vc: .我的粉丝关注) as! BTMMyFanceFollowViewController
             vc.type = 2
@@ -85,8 +91,10 @@ class MineUserInfoViewCell: UITableViewCell {
     }
     
     @objc func toMyPost(){
-        if user?.id ?? 0 == 0 {
-             self.pushVC(vc: (self.parentViewController()?.getVcByName(vc: .登录))!)
+        if UserInfoHelper.instance.user?.id ?? 0 == 0 {
+              let vc = self.parentViewController()?.getVcByName(vc: .登录) as! LoginViewController
+                       vc.modalPresentationStyle = .fullScreen
+                         self.preshVC(vc: vc)
         }else{
             let vc = self.parentViewController()?.getVcByName(vc: .我的帖子) as! BTMMyPostViewController
             vc.vcname = "我的主页"
@@ -98,8 +106,11 @@ class MineUserInfoViewCell: UITableViewCell {
     }
     
     @objc func toUserinfo(){
-        if user?.id ?? 0 == 0 {
-            self.pushVC(vc: (self.parentViewController()?.getVcByName(vc: .登录))!)
+        if UserInfoHelper.instance.user?.id ?? 0 == 0 {
+            
+             let vc = self.parentViewController()?.getVcByName(vc: .登录) as! LoginViewController
+                      vc.modalPresentationStyle = .fullScreen
+                        self.preshVC(vc: vc)
         }else{
             self.pushVC(vc: (self.parentViewController()?.getVcByName(vc: .个人中心))!)
         }
@@ -112,11 +123,11 @@ class MineUserInfoViewCell: UITableViewCell {
     }
     func updateCell(user:UserInfo?){
         user_icon.setimage(url: user?.icon ?? "")
-        if user?.id ?? 0 == 0 {
-            lab_nickname.text = user?.nickName ?? "请先登录"
+        if UserInfoHelper.instance.user?.id ?? 0 == 0 {
+            lab_nickname.text = user?.nickName ?? "注册登录"
             lab_useresayinfo.text = user?.easyInfo ?? ""
         }else{
-            lab_nickname.text = user?.nickName ?? "暂时没有"
+            lab_nickname.text = user?.nickName ?? "还没想好"
             lab_useresayinfo.text = user?.easyInfo ?? "什么都没有留下"
         }
         versionname.text = ApiKey.default.版本环境

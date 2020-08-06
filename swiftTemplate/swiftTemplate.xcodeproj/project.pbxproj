@@ -93,6 +93,10 @@
 		C44F284024A9B21500E16123 /* apphttps.cer in Resources */ = {isa = PBXBuildFile; fileRef = C44F283F24A9B21400E16123 /* apphttps.cer */; };
 		C44F284224A9C7FF00E16123 /* KtDatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44F284124A9C7FF00E16123 /* KtDatePickerViewController.swift */; };
 		C481B1F624D9720C00B91162 /* KtMySettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C481B1F524D9720C00B91162 /* KtMySettingViewController.swift */; };
+		C481B1F824D9957600B91162 /* KtBackListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C481B1F724D9957600B91162 /* KtBackListViewController.swift */; };
+		C481B1FA24D9966C00B91162 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C481B1F924D9966C00B91162 /* BaseTableViewController.swift */; };
+		C481B1FD24DA36ED00B91162 /* KtBackListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C481B1FB24DA36ED00B91162 /* KtBackListCell.swift */; };
+		C481B1FE24DA36ED00B91162 /* KtBackListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C481B1FC24DA36ED00B91162 /* KtBackListCell.xib */; };
 		C4AEB30024985F9D00196DAE /* SendPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEB2FF24985F9D00196DAE /* SendPostViewController.swift */; };
 		C4AEB304249863EF00196DAE /* UploadImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEB302249863EF00196DAE /* UploadImageCollectionViewCell.swift */; };
 		C4AEB305249863EF00196DAE /* UploadImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4AEB303249863EF00196DAE /* UploadImageCollectionViewCell.xib */; };
@@ -250,6 +254,10 @@
 		C44F283F24A9B21400E16123 /* apphttps.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = apphttps.cer; sourceTree = "<group>"; };
 		C44F284124A9C7FF00E16123 /* KtDatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtDatePickerViewController.swift; sourceTree = "<group>"; };
 		C481B1F524D9720C00B91162 /* KtMySettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtMySettingViewController.swift; sourceTree = "<group>"; };
+		C481B1F724D9957600B91162 /* KtBackListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtBackListViewController.swift; sourceTree = "<group>"; };
+		C481B1F924D9966C00B91162 /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
+		C481B1FB24DA36ED00B91162 /* KtBackListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtBackListCell.swift; sourceTree = "<group>"; };
+		C481B1FC24DA36ED00B91162 /* KtBackListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KtBackListCell.xib; sourceTree = "<group>"; };
 		C4AEB2FF24985F9D00196DAE /* SendPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendPostViewController.swift; sourceTree = "<group>"; };
 		C4AEB302249863EF00196DAE /* UploadImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		C4AEB303249863EF00196DAE /* UploadImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UploadImageCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -561,6 +569,7 @@
 				C43157D624839BDB0034A74E /* MainTabController.swift */,
 				C43157D824839C290034A74E /* FlashScreenViewController.swift */,
 				C4070A8C24A64A80000819BD /* BaseDetailViewController.swift */,
+				C481B1F924D9966C00B91162 /* BaseTableViewController.swift */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -661,6 +670,8 @@
 				C4F55FD724A4B6DD00887B55 /* KtMyMapAddressViewCell.xib */,
 				C4CC126F24D79B4F0079204C /* KtNeedLoginView.swift */,
 				C4CC127124D79B5A0079204C /* KtNeedLoginView.xib */,
+				C481B1FB24DA36ED00B91162 /* KtBackListCell.swift */,
+				C481B1FC24DA36ED00B91162 /* KtBackListCell.xib */,
 			);
 			path = mine;
 			sourceTree = "<group>";
@@ -743,6 +754,7 @@
 				C422FB3B24ADBD1F006AC5CA /* KtSexPickerViewController.swift */,
 				C41CD2FB24B716F9000A6613 /* KtAboutMineViewController.swift */,
 				C4BB750224CA6E7E003FFB01 /* KtEdAuthenticationViewController.swift */,
+				C481B1F724D9957600B91162 /* KtBackListViewController.swift */,
 			);
 			path = mineitems;
 			sourceTree = "<group>";
@@ -831,6 +843,7 @@
 				C41CD30124B7196C000A6613 /* KtAboutHeaderCell.xib in Resources */,
 				C407BFD724BEF9B100A38AB7 /* KtNoDataFooterView.xib in Resources */,
 				C4FDACAB249EF1F60095F1E3 /* PostBannerImageCell.xib in Resources */,
+				C481B1FE24DA36ED00B91162 /* KtBackListCell.xib in Resources */,
 				C43157F42483DF5B0034A74E /* TabHomeNovelCell.xib in Resources */,
 				C422FB4B24B1ABC6006AC5CA /* KtMessageHeader.xib in Resources */,
 				C44E81CE24A38006000BD888 /* sdc.gif in Resources */,
@@ -984,6 +997,7 @@
 				C4070A9C24A6F8A5000819BD /* KtInputView.swift in Sources */,
 				C439A0FE24CF17C5003C0F03 /* KtUploadIdCardViewController.swift in Sources */,
 				C402404E248394E200F715DC /* ext.swift in Sources */,
+				C481B1FA24D9966C00B91162 /* BaseTableViewController.swift in Sources */,
 				C43157EE2483DA810034A74E /* UserInfoHelper.swift in Sources */,
 				C4FDACB6249F4A9F0095F1E3 /* MySettingViewController.swift in Sources */,
 				C4F55FDD24A5B6BC00887B55 /* ClearRequestAlertPlugin.swift in Sources */,
@@ -1030,6 +1044,7 @@
 				C402404124838BC300F715DC /* NetworkService.swift in Sources */,
 				C4BB750324CA6E7E003FFB01 /* KtEdAuthenticationViewController.swift in Sources */,
 				C4AEB30C2498A7B500196DAE /* FancesInfoViewController.swift in Sources */,
+				C481B1FD24DA36ED00B91162 /* KtBackListCell.swift in Sources */,
 				C4AEFCF6248E48C30080904E /* BTMMyPostViewController.swift in Sources */,
 				C44E81C524A367D3000BD888 /* FanceInfoHeaderCell.swift in Sources */,
 				C4D2874424A8ADFD0065F497 /* KtMyCollectCell.swift in Sources */,
@@ -1048,6 +1063,7 @@
 				C402402E2480193B00F715DC /* swiftTemplate.xcdatamodeld in Sources */,
 				C4BB74EF24C91F22003FFB01 /* KtExaminePostViewController.swift in Sources */,
 				C41CD30C24B8A697000A6613 /* KtAboutMineInfoCell.swift in Sources */,
+				C481B1F824D9957600B91162 /* KtBackListViewController.swift in Sources */,
 				C4AEFCF4248CBAC60080904E /* PermissionHelper.swift in Sources */,
 				C4AEFCF0248CACE30080904E /* BTMCleanHeader.swift in Sources */,
 				C4024044248390C800F715DC /* RequestAlertPlugin.swift in Sources */,
@@ -1199,7 +1215,7 @@
 				CODE_SIGN_ENTITLEMENTS = swiftTemplate/SwiftKt.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.04;
+				CURRENT_PROJECT_VERSION = 1.0.06;
 				DEVELOPMENT_TEAM = 9N6AR9BNW6;
 				INFOPLIST_FILE = swiftTemplate/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1207,7 +1223,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.05;
+				MARKETING_VERSION = 1.0.07;
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = com.90btm.SwiftKt;
 				PRODUCT_NAME = SwiftKt;
@@ -1229,7 +1245,7 @@
 				CODE_SIGN_ENTITLEMENTS = swiftTemplate/SwiftKt.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.04;
+				CURRENT_PROJECT_VERSION = 1.0.06;
 				DEVELOPMENT_TEAM = 9N6AR9BNW6;
 				INFOPLIST_FILE = swiftTemplate/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1237,7 +1253,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.05;
+				MARKETING_VERSION = 1.0.07;
 				PRODUCT_BUNDLE_IDENTIFIER = com.90btm.SwiftKt;
 				PRODUCT_NAME = SwiftKt;
 				PROVISIONING_PROFILE_SPECIFIER = "";

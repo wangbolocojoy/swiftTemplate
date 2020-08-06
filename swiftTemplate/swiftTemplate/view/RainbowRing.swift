@@ -68,38 +68,42 @@ import Foundation
     
     func  initview(){
         self.backgroundColor = .clear
-        gradientLayer =  CAGradientLayer()
-              gradientLayer.frame = bounds
-              gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
-              gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
-              //设置渐变层的颜色
-              var rainBowColors:[CGColor] = []
-              var hue:CGFloat = 0
-              while hue <= 360 {
-                  let color = UIColor(hue: 1.0*hue/360.0, saturation: 1.0, brightness: 1.0,
-                                      alpha: 1.0)
-                  rainBowColors.append(color.cgColor)
-                let vad = CGFloat(arc4random() % 15)
-                hue += vad
-              }
-              gradientLayer.colors = rainBowColors
-              imageview.layer.cornerRadius = self.bounds.width/2
-              //添加渐变层
-              self.layer.addSublayer(gradientLayer)
-              //创建遮罩层（使用贝塞尔曲线绘制）
-              maskLayer = CAShapeLayer()
-              maskLayer.path = UIBezierPath(ovalIn:
-                  bounds.insetBy(dx: ringWidth/2, dy: ringWidth/2)).cgPath
-              maskLayer.strokeColor = UIColor.gray.cgColor
-              maskLayer.fillColor = UIColor.clear.cgColor
-              maskLayer.lineWidth = ringWidth
-              //设置遮罩
-              gradientLayer.mask = maskLayer
-              //开始播放动画
-              performAnimation()
+        imageview.layer.cornerRadius = (self.bounds.width-4)/2
+//       initdata()
+    }
+    func initdata(){
+         gradientLayer =  CAGradientLayer()
+                      gradientLayer.frame = bounds
+                      gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+                      gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
+                      //设置渐变层的颜色
+                      var rainBowColors:[CGColor] = []
+                      var hue:CGFloat = 0
+                      while hue <= 360 {
+                          let color = UIColor(hue: 1.0*hue/360.0, saturation: 1.0, brightness: 1.0,
+                                              alpha: 1.0)
+                          rainBowColors.append(color.cgColor)
+                        let vad = CGFloat(arc4random() % 15)
+                        hue += vad
+                      }
+                      gradientLayer.colors = rainBowColors
+                    
+                      //添加渐变层
+                      self.layer.addSublayer(gradientLayer)
+                      //创建遮罩层（使用贝塞尔曲线绘制）
+                      maskLayer = CAShapeLayer()
+                      maskLayer.path = UIBezierPath(ovalIn:
+                          bounds.insetBy(dx: ringWidth/2, dy: ringWidth/2)).cgPath
+                      maskLayer.strokeColor = UIColor.gray.cgColor
+                      maskLayer.fillColor = UIColor.clear.cgColor
+                      maskLayer.lineWidth = ringWidth
+                      //设置遮罩
+                      gradientLayer.mask = maskLayer
+                      //开始播放动画
+                      performAnimation()
     }
     func setimage(url:String){
-        imageview.setImageUrl(image: imageview, string: url, proimage: #imageLiteral(resourceName: "IMG_2506"))
+        imageview.setImageUrl(image: imageview, string: url, proimage: #imageLiteral(resourceName: "背景色"))
     }
     //动画播放结束后的响应
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {

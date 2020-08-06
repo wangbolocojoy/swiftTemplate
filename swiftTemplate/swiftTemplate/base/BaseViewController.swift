@@ -11,6 +11,7 @@ import MJRefresh
 class BaseViewController: UIViewController ,UIGestureRecognizerDelegate{
     let footer = MJRefreshBackFooter()
     let header = MJRefreshNormalHeader()
+    var  backgroundColor : UIColor = Constant.BackGround
     override func viewDidLoad() {
         super.viewDidLoad()
         header.lastUpdatedTimeLabel?.isHidden = false
@@ -30,7 +31,7 @@ class BaseViewController: UIViewController ,UIGestureRecognizerDelegate{
     }
     func BaseinitView(){
         if #available(iOS 13.0, *) {
-            let backgroundColor = UIColor { (trainCollection) -> UIColor in
+             backgroundColor = UIColor { (trainCollection) -> UIColor in
                 switch trainCollection.userInterfaceStyle {
                 case .dark:
                     self.navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(color: .clear), for: .default)

@@ -21,10 +21,13 @@ class MainTabController: UITabBarController {
         
         self.viewControllers = items
     }
+    
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         self.title = item.title
+        
         log.verbose("选择\(item.title)")
         
     }
+   
 
 }

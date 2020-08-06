@@ -8,31 +8,31 @@
 import UIKit
 import MJRefresh
 class TabHomeViewController: BaseTabViewController {
-   
+    
     lazy var list :[PostInfo]? = nil
     lazy var listpost :[PostStart]? = nil
     var pagebody = RequestBody()
     var type = 1
     var hasmore :Bool = true
     @IBOutlet weak var tableview: UITableView!
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-         
+        pagebody.pageSize = 10
         
     }
     
     func checkPosts(){
-        if list?.count == 0 {
-            getpost()
-        } else {
-            checkIsHavNew()
-        }
+        getpost()
+        //        if list?.count == 0 {
+        //
+        //        } else {
+        //            checkIsHavNew()
+        //        }
     }
     func getpost(){
         type = 1
         pagebody.page = 0
-        pagebody.pageSize = 5
         pagebody.userId = UserInfoHelper.instance.user?.id ?? 0
         getPosts(body: pagebody)
     }
@@ -47,21 +47,28 @@ class TabHomeViewController: BaseTabViewController {
     }
     @IBAction func btnsendpost(_ sender: Any) {
         if UserInfoHelper.instance.user?.authentication ?? false {
-             self.navigationController?.pushViewController(self.getVcByName(vc: .发帖), animated: true)
+            self.navigationController?.pushViewController(self.getVcByName(vc: .发帖), animated: true)
         }else{
-            self.navigationController?.pushViewController(self.getVcByName(vc: .身份证上传), animated: true)
+            if UserInfoHelper.instance.user == nil {
+                let vc = getVcByName(vc: .登录) as! LoginViewController
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true, completion: nil)
+            }else{
+                self.navigationController?.pushViewController(self.getVcByName(vc: .身份证上传), animated: true)
+            }
+            
         }
-       
+        
     }
     func getPosts(body:RequestBody){
         MyMoyaManager.AllRequestNospinner(controller: self, NetworkService.getposts(k: body.toJSONString()!)) { (data) in
-            CoreDataManager.default.postlist = data.postlist
+            //            CoreDataManager.default.postlist = data.postlist
             if self.type == 1 {
                 self.list = data.postlist
             }else{
                 self.list! += data.postlist ?? []
             }
-            if data.postlist?.count ?? 0 == 5{
+            if data.postlist?.count ?? 0 == 10{
                 self.hasmore = true
             }else{
                 self.hasmore = false
@@ -76,7 +83,6 @@ class TabHomeViewController: BaseTabViewController {
         footer.resetNoMoreData()
         type = 1
         pagebody.page = 0
-        pagebody.pageSize = 5
         pagebody.userId = UserInfoHelper.instance.user?.id ?? 0
         getPosts(body: pagebody)
     }
@@ -85,7 +91,6 @@ class TabHomeViewController: BaseTabViewController {
             type = 2
             pagebody.userId = UserInfoHelper.instance.user?.id ?? 0
             pagebody.page = (pagebody.page ?? 0) + 1
-            pagebody.pageSize = 5
             getPosts(body: pagebody)
         }
         
@@ -100,15 +105,15 @@ class TabHomeViewController: BaseTabViewController {
         footer.setRefreshingTarget(self, refreshingAction: #selector(getMore))
         tableview.mj_footer = footer
         
-        CoreDataManager.default.getCoreDataPost(success: { (PostInfolist) in
-            if PostInfolist == nil {
-                self.checkPosts()
-            }else{
-                self.list = PostInfolist
-                self.tableview.reloadData()
-            }
-          
-        })
+        //        CoreDataManager.default.getCoreDataPost(success: { (PostInfolist) in
+        //            if PostInfolist == nil {
+        self.checkPosts()
+        //            }else{
+        //                self.list = PostInfolist
+        //                self.tableview.reloadData()
+        //            }
+        //
+        //        })
         
     }
     func deletePost(pfo:PostInfo,index:Int){
@@ -117,16 +122,26 @@ class TabHomeViewController: BaseTabViewController {
         body.postId = pfo.id
         MyMoyaManager.AllRequest(controller: self, NetworkService.deletspost(K: body.toJSONString() ?? "")) { (data) in
             UserInfoHelper.instance.user?.postNum = (UserInfoHelper.instance.user?.postNum ?? 1) - 1
-            CoreDataManager.default.deletePost(id: body.postId ?? 0) {
-                CoreDataManager.default.getCoreDataPost { (pinl) in
-                    CoreDataManager.default.postlist = pinl
-                }
-            }
+            //            CoreDataManager.default.deletePost(id: body.postId ?? 0) {
+            //                CoreDataManager.default.getCoreDataPost { (pinl) in
+            //                    CoreDataManager.default.postlist = pinl
+            //                }
+            //            }
             self.list?.remove(at: index)
             self.tableview.reloadData()
         }
     }
-    
+    func addbacklist(pfo:PostInfo){
+        let body = RequestBody()
+        body.userId = UserInfoHelper.instance.user?.id ?? 0
+        body.backId = pfo.userId
+        MyMoyaManager.AllRequest(controller: self, NetworkService.addbacklist(k: body.toJSONString() ?? "")) { (data) in
+            //            CoreDataManager.default.deleteAllPost {
+            //                self.getpost()
+            //            }
+            
+        }
+    }
 }
 extension TabHomeViewController:UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -140,6 +155,9 @@ extension TabHomeViewController:UITableViewDataSource,UITableViewDelegate,UIScro
             switch type{
             case 2:
                 self.deletePost(pfo: poinfo!, index: index)
+                break
+            case 3:
+                self.addbacklist(pfo: poinfo!)
                 break
             default:
                 break
@@ -176,32 +194,8 @@ extension TabHomeViewController:UITableViewDataSource,UITableViewDelegate,UIScro
         }
     }
     
-    //    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-    //        log.verbose("滑动")
-    //
-    //    }
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-        let minAlphaOffset:CGFloat = 64.0;
-        let maxAlphaOffset:CGFloat = 200.0;
-        let offset = scrollView.contentOffset.y;
-        let alpha = (offset - minAlphaOffset) / (maxAlphaOffset - minAlphaOffset);
-        
-//        self.navigationController?.navigationBar.subviews.first?.alpha = alpha
-        
+  
+    
+    
+}
 
-        
-        
-//        self.navigationController
-        
-    }
-    
-    
-}
-extension TabHomeViewController:UISearchResultsUpdating{
-    func updateSearchResults(for searchController: UISearchController) {
-        
-    }
-    
-    
-}

@@ -27,7 +27,7 @@ static let reuseID =  "KtFabulousTableViewCell"
     }
     func updateCell(info :UserInfo?){
         log.verbose(info?.toJSONString() ?? "")
-        usericon.setImageUrl(image: usericon, string: info?.icon, proimage: #imageLiteral(resourceName: "IMG_2507"))
+        usericon.setImageUrl(image: usericon, string: info?.icon, proimage: #imageLiteral(resourceName: "背景色"))
         username.text = info?.nickName ?? ""
         usereasyinfo.text = info?.easyInfo ?? ""
     }

@@ -10,7 +10,7 @@ import UIKit
 import MJRefresh
 class TabFriendsViewController: BaseTabViewController {
     
-    var list:[UserInfo]? = nil
+    var list:[UserInfo]? = []
     var page = 0
     
     lazy var  countrySearchController:UISearchController? = UISearchController()
@@ -19,17 +19,17 @@ class TabFriendsViewController: BaseTabViewController {
         super.viewDidLoad()
     }
     override func initView() {
-        //        self.countrySearchController = ({
-        //            let controller = UISearchController(searchResultsController: nil)
-        //            controller.searchResultsUpdater = self   //两个样例使用不同的代理
-        //            controller.hidesNavigationBarDuringPresentation = false
-        //            controller.dimsBackgroundDuringPresentation = true
-        //            controller.searchBar.barStyle = .default
-        //            //            controller.view.backgroundColor = .white
-        //            controller.searchBar.placeholder = "输入用户账号查找"
-        //            return controller
-        //        })()
-        //        self.navigationItem.titleView = self.countrySearchController?.searchBar
+//        self.countrySearchController = ({
+//            let controller = UISearchController(searchResultsController: nil)
+//            controller.searchResultsUpdater = self   //两个样例使用不同的代理
+//            controller.hidesNavigationBarDuringPresentation = false
+//            controller.dimsBackgroundDuringPresentation = true
+//            controller.searchBar.barStyle = .default
+//            //            controller.view.backgroundColor = .white
+//            controller.searchBar.placeholder = "输入用户账号查找"
+//            return controller
+//        })()
+//        self.navigationItem.titleView = self.countrySearchController?.searchBar
         tableview.delegate = self
         tableview.dataSource = self
         tableview.separatorStyle = .none
@@ -46,14 +46,13 @@ class TabFriendsViewController: BaseTabViewController {
         
     }
     @objc func refresh(){
-            page=0
-            getRecommend()
-            footer.resetNoMoreData()
-        
+        page=0
+        getRecommend()
+        footer.resetNoMoreData()
+
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
     }
     @IBAction func addfriend(_ sender: Any) {
     }
@@ -119,11 +118,11 @@ extension TabFriendsViewController:UITableViewDelegate,UITableViewDataSource{
         return 90
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      
-            let vc = getVcByName(vc: .粉丝详情) as! FancesInfoViewController
-            vc.userinfo = list?[indexPath.item]
-            vc.userId = list?[indexPath.item].id
-            self.navigationController?.pushViewController(vc, animated: true)
+        
+        let vc = getVcByName(vc: .粉丝详情) as! FancesInfoViewController
+        vc.userinfo = list?[indexPath.item]
+        vc.userId = list?[indexPath.item].id
+        self.navigationController?.pushViewController(vc, animated: true)
         
         
     }
@@ -141,9 +140,9 @@ extension TabFriendsViewController:UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-            let footer = tableView.dequeueReusableHeaderFooterView(withIdentifier: KtNoDataFooterView.reuseID) as! KtNoDataFooterView
-            footer.toast_text.text = "没有更多推荐，请稍后再试"
-            return footer
+        let footer = tableView.dequeueReusableHeaderFooterView(withIdentifier: KtNoDataFooterView.reuseID) as! KtNoDataFooterView
+        footer.toast_text.text = "没有更多推荐，请稍后再试"
+        return footer
         
         
     }

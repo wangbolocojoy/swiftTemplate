@@ -35,6 +35,7 @@ class BTMMyPostViewController: BaseViewController {
         tableview.mj_header = header
         pagebody.pageSize = 3
         pagebody.page = 0
+        type = 1
         pagebody.userId = userid
         getpost(json: pagebody.toJSONString() ?? "")
     }
@@ -46,7 +47,13 @@ class BTMMyPostViewController: BaseViewController {
         }
        
     }
-    
+    func getPost(){
+           type = 1
+           pagebody.page = 0
+           pagebody.pageSize = 5
+           pagebody.userId = UserInfoHelper.instance.user?.id ?? 0
+           getpost(json: pagebody.toJSONString() ?? "")
+       }
     @objc func refresh(){
         footer.resetNoMoreData()
         type = 1
@@ -92,7 +99,17 @@ class BTMMyPostViewController: BaseViewController {
                self.tableview.reloadData()
            }
        }
-    
+    func addbacklist(pfo:PostInfo){
+           let body = RequestBody()
+           body.userId = UserInfoHelper.instance.user?.id ?? 0
+           body.backId = pfo.userId
+           MyMoyaManager.AllRequest(controller: self, NetworkService.addbacklist(k: body.toJSONString() ?? "")) { (data) in
+//               CoreDataManager.default.deleteAllPost {
+//                   self.getPost()
+//               }
+               
+           }
+       }
 }
 extension BTMMyPostViewController:UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -106,11 +123,15 @@ extension BTMMyPostViewController:UITableViewDataSource,UITableViewDelegate,UISc
         cell.setModel(pinfo: list?[indexPath.item],ind: indexPath.item)
         cell.callBackBlock { (type, poinfo,index) in
                    switch type{
-                   case 2:
-                    self.deletePost(pfo: poinfo!, index: index) 
-                   default:
-                       break
-                   }
+                              case 2:
+                                  self.deletePost(pfo: poinfo!, index: index)
+                                  break
+                              case 3:
+                                  self.addbacklist(pfo: poinfo!)
+                                  break
+                              default:
+                                  break
+                              }
                }
         return cell
     }

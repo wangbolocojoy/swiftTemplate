@@ -39,7 +39,7 @@ class KtExaminePostCell: UITableViewCell {
         postdetail.text = postmodel?.postDetail ?? ""
         username.text = postmodel?.author?.nickName ?? ""
         userisselect.setcheck(isheck: postmodel?.postisselectid ?? false)
-        usericon.setImageUrl(image: usericon, string: postmodel?.author?.icon ?? "", proimage: #imageLiteral(resourceName: "IMG_2506"))
+        usericon.setImageUrl(image: usericon, string: postmodel?.author?.icon ?? "", proimage: #imageLiteral(resourceName: "背景色"))
         banner.reloadData()
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -56,7 +56,7 @@ extension KtExaminePostCell:FSPagerViewDelegate,FSPagerViewDataSource {
     
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
-        cell.imageView?.setImageUrl(image: cell.imageView!,string: postmodel?.postImages?[index].fileUrl , proimage:#imageLiteral(resourceName: "loadingimg") )
+        cell.imageView?.setImageUrl(image: cell.imageView!,string: postmodel?.postImages?[index].fileUrl , proimage:#imageLiteral(resourceName: "背景色") )
         cell.isHighlighted = false
         return cell
     }

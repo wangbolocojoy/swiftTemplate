@@ -20,7 +20,7 @@ class BaseTabViewController: UIViewController {
         initView()
     }
     func  initView(){
-      
+        
     }
     func BaseinitView(){
         if #available(iOS 13.0, *) {
@@ -28,11 +28,11 @@ class BaseTabViewController: UIViewController {
                 switch trainCollection.userInterfaceStyle {
                 case .dark:
                     self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-                                      self.navigationController?.navigationBar.shadowImage = UIImage.imageWithColor(color: .clear)
-                                      self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white,
-                                                                                                      NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18)]
-                                      
-                                      self.navigationController?.navigationBar.tintColor = .white
+                    self.navigationController?.navigationBar.shadowImage = UIImage.imageWithColor(color: .clear)
+                    self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white,
+                                                                                    NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18)]
+                    
+                    self.navigationController?.navigationBar.tintColor = .white
                     return Constant.DarkBackGround
                     
                 case .light:
@@ -105,6 +105,6 @@ class BaseTabViewController: UIViewController {
             self.view.backgroundColor = Constant.BackGround
         } }
     
-
-
+    
+    
 }

@@ -153,6 +153,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                          * The store could not be migrated to the current model version.
                          Check the error message to determine what the actual problem was.
                          */
+                          log.error("Unresolved error \(error), \(error.userInfo)")
                         fatalError("Unresolved error \(error), \(error.userInfo)")
                     }
                 })
@@ -167,23 +168,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let container = NSPersistentContainer(name: "swiftTemplate")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
+                 log.error("Unresolved error \(error), \(error.userInfo)")
                 fatalError("Unresolved error \(error), \(error.userInfo)")
+               
             }
         })
+        
         return container
     }()
     // MARK: - Core Data Saving support
     
+    func getcontext() -> NSManagedObjectContext{
+        var  context : NSManagedObjectContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+               if #available(iOS 13.0, *) {
+                context = getpersistentContainer().newBackgroundContext()
+               } else {
+                   context = persistentContainer.viewContext
+               }
+        return context
+    }
     func saveContext () {
-        var  context : NSManagedObjectContext
-        if #available(iOS 13.0, *) {
-            context = getpersistentContainer().viewContext
-        } else {
-            context = persistentContainer.viewContext
-        }
-        if context.hasChanges {
+      if getcontext().hasChanges {
             do {
-                try context.save()
+                try getcontext() .save()
             } catch {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
@@ -204,4 +211,18 @@ extension AppDelegate:BuglyDelegate{
         return exception?.reason
     }
     
+}
+extension NSManagedObjectContext {
+    func update() throws {
+        let context = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+        context.parent = self
+
+        context.perform({
+            do {
+                try context.save()
+            } catch {
+                print(error)
+            }
+        })
+    }
 }

@@ -35,6 +35,6 @@ static let reuseID =  "KtAccountBlockCell"
         checkbox.setcheck(isheck: usermodel?.isselectid ?? false)
         usernickname.text = usermodel?.nickName ?? ""
         userinfo.text = usermodel?.easyInfo ?? ""
-        usericon.setImageUrl(image: usericon, string: usermodel?.icon ?? "", proimage: #imageLiteral(resourceName: "IMG_2506"))
+        usericon.setImageUrl(image: usericon, string: usermodel?.icon ?? "", proimage: #imageLiteral(resourceName: "背景色"))
     }
 }

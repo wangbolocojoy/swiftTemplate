@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login View Controller-->
+        <!--登录-->
         <scene sceneID="dzS-hj-aso">
             <objects>
-                <viewController storyboardIdentifier="LOGINVIEWVC" hidesBottomBarWhenPushed="YES" id="QB5-U0-VSA" customClass="LoginViewController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LOGINVIEWVC" title="登录" wantsFullScreenLayout="YES" hidesBottomBarWhenPushed="YES" id="QB5-U0-VSA" customClass="LoginViewController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fm6-8d-cQB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -118,10 +118,19 @@
                                 <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p0z-wH-f8W">
+                                <rect key="frame" x="25" y="54" width="32" height="32"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="下"/>
+                                <connections>
+                                    <action selector="closevc:" destination="QB5-U0-VSA" eventType="touchUpInside" id="inN-Ov-OEi"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="C60-MT-N4b" firstAttribute="leading" secondItem="4GQ-WZ-NCu" secondAttribute="leading" constant="25" id="793-GX-u34"/>
+                            <constraint firstItem="p0z-wH-f8W" firstAttribute="top" secondItem="4GQ-WZ-NCu" secondAttribute="top" constant="10" id="7ED-6x-gvS"/>
                             <constraint firstItem="xFH-Wn-rxC" firstAttribute="top" secondItem="rH8-Zf-3OG" secondAttribute="bottom" constant="25" id="9Fc-fC-pl0"/>
                             <constraint firstItem="Ok3-HB-Jb7" firstAttribute="centerX" secondItem="fm6-8d-cQB" secondAttribute="centerX" id="9In-IS-qy7"/>
                             <constraint firstItem="ESG-dY-gVa" firstAttribute="top" secondItem="kSS-hF-2np" secondAttribute="bottom" id="9id-Qk-ePg"/>
@@ -134,6 +143,7 @@
                             <constraint firstItem="rH8-Zf-3OG" firstAttribute="centerY" secondItem="fm6-8d-cQB" secondAttribute="centerY" id="PFU-eb-NNm"/>
                             <constraint firstItem="4GQ-WZ-NCu" firstAttribute="trailing" secondItem="kSS-hF-2np" secondAttribute="trailing" constant="25" id="PZC-Yc-xPD"/>
                             <constraint firstItem="Ok3-HB-Jb7" firstAttribute="top" secondItem="Pee-kx-Kor" secondAttribute="bottom" constant="20" id="Qch-2c-Wbq"/>
+                            <constraint firstItem="p0z-wH-f8W" firstAttribute="leading" secondItem="4GQ-WZ-NCu" secondAttribute="leading" constant="25" id="TjQ-2a-DAD"/>
                             <constraint firstItem="4GQ-WZ-NCu" firstAttribute="trailing" secondItem="AGW-98-c68" secondAttribute="trailing" constant="25" id="U6K-zO-jri"/>
                             <constraint firstItem="rH8-Zf-3OG" firstAttribute="top" secondItem="ESG-dY-gVa" secondAttribute="bottom" constant="25" id="VyP-5Q-qGd"/>
                             <constraint firstItem="xFH-Wn-rxC" firstAttribute="leading" secondItem="4GQ-WZ-NCu" secondAttribute="leading" constant="25" id="Yvp-DE-nN8"/>
@@ -169,10 +179,10 @@
             </objects>
             <point key="canvasLocation" x="768.11594202898561" y="-236.38392857142856"/>
         </scene>
-        <!--Register View Controller-->
+        <!--注册-->
         <scene sceneID="JLw-n3-qcP">
             <objects>
-                <viewController storyboardIdentifier="REGISTERVC" hidesBottomBarWhenPushed="YES" id="6Tv-tq-HwL" customClass="RegisterViewController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="REGISTERVC" title="注册" wantsFullScreenLayout="YES" hidesBottomBarWhenPushed="YES" id="6Tv-tq-HwL" customClass="RegisterViewController" customModule="SwiftKt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DRm-gU-zCi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -260,11 +270,20 @@
                                     <action selector="sendMsg:" destination="6Tv-tq-HwL" eventType="touchUpInside" id="u0Q-eO-HyP"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nOl-tA-kb7">
+                                <rect key="frame" x="25" y="54" width="32" height="32"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="下"/>
+                                <connections>
+                                    <action selector="closevc:" destination="6Tv-tq-HwL" eventType="touchUpInside" id="s7k-mC-Njb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="brT-tO-LB4" firstAttribute="trailing" secondItem="lpd-bd-gLb" secondAttribute="trailing" constant="25" id="05G-Nf-si5"/>
                             <constraint firstItem="avr-8l-qzj" firstAttribute="centerY" secondItem="EHe-7s-cyu" secondAttribute="centerY" id="36Y-tI-Uof"/>
+                            <constraint firstItem="nOl-tA-kb7" firstAttribute="top" secondItem="brT-tO-LB4" secondAttribute="top" constant="10" id="D59-WR-ndZ"/>
                             <constraint firstItem="lpd-bd-gLb" firstAttribute="leading" secondItem="brT-tO-LB4" secondAttribute="leading" constant="25" id="Ekg-tu-31U"/>
                             <constraint firstItem="brT-tO-LB4" firstAttribute="trailing" secondItem="M0S-oC-pkX" secondAttribute="trailing" constant="25" id="Hfi-ya-erY"/>
                             <constraint firstItem="brT-tO-LB4" firstAttribute="trailing" secondItem="avr-8l-qzj" secondAttribute="trailing" constant="20" id="HsD-uF-Vdh"/>
@@ -283,6 +302,7 @@
                             <constraint firstItem="brT-tO-LB4" firstAttribute="trailing" secondItem="21t-S9-9U7" secondAttribute="trailing" constant="25" id="o2W-uh-iXE"/>
                             <constraint firstItem="EHe-7s-cyu" firstAttribute="leading" secondItem="brT-tO-LB4" secondAttribute="leading" constant="25" id="o8y-mg-Ao1"/>
                             <constraint firstItem="wI8-A5-Nqm" firstAttribute="leading" secondItem="brT-tO-LB4" secondAttribute="leading" constant="25" id="pkk-yX-06X"/>
+                            <constraint firstItem="nOl-tA-kb7" firstAttribute="leading" secondItem="brT-tO-LB4" secondAttribute="leading" constant="25" id="tnw-mj-5nz"/>
                             <constraint firstItem="9IE-vL-jl6" firstAttribute="top" secondItem="pxx-3I-h1s" secondAttribute="bottom" id="uax-4c-aYb"/>
                             <constraint firstItem="21t-S9-9U7" firstAttribute="top" secondItem="wI8-A5-Nqm" secondAttribute="bottom" id="zE1-fB-lka"/>
                             <constraint firstItem="brT-tO-LB4" firstAttribute="trailing" secondItem="pxx-3I-h1s" secondAttribute="trailing" constant="25" id="zr0-oq-EtJ"/>
@@ -351,4 +371,7 @@
             <point key="canvasLocation" x="-142.02898550724638" y="-236.38392857142856"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="下" width="32" height="32"/>
+    </resources>
 </document>

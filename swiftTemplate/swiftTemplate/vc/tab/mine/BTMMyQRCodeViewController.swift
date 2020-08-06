@@ -28,7 +28,7 @@ class BTMMyQRCodeViewController: BaseViewController {
         }
         user_name.text = user?.nickName ?? ""
         usre_address.text = "\(user?.province ?? "")\(user?.city ?? "")"
-        user_icon.setImageUrl(image: user_icon, string: user?.icon, proimage: #imageLiteral(resourceName: "IMG_2507"))
+        user_icon.setImageUrl(image: user_icon, string: user?.icon, proimage: #imageLiteral(resourceName: "背景色"))
         qr_code.creatQrcode(imageView: qr_code,qrstring: userinfo?.toJSONString() ?? "", imagecenter: user_icon.image)
     }
     

@@ -42,6 +42,7 @@ enum MyController{
     case 实名认证
     case 身份证上传
     case 设置
+    case 黑名单
     
 }
 enum NavVc {
@@ -204,6 +205,9 @@ extension UIViewController{
         case .设置:
             let vc = otsb.instantiateViewController(withIdentifier: "KTMYSEETINGVC") as! KtMySettingViewController
             return vc
+        case .黑名单:
+            let vc = otsb.instantiateViewController(withIdentifier: "KTBACKLISTVC") as! KtBackListViewController
+                       return vc
         }
     }
 }

@@ -9,8 +9,6 @@
 import UIKit
 import MJRefresh
 class TabDynamicViewController: BaseTabViewController{
-    
-    
     lazy var list :[PostInfo]? = nil
     var pagebody = RequestBody()
     var type = 1
@@ -18,30 +16,28 @@ class TabDynamicViewController: BaseTabViewController{
     lazy var  countrySearchController:UISearchController? = UISearchController()
     @IBOutlet weak var collectionview: UICollectionView!
     let user = UserInfoHelper.instance.user
+    var imageview : UIImageView? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
-      
-       
-              
     }
     override func initView() {
-//        self.countrySearchController = ({
-//            let controller = UISearchController(searchResultsController: nil)
-//            controller.searchResultsUpdater = self   //两个样例使用不同的代理
-//            controller.hidesNavigationBarDuringPresentation = false
-//            controller.dimsBackgroundDuringPresentation = true
-//            controller.searchBar.barStyle = .default
-//            //            controller.view.backgroundColor = .white
-//            controller.view.backgroundColor = self.view.backgroundColor
-//            controller.searchBar.placeholder = "输入关键词进行搜索"
-//            return controller
-//        })()
-        let imageview = UIImageView(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
-        imageview.setImageUrl(image: imageview, string: user?.icon, proimage: #imageLiteral(resourceName: "IMG_2506"))
+        //        self.countrySearchController = ({
+        //            let controller = UISearchController(searchResultsController: nil)
+        //            controller.searchResultsUpdater = self   //两个样例使用不同的代理
+        //            controller.hidesNavigationBarDuringPresentation = false
+        //            controller.dimsBackgroundDuringPresentation = true
+        //            controller.searchBar.barStyle = .default
+        //            //            controller.view.backgroundColor = .white
+        //            controller.view.backgroundColor = self.view.backgroundColor
+        //            controller.searchBar.placeholder = "输入关键词进行搜索"
+        //            return controller
+        //        })()
+        imageview = UIImageView(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
+        self.imageview!.setImageUrl(image: self.imageview!, string: user?.icon, proimage: #imageLiteral(resourceName: "背景色"))
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
         view.layer.masksToBounds = true
         view.layer.cornerRadius = 18
-        view.addSubview(imageview)
+        view.addSubview(imageview!)
         let item = UIBarButtonItem(customView: view)
         self.navigationItem.leftBarButtonItem = item
         collectionview.delegate = self
@@ -52,19 +48,17 @@ class TabDynamicViewController: BaseTabViewController{
         collectionview.mj_header = header
         footer.setRefreshingTarget(self, refreshingAction: #selector(getMore))
         collectionview.mj_footer = footer
-        pagebody.pageSize = 20
+        pagebody.pageSize = 21
         pagebody.page = 0
         pagebody.userId = UserInfoHelper.instance.user?.id ?? 0
-        if  CoreDataManager.default.postlist?.count != 0 {
-                  self.list =  CoreDataManager.default.postlist
-                  self.collectionview.reloadData()
-              }else{
-                    getpost(json: pagebody.toJSONString() ?? "")
-              }
-
-      
+        getpost(json: pagebody.toJSONString() ?? "")
+        
+        
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+         self.imageview!.setImageUrl(image: self.imageview!, string: UserInfoHelper.instance.user?.icon, proimage: #imageLiteral(resourceName: "背景色"))
+    }
     @objc func showUser(){
         
     }
@@ -87,13 +81,13 @@ class TabDynamicViewController: BaseTabViewController{
     }
     func getpost(json:String){
         MyMoyaManager.AllRequest(controller: self, NetworkService.getposts(k:json )) { (data) in
-            CoreDataManager.default.postlist = data.postlist
+//            CoreDataManager.default.postlist = data.postlist
             if self.type == 1 {
                 self.list = data.postlist
             }else{
                 self.list! += data.postlist ?? []
             }
-            if data.postlist?.count == 20{
+            if data.postlist?.count == 21{
                 self.hasmore = true
             }else{
                 self.hasmore = false

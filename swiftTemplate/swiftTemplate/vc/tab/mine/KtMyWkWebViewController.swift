@@ -8,7 +8,7 @@
 
 import UIKit
 import WebKit
-class KtMyWkWebViewController: BaseViewController {
+class KtMyWkWebViewController: BaseDetailViewController {
     var url : URL? = nil
     @IBOutlet weak var webview: WKWebView!
     override func viewDidLoad() {
@@ -20,9 +20,6 @@ class KtMyWkWebViewController: BaseViewController {
         loadWebView()
         let request = URLRequest(url:url!)
         webview.load(request)
-//        let colo = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
-        
-        //                webview.configuration.userContentController.add(self, name: "ios_call")
         
     }
     func loadWebView()  {
@@ -36,6 +33,9 @@ class KtMyWkWebViewController: BaseViewController {
         webview.scrollView.bounces = true
         webview.scrollView.alwaysBounceVertical = true
         webview.navigationDelegate = self
+    }
+    @IBAction func closevc(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
 }

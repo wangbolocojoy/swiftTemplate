@@ -25,7 +25,7 @@ static let reuseID =  "FanceInfoHeaderCell"
 
  
    func updateCell(info:UserInfo?){
-    userIcon.setImageUrl(image: userIcon, string: info?.icon, proimage: #imageLiteral(resourceName: "IMG_2507"))
+    userIcon.setImageUrl(image: userIcon, string: info?.icon, proimage: #imageLiteral(resourceName: "背景色"))
     lab_postnum.text = "\(info?.postNum ?? 0)"
     lab_fance_num.text = "\(info?.fances ?? 0)"
     lab_follow_num.text = "\(info?.follows ?? 0)"

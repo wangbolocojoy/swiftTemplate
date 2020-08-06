@@ -53,6 +53,7 @@ class BaseResponse: Mappable {
     }
     
 }
+
 class UserIdCard: Mappable {
     var id: Int?
     var userId: Int?

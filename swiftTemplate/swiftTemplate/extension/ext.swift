@@ -334,6 +334,10 @@ extension UITableViewCell {
     func pushVC(vc:UIViewController){
         parentViewController()?.navigationController?.pushViewController(vc, animated: true)
     }
+    func preshVC(vc:UIViewController){
+        parentViewController()?.present(vc, animated: true, completion: nil)
+      }
+    
 }
 extension UITableViewHeaderFooterView{
     func parentViewController() -> UIViewController? {

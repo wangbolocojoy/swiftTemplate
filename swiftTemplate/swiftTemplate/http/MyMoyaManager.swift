@@ -95,11 +95,17 @@ struct MyMoyaManager{
                             //                                UIApplication.shared.windows[0].rootViewController = controller.getloginVc()
                             //
                             //                            })
-                            let vc = UIStoryboard.init(name: "NewLogin", bundle: nil).instantiateViewController(withIdentifier: "LOGINVIEWVC") as! LoginViewController
-//                            controller.present(vc, animated: true) {
+//                            let vc =   UIStoryboard.init(name: "Other", bundle: nil).instantiateViewController(withIdentifier: "KTTESTVC") as! KtTestViewController
 //
-//                                                       }
-                            controller.navigationController?.pushViewController(vc, animated:   true)
+//                                                       controller.present(vc, animated: true) {
+//
+//                                                                                 }
+                            let vc = UIStoryboard.init(name: "NewLogin", bundle: nil).instantiateViewController(withIdentifier: "LOGINVIEWVC") as! LoginViewController
+                             vc.modalPresentationStyle = .fullScreen
+                            controller.present(vc, animated: true) {
+
+                                                       }
+//                            controller.navigationController?.pushViewController(vc, animated:   true)
                         }else{
                             controller.ShowTip(Title: u.msg ?? "请求失败")
                             log.warning(u.toJSONString() ?? "")
@@ -147,8 +153,19 @@ struct MyMoyaManager{
                             //                                UIApplication.shared.windows[0].rootViewController = controller.getloginVc()
                             //
                             //                            })
+                            
                             let vc = UIStoryboard.init(name: "NewLogin", bundle: nil).instantiateViewController(withIdentifier: "LOGINVIEWVC") as! LoginViewController
-                             controller.navigationController?.pushViewController(vc, animated:   true)
+                                                        vc.modalPresentationStyle = .fullScreen
+                                                       controller.present(vc, animated: true) {
+
+                                                                                  }
+//                             let vc =   UIStoryboard.init(name: "Other", bundle: nil).instantiateViewController(withIdentifier: "KTTESTVC") as! KtTestViewController
+//                            vc.modalPresentationStyle = .fullScreen
+//                             controller.present(vc, animated: true) {
+//
+//                                                       }
+//                            let vc = UIStoryboard.init(name: "NewLogin", bundle: nil).instantiateViewController(withIdentifier: "LOGINVIEWVC") as! LoginViewController
+                          
 //                            controller.present(vc, animated: true) {
 //
 //                            }

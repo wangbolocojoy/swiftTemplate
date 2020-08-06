@@ -38,6 +38,37 @@ class BaseDetailViewController: UIViewController {
             
         }
     }
-    
+//    
+//    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+//           super.traitCollectionDidChange(previousTraitCollection)
+//           if #available(iOS 13.0, *) {
+//               if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+//                   switch previousTraitCollection?.userInterfaceStyle {
+//                   case .dark:
+//                       log.verbose("Dark")
+//                    
+//                       self.view.backgroundColor = Constant.BackGround
+//                       
+//                       
+//                   case .light:
+//                          log.verbose("light")
+//                    
+//                       self.view.backgroundColor = Constant.DarkBackGround
+//                       
+//                       
+//                   default:
+//                        log.verbose("default")
+//                     
+//                       self.view.backgroundColor = Constant.BackGround
+//                       
+//                       
+//                   }
+//               }
+//           } else {
+//               log.verbose("else")
+//            
+//               self.view.backgroundColor = Constant.BackGround
+//           } }
+//    
     
 }

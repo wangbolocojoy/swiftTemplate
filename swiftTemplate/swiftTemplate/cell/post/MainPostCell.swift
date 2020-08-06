@@ -10,11 +10,9 @@ import UIKit
 import FSPagerView
 class MainPostCell: UITableViewCell {
     static let reuseID =  "MainPostCell"
-    
     @IBOutlet weak var post_status: UILabel!
     @IBOutlet weak var actionheart: UIImageView!
     @IBOutlet weak var poster_more: UIButton!
-    
     @IBOutlet weak var banner: FSPagerView!{
         didSet{
             banner.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "cell")
@@ -26,13 +24,11 @@ class MainPostCell: UITableViewCell {
     var callBack :swiftblock?
     typealias swiftblock = (_ type:Int,_ btntag : PostInfo? ,_ index:Int) -> Void
     @IBOutlet weak var btn_gotostart: UIView!
-    
     @IBOutlet weak var settingpublicview: UIView!
     @IBOutlet weak var post_detail: UILabel!
     @IBOutlet weak var post_auther_nickname: UILabel!
     @IBOutlet weak var post_auther_address: UILabel!
     @IBOutlet weak var pagecontrol: FSPageControl!
-    
     @IBOutlet weak var message_image: UIImageView!
     @IBOutlet weak var btn_message: UIView!
     @IBOutlet weak var lab_postnum: UILabel!
@@ -83,9 +79,9 @@ class MainPostCell: UITableViewCell {
             message_image.image = UIImage(systemName: "text.bubble")
         } else {
             btn_share.image = #imageLiteral(resourceName: "分享")
-             message_image.image = #imageLiteral(resourceName: "message")
+            message_image.image = #imageLiteral(resourceName: "message")
         }
-       
+        
         btn_share.isUserInteractionEnabled = true
         btn_share.addGestureRecognizer(tapsharpost)
         let tappostmore = UITapGestureRecognizer(target: self, action: #selector(showActions))
@@ -122,26 +118,26 @@ class MainPostCell: UITableViewCell {
         post_detail.text = postinfo?.postDetail ?? ""
         post_auther_nickname.text = postinfo?.author?.nickName ?? ""
         pagecontrol.numberOfPages = postinfo?.postImages?.count ?? 0
-        postauther_icon.setImageUrl(image: postauther_icon,string: postinfo?.author?.icon, proimage: #imageLiteral(resourceName: "IMG_2507"))
+        postauther_icon.setImageUrl(image: postauther_icon,string: postinfo?.author?.icon, proimage: #imageLiteral(resourceName: "背景色"))
         post_auther_address.text = postinfo?.postAddress ?? ""
         lab_postnum.text = "\(postinfo?.postMessageNum ?? 0)"
         switch postinfo?.postState ?? 1 {
         case 0:
-             post_status.isHidden = false
-//             post_status.text = "正在审核中"
-//             post_status.textColor = .red
-             btn_share.isHidden = true
+            post_status.isHidden = false
+            //             post_status.text = "正在审核中"
+            //             post_status.textColor = .red
+            btn_share.isHidden = true
         case 1:
-             post_status.isHidden = true
-             btn_share.isHidden = false
+            post_status.isHidden = true
+            btn_share.isHidden = false
         case 2:
-             post_status.isHidden = false
-             btn_share.isHidden = true
+            post_status.isHidden = false
+            btn_share.isHidden = true
         default:
-             post_status.isHidden = false
-             btn_share.isHidden = true
+            post_status.isHidden = false
+            btn_share.isHidden = true
         }
-       
+        
     }
     
     /// 弹出评论页面
@@ -169,26 +165,26 @@ class MainPostCell: UITableViewCell {
         }else{
             if #available(iOS 13.0, *) {
                 btn_start.tintColor = .label
-                 btn_start.image = UIImage(systemName: "heart")
+                btn_start.image = UIImage(systemName: "heart")
             } else {
-                 btn_start.tintColor = .black
+                btn_start.tintColor = .black
                 btn_start.image = #imageLiteral(resourceName: "heart")
             }
-           
+            
         }
         if postinfo?.isCollection ?? false {
             if #available(iOS 13.0, *) {
-//                btn_collection.image = UIImage(systemName: "bookmark.fill")
-                 btn_collection.image = #imageLiteral(resourceName: "bookmarkfill")
+                //                btn_collection.image = UIImage(systemName: "bookmark.fill")
+                btn_collection.image = #imageLiteral(resourceName: "bookmarkfill")
             } else {
                 btn_collection.image = #imageLiteral(resourceName: "bookmarkfill")
             }
         }else{
             if #available(iOS 13.0, *) {
-//                btn_collection.image = UIImage(systemName: "bookmark")
-                 btn_collection.image = #imageLiteral(resourceName: "bookmark")
+                //                btn_collection.image = UIImage(systemName: "bookmark")
+                btn_collection.image = #imageLiteral(resourceName: "bookmark")
             } else {
-               btn_collection.image = #imageLiteral(resourceName: "bookmark")
+                btn_collection.image = #imageLiteral(resourceName: "bookmark")
             }
         }
         lab_startnum.text = "\(postinfo?.postStarts ?? 0)"
@@ -232,7 +228,7 @@ class MainPostCell: UITableViewCell {
             log.verbose("收藏\(data)")
             var list :[PostInfo]? = []
             list?.append(self.postinfo!)
-            CoreDataManager.default.postlist = list
+//            CoreDataManager.default.postlist = list
             self.postinfo?.isCollection = true
             
             self.updateStartOrCollection()
@@ -247,7 +243,7 @@ class MainPostCell: UITableViewCell {
             log.verbose("取消收藏\(data)")
             var list :[PostInfo]? = []
             list?.append(self.postinfo!)
-            CoreDataManager.default.postlist = list
+//            CoreDataManager.default.postlist = list
             self.postinfo?.isCollection = false
             self.updateStartOrCollection()
         }
@@ -261,7 +257,7 @@ class MainPostCell: UITableViewCell {
             log.verbose("点赞\(data)")
             var list :[PostInfo]? = []
             list?.append(self.postinfo!)
-            CoreDataManager.default.postlist = list
+//            CoreDataManager.default.postlist = list
             self.postinfo?.isStart = true
             self.postinfo?.postStarts = (self.postinfo?.postStarts ?? 0) + 1
             self.postanimation()
@@ -276,7 +272,7 @@ class MainPostCell: UITableViewCell {
             log.verbose("取消点赞\(data)")
             var list :[PostInfo]? = []
             list?.append(self.postinfo!)
-            CoreDataManager.default.postlist = list
+//            CoreDataManager.default.postlist = list
             self.postinfo?.isStart = false
             self.postinfo?.postStarts = (self.postinfo?.postStarts ?? 1) - 1
             self.updateStartOrCollection()
@@ -292,22 +288,32 @@ class MainPostCell: UITableViewCell {
         //
         //
         //        }))
+        
         iconActionSheet.addAction(UIAlertAction(title: "分享", style: UIAlertAction.Style.default, handler: { (UIAlertAction) in
-            self.shareInfo()
+           if UserInfoHelper.instance.user != nil {
+                self.shareInfo()
+           }else{
+            self.parentViewController()?.ShowTip(Title: "请登录之后在尝试")
+            }
+           
         }))
         iconActionSheet.addAction(UIAlertAction(title: "举报", style: UIAlertAction.Style.default, handler: { (UIAlertAction) in
-                    self.reportPost()
-                }))
-        iconActionSheet.addAction(UIAlertAction(title: "把该用户加入黑名单", style: UIAlertAction.Style.default, handler: { (UIAlertAction) in
-                           self.reportPost()
-                       }))
-               
-        if postinfo?.author?.id == UserInfoHelper.instance.user?.id{
+            self.reportPost()
+        }))
+       
+        
+        if postinfo?.author?.id  == UserInfoHelper.instance.user?.id{
             iconActionSheet.addAction(UIAlertAction(title: "删除帖子", style: UIAlertAction.Style.destructive, handler: { (UIAlertAction) in
                 if self.callBack != nil{
                     self.callBack!(2,self.postinfo,self.index)
                 }
             }))
+        }else{
+            iconActionSheet.addAction(UIAlertAction(title: "把该用户加入黑名单", style: UIAlertAction.Style.default, handler: { (UIAlertAction) in
+                       if self.callBack != nil{
+                           self.callBack!(3,self.postinfo,self.index)
+                       }
+                   }))
         }
         
         iconActionSheet.addAction(UIAlertAction(title:"取消", style: UIAlertAction.Style.cancel, handler:nil))
@@ -398,7 +404,7 @@ extension MainPostCell:FSPagerViewDelegate,FSPagerViewDataSource{
     
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
-        cell.imageView?.setImageUrl(image: cell.imageView!,string: postinfo?.postImages?[index].fileUrl , proimage:#imageLiteral(resourceName: "loadingimg") )
+        cell.imageView?.setImageUrl(image: cell.imageView!,string: postinfo?.postImages?[index].fileUrl , proimage:#imageLiteral(resourceName: "背景色") )
         cell.isHighlighted = false
         let tap = UITapGestureRecognizer(target: self, action: #selector(postStart(gesture: )))
         cell.isUserInteractionEnabled = true

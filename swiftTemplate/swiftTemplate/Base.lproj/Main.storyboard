@@ -625,7 +625,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L8y-WT-QsE">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -633,8 +633,8 @@
                         <constraints>
                             <constraint firstItem="jRL-7G-vm2" firstAttribute="trailing" secondItem="L8y-WT-QsE" secondAttribute="trailing" id="4dU-dY-bDm"/>
                             <constraint firstItem="L8y-WT-QsE" firstAttribute="leading" secondItem="jRL-7G-vm2" secondAttribute="leading" id="PD3-7D-usb"/>
-                            <constraint firstAttribute="bottom" secondItem="L8y-WT-QsE" secondAttribute="bottom" id="f7K-a0-gG6"/>
-                            <constraint firstItem="L8y-WT-QsE" firstAttribute="top" secondItem="His-lN-kut" secondAttribute="top" id="ru7-z3-v8m"/>
+                            <constraint firstItem="jRL-7G-vm2" firstAttribute="bottom" secondItem="L8y-WT-QsE" secondAttribute="bottom" id="f7K-a0-gG6"/>
+                            <constraint firstItem="L8y-WT-QsE" firstAttribute="top" secondItem="jRL-7G-vm2" secondAttribute="top" id="ru7-z3-v8m"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jRL-7G-vm2"/>
                     </view>

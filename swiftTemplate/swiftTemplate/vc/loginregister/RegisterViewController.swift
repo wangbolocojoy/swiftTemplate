@@ -8,7 +8,7 @@
 // MARK: - 注册
 import UIKit
 
-class RegisterViewController: BaseViewController {
+class RegisterViewController: BaseDetailViewController {
     var type = 0
     var countdownTimer : Timer?
     @IBOutlet weak var lab_zhuce: UIButton!
@@ -16,8 +16,9 @@ class RegisterViewController: BaseViewController {
     @IBOutlet weak var ev_password: UITextField!
     @IBOutlet weak var ev_msg: UITextField!
     @IBOutlet weak var ev_phone: UITextField!
+    
     var time :Int? = nil
-     var password  = ""
+    var password  = ""
     typealias swiftblockResult = (_ phone : String ,_ passwd:String) -> Void
     var callBack :swiftblockResult?
     func callBackBlock(block : @escaping swiftblockResult)  {
@@ -27,6 +28,10 @@ class RegisterViewController: BaseViewController {
         super.viewDidLoad()
         
         
+    }
+    
+    @IBAction func closevc(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     override func initView(){
         ev_password.delegate = self
@@ -45,7 +50,7 @@ class RegisterViewController: BaseViewController {
         if time == nil {
             time = 120
         }else{
-        let nowtime = Int(Date().timeIntervalSince1970)
+            let nowtime = Int(Date().timeIntervalSince1970)
             time = 120 - (nowtime - (time ?? 0))
             if (time ?? 0) > 0 && (time ?? 0) < 120{
                 self.isCounting = true
@@ -54,7 +59,7 @@ class RegisterViewController: BaseViewController {
             }
             
         }
-       
+        
     }
     
     @IBAction func sendMsg(_ sender: Any) {
@@ -65,9 +70,9 @@ class RegisterViewController: BaseViewController {
     func sendMsg(){
         let phone = ev_phone.text
         if phone == nil || phone == "" || phone?.count ?? 0 != 11 {
-                   ShowTip(Title: "手机号码位数不对请重新输入")
-                   return
-               }
+            ShowTip(Title: "手机号码位数不对请重新输入")
+            return
+        }
         let body = RequestBody()
         if type == 0{
             body.msgType = 1
@@ -77,7 +82,7 @@ class RegisterViewController: BaseViewController {
         body.phone = phone
         MyMoyaManager.AllRequest(controller: self, NetworkService.getmsg(k: body.toJSONString() ?? "")) { (data) in
             self.isCounting = true
-             let nowtime = Int(Date().timeIntervalSince1970)
+            let nowtime = Int(Date().timeIntervalSince1970)
             UserDefaults.User.set(value: nowtime, forKey: .验证码时间)
         }
     }
@@ -119,22 +124,26 @@ class RegisterViewController: BaseViewController {
         
     }
     func registerUser(body:RequestBody){
-            MyMoyaManager.AllRequest(controller: self, NetworkService.register(k: body.toJSONString()!)) { (data) in
-                if self.callBack != nil {
-                    self.callBack!(body.phone ?? "",self.password )
-                    self.ShowTipsClose(tite: "注册成功")
-                   
+        MyMoyaManager.AllRequest(controller: self, NetworkService.register(k: body.toJSONString()!)) { (data) in
+            if self.callBack != nil {
+                self.callBack!(body.phone ?? "",self.password )
+                self.dismiss(animated: true) {
+                    self.ShowTip(Title: "注册成功")
                 }
+                
             }
+        }
     }
     func changePassword(body:RequestBody){
         MyMoyaManager.AllRequest(controller: self, NetworkService.respsd(k: body.toJSONString()!)) { (data) in
-                              if self.callBack != nil {
-                                  self.callBack!(body.phone ?? "",self.password )
-                                  self.ShowTipsClose(tite: "修改密码成功")
-                              
-                              }
-                          }
+            if self.callBack != nil {
+                self.callBack!(body.phone ?? "",self.password )
+                self.dismiss(animated: true) {
+                    self.ShowTip(Title: "修改密码成功")
+                }
+                
+            }
+        }
     }
     var isCounting = false {
         willSet {

@@ -14,7 +14,7 @@ class LoginViewController: BaseViewController {
     @IBOutlet weak var ev_phone: UITextField!
     
     @IBOutlet weak var btn_agreement: UILabel!
-    
+    var vc : UIViewController? = nil
 //    var authorizationButton :ASAuthorizationAppleIDButton? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +66,11 @@ class LoginViewController: BaseViewController {
 //        authorizationController.presentationContextProvider = self
 //        authorizationController.performRequests()
     }
+    
+    @IBAction func closevc(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     override func initView(){
         title = "登录"
         ev_phone.delegate = self
@@ -77,7 +82,8 @@ class LoginViewController: BaseViewController {
     }
     @objc func gotoAgreement(){
         let vc = getVcByName(vc: .我的隐私协议) as! KtMyWkWebViewController
-        self.navigationController?.pushViewController(vc, animated: true)
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
     }
     @IBAction func login(_ sender: Any) {
         let phone = ev_phone.text
@@ -108,7 +114,9 @@ class LoginViewController: BaseViewController {
                 if data.userinfo?.isbanned ?? false  == true  || data.userinfo == nil{
                                    self.ShowTip(Title: data.msg ?? "该账号已被封禁")
                                }else{
-                                   self.gotoMainVC()
+                    self.dismiss(animated: true) {
+                        self.parent?.viewDidAppear(true)
+                    }
                                }
             }
            
@@ -116,7 +124,7 @@ class LoginViewController: BaseViewController {
         
     }
     func gotoMainVC(){
-        self.ShowTipsClose(tite: "登录成功")
+        
 //        UIView.animate(withDuration: time, animations:{
 //            let tranststion =  CATransition()
 //            tranststion.duration = self.time
@@ -125,6 +133,9 @@ class LoginViewController: BaseViewController {
 //        }, completion: { (true) in
 //            UIApplication.shared.windows[0].rootViewController = self.getMainVc()
 //        })
+        
+       
+       
     }
     
     @IBAction func frogetpass(_ sender: Any) {
@@ -134,7 +145,11 @@ class LoginViewController: BaseViewController {
                    self.ev_phone.text = phone
                    self.ev_password.text = passwd
                }
-        self.navigationController?.pushViewController(vc, animated: true)
+       vc.modalPresentationStyle = .fullScreen
+        
+        self.present(vc, animated: true) {
+            
+        }
     }
     @IBAction func gotoRegister(_ sender: Any) {
         let vc =  getVcByName(vc: .注册) as! RegisterViewController
@@ -143,7 +158,11 @@ class LoginViewController: BaseViewController {
             self.ev_phone.text = phone
             self.ev_password.text = passwd
         }
-        self.navigationController?.pushViewController(vc, animated: true)
+        vc.modalPresentationStyle = .fullScreen
+         
+        self.present(vc, animated: true) {
+            
+        }
     }
 }
 extension LoginViewController:UITextFieldDelegate{

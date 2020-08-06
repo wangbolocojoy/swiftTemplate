@@ -174,7 +174,7 @@ class KtMessageCell: UITableViewCell {
         relu_massage.text = msgModel?.message ?? ""
         antuername.text = msgModel?.userNickName ?? ""
         msgstartnum.text = "\(msgModel?.messageStart ?? 0)"
-        usericon.setImageUrl(image: usericon, string: msgModel?.userIcon, proimage: #imageLiteral(resourceName: "IMG_2507"))
+        usericon.setImageUrl(image: usericon, string: msgModel?.userIcon, proimage: #imageLiteral(resourceName: "背景色"))
         message.text = msgModel?.message ?? ""
         time.text = msgModel?.postMsgCreatTime?.string2DateMMdd  ?? Date().date2String
     }
@@ -197,7 +197,7 @@ class KtMessageCell: UITableViewCell {
         msgstartnum.isHidden = true
         antuername.text = msgModel?.userNickName ?? ""
         msgstartnum.text = "\(msgModel?.messageStart ?? 0)"
-        usericon.setImageUrl(image: usericon, string: msgModel?.userIcon, proimage: #imageLiteral(resourceName: "IMG_2507"))
+        usericon.setImageUrl(image: usericon, string: msgModel?.userIcon, proimage: #imageLiteral(resourceName: "背景色"))
         message.text = msgModel?.message ?? ""
         time.text = msgModel?.postMsgCreatTime?.string2DateMMdd  ?? Date().date2String
     }

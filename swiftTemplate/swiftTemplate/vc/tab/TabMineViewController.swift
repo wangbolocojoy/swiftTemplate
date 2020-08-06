@@ -11,18 +11,23 @@ import MJRefresh
 import SwiftyBeaver
 class TabMineViewController: BaseTabViewController {
     let time = 0.2
-    var list = ["我的图片","我的地址","我的收藏","我的评论","关于","清除缓存","设置"]
+    var list = ["我的图片","我的地址","我的收藏","我的评论","关于","设置"]
     
     @available(iOS 13.0, *)
-    lazy var imagelist = [UIImage(systemName: "photo.on.rectangle"),UIImage(systemName: "mappin.circle"),UIImage(systemName: "person.2"),UIImage(systemName: "ellipses.bubble"),UIImage(systemName: "info.circle"),UIImage(systemName: "xmark.icloud"),UIImage(systemName: "gear")]
-    lazy var imagelist1  = [#imageLiteral(resourceName: "图片"),#imageLiteral(resourceName: "地址"),#imageLiteral(resourceName: "bookmark"),#imageLiteral(resourceName: "评论"),#imageLiteral(resourceName: "关于"),#imageLiteral(resourceName: "清除缓存"),#imageLiteral(resourceName: "退出登录")]
+    lazy var imagelist = [UIImage(systemName: "photo.on.rectangle"),UIImage(systemName: "mappin.circle"),UIImage(systemName: "person.2"),UIImage(systemName: "ellipses.bubble"),UIImage(systemName: "info.circle"),UIImage(systemName: "gear")]
+    lazy var imagelist1  = [#imageLiteral(resourceName: "图片"),#imageLiteral(resourceName: "地址"),#imageLiteral(resourceName: "bookmark"),#imageLiteral(resourceName: "评论"),#imageLiteral(resourceName: "关于"),#imageLiteral(resourceName: "退出登录")]
     
     var user  = UserInfoHelper.instance.user
     
     @IBOutlet weak var tableview: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        user = UserInfoHelper.instance.user
+        tableview.reloadData()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -48,53 +53,53 @@ class TabMineViewController: BaseTabViewController {
         tableview.register(UINib(nibName: BTMCleanHeader.reuseID, bundle: nil), forHeaderFooterViewReuseIdentifier: BTMCleanHeader.reuseID)
         header.setRefreshingTarget(self, refreshingAction: #selector(refresh))
         tableview.mj_header = header
-    
+        
     }
     @objc func refresh(){
         let body = RequestBody()
-        body.id = user?.id ?? 0
+        body.id = UserInfoHelper.instance.user?.id ?? 0
         MyMoyaManager.AllRequest(controller: self, NetworkService.getuserinfo(k: body.toJSONString() ?? "")) { (data) in
             UserInfoHelper.instance.user = data.userinfo
             if  data.userinfo?.isbanned ?? false {
                 self.ShowTip(Title: "该账号已被封禁")
                 UIView.animate(withDuration: self.time, animations:{ }, completion: { (true) in
-                                        let tranststion =  CATransition()
-                                        tranststion.duration = self.time
-                                        tranststion.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
-                                        UIApplication.shared.windows[0].layer.add(tranststion, forKey: "animation")
-                                        UIApplication.shared.windows[0].rootViewController = self.getloginVc()
-                                    })
+                    let tranststion =  CATransition()
+                    tranststion.duration = self.time
+                    tranststion.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
+                    UIApplication.shared.windows[0].layer.add(tranststion, forKey: "animation")
+                    UIApplication.shared.windows[0].rootViewController = self.getloginVc()
+                })
             }
             
             self.tableview.reloadData()
         }
         header.endRefreshing()
     }
-    func logout(){
-       ShowLoginoutTip(Title: "是否需要退出登录")
-    }
+    
     func deleteCoreNovel(){
         ShowScanTip(Title: "是否需要清理缓存")
         
     }
-    
+    func logout(){
+        ShowLoginoutTip(Title: "是否需要退出登录")
+    }
     /// 清除缓存
-       /// - Parameter Title: 提示信息
-       func ShowLoginoutTip(Title:String)  {
-           let TipsActionSheet : UIAlertController = UIAlertController(title: "温馨提示", message: Title, preferredStyle: UIAlertController.Style.alert)
-           TipsActionSheet.addAction(UIAlertAction(title: "取消", style: .cancel, handler: { (UIAlertAction) in
-               TipsActionSheet.dismiss(animated: true, completion: nil)
-               
-           }))
-           TipsActionSheet.addAction(UIAlertAction(title: "确认", style: .destructive, handler: { (UIAlertAction) in
-              KeychainManager.User.DeleteByIdentifier(forKey: .UserInfo)
-              KeychainManager.User.DeleteByIdentifier(forKey: .IDCARD)
-                     UserInfoHelper.instance.user = nil
-                self.viewWillAppear(true)
-           }))
-           self.present(TipsActionSheet, animated: true, completion: nil)
-           
-       }
+    /// - Parameter Title: 提示信息
+    func ShowLoginoutTip(Title:String)  {
+        let TipsActionSheet : UIAlertController = UIAlertController(title: "温馨提示", message: Title, preferredStyle: UIAlertController.Style.alert)
+        TipsActionSheet.addAction(UIAlertAction(title: "取消", style: .cancel, handler: { (UIAlertAction) in
+            TipsActionSheet.dismiss(animated: true, completion: nil)
+            
+        }))
+        TipsActionSheet.addAction(UIAlertAction(title: "确认", style: .destructive, handler: { (UIAlertAction) in
+            KeychainManager.User.DeleteByIdentifier(forKey: .UserInfo)
+            KeychainManager.User.DeleteByIdentifier(forKey: .IDCARD)
+            UserInfoHelper.instance.user = nil
+            self.viewWillAppear(true)
+        }))
+        self.present(TipsActionSheet, animated: true, completion: nil)
+        
+    }
     /// 清除缓存
     /// - Parameter Title: 提示信息
     func ShowScanTip(Title:String)  {
@@ -107,10 +112,10 @@ class TabMineViewController: BaseTabViewController {
             if FileDestination().deleteLogFile(){
                 self.ShowTip(Title: "删除日志成功")
             }
-            CoreDataManager.default.deleteAllPost {
-                self.ShowTip(Title:"删除缓存成功")
-                  UserDefaults.User.set(value: 0, forKey: .MAXPostId)
-            }
+            //            CoreDataManager.default.deleteAllPost {
+            //                self.ShowTip(Title:"删除缓存成功")
+            //                  UserDefaults.User.set(value: 0, forKey: .MAXPostId)
+            //            }
         }))
         self.present(TipsActionSheet, animated: true, completion: nil)
         
@@ -137,9 +142,15 @@ extension TabMineViewController:UITableViewDelegate,UITableViewDataSource{
                 vc.user = user
                 self.navigationController?.pushViewController(vc, animated: true)
             case 5:
-                deleteCoreNovel()
-            case 6:
-                self.navigationController?.pushViewController(getVcByName(vc: .设置), animated: true)
+                if UserInfoHelper.instance.user == nil {
+                    let vc = getVcByName(vc: .登录) as! LoginViewController
+                    vc.modalPresentationStyle = .fullScreen
+                    self.present(vc, animated: true, completion: nil)
+                }else{
+                    self.navigationController?.pushViewController(getVcByName(vc: .设置), animated: true)
+                }
+                
+                
             default:
                 debugPrint()
             }
@@ -172,7 +183,7 @@ extension TabMineViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return 300
+            return 250
         default:
             return 45
         }

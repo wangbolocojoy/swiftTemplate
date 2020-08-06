@@ -151,7 +151,7 @@ class KtMessagelistViewController: BaseDetailViewController {
         }
         body.postId = postinfo?.id ?? 0
         body.postMessage = value
-        MyMoyaManager.AllRequestNospinner(controller: self, NetworkService.sendcomment(k: body.toJSONString() ?? "")) { (data) in
+        MyMoyaManager.AllRequest(controller: self, NetworkService.sendcomment(k: body.toJSONString() ?? "")) { (data) in
             self.postinfo?.postMessageNum = (self.postinfo?.postMessageNum ?? 0)+1
             self.inputBar.inputTextView.endEditing(true)
             self.message_num.text = "\(self.postinfo?.postMessageNum ?? 0)条评论"
