@@ -68,9 +68,9 @@ extension KtAboutMineViewController:UITableViewDelegate,UITableViewDataSource{
         case 1:
             switch indexPath.item {
             case 0:
-                showSafariVC(for: "itms-apps://itunes.apple.com/app/id15240822319")
+                showSafariVC(for: "https://apps.apple.com/cn/app/SwiftKt/id1524082231")
             case 1:
-                showSafariVC(for: "itms-apps://itunes.apple.com/app/id15240822319?action=write-review")
+                showSafariVC(for: "https://apps.apple.com/cn/app/SwiftKt/id1524082231")
             case 2:
                 let vc = getVcByName(vc: .意见反馈) as! KtSendFeekBackViewController
                 self.navigationController?.pushViewController(vc, animated: true)

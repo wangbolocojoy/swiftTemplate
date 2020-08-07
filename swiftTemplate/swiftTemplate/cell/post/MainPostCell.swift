@@ -334,6 +334,7 @@ class MainPostCell: UITableViewCell {
         items.append("\(postinfo?.postDetail ?? "")")
         let image = self.banner.cellForItem(at: 0)?.imageView?.image ?? #imageLiteral(resourceName: "WechatIMG54")
         items.append(image)
+        
         items.append(URL(string: "https://apps.apple.com/cn/app/SwiftKt/id1524082231")!)
         let activityVC = UIActivityViewController(activityItems:items , applicationActivities: nil)
         activityVC.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in

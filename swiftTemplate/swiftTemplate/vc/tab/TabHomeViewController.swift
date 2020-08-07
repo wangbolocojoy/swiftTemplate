@@ -18,24 +18,8 @@ class TabHomeViewController: BaseTabViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        pagebody.pageSize = 10
-        
     }
     
-    func checkPosts(){
-        getpost()
-        //        if list?.count == 0 {
-        //
-        //        } else {
-        //            checkIsHavNew()
-        //        }
-    }
-    func getpost(){
-        type = 1
-        pagebody.page = 0
-        pagebody.userId = UserInfoHelper.instance.user?.id ?? 0
-        getPosts(body: pagebody)
-    }
     func checkIsHavNew(){
         let json = RequestBody()
         json.postId = UserDefaults.User.getvalue(forKey: .MAXPostId) as? Int ?? 0
@@ -56,7 +40,6 @@ class TabHomeViewController: BaseTabViewController {
             }else{
                 self.navigationController?.pushViewController(self.getVcByName(vc: .身份证上传), animated: true)
             }
-            
         }
         
     }
@@ -88,10 +71,10 @@ class TabHomeViewController: BaseTabViewController {
     }
     @objc func getMore(){
         if hasmore {
-            type = 2
-            pagebody.userId = UserInfoHelper.instance.user?.id ?? 0
-            pagebody.page = (pagebody.page ?? 0) + 1
-            getPosts(body: pagebody)
+        type = 2
+        pagebody.userId = UserInfoHelper.instance.user?.id ?? 0
+        pagebody.page = (pagebody.page ?? 0) + 1
+        getPosts(body: pagebody)
         }
         
     }
@@ -104,17 +87,14 @@ class TabHomeViewController: BaseTabViewController {
         tableview.mj_header = header
         footer.setRefreshingTarget(self, refreshingAction: #selector(getMore))
         tableview.mj_footer = footer
-        
-        //        CoreDataManager.default.getCoreDataPost(success: { (PostInfolist) in
-        //            if PostInfolist == nil {
-        self.checkPosts()
-        //            }else{
-        //                self.list = PostInfolist
-        //                self.tableview.reloadData()
-        //            }
-        //
-        //        })
-        
+        pagebody.pageSize = 10
+        self.getpost()
+    }
+    func getpost(){
+        type = 1
+        pagebody.page = 0
+        pagebody.userId = UserInfoHelper.instance.user?.id ?? 0
+        getPosts(body: pagebody)
     }
     func deletePost(pfo:PostInfo,index:Int){
         let body = RequestBody()
@@ -122,11 +102,6 @@ class TabHomeViewController: BaseTabViewController {
         body.postId = pfo.id
         MyMoyaManager.AllRequest(controller: self, NetworkService.deletspost(K: body.toJSONString() ?? "")) { (data) in
             UserInfoHelper.instance.user?.postNum = (UserInfoHelper.instance.user?.postNum ?? 1) - 1
-            //            CoreDataManager.default.deletePost(id: body.postId ?? 0) {
-            //                CoreDataManager.default.getCoreDataPost { (pinl) in
-            //                    CoreDataManager.default.postlist = pinl
-            //                }
-            //            }
             self.list?.remove(at: index)
             self.tableview.reloadData()
         }
@@ -137,7 +112,7 @@ class TabHomeViewController: BaseTabViewController {
         body.backId = pfo.userId
         MyMoyaManager.AllRequest(controller: self, NetworkService.addbacklist(k: body.toJSONString() ?? "")) { (data) in
             //            CoreDataManager.default.deleteAllPost {
-            //                self.getpost()
+            self.getpost()
             //            }
             
         }
@@ -187,14 +162,14 @@ extension TabHomeViewController:UITableViewDataSource,UITableViewDelegate,UIScro
         }
         let path = tableview.indexPathsForVisibleRows!  as [IndexPath]
         if ( path.count  > 0) {
-            let lastPath = path[(path.count)-1]
-            if  lastPath.item == (list?.count ?? 0) - 1{
+            let lastPath = path[(path.count)-2]
+            if  lastPath.item == (list?.count ?? 0) - 2{
                 self.getMore()
             }
         }
     }
     
-  
+    
     
     
 }
