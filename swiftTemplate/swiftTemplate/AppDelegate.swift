@@ -44,6 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            
 //        }
         let config = BuglyConfig()
+        config.unexpectedTerminatingDetectionEnable = true
         config.delegate = self
         Bugly.start(withAppId: "2d8574fc-8229-4f01-b2f0-bda9d8c03039", developmentDevice: true, config: config)
         AMapServices.shared().apiKey = ApiKey.default.AMapkey

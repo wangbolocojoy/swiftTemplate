@@ -188,7 +188,7 @@ class MainPostCell: UITableViewCell {
             }
         }
         lab_startnum.text = "\(postinfo?.postStarts ?? 0)"
-        lab_postnum.text = "\(postinfo?.msgNum ?? 0)"
+        lab_postnum.text = "\(postinfo?.postMessageNum ?? 0)"
         
     }
     /// 选择收藏还是取消收藏

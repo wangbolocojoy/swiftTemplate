@@ -12,6 +12,7 @@ class KtSexPickerViewController: BaseDetailViewController {
     
     let sexlist = ["男","女"]
     @IBOutlet weak var picker: UIPickerView!
+    @IBOutlet weak var buttoncancel: UIButton!
     var sex = false
     func callBackBlock(block : @escaping swiftblock)  {
                    callBack = block

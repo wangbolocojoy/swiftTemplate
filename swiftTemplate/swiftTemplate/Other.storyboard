@@ -1117,7 +1117,7 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <state key="normal" title="" image="chevron.down.circle" catalog="system"/>
+                                                <state key="normal" title="" image="下"/>
                                                 <connections>
                                                     <action selector="cancle:" destination="wXO-oL-1bw" eventType="touchUpInside" id="Evx-Py-snH"/>
                                                 </connections>
@@ -1128,7 +1128,7 @@
                                                     <constraint firstAttribute="width" constant="60" id="wnb-RJ-Uei"/>
                                                 </constraints>
                                                 <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <state key="normal" image="checkmark.circle" catalog="system"/>
+                                                <state key="normal" image="完成"/>
                                                 <connections>
                                                     <action selector="save:" destination="wXO-oL-1bw" eventType="touchUpInside" id="kOJ-ch-obg"/>
                                                 </connections>
@@ -1222,7 +1222,7 @@
                                                     <constraint firstAttribute="width" constant="60" id="SiG-bB-dH9"/>
                                                 </constraints>
                                                 <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <state key="normal" image="checkmark.circle" catalog="system"/>
+                                                <state key="normal" image="完成"/>
                                                 <connections>
                                                     <action selector="choose:" destination="Jcb-Rk-0yd" eventType="touchUpInside" id="fW2-IW-qLC"/>
                                                 </connections>
@@ -1233,7 +1233,7 @@
                                                     <constraint firstAttribute="width" constant="60" id="D0E-Jd-Wr4"/>
                                                 </constraints>
                                                 <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <state key="normal" image="chevron.down.circle" catalog="system"/>
+                                                <state key="normal" image="下"/>
                                                 <connections>
                                                     <action selector="cancel:" destination="Jcb-Rk-0yd" eventType="touchUpInside" id="iuu-eA-vd4"/>
                                                 </connections>
@@ -1293,6 +1293,7 @@
                         <viewLayoutGuide key="safeArea" id="asK-fp-ZFV"/>
                     </view>
                     <connections>
+                        <outlet property="buttoncancel" destination="xXS-5C-LJk" id="An9-Gj-1f9"/>
                         <outlet property="picker" destination="ALW-Na-fwv" id="HdQ-ol-3s2"/>
                     </connections>
                 </viewController>
@@ -1305,14 +1306,13 @@
         <image name="IMG_2507" width="50" height="50"/>
         <image name="bookmark" catalog="system" width="112" height="128"/>
         <image name="camera" catalog="system" width="128" height="96"/>
-        <image name="checkmark.circle" catalog="system" width="128" height="121"/>
-        <image name="chevron.down.circle" catalog="system" width="128" height="121"/>
         <image name="circle" catalog="system" width="128" height="121"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="multiply" catalog="system" width="128" height="111"/>
         <image name="suit.heart.fill" catalog="system" width="128" height="109"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <image name="下" width="32" height="32"/>
+        <image name="完成" width="32" height="32"/>
         <image name="身份证正面 (3)" width="375" height="228"/>
         <image name="身份证背面 (1)" width="375" height="228"/>
     </resources>
