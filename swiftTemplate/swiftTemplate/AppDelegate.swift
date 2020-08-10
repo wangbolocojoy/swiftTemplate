@@ -27,26 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     /// 初始化配置
     private func initConfigure(){
-        
-//        let appleIDProvider = ASAuthorizationAppleIDProvider()
-//        appleIDProvider.getCredentialState(forUserID: KeychainManager.User.ReadDataByIdentifier(forKey: .currentUserIdentifier) as? String ?? "") { (credentialState, error) in
-//            switch credentialState {
-//            case .authorized:
-//            break // The Apple ID credential is valid.
-//            case .revoked, .notFound:
-//                // The Apple ID credential is either revoked or was not found, so show the sign-in UI.
-//                DispatchQueue.main.async {
-//                    self.window?.rootViewController?.getloginVc()
-//                }
-//            default:
-//                break
-//            }
-//            
-//        }
         let config = BuglyConfig()
         config.unexpectedTerminatingDetectionEnable = true
         config.delegate = self
-        Bugly.start(withAppId: "2d8574fc-8229-4f01-b2f0-bda9d8c03039", developmentDevice: true, config: config)
+        Bugly.start(withAppId: "718e25e42a", developmentDevice: true, config: config)
         AMapServices.shared().apiKey = ApiKey.default.AMapkey
         IQKeyboardManager.shared.enable = true
         if #available(iOS 13.0, *) {
@@ -198,8 +182,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let nserror = error as NSError
                  log.error("CoreData--Error----->>>  \(nserror.localizedFailureReason ?? "")")
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-               
-                
             }
         }
     }

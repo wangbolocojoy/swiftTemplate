@@ -9,7 +9,7 @@
 import UIKit
 import MJRefresh
 class TabDynamicViewController: BaseTabViewController{
-    lazy var list :[PostInfo]? = nil
+    lazy var list :[PostInfo]? = []
     var pagebody = RequestBody()
     var type = 1
     var hasmore :Bool = true

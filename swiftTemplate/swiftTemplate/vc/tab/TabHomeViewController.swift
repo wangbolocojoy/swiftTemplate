@@ -9,8 +9,8 @@ import UIKit
 import MJRefresh
 class TabHomeViewController: BaseTabViewController {
     
-    lazy var list :[PostInfo]? = nil
-    lazy var listpost :[PostStart]? = nil
+    lazy var list :[PostInfo]? = []
+    lazy var listpost :[PostStart]? = []
     var pagebody = RequestBody()
     var type = 1
     var hasmore :Bool = true
