@@ -147,8 +147,6 @@ extension TabHomeViewController:UITableViewDataSource,UITableViewDelegate,UIScro
         
         if(!decelerate){
             self.scrollLoadData()
-        }else{
-            
         }
     }
     
@@ -157,7 +155,7 @@ extension TabHomeViewController:UITableViewDataSource,UITableViewDelegate,UIScro
     }
     
     func scrollLoadData() {
-        if !hasmore {
+        if !hasmore || list?.count ?? 0 == 0{
             return
         }
         let path = tableview.indexPathsForVisibleRows!  as [IndexPath]

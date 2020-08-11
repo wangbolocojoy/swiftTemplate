@@ -139,7 +139,7 @@ extension TabDynamicViewController:UICollectionViewDelegateFlowLayout{
 }
 extension TabDynamicViewController:UIScrollViewDelegate{
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if(!decelerate){
+        if(!decelerate && list?.count ?? 0 != 0){
             self.scrollLoadData()
         }
     }
@@ -148,7 +148,7 @@ extension TabDynamicViewController:UIScrollViewDelegate{
     }
     
     func scrollLoadData() {
-        if !hasmore {
+        if !hasmore || list?.count ?? 0 == 0{
             return
         }
         let path = collectionview.indexPathsForVisibleItems  as [IndexPath]

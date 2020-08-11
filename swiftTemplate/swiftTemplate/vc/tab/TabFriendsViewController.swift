@@ -9,47 +9,57 @@
 import UIKit
 import MJRefresh
 class TabFriendsViewController: BaseTabViewController {
-    
+    var pagebody = RequestBody()
+    var type = 1
     var list:[UserInfo]? = []
     var page = 0
-    
+    var hasmore :Bool = true
     lazy var  countrySearchController:UISearchController? = UISearchController()
     @IBOutlet weak var tableview: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     override func initView() {
-//        self.countrySearchController = ({
-//            let controller = UISearchController(searchResultsController: nil)
-//            controller.searchResultsUpdater = self   //两个样例使用不同的代理
-//            controller.hidesNavigationBarDuringPresentation = false
-//            controller.dimsBackgroundDuringPresentation = true
-//            controller.searchBar.barStyle = .default
-//            //            controller.view.backgroundColor = .white
-//            controller.searchBar.placeholder = "输入用户账号查找"
-//            return controller
-//        })()
-//        self.navigationItem.titleView = self.countrySearchController?.searchBar
+        //        self.countrySearchController = ({
+        //            let controller = UISearchController(searchResultsController: nil)
+        //            controller.searchResultsUpdater = self   //两个样例使用不同的代理
+        //            controller.hidesNavigationBarDuringPresentation = false
+        //            controller.dimsBackgroundDuringPresentation = true
+        //            controller.searchBar.barStyle = .default
+        //            //            controller.view.backgroundColor = .white
+        //            controller.searchBar.placeholder = "输入用户账号查找"
+        //            return controller
+        //        })()
+        //        self.navigationItem.titleView = self.countrySearchController?.searchBar
         tableview.delegate = self
         tableview.dataSource = self
         tableview.separatorStyle = .none
         tableview.register(UINib(nibName: FanceORFollowCell.reuseID, bundle: nil), forCellReuseIdentifier: FanceORFollowCell.reuseID)
         tableview.register(UINib(nibName: KtNoDataFooterView.reuseID, bundle: nil), forHeaderFooterViewReuseIdentifier: KtNoDataFooterView.reuseID)
         tableview.register(UINib(nibName: KtNeedLoginView.reuseID, bundle: nil), forHeaderFooterViewReuseIdentifier: KtNeedLoginView.reuseID)
-        header.setTitle("下拉刷新", for: .idle)
-        footer.setRefreshingTarget(self, refreshingAction: #selector(refremore))
-        tableview.mj_footer = footer
         header.setRefreshingTarget(self, refreshingAction: #selector(refresh))
         tableview.mj_header = header
-        //        if ()
-        getRecommend()
+        footer.setRefreshingTarget(self, refreshingAction: #selector(getMore))
+        tableview.mj_footer = footer
+        pagebody.pageSize = 15
+        pagebody.page = 0
+        pagebody.userId = UserInfoHelper.instance.user?.id ?? 0
+        getRecommend(body: pagebody.toJSONString() ?? "")
+        
+    }
+    @objc func getMore(){
+        if hasmore {
+            type = 2
+            pagebody.page = (pagebody.page ?? 0) + 1
+            getRecommend(body: pagebody.toJSONString() ?? "")
+        }
         
     }
     @objc func refresh(){
-        page=0
-        getRecommend()
+        pagebody.page  = 0
         footer.resetNoMoreData()
-
+        getRecommend(body: pagebody.toJSONString() ?? "")
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -57,35 +67,27 @@ class TabFriendsViewController: BaseTabViewController {
     @IBAction func addfriend(_ sender: Any) {
     }
     
-    func getRecommend(){
-        let body = RequestBody()
-        body.userId = UserInfoHelper.instance.user?.id ?? 0
-        body.page = page
-        body.pageSize = 10
-        MyMoyaManager.AllRequest(controller: self, NetworkService.findrecommendlist(k: body.toJSONString() ?? "")) { (data) in
-            if self.page == 0 {
-                self.list = data.fancefollowlist ?? []
-                self.tableview.reloadData()
+    func getRecommend(body:String){
+        MyMoyaManager.AllRequest(controller: self, NetworkService.findrecommendlist(k: body)) { (data) in
+            if self.type == 1 {
+                self.list = data.userlist
             }else{
-                if data.fancefollowlist?.count ?? 0 >= 1 {
-                    self.list?.append(contentsOf: data.fancefollowlist ?? [])
-                    self.tableview.reloadData()
-                }else {
-                    self.footer.endRefreshingWithNoMoreData()
-                    self.tableview.reloadData()
-                }
-                
-                
+                self.list! += data.userlist ?? []
             }
-            
+            if data.postlist?.count ?? 0 == 10{
+                self.hasmore = true
+            }else{
+                self.hasmore = false
+                self.footer.endRefreshingWithNoMoreData()
+            }
+            self.tableview.reloadData()
         }
-        header.endRefreshing()
-        footer.endRefreshing()
+        self.header.endRefreshing()
+        self.footer.endRefreshing()
+        
+        
     }
-    @objc func refremore(){
-        page+=1
-        getRecommend()
-    }
+    
     func follow(index:Int,u:UserInfo?)  {
         let body = RequestBody()
         body.userId = UserInfoHelper.instance.user?.id ?? 0
@@ -110,7 +112,7 @@ class TabFriendsViewController: BaseTabViewController {
         }
     }
 }
-extension TabFriendsViewController:UITableViewDelegate,UITableViewDataSource{
+extension TabFriendsViewController:UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return list?.count ?? 0
     }
@@ -153,7 +155,29 @@ extension TabFriendsViewController:UITableViewDelegate,UITableViewDataSource{
             return 0
         }
     }
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        
+        if(!decelerate){
+            self.scrollLoadData()
+        }
+    }
     
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        self.scrollLoadData()
+    }
+    
+    func scrollLoadData() {
+        if !hasmore || list?.count ?? 0 == 0{
+            return
+        }
+        let path = tableview.indexPathsForVisibleRows!  as [IndexPath]
+        if ( path.count  > 0) {
+            let lastPath = path[(path.count)-3]
+            if  lastPath.item == (list?.count ?? 0) - 3{
+                self.getMore()
+            }
+        }
+    }
 }
 extension TabFriendsViewController:UISearchResultsUpdating{
     func updateSearchResults(for searchController: UISearchController) {
