@@ -56,6 +56,7 @@ class TabFriendsViewController: BaseTabViewController {
         
     }
     @objc func refresh(){
+        type = 1
         pagebody.page  = 0
         footer.resetNoMoreData()
         getRecommend(body: pagebody.toJSONString() ?? "")
@@ -74,7 +75,7 @@ class TabFriendsViewController: BaseTabViewController {
             }else{
                 self.list! += data.userlist ?? []
             }
-            if data.postlist?.count ?? 0 == 10{
+            if data.postlist?.count ?? 0 == 15{
                 self.hasmore = true
             }else{
                 self.hasmore = false
@@ -157,7 +158,7 @@ extension TabFriendsViewController:UITableViewDelegate,UITableViewDataSource,UIS
     }
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         
-        if(!decelerate){
+        if(!decelerate && list?.count ?? 0 != 0){
             self.scrollLoadData()
         }
     }

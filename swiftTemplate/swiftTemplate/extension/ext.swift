@@ -19,6 +19,7 @@ extension UIViewController{
         }))
         self.present(TipsActionSheet, animated: true, completion: nil)
         
+        
     }
     //显示消息一秒关闭弹窗并结束VC
     func ShowTipsClose(tite:String?)  {
@@ -129,8 +130,8 @@ extension UIImageView{
         )
         
         
-       
-       
+        
+        
     }
     func GetImageType(type:PictureType?)->String{
         switch type {
@@ -184,9 +185,9 @@ extension UIImageView{
             
             if let name  = imagecenter  {
                 resultImage = getClearImage(sourceImage: resultImage, center: name)
-              imageView.image = resultImage
+                imageView.image = resultImage
             }else{
-                 imageView.image = #imageLiteral(resourceName: "IMG_2488-1")
+                imageView.image = #imageLiteral(resourceName: "IMG_2488-1")
             }
             
         }else{
@@ -240,48 +241,72 @@ extension UIImage{
         return image
     }
     func downloadWith(urlStr: String, complete: ((UIImage?) -> ())? = nil) {
-       if let url = URL(string: urlStr) {
-           KingfisherManager.shared.retrieveImage(with: url) { (result) in
-               switch result {
-               case .success(let imgResult):
-                   complete?(imgResult.image)
-               case .failure(let error):
-                   print(error)
-                   complete?(nil)
-               }
-           }
-       } else {
-           complete?(nil)
-       }
-   }
-    //二分压缩法
-        func compressImageMid(maxLength: Int) -> Data? {
-           var compression: CGFloat = 1
-            var data = self.jpegData(compressionQuality: 1)!
-            log.verbose( "压缩前:---- \( Double((data.count)/1024))kb")
-           if data.count < maxLength {
-               return data
-           }
-           var max: CGFloat = 1
-           var min: CGFloat = 0
-           for _ in 0..<4 {
-               compression = (max + min) / 2
-               data = jpegData(compressionQuality: compression)!
-               if CGFloat(data.count) < CGFloat(maxLength) * 0.9 {
-                   min = compression
-               } else if data.count > maxLength {
-                   max = compression
-               } else {
-                   break
-               }
-           }
-            var _: UIImage = UIImage(data: data)!
-           if data.count < maxLength {
-            log.verbose( "压缩后： \( Double((data.count)/1024))kb")
-               return data
-           }
-             log.verbose( "压缩后: \( Double((data.count)/1024))kb")
+        if let url = URL(string: urlStr) {
+            KingfisherManager.shared.retrieveImage(with: url) { (result) in
+                switch result {
+                case .success(let imgResult):
+                    complete?(imgResult.image)
+                case .failure(let error):
+                    print(error)
+                    complete?(nil)
+                }
+            }
+        } else {
+            complete?(nil)
+        }
+    }
+    func compressImageMid(_ maxLength:Int) -> Data?{
+        var compression:CGFloat = 1
+        var data = self.jpegData(compressionQuality: compression)!
+        if data.count < maxLength {
             return data
+        }
+        var max:CGFloat = 1
+        var min:CGFloat = 0
+        var bestData:Data = data
+        for _ in 0..<10 {
+            compression = (max + min)/2
+            data = self.jpegData(compressionQuality: compression)!
+            if Double(data.count) < Double(maxLength)*0.9 {
+                min = compression
+                bestData = data
+            } else if data.count > maxLength {
+                max = compression
+            } else {
+                bestData = data
+                break
+            }
+        }
+        return bestData
+    }
+    //二分压缩法
+    func compressImageMid(maxLength: Int) -> Data? {
+        var compression: CGFloat = 1
+        var data = self.jpegData(compressionQuality: 1)!
+        log.verbose( "压缩前:---- \( Double((data.count)/1024))kb")
+        if data.count < maxLength {
+            return data
+        }
+        var max: CGFloat = 1
+        var min: CGFloat = 0
+        for _ in 0..<10 {
+            compression = (max + min) / 2
+            data = jpegData(compressionQuality: compression)!
+            if CGFloat(data.count) < CGFloat(maxLength) * 0.9 {
+                min = compression
+            } else if data.count > maxLength {
+                max = compression
+            } else {
+                break
+            }
+        }
+        var _: UIImage = UIImage(data: data)!
+        if data.count < maxLength {
+            log.verbose( "压缩后： \( Double((data.count)/1024))kb")
+            return data
+        }
+        log.verbose( "压缩后: \( Double((data.count)/1024))kb")
+        return data
     }
 }
 extension CAGradientLayer {
@@ -295,18 +320,18 @@ extension CAGradientLayer {
                               UIColor.cyan.cgColor,
                               UIColor.blue.cgColor,
                               UIColor.purple.cgColor]
-         
+        
         //定义每种颜色所在的位置
         let gradientLocations:[NSNumber] = [0.0, 0.17, 0.33, 0.5, 0.67, 0.83, 1.0]
-         
+        
         //创建CAGradientLayer对象并设置参数
         self.colors = gradientColors
         self.locations = gradientLocations
-         
+        
         //设置渲染的起始结束位置（横向渐变）
         self.startPoint = CGPoint(x: 0, y: 0)
         self.endPoint = CGPoint(x: 1, y: 0)
-         
+        
         return self
     }
 }
@@ -336,23 +361,23 @@ extension UITableViewCell {
     }
     func preshVC(vc:UIViewController){
         parentViewController()?.present(vc, animated: true, completion: nil)
-      }
+    }
     
 }
 extension UITableViewHeaderFooterView{
     func parentViewController() -> UIViewController? {
-           var n = self.next
-           while n != nil {
-               if (n is UIViewController) {
-                   return n as? UIViewController
-               }
-               n = n?.next
-           }
-           return nil
-       }
+        var n = self.next
+        while n != nil {
+            if (n is UIViewController) {
+                return n as? UIViewController
+            }
+            n = n?.next
+        }
+        return nil
+    }
     func pushVC(vc:UIViewController){
-           parentViewController()?.navigationController?.pushViewController(vc, animated: true)
-       }
+        parentViewController()?.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 extension Int{
     var int32:Int32{
@@ -361,7 +386,7 @@ extension Int{
 }
 extension Int32{
     var int32:Int{
-           return Int(self)
+        return Int(self)
     }
 }
 

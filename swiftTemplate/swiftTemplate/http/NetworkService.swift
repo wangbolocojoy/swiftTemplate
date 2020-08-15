@@ -109,6 +109,8 @@ public enum NetworkService{
     case removebacklist(k:String)
     //获取黑名单列表
     case getbacklist(k:String)
+    //获取osstoken
+    case getosstoken(k:String)
 }
 extension NetworkService:Moya.TargetType{
     //MARK: - APISERVICE
@@ -226,6 +228,8 @@ extension NetworkService:Moya.TargetType{
             return "swiftTemplate/User/removeBackInfoPlist"
         case .getbacklist:
             return "swiftTemplate/User/getBackList"
+        case .getosstoken:
+            return "swiftTemplate/Post/gettoken"
         }
         
     }
@@ -240,7 +244,7 @@ extension NetworkService:Moya.TargetType{
     //MARK: - 请求参数
     public var task: Moya.Task {
         switch self {
-        case .login(let data),.register(let data),.getmsg(let data),.tabhome(let data),.searchnovel(let data),.updateuserinfo(let data),.followuser(let data),.unfollowuser(let data),.getfancelist(let data),.getfollowlist(let data),.finduser(let data),.findrecommendlist(let data),.sendpost(let data),.getposts(let data),.getuserposts(let data),.deletspost(let data),.getuserinfo(let data),.poststart(let data),.postunstart(let data),.getpoststartlist(let data),.collection(let data),.cancelcollection(let data),.getcollectionlist(let data),.getuserstartlist(let data),.sendcomment(let data),.commentlist(let data),.deletecomment(let data),.getallimasges(let data),.getusermsgs(let data),.respsd(let data),.msgstart(let data),.msgunstart(let data),.sendfeekback(let data),.getfeekbacklist(let data),.getisnewpost(let data),.getmyallposts(let data),.updateposts(let data),.reportpostbypostd(let data),.getreportlist(let data),.getexamineList(let data),.getallusers(let data),.getidcardinfo(let data),.addbacklist(let data),.removebacklist(let data),.getbacklist(let data):
+        case .login(let data),.register(let data),.getmsg(let data),.tabhome(let data),.searchnovel(let data),.updateuserinfo(let data),.followuser(let data),.unfollowuser(let data),.getfancelist(let data),.getfollowlist(let data),.finduser(let data),.findrecommendlist(let data),.sendpost(let data),.getposts(let data),.getuserposts(let data),.deletspost(let data),.getuserinfo(let data),.poststart(let data),.postunstart(let data),.getpoststartlist(let data),.collection(let data),.cancelcollection(let data),.getcollectionlist(let data),.getuserstartlist(let data),.sendcomment(let data),.commentlist(let data),.deletecomment(let data),.getallimasges(let data),.getusermsgs(let data),.respsd(let data),.msgstart(let data),.msgunstart(let data),.sendfeekback(let data),.getfeekbacklist(let data),.getisnewpost(let data),.getmyallposts(let data),.updateposts(let data),.reportpostbypostd(let data),.getreportlist(let data),.getexamineList(let data),.getallusers(let data),.getidcardinfo(let data),.addbacklist(let data),.removebacklist(let data),.getbacklist(let data),.getosstoken(let data):
             return  .requestData(data.utf8Encoded)
             
         case .updateusericon(let param, let uploadImages),.uploadidcard(let param, let uploadImages):
@@ -442,7 +446,7 @@ public extension String {
         let date = formatter1.date(from: self) ?? Date()
         let formatter = DateFormatter()
         formatter.locale = Locale.init(identifier: "zh_CN")
-        formatter.dateFormat = "MM-dd HH:mm:ss"
+        formatter.dateFormat = "MM月dd日 HH:mm:ss"
         return formatter.string(from: date)
     }
     var urlEscaped: String {

@@ -34,6 +34,7 @@ class BTMMyFanceFollowViewController: BaseViewController {
         footer.setRefreshingTarget(self, refreshingAction: #selector(getMore))
         tableview.mj_footer = footer
         pagebody.pageSize = 15
+        
         getFanceOrFollow()
     }
     @objc func refresh(){
@@ -58,8 +59,8 @@ class BTMMyFanceFollowViewController: BaseViewController {
         }
     }
     func getFanceOrFollow(){
-        pagebody.page = (pagebody.page ?? 0) + 1
-        pagebody.userId =  UserInfoHelper.instance.user?.id ?? 0
+        pagebody.page = 0
+          pagebody.userId =  UserInfoHelper.instance.user?.id ?? 0
         if type ?? 1 == 1 {
             getFanceList(body: pagebody.toJSONString() ?? "")
         }else{
@@ -73,7 +74,7 @@ class BTMMyFanceFollowViewController: BaseViewController {
             }else{
                 self.list! += data.fancefollowlist ?? []
             }
-            if data.postlist?.count ?? 0 == 10{
+            if data.postlist?.count ?? 0 == 15{
                 self.hasmore = true
             }else{
                 self.hasmore = false
@@ -171,11 +172,8 @@ extension BTMMyFanceFollowViewController:UITableViewDelegate,UITableViewDataSour
         return cell
     }
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        
-        if(!decelerate){
+        if(!decelerate && list?.count ?? 0 != 0){
             self.scrollLoadData()
-        }else{
-            
         }
     }
     

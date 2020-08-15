@@ -13,6 +13,7 @@ class MainPostCell: UITableViewCell {
     @IBOutlet weak var post_status: UILabel!
     @IBOutlet weak var actionheart: UIImageView!
     @IBOutlet weak var poster_more: UIButton!
+    @IBOutlet weak var post_creattime: UILabel!
     @IBOutlet weak var banner: FSPagerView!{
         didSet{
             banner.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "cell")
@@ -121,6 +122,7 @@ class MainPostCell: UITableViewCell {
         postauther_icon.setImageUrl(image: postauther_icon,string: postinfo?.author?.icon, proimage: #imageLiteral(resourceName: "背景色"))
         post_auther_address.text = postinfo?.postAddress ?? ""
         lab_postnum.text = "\(postinfo?.postMessageNum ?? 0)"
+        post_creattime.text = postinfo?.creatTime?.string2DateMMdd ?? Date().date2String
         switch postinfo?.postState ?? 1 {
         case 0:
             post_status.isHidden = false
@@ -154,9 +156,7 @@ class MainPostCell: UITableViewCell {
     /// 更新点赞状态
     func updateStartOrCollection(){
         if postinfo?.isStart ?? false {
-            
             btn_start.tintColor = .red
-            
             if #available(iOS 13.0, *) {
                 btn_start.image = UIImage(systemName: "heart.fill")
             } else {

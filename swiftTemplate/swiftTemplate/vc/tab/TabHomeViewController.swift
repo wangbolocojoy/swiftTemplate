@@ -7,6 +7,7 @@
 // MARK: - 首页
 import UIKit
 import MJRefresh
+import CryptoSwift
 class TabHomeViewController: BaseTabViewController {
     
     lazy var list :[PostInfo]? = []
@@ -71,10 +72,10 @@ class TabHomeViewController: BaseTabViewController {
     }
     @objc func getMore(){
         if hasmore {
-        type = 2
-        pagebody.userId = UserInfoHelper.instance.user?.id ?? 0
-        pagebody.page = (pagebody.page ?? 0) + 1
-        getPosts(body: pagebody)
+            type = 2
+            pagebody.userId = UserInfoHelper.instance.user?.id ?? 0
+            pagebody.page = (pagebody.page ?? 0) + 1
+            getPosts(body: pagebody)
         }
         
     }
@@ -89,6 +90,7 @@ class TabHomeViewController: BaseTabViewController {
         tableview.mj_footer = footer
         pagebody.pageSize = 10
         self.getpost()
+        jiemi()
     }
     func getpost(){
         type = 1
@@ -115,6 +117,23 @@ class TabHomeViewController: BaseTabViewController {
             self.getpost()
             //            }
             
+        }
+    }
+    func jiemi(){
+        
+        do {
+            
+            let aes = try AES(key: "3dedf653961aaa0bb7bf4508664bb0cd".bytes, blockMode: ECB(), padding: .pkcs5)
+            let aesa = "73248c2262eb9bcc1212b5cdac7472f8f00e13b124a0d25371f98d2d392dd70044ad72e3da58f3bb3e8bd2a17cd46d8a"
+            let mingwen = try aes.decrypt(aesa.bytes)
+            let asdd = mingwen.toHexString()
+//            let encoded = Data(mingwen)
+//            var str = ""
+//            //解密结果从data转成string
+//            str = String(bytes: encoded.bytes, encoding: .utf8)!
+            log.verbose("铭文",asdd)
+        } catch  {
+            log.error("奥是大手大脚",error.localizedDescription)
         }
     }
 }

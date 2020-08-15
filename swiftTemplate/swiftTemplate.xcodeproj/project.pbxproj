@@ -97,6 +97,7 @@
 		C481B1FA24D9966C00B91162 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C481B1F924D9966C00B91162 /* BaseTableViewController.swift */; };
 		C481B1FD24DA36ED00B91162 /* KtBackListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C481B1FB24DA36ED00B91162 /* KtBackListCell.swift */; };
 		C481B1FE24DA36ED00B91162 /* KtBackListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C481B1FC24DA36ED00B91162 /* KtBackListCell.xib */; };
+		C4A6C05024E797BF00CD56F0 /* AliyunOssUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A6C04F24E797BF00CD56F0 /* AliyunOssUtil.swift */; };
 		C4AEB30024985F9D00196DAE /* SendPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEB2FF24985F9D00196DAE /* SendPostViewController.swift */; };
 		C4AEB304249863EF00196DAE /* UploadImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AEB302249863EF00196DAE /* UploadImageCollectionViewCell.swift */; };
 		C4AEB305249863EF00196DAE /* UploadImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4AEB303249863EF00196DAE /* UploadImageCollectionViewCell.xib */; };
@@ -258,6 +259,7 @@
 		C481B1F924D9966C00B91162 /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		C481B1FB24DA36ED00B91162 /* KtBackListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtBackListCell.swift; sourceTree = "<group>"; };
 		C481B1FC24DA36ED00B91162 /* KtBackListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KtBackListCell.xib; sourceTree = "<group>"; };
+		C4A6C04F24E797BF00CD56F0 /* AliyunOssUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliyunOssUtil.swift; sourceTree = "<group>"; };
 		C4AEB2FF24985F9D00196DAE /* SendPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendPostViewController.swift; sourceTree = "<group>"; };
 		C4AEB302249863EF00196DAE /* UploadImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		C4AEB303249863EF00196DAE /* UploadImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UploadImageCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -416,6 +418,7 @@
 				C44E81D724A469E8000BD888 /* ApiKey.swift */,
 				C402969824D3C43100582226 /* TotpUntil.swift */,
 				C402969A24D3C8DE00582226 /* RsaUtil.swift */,
+				C4A6C04F24E797BF00CD56F0 /* AliyunOssUtil.swift */,
 			);
 			path = help;
 			sourceTree = "<group>";
@@ -780,8 +783,8 @@
 				C402401D2480193B00F715DC /* Frameworks */,
 				C402401E2480193B00F715DC /* Resources */,
 				7201C572C4BE31E11BA33BD1 /* [CP] Embed Pods Frameworks */,
-				366072240BF5D996B4D7D3F3 /* [CP] Copy Pods Resources */,
 				C4BED6F724C2B568004D4C9C /* ShellScript */,
+				988F806D4F40D544CB7F3F71 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -877,23 +880,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		366072240BF5D996B4D7D3F3 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-swiftTemplate/Pods-swiftTemplate-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-swiftTemplate/Pods-swiftTemplate-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-swiftTemplate/Pods-swiftTemplate-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		7201C572C4BE31E11BA33BD1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -931,6 +917,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		988F806D4F40D544CB7F3F71 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-swiftTemplate/Pods-swiftTemplate-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-swiftTemplate/Pods-swiftTemplate-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-swiftTemplate/Pods-swiftTemplate-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C4BED6F724C2B568004D4C9C /* ShellScript */ = {
@@ -1028,6 +1031,7 @@
 				C4AEFCFA248E4B330080904E /* BTMMyFanceFollowViewController.swift in Sources */,
 				C402403F248381BE00F715DC /* Constant.swift in Sources */,
 				C402403C248164E300F715DC /* CoreDataManager.swift in Sources */,
+				C4A6C05024E797BF00CD56F0 /* AliyunOssUtil.swift in Sources */,
 				C422FB4924B1ABB7006AC5CA /* KtMessageHeader.swift in Sources */,
 				C43157DD24839C670034A74E /* TabMineViewController.swift in Sources */,
 				C41CD31224B8B390000A6613 /* CanCopyLabel.swift in Sources */,

@@ -7,7 +7,7 @@
 //
 // MARK: - 测试
 import UIKit
-
+import CryptoSwift
 class KtTestViewController: BaseViewController {
     @IBOutlet weak var imageheart: UIImageView!
     @IBOutlet weak var tebutton: UIButton!
@@ -99,5 +99,6 @@ class KtTestViewController: BaseViewController {
 
     }
     
+  
     
 }

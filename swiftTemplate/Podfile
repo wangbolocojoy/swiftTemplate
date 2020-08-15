@@ -21,5 +21,5 @@ target 'swiftTemplate' do
   pod 'Kingfisher', '~> 5.14.0'
   pod 'YPImagePicker' ,'~> 4.2.1'
   pod 'InputBarAccessoryView' , '~> 4.3.2'
-  
+  pod 'AliyunOSSiOS' , '~> 2.10.8'
 end

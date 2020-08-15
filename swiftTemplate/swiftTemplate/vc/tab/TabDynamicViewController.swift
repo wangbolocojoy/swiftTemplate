@@ -48,6 +48,7 @@ class TabDynamicViewController: BaseTabViewController{
         collectionview.mj_header = header
         footer.setRefreshingTarget(self, refreshingAction: #selector(getMore))
         collectionview.mj_footer = footer
+        type = 1
         pagebody.pageSize = 21
         pagebody.page = 0
         pagebody.userId = UserInfoHelper.instance.user?.id ?? 0
@@ -70,9 +71,6 @@ class TabDynamicViewController: BaseTabViewController{
         getpost(json: pagebody.toJSONString() ?? "")
     }
     @objc func getMore(){
-        if !hasmore {
-            return
-        }
         type = 2
         pagebody.page = (pagebody.page ?? 0) + 1
         pagebody.userId = UserInfoHelper.instance.user?.id ?? 0
@@ -83,6 +81,7 @@ class TabDynamicViewController: BaseTabViewController{
         MyMoyaManager.AllRequest(controller: self, NetworkService.getposts(k:json )) { (data) in
 //            CoreDataManager.default.postlist = data.postlist
             if self.type == 1 {
+                
                 self.list = data.postlist
             }else{
                 self.list! += data.postlist ?? []
@@ -152,9 +151,11 @@ extension TabDynamicViewController:UIScrollViewDelegate{
             return
         }
         let path = collectionview.indexPathsForVisibleItems  as [IndexPath]
+        log.verbose("path\(path)")
         if ( path.count  > 0) {
-            let lastPath = path[(path.count)-1]
-            if  lastPath.item == (self.list?.count ?? 0) - 1{
+            let lastPath = path[(path.count)-3]
+            log.info("lastPath.item\(lastPath.item)")
+            if  lastPath.item == ((pagebody.page ?? 0) + 1) * 7 {
                 self.getMore()
             }
         }

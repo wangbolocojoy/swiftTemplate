@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -271,10 +271,18 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUF-0i-7IE">
+                                                <rect key="frame" x="822" y="7.5" width="0.0" height="0.0"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="RmF-fF-eVj" firstAttribute="leading" secondItem="1Ku-Kv-o8a" secondAttribute="leading" id="38O-KW-Qbx"/>
+                                            <constraint firstItem="iUF-0i-7IE" firstAttribute="centerY" secondItem="RmF-fF-eVj" secondAttribute="centerY" id="5nK-EP-sb1"/>
+                                            <constraint firstAttribute="trailing" secondItem="iUF-0i-7IE" secondAttribute="trailing" constant="10" id="7J7-na-5qw"/>
                                             <constraint firstItem="JAg-g0-y6b" firstAttribute="leading" secondItem="1Ku-Kv-o8a" secondAttribute="leading" id="CpV-fy-vrZ"/>
                                             <constraint firstItem="JAg-g0-y6b" firstAttribute="top" secondItem="RmF-fF-eVj" secondAttribute="bottom" constant="5" id="Ei8-KM-1Tn"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="Grn-E2-EHa"/>
@@ -347,6 +355,7 @@
                 <outlet property="pagecontrol" destination="Hih-bt-GBk" id="aPr-mA-DHl"/>
                 <outlet property="post_auther_address" destination="wxl-od-fr3" id="sw5-LB-i9I"/>
                 <outlet property="post_auther_nickname" destination="RmF-fF-eVj" id="hAa-n0-Api"/>
+                <outlet property="post_creattime" destination="iUF-0i-7IE" id="R6G-XI-4SL"/>
                 <outlet property="post_detail" destination="JAg-g0-y6b" id="P7R-XI-vyT"/>
                 <outlet property="post_status" destination="1QD-zL-pKS" id="ABj-8V-6HC"/>
                 <outlet property="postauther_icon" destination="hze-1T-JQ8" id="ECS-xY-VDv"/>

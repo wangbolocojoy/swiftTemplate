@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.9.1)
+  - AliyunOSSiOS (2.10.8)
   - AMap3DMap (7.4.0):
     - AMapFoundation (~> 1.6.3)
   - AMapFoundation (1.6.3)
@@ -37,6 +38,7 @@ PODS:
     - SteviaLayout (~> 4.7.3)
 
 DEPENDENCIES:
+  - AliyunOSSiOS
   - AMap3DMap (~> 7.4.0)
   - AMapLocation (~> 2.6.5)
   - AMapSearch (~> 7.3.0)
@@ -57,6 +59,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
+    - AliyunOSSiOS
     - AMap3DMap
     - AMapFoundation
     - AMapLocation
@@ -80,6 +83,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  AliyunOSSiOS: 8db92936545593b9e5c66d680ef2ac0738946651
   AMap3DMap: fdb9a3689c6ff7c1135527f9f42d7aa55c6dd2b4
   AMapFoundation: 9ed923193b357ebb30a073e9fe255d3c24054d5a
   AMapLocation: c566d448285cd502c1e313063d9e2460bd4d7100
@@ -101,6 +105,6 @@ SPEC CHECKSUMS:
   SwiftyRSA: 6e528fb1b1a87d5111c48081083b141d6d65f1cf
   YPImagePicker: 3b88ca0c50134af2856c48c481572c98a8b8b65b
 
-PODFILE CHECKSUM: 4b9659a901dec6975134ebb9b0271fc70152201c
+PODFILE CHECKSUM: cb25a5fcf3ad56e41362d3bf9b5a18cc497ba1b4
 
 COCOAPODS: 1.9.1

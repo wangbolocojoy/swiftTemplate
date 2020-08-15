@@ -8,3 +8,4 @@
 #import <MAMapKit/MAMapKit.h>
 #import <AMapLocationKit/AMapLocationKit.h>
 #import <CommonCrypto/CommonHMAC.h>
+#import <AliyunOSSiOS/OSSService.h>

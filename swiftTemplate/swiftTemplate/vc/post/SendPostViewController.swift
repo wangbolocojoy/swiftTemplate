@@ -20,6 +20,7 @@ class SendPostViewController: BaseViewController {
     var list:[UIImage] = [#imageLiteral(resourceName: "addimages")]
     let  user = UserInfoHelper.instance.user
     var amappoi:AMapPOI? = nil
+    var credentials :Credentials?
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "发布", style: .done, target: self, action: #selector(sendPost))
@@ -70,15 +71,27 @@ class SendPostViewController: BaseViewController {
         }
         
         let detail = ev_detail.text ?? ""
-        
-        let param = ["postDetail": detail  ,"postAddress": address,"latitude":"\(amappoi?.location.latitude ?? 0.0)","longitude":"\(amappoi?.location.longitude ?? 0.0)","postPublic":"\(postispublic.isOn)"
-            ,"uploadType":"image","userId":"\(UserInfoHelper.instance.user?.id ?? 0)"]
-            MyMoyaManager.AllRequest(controller: self, NetworkService.upLoadFiles(K: param, dataAry: self.list as NSArray)) { (data) in
-                self.user?.postNum =  (self.user?.postNum ?? 0) + 1
-                UserInfoHelper.instance.user = self.user
-                self.ShowTipsClose(tite: data.msg ?? "发布成功")
-                
+//        MyMoyaManager.AllRequestNospinner(controller: self
+//        , NetworkService.getosstoken(k: "")) { (kjgh) in
+//            AliyunOssUtil.default.uploadImages(token: kjgh.osstoken?.credentials!, dataAry: self.list as NSArray) { (lis) in
+//                log.verbose(lis)
+//            }
+//        }
+        MyMoyaManager.AllRequestNospinner(controller: self, NetworkService.getosstoken(k: "" )) { (lihjk) in
+            log.verbose(lihjk)
+             AliyunOssUtil.default.uploadImages(token: lihjk.osstoken?.credentials, dataAry: self.list as NSArray) { (lis) in
+                            log.verbose(lis)
             }
+        }
+       //以前实现上传
+//        let param = ["postDetail": detail  ,"postAddress": address,"latitude":"\(amappoi?.location.latitude ?? 0.0)","longitude":"\(amappoi?.location.longitude ?? 0.0)","postPublic":"\(postispublic.isOn)"
+//            ,"uploadType":"image","userId":"\(UserInfoHelper.instance.user?.id ?? 0)"]
+//            MyMoyaManager.AllRequest(controller: self, NetworkService.upLoadFiles(K: param, dataAry: self.list as NSArray)) { (data) in
+//                self.user?.postNum =  (self.user?.postNum ?? 0) + 1
+//                UserInfoHelper.instance.user = self.user
+//                self.ShowTipsClose(tite: data.msg ?? "发布成功")
+//
+//            }
         
     }
     

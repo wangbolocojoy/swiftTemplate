@@ -28,6 +28,7 @@ class BaseResponse: Mappable {
     var ret:Int?
     var txdata:TxData?
     var useridcard:UserIdCard?
+    var osstoken:OSSToken?
     required init?(map: Map) {
     }
     func mapping(map: Map) {
@@ -50,6 +51,7 @@ class BaseResponse: Mappable {
         ret <- map["ret"]
         txdata <- map["data"]
         useridcard <- map["data"]
+        osstoken <- map["data"]
     }
     
 }
@@ -101,6 +103,38 @@ class TxData: Mappable {
     
     func mapping(map: Map) {
         tag_list <- map["tag_list"]
+    }
+    
+    
+}
+class OSSToken: Mappable {
+    var credentials :Credentials?
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        credentials <- map["credentials"]
+    }
+    
+    
+}
+class Credentials: Mappable {
+    var securityToken :String?
+     var accessKeySecret :String?
+     var accessKeyId :String?
+     var expiration :String?
+    required init?(map: Map) {
+        
+    }
+    init() {
+        
+    }
+    func mapping(map: Map) {
+        securityToken <- map["securityToken"]
+         accessKeySecret <- map["accessKeySecret"]
+         accessKeyId <- map["accessKeyId"]
+         expiration <- map["expiration"]
     }
     
     
