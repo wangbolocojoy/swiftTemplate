@@ -122,7 +122,7 @@ class MainPostCell: UITableViewCell {
         postauther_icon.setImageUrl(image: postauther_icon,string: postinfo?.author?.icon, proimage: #imageLiteral(resourceName: "背景色"))
         post_auther_address.text = postinfo?.postAddress ?? ""
         lab_postnum.text = "\(postinfo?.postMessageNum ?? 0)"
-        post_creattime.text = postinfo?.creatTime?.string2DateMMdd ?? Date().date2String
+        post_creattime.text = postinfo?.creatTime ?? ""
         switch postinfo?.postState ?? 1 {
         case 0:
             post_status.isHidden = false

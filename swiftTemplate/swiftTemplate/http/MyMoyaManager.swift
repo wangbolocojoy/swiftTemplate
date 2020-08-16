@@ -128,9 +128,12 @@ struct MyMoyaManager{
         
     }
     //MARK: - 通用请求透明菊花可以操作界面
-    static func AllRequestNospinner<T:TargetType>(controller:UIViewController,_ target:T,success successCallback: @escaping (BaseResponse) -> Void) {
+    static func AllRequestNospinner<T:TargetType>(controller:UIViewController?,_ target:T,success successCallback: @escaping (BaseResponse) -> Void) {
         guard let manager = moyascratyManager() else { return
-            controller.ShowTip(Title: "不能使用代理进行访问")
+            if controller != nil {
+                controller!.ShowTip(Title: "不能使用代理进行访问")
+            }
+           
         }
         let provider = MoyaProvider<T>(endpointClosure: endpointMapping ,requestClosure: requestClosure, manager:manager, plugins:[ClearRequestAlertPlugin(viewController: controller)])
         provider.request(target) { (event) in
@@ -156,7 +159,7 @@ struct MyMoyaManager{
                             
                             let vc = UIStoryboard.init(name: "NewLogin", bundle: nil).instantiateViewController(withIdentifier: "LOGINVIEWVC") as! LoginViewController
                                                         vc.modalPresentationStyle = .fullScreen
-                                                       controller.present(vc, animated: true) {
+                                                       controller?.present(vc, animated: true) {
 
                                                                                   }
 //                             let vc =   UIStoryboard.init(name: "Other", bundle: nil).instantiateViewController(withIdentifier: "KTTESTVC") as! KtTestViewController
@@ -176,12 +179,12 @@ struct MyMoyaManager{
                         }
                     }else{
                         log.warning(data.debugDescription )
-                        controller.ShowTip(Title: "解析失败")
+                        controller?.ShowTip(Title: "解析失败")
                     }
                 } catch {
                     //可不做处理
                     log.error(error.localizedDescription)
-                    controller.ShowTip(Title: "请求失败，解析异常")
+                    controller?.ShowTip(Title: "请求失败，解析异常")
                 }
                 break
             case let .failure(error):
@@ -192,5 +195,44 @@ struct MyMoyaManager{
     }
     
     
-    
+    static func uploadPost<T:TargetType>(target:T,success successCallback: @escaping (BaseResponse) -> Void,fail failCallback: @escaping (BaseResponse?) -> Void){
+         guard let manager = moyascratyManager() else { return
+            
+                }
+                let provider = MoyaProvider<T>(endpointClosure: endpointMapping ,requestClosure: requestClosure, manager:manager)
+                provider.request(target) { (event) in
+                    switch event {
+                    case let .success(response):
+                        do {
+                            let data = try response.mapJSON() as! [String:Any]
+                            if let u = BaseResponse(JSON: data){
+                                if u.status ?? 0 == 200{
+                                    successCallback(u)
+                                }else if u.status ?? 0 == 500{
+                                    log.warning(u.toJSONString() ?? "")
+                                    failCallback(u)
+                                }else if u.status ?? 0 == 434 || u.status ?? 0 == 454{
+                                 failCallback(u)
+                                }else  {
+                                     failCallback(u)
+                                    log.warning(u.toJSONString() ?? "")
+                                }
+                            }else{
+                                log.warning(data.debugDescription )
+                                 failCallback(nil)
+                            }
+                        } catch {
+                            //可不做处理
+                            log.error(error.localizedDescription)
+                             failCallback(nil)
+                            
+                        }
+                        break
+                    case let .failure(error):
+                          failCallback(nil)
+                        log.error(error.failureReason ?? "")
+                        break
+                    }
+                }
+    }
 }

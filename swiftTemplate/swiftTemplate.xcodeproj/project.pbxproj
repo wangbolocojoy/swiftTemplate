@@ -1219,7 +1219,7 @@
 				CODE_SIGN_ENTITLEMENTS = swiftTemplate/SwiftKt.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.08;
+				CURRENT_PROJECT_VERSION = 1.0.09;
 				DEVELOPMENT_TEAM = 9N6AR9BNW6;
 				INFOPLIST_FILE = swiftTemplate/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1227,7 +1227,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.09;
+				MARKETING_VERSION = 1.0.11;
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = com.90btm.SwiftKt;
 				PRODUCT_NAME = SwiftKt;
@@ -1249,7 +1249,7 @@
 				CODE_SIGN_ENTITLEMENTS = swiftTemplate/SwiftKt.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.08;
+				CURRENT_PROJECT_VERSION = 1.0.09;
 				DEVELOPMENT_TEAM = 9N6AR9BNW6;
 				INFOPLIST_FILE = swiftTemplate/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1257,7 +1257,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.09;
+				MARKETING_VERSION = 1.0.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.90btm.SwiftKt;
 				PRODUCT_NAME = SwiftKt;
 				PROVISIONING_PROFILE_SPECIFIER = "";

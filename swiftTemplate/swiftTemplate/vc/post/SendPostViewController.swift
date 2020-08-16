@@ -21,9 +21,12 @@ class SendPostViewController: BaseViewController {
     let  user = UserInfoHelper.instance.user
     var amappoi:AMapPOI? = nil
     var credentials :Credentials?
+    var rightbut : UIBarButtonItem?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "发布", style: .done, target: self, action: #selector(sendPost))
+         rightbut = UIBarButtonItem.init(title: "发布", style: .done, target: self, action: #selector(sendPost))
+        self.navigationItem.rightBarButtonItem = rightbut
         let tap = UITapGestureRecognizer(target: self, action: #selector(toAddress))
         btn_address.isUserInteractionEnabled = true
         btn_address.addGestureRecognizer(tap)
@@ -33,7 +36,7 @@ class SendPostViewController: BaseViewController {
         collectionview.dataSource = self
         collectionview.register(UINib(nibName: UploadImageCollectionViewCell.reuseID, bundle: nil), forCellWithReuseIdentifier: UploadImageCollectionViewCell.reuseID)
         collectionview.collectionViewLayout = CollectionViewLeftFlowLayout()
-        
+
     }
     
    
@@ -71,20 +74,23 @@ class SendPostViewController: BaseViewController {
         }
         
         let detail = ev_detail.text ?? ""
-//        MyMoyaManager.AllRequestNospinner(controller: self
-//        , NetworkService.getosstoken(k: "")) { (kjgh) in
-//            AliyunOssUtil.default.uploadImages(token: kjgh.osstoken?.credentials!, dataAry: self.list as NSArray) { (lis) in
-//                log.verbose(lis)
-//            }
-//        }
-        MyMoyaManager.AllRequestNospinner(controller: self, NetworkService.getosstoken(k: "" )) { (lihjk) in
-            log.verbose(lihjk)
-             AliyunOssUtil.default.uploadImages(token: lihjk.osstoken?.credentials, dataAry: self.list as NSArray) { (lis) in
-                            log.verbose(lis)
-            }
+
+        rightbut?.isEnabled = false
+            MyMoyaManager.AllRequestNospinner(controller: self, NetworkService.getosstoken(k: "" )) { (datatoken) in
+                      log.verbose(datatoken)
+                let param = RequestBody()
+                param.userId = UserInfoHelper.instance.user?.id ?? 0
+                param.postAddress = address
+                param.postDetail = detail
+                param.postPublic = self.postispublic.isOn
+                param.longitude = "\(self.amappoi?.location.longitude ?? 0.0)"
+                param.latitude  = "\(self.amappoi?.location.latitude ?? 0.0)"
+                AliyunOssUtil.default.uploadImages(body: param,token: datatoken.osstoken?.credentials, dataAry: self.list as NSArray)
+                self.ShowTipsClose(tite: "发送中")
         }
+        
        //以前实现上传
-//        let param = ["postDetail": detail  ,"postAddress": address,"latitude":"\(amappoi?.location.latitude ?? 0.0)","longitude":"\(amappoi?.location.longitude ?? 0.0)","postPublic":"\(postispublic.isOn)"
+        //body: <#RequestBody#>,         let param = ["postDetail": detail  ,"postAddress": address,"latitude":"\(amappoi?.location.latitude ?? 0.0)","longitude":"\(amappoi?.location.longitude ??                            0.0)","postPublic":"\(postispublic.isOn)"
 //            ,"uploadType":"image","userId":"\(UserInfoHelper.instance.user?.id ?? 0)"]
 //            MyMoyaManager.AllRequest(controller: self, NetworkService.upLoadFiles(K: param, dataAry: self.list as NSArray)) { (data) in
 //                self.user?.postNum =  (self.user?.postNum ?? 0) + 1
@@ -94,7 +100,9 @@ class SendPostViewController: BaseViewController {
 //            }
         
     }
-    
+    deinit {
+          NotificationCenter.default.removeObserver(self)
+    }
     func showChooseImagePicker(){
         var config = YPImagePickerConfiguration()
         config.screens = [.photo,.library]

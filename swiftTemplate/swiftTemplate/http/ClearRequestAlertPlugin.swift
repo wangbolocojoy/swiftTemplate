@@ -15,14 +15,14 @@ import Result
 final class ClearRequestAlertPlugin: PluginType {
     
     //当前的视图控制器
-    private let viewController: UIViewController
+    private let viewController: UIViewController?
     
     //活动状态指示器（菊花进度条）
     private var spinner: UIActivityIndicatorView!
     private var vcBank:UIView!
     private var spbank:UIView!
     //插件初始化的时候传入当前的视图控制器
-    init(viewController: UIViewController) {
+    init(viewController: UIViewController?) {
         self.viewController = viewController
         //初始化活动状态指示器
         if #available(iOS 13.0, *) {
@@ -37,7 +37,7 @@ final class ClearRequestAlertPlugin: PluginType {
     //开始发起请求
     func willSend(_ request: RequestType, target: TargetType) {
         //请求时在界面中央显示一个活动状态指示器
-        viewController.view.addSubview(spinner)
+        viewController?.view.addSubview(spinner)
         spinner.startAnimating()
     }
     
@@ -65,6 +65,6 @@ final class ClearRequestAlertPlugin: PluginType {
             preferredStyle: .alert)
         alertViewController.addAction(UIAlertAction(title: "确定", style: .default,
                                                     handler: nil))
-        viewController.present(alertViewController, animated: true)
+        viewController?.present(alertViewController, animated: true)
     }
 }

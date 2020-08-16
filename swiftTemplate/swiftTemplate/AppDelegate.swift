@@ -21,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        AliyunOssUtil.default
         initConfigure()
         choosePermiss()
         return true
@@ -83,7 +82,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         log.verbose(ApiKey.default.版本环境)
         log.verbose(CoreDataManager.default.postlist?.count ?? 0)
-      
+        NotificationCenter.default.addObserver(self, selector: #selector(slentener), name: NSNotification.Name(rawValue: "POSTSUCESS"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(flentener), name: NSNotification.Name(rawValue: "POSTFAIL"), object: nil)
+        
+    }
+    @objc func slentener(){
+        UIApplication.shared.keyWindow?.rootViewController?.ShowTip(Title: "发送成功")
+    }
+    @objc func flentener(){
+           UIApplication.shared.keyWindow?.rootViewController?.ShowTip(Title: "发送失败")
+       }
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     /// 获取权限
     func choosePermiss(){

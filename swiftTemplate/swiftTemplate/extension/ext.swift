@@ -284,7 +284,7 @@ extension UIImage{
         var compression: CGFloat = 1
         var data = self.jpegData(compressionQuality: 1)!
         log.verbose( "压缩前:---- \( Double((data.count)/1024))kb")
-        if data.count < maxLength {
+        if (data.count/1024) < maxLength {
             return data
         }
         var max: CGFloat = 1

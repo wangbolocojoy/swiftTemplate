@@ -27,56 +27,68 @@ class AliyunOssUtil {
         
     }
     
-    func uploadImages(token: Credentials?,dataAry:NSArray,waitUnitfinish:Bool = true,sucessblack:@escaping([String]?)->Void){
-        let request = OSSPutObjectRequest()
-        var list :[String] = []
-        let config = OSSClientConfiguration()
-        config.maxRetryCount = 3
-        config.timeoutIntervalForRequest = 3000
-        config.isHttpdnsEnable = false
-        config.timeoutIntervalForResource = 30
-        let Oss = OSSStsTokenCredentialProvider(accessKeyId: token?.accessKeyId ?? "", secretKeyId: token?.accessKeySecret ?? "", securityToken: token?.securityToken ?? "")
-        
-        ossclient = OSSClient(endpoint: "oss-cn-shanghai.aliyuncs.com", credentialProvider: Oss ,clientConfiguration:config)
-        for (index,image) in dataAry.enumerated() {
-            let data:Data = (image as! UIImage).compressImageMid(maxLength: 2048) ?? Data()
-            let date:Date = Date()
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy-MM-dd-HH:mm:ss"
-            var dateStr:String = formatter.string(from: date as Date)
-            dateStr = dateStr.appendingFormat("-%i.png", index)
-            request.bucketName = "swiftktidcardinfo"
-            request.contentMd5 = OSSUtil.base64Md5(for: data)
-            request.objectKey = "home/picture/\(UserInfoHelper.instance.user?.id ?? 0)/\(dateStr)"
-            log.verbose(request.objectKey)
-            request.uploadingData = data
-            request.uploadProgress = { byteSent,toolbyte,tosend in
-                // // 指定当前上传长度、当前已经上传总长度、待上传的总长度。
-                log.verbose("正在上传\(request.objectKey)\(Double(toolbyte))----\(Double(tosend))")
-            }
-            let puttask = ossclient?.putObject(request)
-            
-            let cancel = OSSCancellationToken()
-            cancel.registerCancellationObserver {
-                log.verbose("取消")
-            }
-            puttask?.continue({ (task) -> Any? in
-                if task.error == nil{
-                    
-                    let str = "https://\(request.bucketName).oss-cn-shanghai.aliyuncs.com/\(request.objectKey)"
-                    list.append( str)
-                    if index == (dataAry.count - 1) {
-                        sucessblack(list)
-                    }
-                }else{
-                    log.debug(task.error)
+    func uploadImages(body:RequestBody,token: Credentials?,dataAry:NSArray,waitUnitfinish:Bool = true){
+        DispatchQueue.init(label: "SwiftKt.queue").async{
+            let request = OSSPutObjectRequest()
+            var list :[PostImageBody] = []
+            let config = OSSClientConfiguration()
+            config.maxRetryCount = 3
+            config.timeoutIntervalForRequest = 3000
+            config.isHttpdnsEnable = false
+            config.timeoutIntervalForResource = 30
+            let Oss = OSSStsTokenCredentialProvider(accessKeyId: token?.accessKeyId ?? "", secretKeyId: token?.accessKeySecret ?? "", securityToken: token?.securityToken ?? "")
+            self.ossclient = OSSClient(endpoint: "oss-cn-shanghai.aliyuncs.com", credentialProvider: Oss ,clientConfiguration:config)
+            for (index,image) in dataAry.enumerated() {
+                let data:Data = (image as! UIImage).compressImageMid(maxLength: 2048) ?? Data()
+                let date:Date = Date()
+                let formatter = DateFormatter()
+                formatter.dateFormat = "yyyy-MM-dd-HH:mm:ss"
+                var dateStr:String = formatter.string(from: date as Date)
+                dateStr = dateStr.appendingFormat("-%i.png", index)
+                request.bucketName = "swiftktidcardinfo"
+                request.contentMd5 = OSSUtil.base64Md5(for: data)
+                request.objectKey = "home/picture/\(UserInfoHelper.instance.user?.id ?? 0)/\(dateStr)"
+                log.verbose(request.objectKey)
+                request.uploadingData = data
+                request.uploadProgress = { byteSent,toolbyte,tosend in
+                    // // 指定当前上传长度、当前已经上传总长度、待上传的总长度。
+                    log.verbose("正在上传\(request.objectKey)\(Double(toolbyte))----\(Double(tosend))")
                 }
-                return nil
-            },cancellationToken: cancel)
-            if waitUnitfinish {
-                puttask?.waitUntilFinished()
+                let puttask = self.ossclient?.putObject(request)
+                let cancel = OSSCancellationToken()
+                cancel.registerCancellationObserver {
+                    log.verbose("取消")
+                }
+                puttask?.continue({ (task) -> Any? in
+                    if task.error == nil{
+                        let ibody = PostImageBody()
+                        let str = "https://\(request.bucketName).oss-cn-shanghai.aliyuncs.com/\(request.objectKey)"
+                        ibody.fileUrl = str
+                        ibody.fileType = "image"
+                        ibody.originalFileName = request.objectKey
+                        ibody.userId = UserInfoHelper.instance.user?.id ?? 0
+                        list.append(ibody)
+                        
+                    }else{
+                        log.debug(task.error)
+                    }
+                    return nil
+                },cancellationToken: cancel)
+                if waitUnitfinish {
+                    puttask?.waitUntilFinished()
+                }
             }
-        }
+            body.postimagelist = list
+            //  DispatchQueue.main.async {
+            MyMoyaManager.uploadPost(target: NetworkService.sendpost(k: body.toJSONString() ?? ""), success: { (sdata) in
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "POSTSUCESS"), object: nil)
+                  }) { (fdata) in
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "POSTFAIL"), object: nil)
+                  }
+                  }
+            }
+      
         
     }
-}
+    
+
