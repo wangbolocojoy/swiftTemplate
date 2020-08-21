@@ -18,6 +18,7 @@ class SendPostViewController: BaseViewController {
     @IBOutlet weak var ev_detail: UITextView!
     lazy var picker = YPImagePicker()
     var list:[UIImage] = [#imageLiteral(resourceName: "addimages")]
+     var listvideo:[YPMediaVideo] = []
     let  user = UserInfoHelper.instance.user
     var amappoi:AMapPOI? = nil
     var credentials :Credentials?
@@ -72,9 +73,7 @@ class SendPostViewController: BaseViewController {
         }else{
             address = lab_address.text ?? ""
         }
-        
         let detail = ev_detail.text ?? ""
-
         rightbut?.isEnabled = false
             MyMoyaManager.AllRequestNospinner(controller: self, NetworkService.getosstoken(k: "" )) { (datatoken) in
                       log.verbose(datatoken)
@@ -105,19 +104,21 @@ class SendPostViewController: BaseViewController {
     }
     func showChooseImagePicker(){
         var config = YPImagePickerConfiguration()
-        config.screens = [.photo,.library]
-        config.library.mediaType = .photo
+        config.screens = [.photo,.library,.video]
+        config.library.mediaType = .photoAndVideo
         config.library.maxNumberOfItems = 6
         picker = YPImagePicker(configuration: config)
         picker.didFinishPicking { [unowned picker] items, cancelled in
             if items.count != 0{
                  self.list.removeAll()
+                self.listvideo.removeAll()
             }
             for item in items {
                    switch item {
                    case .photo(let photo):
                     self.list.append(photo.image)
-                   case .video( _):
+                   case .video(let video):
+                    self.listvideo.append(video)
                     print()
                 }
                }

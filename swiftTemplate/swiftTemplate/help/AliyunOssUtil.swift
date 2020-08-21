@@ -48,11 +48,11 @@ class AliyunOssUtil {
                 request.bucketName = "swiftktidcardinfo"
                 request.contentMd5 = OSSUtil.base64Md5(for: data)
                 request.objectKey = "home/picture/\(UserInfoHelper.instance.user?.id ?? 0)/\(dateStr)"
-                log.verbose(request.objectKey)
+                
                 request.uploadingData = data
                 request.uploadProgress = { byteSent,toolbyte,tosend in
                     // // 指定当前上传长度、当前已经上传总长度、待上传的总长度。
-                    log.verbose("正在上传\(request.objectKey)\(Double(toolbyte))----\(Double(tosend))")
+//                    log.verbose("正在上传\(request.objectKey)\(Double(toolbyte))----\(Double(tosend))")
                 }
                 let puttask = self.ossclient?.putObject(request)
                 let cancel = OSSCancellationToken()
@@ -64,11 +64,10 @@ class AliyunOssUtil {
                         let ibody = PostImageBody()
                         let str = "https://\(request.bucketName).oss-cn-shanghai.aliyuncs.com/\(request.objectKey)"
                         ibody.fileUrl = str
-                        ibody.fileType = "image"
-                        ibody.originalFileName = request.objectKey
+                        ibody.fileType = "image/jpeg"
+                        ibody.originalFileName = dateStr
                         ibody.userId = UserInfoHelper.instance.user?.id ?? 0
                         list.append(ibody)
-                        
                     }else{
                         log.debug(task.error)
                     }
@@ -85,6 +84,7 @@ class AliyunOssUtil {
                   }) { (fdata) in
                         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "POSTFAIL"), object: nil)
                   }
+            
                   }
             }
       
