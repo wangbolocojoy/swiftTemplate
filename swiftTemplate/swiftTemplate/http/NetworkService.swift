@@ -428,7 +428,9 @@ public extension String {
         }
         return ranStr
     }
-    
+    var IMGSLT:String{
+        return self+"?x-oss-process=style/suoluetu_30"
+    }
     var string2DateString : String {
         let formatter1 = DateFormatter()
         formatter1.locale = Locale.init(identifier: "en_US")

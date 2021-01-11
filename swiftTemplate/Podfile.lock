@@ -38,7 +38,7 @@ PODS:
     - SteviaLayout (~> 4.7.3)
 
 DEPENDENCIES:
-  - AliyunOSSiOS
+  - AliyunOSSiOS (~> 2.10.8)
   - AMap3DMap (~> 7.4.0)
   - AMapLocation (~> 2.6.5)
   - AMapSearch (~> 7.3.0)
@@ -105,6 +105,6 @@ SPEC CHECKSUMS:
   SwiftyRSA: 6e528fb1b1a87d5111c48081083b141d6d65f1cf
   YPImagePicker: 3b88ca0c50134af2856c48c481572c98a8b8b65b
 
-PODFILE CHECKSUM: cb25a5fcf3ad56e41362d3bf9b5a18cc497ba1b4
+PODFILE CHECKSUM: 1339abd4f588f6280d4fe6f65a918b017d14d85c
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.10.0

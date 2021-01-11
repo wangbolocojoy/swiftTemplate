@@ -104,8 +104,8 @@ class SendPostViewController: BaseViewController {
     }
     func showChooseImagePicker(){
         var config = YPImagePickerConfiguration()
-        config.screens = [.photo,.library,.video]
-        config.library.mediaType = .photoAndVideo
+        config.screens = [.photo,.library]
+        config.library.mediaType = .photo
         config.library.maxNumberOfItems = 6
         picker = YPImagePicker(configuration: config)
         picker.didFinishPicking { [unowned picker] items, cancelled in

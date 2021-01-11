@@ -172,7 +172,7 @@ extension TabMineViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch section {
         case 0:
-            return 0
+            return 0.1
         default:
             return 10
         }
@@ -184,10 +184,13 @@ extension TabMineViewController:UITableViewDelegate,UITableViewDataSource{
         switch indexPath.section {
         case 0:
             return 250
-        default:
+        case 1:
             return 45
+        default:
+            return 0
         }
     }
+  
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
