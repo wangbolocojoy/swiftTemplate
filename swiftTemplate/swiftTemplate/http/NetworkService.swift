@@ -250,7 +250,7 @@ extension NetworkService:Moya.TargetType{
         case .updateusericon(let param, let uploadImages),.uploadidcard(let param, let uploadImages):
             let formDataAry:NSMutableArray = NSMutableArray()
             for (index,image) in uploadImages.enumerated() {
-                let data:Data = (image as! UIImage).compressImageMid(maxLength: 2048) ?? Data()
+                let data:Data = (image as! UIImage).compressImageMid(maxLength: 1024) ?? Data()
                 let date:Date = Date()
                 let formatter = DateFormatter()
                 formatter.dateFormat = "yyyy-MM-dd-HH:mm:ss"

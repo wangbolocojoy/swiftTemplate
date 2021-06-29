@@ -289,7 +289,7 @@ extension UIImage{
         }
         var max: CGFloat = 1
         var min: CGFloat = 0
-        for _ in 0..<10 {
+        for _ in 0..<6{
             compression = (max + min) / 2
             data = jpegData(compressionQuality: compression)!
             if CGFloat(data.count) < CGFloat(maxLength) * 0.9 {

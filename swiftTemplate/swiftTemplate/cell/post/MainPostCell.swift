@@ -17,6 +17,7 @@ class MainPostCell: UITableViewCell {
     @IBOutlet weak var banner: FSPagerView!{
         didSet{
             banner.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "cell")
+            banner.size(UIScreen.main.bounds.width)
         }
     }
     func callBackBlock(block : @escaping swiftblock)  {
@@ -56,6 +57,12 @@ class MainPostCell: UITableViewCell {
         banner.dataSource = self
         banner.delegate = self
         banner.isInfinite = false
+    
+        banner.size(UIScreen.main.bounds.width)
+//        log.debug("屏幕宽度\(UIScreen.main.bounds.width)")
+//        log.debug("banner 宽width\(banner.bounds.width)")
+//        log.debug("屏幕高度 height\(UIScreen.main.bounds.height)")
+//        log.debug("banner 高height\(banner.bounds.height)")
         banner.transformer = FSPagerViewTransformer(type: .linear)
         pagecontrol.numberOfPages = postinfo?.postImages?.count ?? 0
         pagecontrol.setStrokeColor(.gray, for: .selected)
@@ -405,7 +412,9 @@ extension MainPostCell:FSPagerViewDelegate,FSPagerViewDataSource{
     
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
-        cell.imageView?.setImageUrl(image: cell.imageView!,string: postinfo?.postImages?[index].fileUrl , proimage:#imageLiteral(resourceName: "背景色") )
+        
+        cell.imageView?.setImageUrl(image: cell.imageView!,string: postinfo?.postImages?[index].fileUrl?.IMGSLT , proimage:#imageLiteral(resourceName: "背景色") )
+        cell.imageView?.height(UIScreen.main.bounds.width)
         cell.isHighlighted = false
         let tap = UITapGestureRecognizer(target: self, action: #selector(postStart(gesture: )))
         cell.isUserInteractionEnabled = true
