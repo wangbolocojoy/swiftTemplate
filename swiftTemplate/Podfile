@@ -1,4 +1,4 @@
-platform :ios, '10.0'
+platform :ios, '16.0'
 source 'https://github.com/CocoaPods/Specs.git'
 target 'swiftTemplate' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -15,11 +15,22 @@ target 'swiftTemplate' do
   pod 'MJRefresh', '~> 3.2.0'
   pod 'Gifu', '~> 3.2.0'
   pod 'SwiftyRSA','~>1.5.0'
-  pod 'CryptoSwift' , '~> 1.0.0'
+  pod 'CryptoSwift' , '~> 1.3.8'
   pod 'Bugly','~> 2.5.0'
   pod 'FSPagerView','~> 0.8.3'
   pod 'Kingfisher', '~> 5.14.0'
   pod 'YPImagePicker' ,'~> 4.2.1'
   pod 'InputBarAccessoryView' , '~> 4.3.2'
   pod 'AliyunOSSiOS' , '~> 2.10.8'
+  pod 'TXIMSDK_iOS'
+  # 防止 TUI 组件里的 *.xcassets 与您项目里面冲突。
+  #install! 'cocoapods', :disable_input_output_paths => true
+
+  # TUI 组件依赖了静态库，需要屏蔽如下设置，如果报错，请参考常见问题说明。
+  # use_frameworks!
+
+  # 集成聊天功能
+  pod 'TUIChat'
+  # 集成会话功能
+  pod 'TUIConversation'
 end

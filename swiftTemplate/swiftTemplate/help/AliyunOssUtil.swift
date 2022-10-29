@@ -39,7 +39,7 @@ class AliyunOssUtil {
             let Oss = OSSStsTokenCredentialProvider(accessKeyId: token?.accessKeyId ?? "", secretKeyId: token?.accessKeySecret ?? "", securityToken: token?.securityToken ?? "")
             self.ossclient = OSSClient(endpoint: "oss-cn-shanghai.aliyuncs.com", credentialProvider: Oss ,clientConfiguration:config)
             for (index,image) in dataAry.enumerated() {
-                let data:Data = (image as! UIImage).compressImageMid(maxLength: 2048) ?? Data()
+                let data:Data = (image as! UIImage).imageWithNewSize(size: CGSize(width: 1024, height: 1024))?.compressImageMid(maxLength: 400) ?? Data()
                 let date:Date = Date()
                 let formatter = DateFormatter()
                 formatter.dateFormat = "yyyy-MM-dd-HH:mm:ss"

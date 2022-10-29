@@ -25,7 +25,7 @@ static let reuseID = "DynamicCollectionViewCell"
             ismoreimage.isHidden = true
         }
         if list?.count != 0 {
-            post_image.setImageUrl(image: post_image, string: list?[0].fileUrl, proimage: #imageLiteral(resourceName: "背景色"))
+            post_image.setImageUrl(image: post_image, string: list?[0].fileUrl?.IMGSLT, proimage: #imageLiteral(resourceName: "背景色"))
         }
       
     }

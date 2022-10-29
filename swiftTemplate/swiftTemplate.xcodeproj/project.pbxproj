@@ -157,13 +157,13 @@
 		C4FDACB6249F4A9F0095F1E3 /* MySettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FDACB5249F4A9F0095F1E3 /* MySettingViewController.swift */; };
 		C4FDACBE249FB5610095F1E3 /* DynamicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FDACBC249FB5610095F1E3 /* DynamicCollectionViewCell.swift */; };
 		C4FDACBF249FB5610095F1E3 /* DynamicCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4FDACBD249FB5610095F1E3 /* DynamicCollectionViewCell.xib */; };
-		C9AF910697E673BF178A1F0E /* Pods_swiftTemplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96C494185AD3E08D4C8C3503 /* Pods_swiftTemplate.framework */; };
+		DDFA379A1E4C378DB5E4EE66 /* Pods_swiftTemplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8842822BC7A55A5441BE9B94 /* Pods_swiftTemplate.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1E5E45611692D9DB9FE0A5CE /* Pods-swiftTemplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftTemplate.debug.xcconfig"; path = "Target Support Files/Pods-swiftTemplate/Pods-swiftTemplate.debug.xcconfig"; sourceTree = "<group>"; };
-		96C494185AD3E08D4C8C3503 /* Pods_swiftTemplate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swiftTemplate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C40240202480193B00F715DC /* SwiftKt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftKt.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8842822BC7A55A5441BE9B94 /* Pods_swiftTemplate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swiftTemplate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C40240202480193B00F715DC /* 天天约拍.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "天天约拍.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C40240232480193B00F715DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C40240272480193B00F715DC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C402402A2480193B00F715DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -327,7 +327,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9AF910697E673BF178A1F0E /* Pods_swiftTemplate.framework in Frameworks */,
+				DDFA379A1E4C378DB5E4EE66 /* Pods_swiftTemplate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,7 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				C422FB3E24AF5F6D006AC5CA /* AuthenticationServices.framework */,
-				96C494185AD3E08D4C8C3503 /* Pods_swiftTemplate.framework */,
+				8842822BC7A55A5441BE9B94 /* Pods_swiftTemplate.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -365,7 +365,7 @@
 		C40240212480193B00F715DC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C40240202480193B00F715DC /* SwiftKt.app */,
+				C40240202480193B00F715DC /* 天天约拍.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -792,7 +792,7 @@
 			);
 			name = swiftTemplate;
 			productName = swiftTemplate;
-			productReference = C40240202480193B00F715DC /* SwiftKt.app */;
+			productReference = C40240202480193B00F715DC /* 天天约拍.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1219,18 +1219,20 @@
 				CODE_SIGN_ENTITLEMENTS = swiftTemplate/SwiftKt.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.09;
+				CURRENT_PROJECT_VERSION = 1.0.11;
 				DEVELOPMENT_TEAM = 9N6AR9BNW6;
 				INFOPLIST_FILE = swiftTemplate/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "天天约拍";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.11;
+				MARKETING_VERSION = 1.0.12;
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = com.90btm.SwiftKt;
-				PRODUCT_NAME = SwiftKt;
+				PRODUCT_NAME = "天天约拍";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "swiftTemplate/extension/swiftTemplate-Bridging-Header.h";
@@ -1249,17 +1251,19 @@
 				CODE_SIGN_ENTITLEMENTS = swiftTemplate/SwiftKt.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.09;
+				CURRENT_PROJECT_VERSION = 1.0.11;
 				DEVELOPMENT_TEAM = 9N6AR9BNW6;
 				INFOPLIST_FILE = swiftTemplate/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "天天约拍";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.11;
+				MARKETING_VERSION = 1.0.12;
 				PRODUCT_BUNDLE_IDENTIFIER = com.90btm.SwiftKt;
-				PRODUCT_NAME = SwiftKt;
+				PRODUCT_NAME = "天天约拍";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "swiftTemplate/extension/swiftTemplate-Bridging-Header.h";

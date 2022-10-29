@@ -10,8 +10,8 @@ import UIKit
 import SwiftyBeaver
 class KtMySettingViewController: BaseViewController {
     var list = ["黑名单","清除缓存","退出"]
-    @available(iOS 13.0, *)
-    lazy var imagelist = [UIImage(systemName: "person.crop.circle.fill.badge.exclam"),UIImage(systemName: "xmark.icloud"),UIImage(systemName: "power")]
+  
+    lazy var imagelist = [#imageLiteral(resourceName: "关于"),#imageLiteral(resourceName: "清除缓存"),#imageLiteral(resourceName: "退出登录")]
     lazy var imagelist1  = [#imageLiteral(resourceName: "关于"),#imageLiteral(resourceName: "清除缓存"),#imageLiteral(resourceName: "退出登录")]
     @IBOutlet weak var tableview: UITableView!
     override func viewDidLoad() {
@@ -95,7 +95,7 @@ extension KtMySettingViewController:UITableViewDelegate,UITableViewDataSource,UI
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MineItemViewCell.reuseID, for: indexPath) as! MineItemViewCell
-        if #available(iOS 13.0, *) {
+        if #available(iOS 16.0, *) {
             cell.updetaCell(image: imagelist[indexPath.item], lname: list[indexPath.item], rname: nil)
         } else {
             cell.updetaCell(image: imagelist1[indexPath.item], lname: list[indexPath.item], rname: nil)

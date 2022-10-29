@@ -398,6 +398,9 @@ class UserInfo: Mappable {
     var administrators:Bool?
     var authentication:Bool?
     var isselectid:Bool?
+    var occupation: Int?
+        //imkey
+    var imUserSig:String?
     required init?(map: Map) {
     }
     func mapping(map: Map) {
@@ -426,6 +429,8 @@ class UserInfo: Mappable {
         administrators <- map["administrators"]
         authentication <- map["authentication"]
         isselectid <- map["isselectid"]
+        occupation <- map["occupation"]
+        imUserSig <- map["imUserSig"]
     }
     
 }

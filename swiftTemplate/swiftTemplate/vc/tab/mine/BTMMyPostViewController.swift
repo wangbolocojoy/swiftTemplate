@@ -116,7 +116,7 @@ extension BTMMyPostViewController:UITableViewDataSource,UITableViewDelegate,UISc
         return list?.count ?? 0
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 560
+        return UIScreen.main.bounds.width+234
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MainPostCell.reuseID, for: indexPath) as! MainPostCell

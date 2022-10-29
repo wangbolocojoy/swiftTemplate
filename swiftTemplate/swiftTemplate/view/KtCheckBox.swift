@@ -10,8 +10,8 @@ import UIKit
 
 @IBDesignable class KtCheckBox: UIView {
 static let reuseID =  "KtCheckBox"
-  var contentView :UIView!
-     var ischeck = false
+    var contentView :UIView!
+    var ischeck = false
     
     @IBOutlet weak var checkbtn: UIImageView!
     override init(frame: CGRect) {

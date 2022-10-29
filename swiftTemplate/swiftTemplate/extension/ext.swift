@@ -227,6 +227,46 @@ extension UIImageView{
     
 }
 extension UIImage{
+    
+    
+    public func imageWithNewSize(size: CGSize) -> UIImage? {
+       
+           if self.size.height > size.height {
+               
+               let width = size.height / self.size.height * self.size.width
+               
+               let newImgSize = CGSize(width: width, height: size.height)
+               
+               UIGraphicsBeginImageContext(newImgSize)
+               
+               self.draw(in: CGRect(x: 0, y: 0, width: newImgSize.width, height: newImgSize.height))
+               
+               let theImage = UIGraphicsGetImageFromCurrentImageContext()
+               
+               UIGraphicsEndImageContext()
+               
+               guard let newImg = theImage else { return  nil}
+               
+               return newImg
+               
+           } else {
+               
+               let newImgSize = CGSize(width: size.width, height: size.height)
+               
+               UIGraphicsBeginImageContext(newImgSize)
+               
+               self.draw(in: CGRect(x: 0, y: 0, width: newImgSize.width, height: newImgSize.height))
+               
+               let theImage = UIGraphicsGetImageFromCurrentImageContext()
+               
+               UIGraphicsEndImageContext()
+               
+               guard let newImg = theImage else { return  nil}
+               
+               return newImg
+           }
+       
+       }
     ///  根据颜色生产一张图片
     /// - Parameter color: 颜色
     /// - Returns: 图片
@@ -289,7 +329,7 @@ extension UIImage{
         }
         var max: CGFloat = 1
         var min: CGFloat = 0
-        for _ in 0..<10 {
+        for _ in 0..<6{
             compression = (max + min) / 2
             data = jpegData(compressionQuality: compression)!
             if CGFloat(data.count) < CGFloat(maxLength) * 0.9 {
@@ -308,6 +348,36 @@ extension UIImage{
         log.verbose( "压缩后: \( Double((data.count)/1024))kb")
         return data
     }
+    /// 二分压缩法
+      /// - Parameter maxLength: 最大大小（压缩后小于这个值）
+      /// - Returns: 压缩后的图片
+       func compressImageMid(maxLength: Int) -> UIImage? {
+              var compression: CGFloat = 1
+          guard var data = self.jpegData(compressionQuality: 1) else { return nil }
+              print("压缩前kb: \( Double((data.count)/1024))")
+              if data.count < maxLength {
+                  return self
+              }
+              print("压缩前kb", data.count / 1024, "KB")
+              var max: CGFloat = 1
+              var min: CGFloat = 0
+              for _ in 0..<6 {
+                  compression = (max + min) / 2
+                  data = self.jpegData(compressionQuality: compression)!
+                  if CGFloat(data.count) < CGFloat(maxLength) * 0.9 {
+                      min = compression
+                  } else if data.count > maxLength {
+                      max = compression
+                  } else {
+                      break
+                  }
+              }
+          
+          print("压缩后kb", data.count / 1024, "KB")
+          let resultImage: UIImage = UIImage(data: data)!
+          return resultImage
+       }
+
 }
 extension CAGradientLayer {
     //获取彩虹渐变层

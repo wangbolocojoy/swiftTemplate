@@ -101,6 +101,7 @@ extension UserDefaults{
             case 验证码时间
             case currentUserIdentifier
             case MAXPostId
+            case ImSercyKey
         }
     }
 }
@@ -115,6 +116,7 @@ extension KeychainManager{
                case token
                case userid
                case IDCARD
+               case ImSercyKey
             case currentUserIdentifier
            }
        }

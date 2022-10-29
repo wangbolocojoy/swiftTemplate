@@ -13,8 +13,8 @@ class TabMineViewController: BaseTabViewController {
     let time = 0.2
     var list = ["我的图片","我的地址","我的收藏","我的评论","关于","设置"]
     
-    @available(iOS 13.0, *)
-    lazy var imagelist = [UIImage(systemName: "photo.on.rectangle"),UIImage(systemName: "mappin.circle"),UIImage(systemName: "person.2"),UIImage(systemName: "ellipses.bubble"),UIImage(systemName: "info.circle"),UIImage(systemName: "gear")]
+   
+    lazy var imagelist = [#imageLiteral(resourceName: "图片"),#imageLiteral(resourceName: "地址"),#imageLiteral(resourceName: "bookmark"),#imageLiteral(resourceName: "评论"),#imageLiteral(resourceName: "关于"),#imageLiteral(resourceName: "退出登录")]
     lazy var imagelist1  = [#imageLiteral(resourceName: "图片"),#imageLiteral(resourceName: "地址"),#imageLiteral(resourceName: "bookmark"),#imageLiteral(resourceName: "评论"),#imageLiteral(resourceName: "关于"),#imageLiteral(resourceName: "退出登录")]
     
     var user  = UserInfoHelper.instance.user
@@ -172,7 +172,7 @@ extension TabMineViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch section {
         case 0:
-            return 0
+            return 0.1
         default:
             return 10
         }
@@ -184,10 +184,13 @@ extension TabMineViewController:UITableViewDelegate,UITableViewDataSource{
         switch indexPath.section {
         case 0:
             return 250
-        default:
+        case 1:
             return 45
+        default:
+            return 0
         }
     }
+  
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
