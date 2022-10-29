@@ -111,6 +111,20 @@ class LoginViewController: BaseViewController {
         MyMoyaManager.AllRequest(controller: self, NetworkService.login(k: body.toJSONString()!)) { (data) in
             if KeychainManager.User.SaveByIdentifier(data: data.userinfo?.toJSONString() ?? "", forKey: .UserInfo) {
                  UserInfoHelper.instance.user = data.userinfo
+                log.debug( String(describing: UserInfoHelper.instance.user?.id ?? 1))
+                log.debug(UserInfoHelper.instance.user?.toJSONString())
+                V2TIMManager.sharedInstance().login(String(describing: UserInfoHelper.instance.user?.id ?? 1), userSig: UserInfoHelper.instance.user?.imUserSig) {
+                    log.info("登陆成功")
+                    //V2TIM_STATUS_LOGINED 已登录
+                    //V2TIM_STATUS_LOGINING 登录中
+                    //V2TIM_STATUS_LOGOUT 无登录
+                    var loginstatus = V2TIMManager.sharedInstance().getLoginStatus()
+                    log.info("登陆成功\(loginstatus)")
+//                    log.debug()
+                } fail: { a, b in
+                    log.error("错误代码\(a)------错误信息\(b!)")
+                }
+
                 if data.userinfo?.isbanned ?? false  == true  || data.userinfo == nil{
                                    self.ShowTip(Title: data.msg ?? "该账号已被封禁")
                                }else{

@@ -144,7 +144,7 @@ extension TabHomeViewController:UITableViewDataSource,UITableViewDelegate,UIScro
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 600
+        return UIScreen.main.bounds.width+234
     }
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         

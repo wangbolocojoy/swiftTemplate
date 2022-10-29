@@ -54,7 +54,6 @@
 		C41CD31A24B9E5BA000A6613 /* KtFeekBackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C41CD31824B9E5BA000A6613 /* KtFeekBackCell.xib */; };
 		C4206F24248FFC2900F4537C /* FanceORFollowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4206F22248FFC2900F4537C /* FanceORFollowCell.swift */; };
 		C4206F25248FFC2900F4537C /* FanceORFollowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4206F23248FFC2900F4537C /* FanceORFollowCell.xib */; };
-		C4221DD32549CC0200E7A924 /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4221DD22549CC0200E7A924 /* ApiKey.swift */; };
 		C422FB3C24ADBD1F006AC5CA /* KtSexPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C422FB3B24ADBD1F006AC5CA /* KtSexPickerViewController.swift */; };
 		C422FB4624B0822D006AC5CA /* KtMyPuctureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C422FB4424B0822D006AC5CA /* KtMyPuctureCollectionViewCell.swift */; };
 		C422FB4724B0822D006AC5CA /* KtMyPuctureCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C422FB4524B0822D006AC5CA /* KtMyPuctureCollectionViewCell.xib */; };
@@ -88,6 +87,7 @@
 		C44E81CB24A37CA3000BD888 /* ScanQrcodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44E81C924A37CA3000BD888 /* ScanQrcodeViewController.swift */; };
 		C44E81CE24A38006000BD888 /* sdc.gif in Resources */ = {isa = PBXBuildFile; fileRef = C44E81CD24A38006000BD888 /* sdc.gif */; };
 		C44E81D224A38A29000BD888 /* NewLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44E81D124A38A29000BD888 /* NewLogin.storyboard */; };
+		C44E81D824A469E8000BD888 /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44E81D724A469E8000BD888 /* ApiKey.swift */; };
 		C44E81DA24A46ED9000BD888 /* Other.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44E81D924A46ED9000BD888 /* Other.storyboard */; };
 		C44E81DC24A47097000BD888 /* KtMyMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44E81DB24A47097000BD888 /* KtMyMapViewController.swift */; };
 		C44F284024A9B21500E16123 /* apphttps.cer in Resources */ = {isa = PBXBuildFile; fileRef = C44F283F24A9B21400E16123 /* apphttps.cer */; };
@@ -157,13 +157,13 @@
 		C4FDACB6249F4A9F0095F1E3 /* MySettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FDACB5249F4A9F0095F1E3 /* MySettingViewController.swift */; };
 		C4FDACBE249FB5610095F1E3 /* DynamicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FDACBC249FB5610095F1E3 /* DynamicCollectionViewCell.swift */; };
 		C4FDACBF249FB5610095F1E3 /* DynamicCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4FDACBD249FB5610095F1E3 /* DynamicCollectionViewCell.xib */; };
-		C9AF910697E673BF178A1F0E /* Pods_swiftTemplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96C494185AD3E08D4C8C3503 /* Pods_swiftTemplate.framework */; };
+		DDFA379A1E4C378DB5E4EE66 /* Pods_swiftTemplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8842822BC7A55A5441BE9B94 /* Pods_swiftTemplate.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1E5E45611692D9DB9FE0A5CE /* Pods-swiftTemplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftTemplate.debug.xcconfig"; path = "Target Support Files/Pods-swiftTemplate/Pods-swiftTemplate.debug.xcconfig"; sourceTree = "<group>"; };
-		96C494185AD3E08D4C8C3503 /* Pods_swiftTemplate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swiftTemplate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C40240202480193B00F715DC /* SwiftKt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftKt.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8842822BC7A55A5441BE9B94 /* Pods_swiftTemplate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swiftTemplate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C40240202480193B00F715DC /* 天天约拍.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "天天约拍.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C40240232480193B00F715DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C40240272480193B00F715DC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C402402A2480193B00F715DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -212,7 +212,6 @@
 		C41CD31824B9E5BA000A6613 /* KtFeekBackCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KtFeekBackCell.xib; sourceTree = "<group>"; };
 		C4206F22248FFC2900F4537C /* FanceORFollowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FanceORFollowCell.swift; sourceTree = "<group>"; };
 		C4206F23248FFC2900F4537C /* FanceORFollowCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FanceORFollowCell.xib; sourceTree = "<group>"; };
-		C4221DD22549CC0200E7A924 /* ApiKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
 		C422FB3B24ADBD1F006AC5CA /* KtSexPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtSexPickerViewController.swift; sourceTree = "<group>"; };
 		C422FB3D24AF5F25006AC5CA /* SwiftKt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwiftKt.entitlements; sourceTree = "<group>"; };
 		C422FB3E24AF5F6D006AC5CA /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
@@ -250,6 +249,7 @@
 		C44E81C924A37CA3000BD888 /* ScanQrcodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQrcodeViewController.swift; sourceTree = "<group>"; };
 		C44E81CD24A38006000BD888 /* sdc.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sdc.gif; sourceTree = "<group>"; };
 		C44E81D124A38A29000BD888 /* NewLogin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewLogin.storyboard; sourceTree = "<group>"; };
+		C44E81D724A469E8000BD888 /* ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
 		C44E81D924A46ED9000BD888 /* Other.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Other.storyboard; sourceTree = "<group>"; };
 		C44E81DB24A47097000BD888 /* KtMyMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtMyMapViewController.swift; sourceTree = "<group>"; };
 		C44F283F24A9B21400E16123 /* apphttps.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = apphttps.cer; sourceTree = "<group>"; };
@@ -327,7 +327,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9AF910697E673BF178A1F0E /* Pods_swiftTemplate.framework in Frameworks */,
+				DDFA379A1E4C378DB5E4EE66 /* Pods_swiftTemplate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,7 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				C422FB3E24AF5F6D006AC5CA /* AuthenticationServices.framework */,
-				96C494185AD3E08D4C8C3503 /* Pods_swiftTemplate.framework */,
+				8842822BC7A55A5441BE9B94 /* Pods_swiftTemplate.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -365,7 +365,7 @@
 		C40240212480193B00F715DC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C40240202480193B00F715DC /* SwiftKt.app */,
+				C40240202480193B00F715DC /* 天天约拍.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -410,12 +410,12 @@
 		C402403D248381A900F715DC /* help */ = {
 			isa = PBXGroup;
 			children = (
-				C4221DD22549CC0200E7A924 /* ApiKey.swift */,
 				C402403E248381BE00F715DC /* Constant.swift */,
 				C43157E72483A47D0034A74E /* KeychainManager.swift */,
 				C43157E92483AF570034A74E /* TextUntils.swift */,
 				C43157ED2483DA810034A74E /* UserInfoHelper.swift */,
 				C4AEFCF3248CBAC60080904E /* PermissionHelper.swift */,
+				C44E81D724A469E8000BD888 /* ApiKey.swift */,
 				C402969824D3C43100582226 /* TotpUntil.swift */,
 				C402969A24D3C8DE00582226 /* RsaUtil.swift */,
 				C4A6C04F24E797BF00CD56F0 /* AliyunOssUtil.swift */,
@@ -792,7 +792,7 @@
 			);
 			name = swiftTemplate;
 			productName = swiftTemplate;
-			productReference = C40240202480193B00F715DC /* SwiftKt.app */;
+			productReference = C40240202480193B00F715DC /* 天天约拍.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -986,6 +986,7 @@
 				C44E81CB24A37CA3000BD888 /* ScanQrcodeViewController.swift in Sources */,
 				C40240282480193B00F715DC /* ViewController.swift in Sources */,
 				C43157DB24839C580034A74E /* TabHomeViewController.swift in Sources */,
+				C44E81D824A469E8000BD888 /* ApiKey.swift in Sources */,
 				C4BB74F724C9379C003FFB01 /* KtCheckBox.swift in Sources */,
 				C402969B24D3C8DE00582226 /* RsaUtil.swift in Sources */,
 				C4F55FD824A4B6DD00887B55 /* KtMyMapAddressViewCell.swift in Sources */,
@@ -1033,7 +1034,6 @@
 				C4A6C05024E797BF00CD56F0 /* AliyunOssUtil.swift in Sources */,
 				C422FB4924B1ABB7006AC5CA /* KtMessageHeader.swift in Sources */,
 				C43157DD24839C670034A74E /* TabMineViewController.swift in Sources */,
-				C4221DD32549CC0200E7A924 /* ApiKey.swift in Sources */,
 				C41CD31224B8B390000A6613 /* CanCopyLabel.swift in Sources */,
 				C4BB74F124C91FAE003FFB01 /* KtAccountBlockViewController.swift in Sources */,
 				C4AEFCD9248BF09E0080904E /* MineItemViewCell.swift in Sources */,
@@ -1219,18 +1219,20 @@
 				CODE_SIGN_ENTITLEMENTS = swiftTemplate/SwiftKt.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.13;
+				CURRENT_PROJECT_VERSION = 1.0.11;
 				DEVELOPMENT_TEAM = 9N6AR9BNW6;
 				INFOPLIST_FILE = swiftTemplate/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "天天约拍";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.13;
+				MARKETING_VERSION = 1.0.12;
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = com.90btm.SwiftKt;
-				PRODUCT_NAME = SwiftKt;
+				PRODUCT_NAME = "天天约拍";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "swiftTemplate/extension/swiftTemplate-Bridging-Header.h";
@@ -1249,17 +1251,19 @@
 				CODE_SIGN_ENTITLEMENTS = swiftTemplate/SwiftKt.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.13;
+				CURRENT_PROJECT_VERSION = 1.0.11;
 				DEVELOPMENT_TEAM = 9N6AR9BNW6;
 				INFOPLIST_FILE = swiftTemplate/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "天天约拍";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.13;
+				MARKETING_VERSION = 1.0.12;
 				PRODUCT_BUNDLE_IDENTIFIER = com.90btm.SwiftKt;
-				PRODUCT_NAME = SwiftKt;
+				PRODUCT_NAME = "天天约拍";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "swiftTemplate/extension/swiftTemplate-Bridging-Header.h";

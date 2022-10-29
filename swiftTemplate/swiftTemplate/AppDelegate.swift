@@ -15,14 +15,16 @@ import AVKit
 import Photos
 import AuthenticationServices
 import Bugly
+
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate ,V2TIMSDKListener{
     
     
     var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         initConfigure()
         choosePermiss()
+        initQQim()
         return true
     }
     /// 初始化配置
@@ -84,6 +86,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         log.verbose(CoreDataManager.default.postlist?.count ?? 0)
         NotificationCenter.default.addObserver(self, selector: #selector(slentener), name: NSNotification.Name(rawValue: "POSTSUCESS"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(flentener), name: NSNotification.Name(rawValue: "POSTFAIL"), object: nil)
+        
+    }
+    func initQQim(){
+        let v2config = V2TIMSDKConfig.init()
+        v2config.logLevel = .LOG_INFO
+        let ten = V2TIMSDKListener.Protocol.self
+        V2TIMManager.sharedInstance().initSDK(1400404235, config: v2config, listener: self)
         
     }
     @objc func slentener(){

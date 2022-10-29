@@ -9,7 +9,7 @@ PODS:
   - AMapSearch (7.3.0):
     - AMapFoundation (~> 1.6.3)
   - Bugly (2.5.4)
-  - CryptoSwift (1.3.8)
+  - CryptoSwift (1.0.0)
   - FSPagerView (0.8.3)
   - Gifu (3.2.0)
   - InputBarAccessoryView (4.3.2):
@@ -27,12 +27,140 @@ PODS:
     - Result (~> 4.1)
   - ObjectMapper (3.5.3)
   - PryntTrimmerView (4.0.0)
+  - ReactiveObjC (3.1.1)
   - Result (4.1.0)
+  - SDWebImage (5.13.4):
+    - SDWebImage/Core (= 5.13.4)
+  - SDWebImage/Core (5.13.4)
   - SteviaLayout (4.7.3)
   - SwiftyBeaver (1.7.1)
   - SwiftyRSA (1.5.0):
     - SwiftyRSA/ObjC (= 1.5.0)
   - SwiftyRSA/ObjC (1.5.0)
+  - TUIChat (6.7.3184):
+    - TUIChat/Cell (= 6.7.3184)
+    - TUIChat/Common (= 6.7.3184)
+    - TUIChat/DataProvider (= 6.7.3184)
+    - TUIChat/Header (= 6.7.3184)
+    - TUIChat/Service (= 6.7.3184)
+    - TUIChat/UI (= 6.7.3184)
+    - TUIChat/VoiceConvert (= 6.7.3184)
+    - TUICore (= 6.7.3184)
+  - TUIChat/Cell (6.7.3184):
+    - TUIChat/Cell/CellData (= 6.7.3184)
+    - TUIChat/Cell/CellUI (= 6.7.3184)
+    - TUICore (= 6.7.3184)
+  - TUIChat/Cell/CellData (6.7.3184):
+    - TUIChat/Cell/CellData/Base (= 6.7.3184)
+    - TUIChat/Cell/CellData/Chat (= 6.7.3184)
+    - TUIChat/Cell/CellData/Custom (= 6.7.3184)
+    - TUIChat/Cell/CellData/Reply (= 6.7.3184)
+    - TUICore (= 6.7.3184)
+  - TUIChat/Cell/CellData/Base (6.7.3184):
+    - TUIChat/Common
+    - TUIChat/VoiceConvert
+    - TUICore (= 6.7.3184)
+  - TUIChat/Cell/CellData/Chat (6.7.3184):
+    - TUIChat/Cell/CellData/Base
+    - TUICore (= 6.7.3184)
+  - TUIChat/Cell/CellData/Custom (6.7.3184):
+    - TUIChat/Cell/CellData/Chat
+    - TUICore (= 6.7.3184)
+  - TUIChat/Cell/CellData/Reply (6.7.3184):
+    - TUIChat/Cell/CellData/Chat
+    - TUICore (= 6.7.3184)
+  - TUIChat/Cell/CellUI (6.7.3184):
+    - TUIChat/Cell/CellUI/Base (= 6.7.3184)
+    - TUIChat/Cell/CellUI/Chat (= 6.7.3184)
+    - TUIChat/Cell/CellUI/Custom (= 6.7.3184)
+    - TUIChat/Cell/CellUI/Reply (= 6.7.3184)
+    - TUICore (= 6.7.3184)
+  - TUIChat/Cell/CellUI/Base (6.7.3184):
+    - TUIChat/Cell/CellData
+    - TUICore (= 6.7.3184)
+  - TUIChat/Cell/CellUI/Chat (6.7.3184):
+    - TUIChat/Cell/CellUI/Base
+    - TUICore (= 6.7.3184)
+  - TUIChat/Cell/CellUI/Custom (6.7.3184):
+    - TUIChat/Cell/CellUI/Chat
+    - TUICore (= 6.7.3184)
+  - TUIChat/Cell/CellUI/Reply (6.7.3184):
+    - TUIChat/Cell/CellUI/Chat
+    - TUICore (= 6.7.3184)
+  - TUIChat/Common (6.7.3184):
+    - TUICore (= 6.7.3184)
+  - TUIChat/DataProvider (6.7.3184):
+    - TUIChat/Cell
+    - TUICore (= 6.7.3184)
+  - TUIChat/Header (6.7.3184):
+    - TUICore (= 6.7.3184)
+  - TUIChat/Service (6.7.3184):
+    - TUIChat/UI
+    - TUICore (= 6.7.3184)
+  - TUIChat/UI (6.7.3184):
+    - TUIChat/UI/Base (= 6.7.3184)
+    - TUIChat/UI/Chat (= 6.7.3184)
+    - TUIChat/UI/Forward (= 6.7.3184)
+    - TUIChat/UI/Input (= 6.7.3184)
+    - TUIChat/UI/Pendency (= 6.7.3184)
+    - TUICore (= 6.7.3184)
+  - TUIChat/UI/Base (6.7.3184):
+    - TUIChat/UI/Base/Camera (= 6.7.3184)
+    - TUIChat/UI/Base/Media (= 6.7.3184)
+    - TUIChat/UI/Base/Pop (= 6.7.3184)
+    - TUICore (= 6.7.3184)
+  - TUIChat/UI/Base/Camera (6.7.3184):
+    - TUIChat/DataProvider
+    - TUICore (= 6.7.3184)
+  - TUIChat/UI/Base/Media (6.7.3184):
+    - TUIChat/UI/Base/Camera
+    - TUICore (= 6.7.3184)
+  - TUIChat/UI/Base/Pop (6.7.3184):
+    - TUIChat/DataProvider
+    - TUICore (= 6.7.3184)
+  - TUIChat/UI/Chat (6.7.3184):
+    - TUIChat/UI/Forward
+    - TUIChat/UI/Input
+    - TUIChat/UI/Pendency
+    - TUICore (= 6.7.3184)
+  - TUIChat/UI/Forward (6.7.3184):
+    - TUIChat/UI/Base
+    - TUIChat/UI/Input
+    - TUICore (= 6.7.3184)
+  - TUIChat/UI/Input (6.7.3184):
+    - TUIChat/UI/Base
+    - TUICore (= 6.7.3184)
+  - TUIChat/UI/Pendency (6.7.3184):
+    - TUIChat/UI/Base
+    - TUICore (= 6.7.3184)
+  - TUIChat/VoiceConvert (6.7.3184):
+    - TUICore (= 6.7.3184)
+  - TUIConversation (6.7.3184):
+    - TUIConversation/Cell (= 6.7.3184)
+    - TUIConversation/DataProvider (= 6.7.3184)
+    - TUIConversation/Header (= 6.7.3184)
+    - TUIConversation/Service (= 6.7.3184)
+    - TUIConversation/UI (= 6.7.3184)
+  - TUIConversation/Cell (6.7.3184):
+    - TUIConversation/Cell/CellData (= 6.7.3184)
+    - TUIConversation/Cell/CellUI (= 6.7.3184)
+  - TUIConversation/Cell/CellData (6.7.3184):
+    - TUICore (= 6.7.3184)
+  - TUIConversation/Cell/CellUI (6.7.3184):
+    - TUIConversation/Cell/CellData
+  - TUIConversation/DataProvider (6.7.3184):
+    - TUIConversation/Cell
+  - TUIConversation/Header (6.7.3184)
+  - TUIConversation/Service (6.7.3184):
+    - TUIConversation/UI
+  - TUIConversation/UI (6.7.3184):
+    - TUIConversation/DataProvider
+  - TUICore (6.7.3184):
+    - ReactiveObjC
+    - SDWebImage
+    - TXIMSDK_Plus_iOS (= 6.7.3184)
+  - TXIMSDK_iOS (5.1.62)
+  - TXIMSDK_Plus_iOS (6.7.3184)
   - YPImagePicker (4.2.1):
     - PryntTrimmerView (~> 4.0.0)
     - SteviaLayout (~> 4.7.3)
@@ -43,7 +171,7 @@ DEPENDENCIES:
   - AMapLocation (~> 2.6.5)
   - AMapSearch (~> 7.3.0)
   - Bugly (~> 2.5.0)
-  - CryptoSwift (~> 1.3.2)
+  - CryptoSwift (~> 1.0.0)
   - FSPagerView (~> 0.8.3)
   - Gifu (~> 3.2.0)
   - InputBarAccessoryView (~> 4.3.2)
@@ -54,6 +182,9 @@ DEPENDENCIES:
   - ObjectMapper (~> 3.5.2)
   - SwiftyBeaver (~> 1.7.0)
   - SwiftyRSA (~> 1.5.0)
+  - TUIChat
+  - TUIConversation
+  - TXIMSDK_iOS
   - YPImagePicker (~> 4.2.1)
 
 SPEC REPOS:
@@ -75,10 +206,17 @@ SPEC REPOS:
     - Moya
     - ObjectMapper
     - PryntTrimmerView
+    - ReactiveObjC
     - Result
+    - SDWebImage
     - SteviaLayout
     - SwiftyBeaver
     - SwiftyRSA
+    - TUIChat
+    - TUIConversation
+    - TUICore
+    - TXIMSDK_iOS
+    - TXIMSDK_Plus_iOS
     - YPImagePicker
 
 SPEC CHECKSUMS:
@@ -89,7 +227,7 @@ SPEC CHECKSUMS:
   AMapLocation: c566d448285cd502c1e313063d9e2460bd4d7100
   AMapSearch: a048bcca3bf0b8083345070e1f193f814bd8dc01
   Bugly: 4edda9bb0e3017fd453612189069757195fa23ca
-  CryptoSwift: 01b0f0cba1d5c212e5a335ff6c054fb75a204f00
+  CryptoSwift: d81eeaa59dc5a8d03720fe919a6fd07b51f7439f
   FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
   Gifu: 7bcb6427457d85e0b4dff5a84ec5947ac19a93ea
   InputBarAccessoryView: 7985d418040a05fe894bd4b8328dd43ab35517c3
@@ -99,12 +237,19 @@ SPEC CHECKSUMS:
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
   PryntTrimmerView: 67e67573ffd4c073f1308effa66aefd0cfa667a0
+  ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  SDWebImage: e5cc87bf736e60f49592f307bdf9e157189298a3
   SteviaLayout: c2ecdcff57d44e38fd2f65e54ad52aeae28ca0c4
   SwiftyBeaver: da5e573ad583586c18236324c36900990afe1733
   SwiftyRSA: 6e528fb1b1a87d5111c48081083b141d6d65f1cf
+  TUIChat: ebe95a65ab073fc576ab177b775c96f84c3ba843
+  TUIConversation: 0ebb8f3bb2f782c95d77a34327e494a19e12b72d
+  TUICore: 6eb4b039ac0116c484b339ee8ed0764753048706
+  TXIMSDK_iOS: 4016cc84a61db57fc8ca024becf47ad229bbeef1
+  TXIMSDK_Plus_iOS: 5412f55a77f058b2b5a8575900334daccbae3b08
   YPImagePicker: 3b88ca0c50134af2856c48c481572c98a8b8b65b
 
-PODFILE CHECKSUM: 1c53e67c350a819202a6a640deda3295f6c0861f
+PODFILE CHECKSUM: 77aaed9fc53cf1e94a673fc93efbd2df93d6e25d
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.11.3
